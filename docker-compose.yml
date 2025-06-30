@@ -14,12 +14,9 @@ services:
     restart: always
     ports:
       - "3000:1920"
-    labels:
-      datos:
-        labels: 
-          proyecto: coradir-homes
-            - caddy=coradir.ai
-            - caddy.reverse_proxy="{{upstreams 3000}}" /// despues cambiar por el puerto de caddy
+    labels:  
+      - caddy=coradir.ai
+      - caddy.reverse_proxy="{{upstreams 3000}}" /// despues cambiar por el puerto de caddy
     environment:
       - NODE_ENV=production 
       - NEXT_PUBLIC_N8N_WEBHOOK_URL=${NEXT_PUBLIC_N8N_WEBHOOK_URL}
