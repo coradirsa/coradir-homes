@@ -1,0 +1,25 @@
+FROM node:20.10.0-alpine
+WORKDIR /app
+
+# Declarar ARGs y ENVs
+ARG NEXT_PUBLIC_N8N_WEBHOOK_URL
+ENV NEXT_PUBLIC_N8N_WEBHOOK_URL=${NEXT_PUBLIC_N8N_WEBHOOK_URL}
+
+ARG NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+ENV NEXT_PUBLIC_RECAPTCHA_SITE_KEY=${NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+
+ARG NEXT_PUBLIC_RECAPTCHA_SECRET_KEY
+ENV NEXT_PUBLIC_RECAPTCHA_SECRET_KEY=${NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}
+
+# Copiar solo package.json primero (mejor cache)
+COPY package*.json ./
+RUN npm install
+
+# Ahora copiar el resto del código
+COPY . .
+
+# Build con las variables ya disponibles
+RUN npm run build
+
+EXPOSE 1920
+CMD ["npm", "start"]
