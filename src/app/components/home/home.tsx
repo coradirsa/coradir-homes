@@ -14,12 +14,12 @@ export default function Home(){
             <Image //la imagen 1271x628
                 priority={true}
                 loading="eager"
-                src="/img/hero_paginaprincipal.jpg" 
+                src="/img/hero_paginaprincipal.png" 
                 alt="Hero Pagina Principal" 
                 aria-label="Hero Pagina Principal"
                 width={2000} 
                 height={2000} 
-                className="w-[100vw] h-[60vh] xl:h-[80vh] absolute top-0 left-0  object-top"
+                className="w-[100vw] h-[60vh] xl:h-[80vh] absolute top-0 left-0 object-top"
             />
         </section>
               
