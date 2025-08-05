@@ -17,12 +17,14 @@ export default function SectionProjectsDone(){
 
     ]
     return(
-        <section className="bg-blue p-5 flex flex-col items-center justify-center container w-full gap-10 !mb-10">
-            <h2 className="text-4xl xl:text-5xl  text-center font-playfair text-white font-bold">Proyectos realizados</h2>
-            <section className="grid xl:grid-cols-2 grid-cols-1 gap-20 xl:gap-2 w-full py-5 xl:px-56"> 
-                {
-                    proyects.map((proyect,index) => ( <CardProyect key={`proyect-${index}`} {...proyect}/>))
-                }
+        <section className="w-full flex items-center justify-center bg-white">
+            <section className="bg-blue p-5 flex flex-col items-center justify-center container w-full gap-10 !mb-10">
+                <h2 className="text-4xl xl:text-5xl  text-center font-playfair text-white font-bold">Proyectos realizados</h2>
+                <section className="grid xl:grid-cols-2 grid-cols-1 gap-20 xl:gap-2 w-full py-5 xl:px-56"> 
+                    {
+                        proyects.map((proyect,index) => ( <CardProyect key={`proyect-${index}`} {...proyect}/>))
+                    }
+                </section>
             </section>
         </section>
     )
