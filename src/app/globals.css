@@ -125,3 +125,20 @@ textarea:focus:-webkit-autofill {
 .slide-right{ 
   transform: translate(-166%, -50%); 
 }
+.amb::after,
+.amb::before{
+    content: "";
+    position: absolute;
+    top: 60%; 
+    width: .7em;
+    height: 3px;
+    background-color: var(--color-blue);
+    border-radius: 10%;
+    transform: translateY(50%);
+}
+.amb::after{
+    right: -15%;
+}
+.amb::before{
+    left: -15%;;
+}
