@@ -4,7 +4,7 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Bot from "./components/bot"; 
 import Script from "next/script";
-import SectionProjectsDone from "./components/home/components/sectionProjectsDone";
+import SectionProjectsDone from "./components/sectionProjectsDone";
 
 export const metadata: Metadata = {
   title: "Coradir Homes",
