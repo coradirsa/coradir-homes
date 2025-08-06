@@ -28,7 +28,7 @@ export default function SectionProjectsDone() {
   }, [isMobile, isSmallMobile]);
 
   return (
-    <section className="w-full flex items-center justify-center bg-white my-10">
+    <section className="w-full flex items-center justify-center bg-white py-10">
       <section className="bg-blue p-5 flex flex-col items-center justify-start container w-full gap-10 ">
         <h2 className="text-5xl xl:text-6xl text-center font-playfair text-white">¡Nuestro proyectos!</h2>
 
