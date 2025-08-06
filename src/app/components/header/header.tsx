@@ -8,14 +8,12 @@ import { useState } from "react";
 
 export const links = [
     { href: "#", label: <>Proyectos de <br/> inversión </> , hover: [
+        { href: "/vivienda-joven", label: "Vivienda Joven" },
         { href: "/inversiones-inteligentes", label: "Inversiones Inteligentes" },
+        { href: "/corporativos", label: "Corporativos" },  
         { href: "/instituciones", label: "Instituciones" },
         { href: "/terrenos", label: "Terrenos" }, 
-    ] },
-    { href: "#", label: "Alquileres" , hover: [
-        { href: "/casa-joven", label: "Casa joven" },
-        { href: "/corporativos", label: "Corporativos" }, 
-    ]},
+    ] }, 
     { href: "/beneficios", label: "Beneficios" , hover:null},
     { href: "/", label: <>Sobre <br/> nosotros</> , hover:null},
 ];
