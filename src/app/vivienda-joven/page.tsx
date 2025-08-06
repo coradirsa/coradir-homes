@@ -1,3 +1,4 @@
+import Form from "./components/form/form";
 import SectionCarucel from "./components/sectionCarucel/sectionCarucel";
 import SectionEspecification from "./components/sectionEspeciification/sectionEspecification";
 import SectionHero from "./components/sectionHero/sectionHero";
@@ -17,7 +18,7 @@ const sectionsVideos = [
             "Menores costos",
             "Menor impacto ambiental",
         ],
-        video: "/videos/video4.mp4", 
+        video: "/videos/walk.mp4", 
     },
     {
         title: "Seguridad inteligente con IA.",
@@ -49,9 +50,9 @@ const sectionsVideos = [
             "Sin emisiones",
             "Bajos costos",
             "Admite cargas parciales",
-            "Ideales para moverse por la ciudad con 300 km de autonomía",
+            `Ideales para moverse por la ciudad <br class="hidden md:inline" /> con 300 km de autonomía`,
         ],
-        video: "/videos/walk.mp4", 
+        image: "/img/casa_joven_1.png", 
         reverse: true
     },
 ]
@@ -71,6 +72,7 @@ export default function Page() {
                     />
                 ))
             }
+            <Form  />
         </>
     );
 }
