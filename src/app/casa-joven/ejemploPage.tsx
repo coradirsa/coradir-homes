@@ -6,8 +6,7 @@ export const metadata = {
     description: "Casa Joven",
 };
 export default function CasaJoven() {
-    return (
-        <>
+    return ( 
             <section className="relative container flex flex-col items-center justify-start gap-5 min-h-[100vh]  xl:pb-0 py-5">
                 <h1 className="text-blue font-playfair text-6xl xl:text-8xl font-bold xl:mb-10 mb-5">Casa Jóven</h1>
                 <div 
@@ -89,7 +88,6 @@ export default function CasaJoven() {
                             className="hover:scale-110 transition-all duration-300 xl:w-96 xl:h-96 w-56 h-56 z-10 xl:absolute xl:-top-30 xl:-right-40 2xl:-right-50 rounded-full my-8"
                         />
                 </section>
-            </section>
-        </>
+            </section> 
     );
 }

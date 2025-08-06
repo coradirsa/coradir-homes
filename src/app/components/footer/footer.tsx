@@ -3,8 +3,7 @@ import Image from "next/image";
 export default function Footer(){
     const socialMedia = [
         { href: "https://www.facebook.com/CoradirSA/", img:"/icons/facebook.png", ariaLabel:"Logo de Facebook", alt:"Logo de Facebook" },
-        { href: "https://www.linkedin.com/company/502705", img:"/icons/linkedin.png", ariaLabel:"Logo de LinkedIn", alt:"Logo de LinkedIn" },
-        { href: "#", img:"/icons/instagram.png", ariaLabel:"Logo de Instagram", alt:"Logo de Instagram" },
+        { href: "https://www.linkedin.com/company/502705", img:"/icons/linkedin.png", ariaLabel:"Logo de LinkedIn", alt:"Logo de LinkedIn" }, 
     ];
     return(
         <footer className="flex  xl:flex-row justify-between pt-10 xl:pt-0 items-center  xl:max-h-[25vh] bg-blue xl:px-10 px-5 overflow-hidden">
@@ -13,7 +12,7 @@ export default function Footer(){
                 <span className="flex items-center justify-center md:justify-start gap-3 pl-2 text-white">
                     {
                         socialMedia.map((social, index) => (
-                            <a href={social.href} key={`social-${index}`} className="hover:shadow-[0_1px_5px_rgba(255,255,255,0.3)]">
+                            <a href={social.href} target="_blank" key={`social-${index}`} className="hover:shadow-[0_1px_5px_rgba(255,255,255,0.3)]">
                                 <Image       
                                     loading="lazy"
                                     aria-label={social.ariaLabel}
