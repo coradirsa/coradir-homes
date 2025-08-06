@@ -1,3 +1,4 @@
+import ReCaptcha from "../components/reCaptcha";
 import Form from "./components/form/form";
 import SectionCarucel from "./components/sectionCarucel/sectionCarucel";
 import SectionEspecification from "./components/sectionEspeciification/sectionEspecification";
@@ -52,27 +53,29 @@ const sectionsVideos = [
             "Admite cargas parciales",
             `Ideales para moverse por la ciudad <br class="hidden md:inline" /> con 300 km de autonomía`,
         ],
-        image: "/img/casa_joven_1.png", 
+        image: "/img/vivienda-joven/chiki.png", 
         reverse: true
     },
 ]
 
 export default function Page() {
     return ( 
-        <>
-            <SectionHero />
-            <SectionEspecification />
-            <SectionCarucel />
-            <SectionRooms />
-            {
-                sectionsVideos.map((s,inx)=>(
-                    <SectionVideos
-                        key={`section-video-${inx}`}
-                        {...s}
-                    />
-                ))
-            }
-            <Form  />
-        </>
+        <ReCaptcha>
+            <>
+                <SectionHero />
+                <SectionEspecification />
+                <SectionCarucel />
+                <SectionRooms />
+                {
+                    sectionsVideos.map((s,inx)=>(
+                        <SectionVideos
+                            key={`section-video-${inx}`}
+                            {...s}
+                        />
+                    ))
+                }
+                <Form  />
+            </>
+        </ReCaptcha>
     );
 }

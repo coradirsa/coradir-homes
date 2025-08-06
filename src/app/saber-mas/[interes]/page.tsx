@@ -1,4 +1,5 @@
-import ReCaptcha from "./components/reCaptcha"; 
+import ReCaptcha from "../../components/reCaptcha"; 
+import SaberMas from "./components/saberMas";
  
 export const metadata = {
     title: "Saber más",
@@ -6,6 +7,8 @@ export const metadata = {
 }
 export default function Page(){ 
     return(
-        <ReCaptcha/>
+        <ReCaptcha>
+            <SaberMas/>
+        </ReCaptcha>
     );
 }
