@@ -2,7 +2,9 @@ import Link from "next/link";
 
 export default function SectionActives(){
     const links = [
+        { href: "/vivienda-joven", label: "Vivienda Joven" },
         { href: "/inversiones-inteligentes", label: "Inversiones Inteligentes" },
+        { href: "/corporativos", label: "Corporativos" },  
         { href: "/instituciones", label: "Instituciones" },
         { href: "/terrenos", label: "Terrenos" }, 
     ]
