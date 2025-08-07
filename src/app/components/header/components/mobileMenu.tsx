@@ -27,7 +27,7 @@ export default function MobileMenu({open,setOpen}: {open: boolean,setOpen: (open
     };
 
     return(
-        <div className="flex md:hidden">
+        <div className="flex xl:hidden">
             <button 
                 onClick={() => setOpen(!open)} aria-label="Boton para abrir y cerrar el menu"
                 className="relative z-70 flex flex-col justify-center items-center gap-1 w-12 cursor-pointer rounded-full hover:bg-gray/20 py-4 px-3 transition-all duration-300 ease-in-out"
