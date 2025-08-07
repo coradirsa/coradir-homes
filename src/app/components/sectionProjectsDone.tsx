@@ -26,7 +26,51 @@ export default function SectionProjectsDone() {
       setContainerWidth(containerRef.current.offsetWidth);
     }
   }, [isMobile, isSmallMobile]);
+  const render = () => {
+    let currentX = 0;
+    let direction = 1;
+    const cards = [];
+    const maxX = (containerWidth - CARD_WIDTH) / 2;
 
+    for (let i = 0; i < proyects.length; i++) {
+      const proyect = proyects[i];
+      const baseY = SEPY * i;
+      const useStair = isMobile && !isSmallMobile;
+
+      let translateX = 0;
+      let gradientDirection: "left" | "right" = "right";
+
+      if (useStair) {
+        if (i === 0) {
+          currentX = 0;
+          direction = 1;
+        } else {
+          const nextX = currentX + direction * STEP_X;
+          if (Math.abs(nextX) > maxX) direction *= -1;
+          currentX += direction * STEP_X;
+          translateX = currentX;
+          gradientDirection = direction === 1 ? "right" : "left";
+        }
+      }
+
+      cards.push(
+        <CardProyect
+          key={`proyect-${i}`}
+          {...proyect}
+          translateX={useStair ? translateX : 0}
+          translateY={useStair ? baseY : 0}
+          zIndex={30 - i}
+          principal={i === 0}
+          isMobile={isMobile}
+          isSmallMobile={isSmallMobile}
+          colSpan={!isMobile && !isSmallMobile && i === 0 ? 4 : 2}
+          gradientDirection={gradientDirection}
+        />
+      );
+    }
+
+    return cards;
+  };
   return (
     <section className="w-full flex items-center justify-center bg-white py-10">
       <section className="bg-blue p-5 flex flex-col items-center justify-start container w-full gap-10 ">
@@ -45,53 +89,7 @@ export default function SectionProjectsDone() {
               : undefined,
           }}
         >
-          {
-            (() => {
-              let currentX = 0;
-              let direction = 1;
-              const cards = [];
-              const maxX = (containerWidth - CARD_WIDTH) / 2;
-
-              for (let i = 0; i < proyects.length; i++) {
-                const proyect = proyects[i];
-                const baseY = SEPY * i;
-                const useStair = isMobile && !isSmallMobile;
-
-                let translateX = 0;
-                let gradientDirection: "left" | "right" = "right";
-
-                if (useStair) {
-                  if (i === 0) {
-                    currentX = 0;
-                    direction = 1;
-                  } else {
-                    const nextX = currentX + direction * STEP_X;
-                    if (Math.abs(nextX) > maxX) direction *= -1;
-                    currentX += direction * STEP_X;
-                    translateX = currentX;
-                    gradientDirection = direction === 1 ? "right" : "left";
-                  }
-                }
-
-                cards.push(
-                  <CardProyect
-                    key={`proyect-${i}`}
-                    {...proyect}
-                    translateX={useStair ? translateX : 0}
-                    translateY={useStair ? baseY : 0}
-                    zIndex={30 - i}
-                    principal={i === 0}
-                    isMobile={isMobile}
-                    isSmallMobile={isSmallMobile}
-                    colSpan={!isMobile && !isSmallMobile && i === 0 ? 4 : 2}
-                    gradientDirection={gradientDirection}
-                  />
-                );
-              }
-
-              return cards;
-            })()
-          }
+          { render() }
         </section>
       </section>
     </section>

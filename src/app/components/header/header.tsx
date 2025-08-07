@@ -41,7 +41,7 @@ export default function Header() {
                             <Link
                                 href={link.href} 
                                 key={`navlink-${index}`}
-                                className={`relative text-center text-white xl:px-4 xl:py-5    font-raleway uppercase sm:text-xs xl:text-lg font-bold z-2 ${link.hover ? "group-hover:text-blue" : "hover:bg-white hover:text-blue hover:rounded-3xl  hover:shadow-[4px_2px_5px_0_rgba(0,0,0,0.5)]"}`}
+                                className={`relative text-center text-white xl:px-4 xl:py-5 font-raleway uppercase sm:text-xs xl:text-lg font-bold z-2 ${link.hover ? "group-hover:text-blue" : "hover:bg-white hover:text-blue hover:rounded-3xl  hover:shadow-[4px_2px_5px_0_rgba(0,0,0,0.5)]"}`}
                             >{link.label}</Link> 
                             {link.hover && (
                                 <HoverLink links={link.hover} key={`hoverlink-${index}`}/>
