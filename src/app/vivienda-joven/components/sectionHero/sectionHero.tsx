@@ -11,7 +11,7 @@ export default function SectionHero() {
          }}
         > Reservá tu futuro hogar<br/>desde $250 USD mensuales</h1>
         <p className="text-center text-white text-lg xl:text-3xl"> Departamentos inteligentes en Juana Koslay · <br/> Entrega proyectada · Cupos limitados</p>
-        <ButtonContact href="#formulario" className="uppercase bg-white text-blue" label=" RESERVÁ AHORA EN PREVENTA"/>
+        <ButtonContact href="#formulario" className="uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-1" label=" RESERVÁ AHORA EN PREVENTA"/>
         <div className={`absolute top-0 left-0 w-full -z-1 bg-[rgba(26,52,85,0.5)]`} style={{ height: `${H}vh` }}></div>
         <Image 
             src="/img/vivienda-joven/hero.png"

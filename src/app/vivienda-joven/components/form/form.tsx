@@ -23,7 +23,7 @@ export default function FormularioInversion() {
       label: "NOMBRE Y APELLIDO", 
       type: "text", 
       ref: useRef<HTMLInputElement>(null), 
-      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5",
+      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5 pl-4",
       labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right" 
     },
     { 
@@ -31,7 +31,7 @@ export default function FormularioInversion() {
       label: "CORREO ELECTRÓNICO", 
       type: "email", 
       ref: useRef<HTMLInputElement>(null),
-      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5",
+      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5 pl-4",
       labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
     },
     { 
@@ -39,14 +39,14 @@ export default function FormularioInversion() {
       label: "CELULAR", 
       type: "tel", ref: 
       useRef<HTMLInputElement>(null), 
-      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5",
+      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5 pl-4",
       labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
     },
     { 
       name: "mensaje", 
       label: "TU MENSAJE (opcional)", 
       type: "textarea", ref:useRef<HTMLTextAreaElement>(null), 
-      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-10",
+      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-10 ",
       labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
     },
   ]
@@ -89,7 +89,7 @@ export default function FormularioInversion() {
           } 
           <button
             type="submit"
-            className="bg-blue text-white max-w-96 mx-auto text-2xl md:text-3xl py-3 px-16 rounded-full hover:opacity-90 transition uppercase cursor-pointer"
+            className="bg-blue text-white max-w-96 mx-auto text-2xl md:text-3xl py-3 px-16 rounded-full hover:bg-blue/70 transition uppercase cursor-pointer"
           >
             ¡QUIERO INVERTIR!
           </button>
