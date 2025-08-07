@@ -1,24 +1,58 @@
 "use client"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { FormData, schema } from "./components/scheam"
+import { InputForm, SchemaFormViviendaJoven} from "./components/scheamFormViviendaJoven"
+import { useRef } from "react"
+import CustomInput from "@/app/saber-mas/[interes]/components/customInput" 
 
 export default function FormularioInversion() {
-  const {
-    register,
+  const { 
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
-  })
+    control,
+  } = useForm<SchemaFormViviendaJoven>({
+    resolver: zodResolver(SchemaFormViviendaJoven),
+  }) 
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: SchemaFormViviendaJoven) => {
     console.log(data)
-  }
-
+  };
+  const inputs:InputForm[] = [
+    { 
+      name: "nombre", 
+      label: "NOMBRE Y APELLIDO", 
+      type: "text", 
+      ref: useRef<HTMLInputElement>(null), 
+      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5",
+      labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right" 
+    },
+    { 
+      name: "email", 
+      label: "CORREO ELECTRÓNICO", 
+      type: "email", 
+      ref: useRef<HTMLInputElement>(null),
+      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5",
+      labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
+    },
+    { 
+      name: "celular", 
+      label: "CELULAR", 
+      type: "tel", ref: 
+      useRef<HTMLInputElement>(null), 
+      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5",
+      labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
+    },
+    { 
+      name: "mensaje", 
+      label: "TU MENSAJE (opcional)", 
+      type: "textarea", ref:useRef<HTMLTextAreaElement>(null), 
+      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-10",
+      labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
+    },
+  ]
   return (
     <section
-      className="relative w-full min-h-[90vh] flex items-center justify-center bg-white"
+      className="relative w-full flex items-center justify-center bg-white"
       style={{
         backgroundImage: 'url("/img/vivienda-joven/bg-form.jpg")', 
         backgroundSize: "fill",
@@ -26,60 +60,42 @@ export default function FormularioInversion() {
       }}
       id="formulario"
     >
-      <div className="w-full h-full absolute top-0 left-0 bg-white/60 z-0"></div>
+      <div className="w-full h-full absolute top-0 left-0 bg-white/70 z-0"></div>
 
-      <div className="relative z-10 w-full max-w-4xl px-6 py-12 flex flex-col items-center justify-center gap-6">
-        <div className="flex flex-col items-center justify-center gap-6">
-            <h2 className="text-4xl md:text-5xl text-blue font-playfair font-bold text-center leading-tight">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="relative z-10 w-full max-w-2xl px-6 py-12 flex flex-col md:flex-row items-start justify-center gap-6 text-white container"
+      >
+        <section className="h-full w-full flex flex-col items-center md:items-start md:justify-start gap-2 md:gap-20">
+          <h2 className="text-4xl md:text-9xl text-blue  md:w-[150%] font-playfair md:text-left text-center leading-tight font-bold">
             Descubrí una nueva<br />forma de vivir.
-            </h2>
+          </h2>
 
-            <p className="w-full max-w-xl text-black font-raleway font-semibold text-center">
+          <p className="text-center w-full text-xl md:text-3xl text-black font-raleway font-semibold md:font-extrabold md:text-left">
             Comunicate con nosotros:
-            </p>
+          </p>
 
-        </div>
-
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-xl flex flex-col gap-4">
-          <input
-            type="text"
-            placeholder="NOMBRE Y APELLIDO"
-            {...register("nombre")}
-            className="bg-white border border-gray-300 px-4 py-3 rounded-md text-blue placeholder:text-blue"
-          />
-          {errors.nombre && <span className="text-red-500 text-sm">{errors.nombre.message}</span>}
-
-          <input
-            type="email"
-            placeholder="CORREO ELECTRÓNICO"
-            {...register("email")}
-            className="bg-white border border-gray-300 px-4 py-3 rounded-md text-blue placeholder:text-blue"
-          />
-          {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
-
-          <input
-            type="tel"
-            placeholder="CELULAR"
-            {...register("celular")}
-            className="bg-white border border-gray-300 px-4 py-3 rounded-md text-blue placeholder:text-blue"
-          />
-          {errors.celular && <span className="text-red-500 text-sm">{errors.celular.message}</span>}
-
-          <input
-            type="text"
-            placeholder="TU MENSAJE (opcional)"
-            {...register("mensaje")}
-            className="bg-white border border-gray-300 px-4 py-3 rounded-md text-blue placeholder:text-blue"
-          />
-
+        </section>
+        <section className="w-full md:w-[70%] flex flex-col items-center justify-center md:pt-56">
+          {
+            inputs.map((input)=>(
+              <CustomInput<SchemaFormViviendaJoven>
+                key={input.name}
+                {...input}
+                control={control}
+                errors={errors} 
+              />
+            ))
+          } 
           <button
             type="submit"
-            className="bg-blue text-white font-semibold py-3 rounded-md hover:opacity-90 transition"
+            className="bg-blue text-white max-w-96 mx-auto text-2xl md:text-3xl py-3 px-16 rounded-full hover:opacity-90 transition uppercase cursor-pointer"
           >
             ¡QUIERO INVERTIR!
           </button>
-        </form>
-      </div>
-    </section>
-  )
+        </section> 
+         
+      </form>
+   </section>
+)
 }

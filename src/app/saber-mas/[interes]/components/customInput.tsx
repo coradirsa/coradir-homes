@@ -1,46 +1,63 @@
-import { Controller, Control, FieldErrors, ControllerRenderProps, ControllerFieldState, UseFormStateReturn } from "react-hook-form";
-import { FormSchema } from "./formSchema";
+import {
+    Controller,
+    Control,
+    FieldErrors,
+    ControllerRenderProps,
+    ControllerFieldState,
+    UseFormStateReturn,
+    FieldValues,
+    Path,
+} from "react-hook-form";
 import { JSX } from "react";
-type ControllerRenderArg = {
-    field: ControllerRenderProps<FormSchema, keyof FormSchema>;
-    fieldState: ControllerFieldState;
-    formState: UseFormStateReturn<FormSchema>;
-  };
-export default function CustomInput({
+
+export default function CustomInput<T extends FieldValues>({
     name,
     label,
     type,
     control,
     errors,
     ref,
-    options
-}:{
-    name:keyof FormSchema,
-    label:string,
-    type:string,
-    control:Control<FormSchema>,
-    errors:FieldErrors<FormSchema>,
-    ref:React.RefObject<HTMLInputElement | HTMLTextAreaElement | null  >,
-    options?: string[]
-}){
-    let render: (e: ControllerRenderArg) => JSX.Element;
-    switch(type){
+    options,
+    className,
+    labelClassName,
+    inputClassName,
+}: {
+    name: Path<T>,
+    label: string,
+    type: string,
+    control: Control<T>,
+    errors: FieldErrors<T>,
+    ref: React.RefObject<HTMLInputElement | HTMLTextAreaElement | null>,
+    options?: string[],
+    className?: string,
+    labelClassName?: string,
+    inputClassName?: string
+}) {
+    let render: (e: {
+        field: ControllerRenderProps<T, Path<T>>;
+        fieldState: ControllerFieldState;
+        formState: UseFormStateReturn<T>;
+    }) => JSX.Element;
+
+    const defaultInputClass = "border-b-2 border-white/50 focus:border-white outline-none w-[80%] md:text-xl cursor-pointer";
+    const defaultLabelClass = "md:text-2xl"; 
+    switch (type) {
         case "select":
-            render = (e)=>(
-                <div className="rounded-2xl bg-white p-4  py-1 md:p-0 xl:pr-8  mt-5">
+            render = (e) => (
+                <div className="rounded-2xl bg-white p-4 py-1 md:p-0 xl:pr-8 mt-5">
                     <select
                         {...e.field}
                         id={name}
                         ref={ref as unknown as React.RefObject<HTMLSelectElement>}
-                        className="outline-none text-blue text-xl p-0 uppercase text-left text-raleway w-full md:p-8 md:py-3 cursor-pointer"
-                        >
+                        className={inputClassName || "outline-none text-blue text-xl p-0 uppercase text-left text-raleway w-full md:p-8 md:py-3 cursor-pointer"}
+                    >
                         {options?.map((option) => (
                             <option
-                            key={option}
-                            value={option}
-                            className={e.field.value === option ? "text-sm md:text-lg" : "text-xs md:text-lg"}
+                                key={option}
+                                value={option}
+                                className={e.field.value === option ? "text-sm md:text-lg" : "text-xs md:text-lg"}
                             >
-                            {option}
+                                {option}
                             </option>
                         ))}
                     </select>
@@ -48,42 +65,43 @@ export default function CustomInput({
             );
             break;
         case "textarea":
-            render = (e)=>(
+            render = (e) => (
                 <textarea
                     {...e.field}
                     id={name}
                     ref={ref as React.RefObject<HTMLTextAreaElement>}
-                    className="border-b-2 border-white/50 focus:border-b-2 outline-none focus:border-white w-[80%] h-24 md:h-auto md:text-xl resize-none cursor-pointer"
+                    className={inputClassName || `${defaultInputClass} h-24 md:h-auto resize-none`}
                 />
             );
             break;
         default:
-            render = (e)=>(
+            render = (e) => (
                 <input
                     type={type}
                     {...e.field}
                     id={name}
                     ref={ref as React.RefObject<HTMLInputElement>}
-                    className="border-b-2 border-white/50 focus:border-b-2 outline-none focus:border-white w-[80%] autofill:!bg-transparent cursor-pointer"
+                    className={inputClassName || `${defaultInputClass} autofill:!bg-transparent`}
                 />
             );
             break;
     }
-    return(
-        <Controller 
+
+    return (
+        <Controller
             name={name}
             control={control}
-            render={(e)=>{
-                return (
-                    <div className="flex flex-col items-center justify-center gap-2 md:gap-4 text-white font-raleway w-full text-lg md:text-xl">
-                        <label htmlFor={name} className="md:text-2xl">{label}</label>
-                        {render(e)}
-                        {errors[name] && <p className="text-red-400 text-sm mt-2 h-5 text-left w-[80%]">
-                            {(errors[name].message)}
-                        </p>}
-                    </div>
-                );
-            }} 
+            render={(e) => (
+                <div className={className || "flex flex-col items-center justify-center gap-2 md:gap-4 text-white font-raleway w-full text-lg md:text-xl"}>
+                    <label htmlFor={name} className={labelClassName || defaultLabelClass}>{label}</label>
+                    {render(e)}
+                    {errors[name] && (
+                        <p className="text-red-400 text-sm mt-2 h-5 text-left w-[80%]">
+                            {errors[name]?.message as string}
+                        </p>
+                    )}
+                </div>
+            )}
         />
     );
 }

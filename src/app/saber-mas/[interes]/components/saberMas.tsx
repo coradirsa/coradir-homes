@@ -143,7 +143,7 @@ export default function SaberMas(){
                                     </div>
                                 )}
                                 {inputs.map((input)=>(
-                                <CustomInput 
+                                <CustomInput<FormSchema>  
                                         key={input.name} 
                                         {...input} 
                                         control={control} 
