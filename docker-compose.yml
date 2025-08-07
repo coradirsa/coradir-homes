@@ -15,7 +15,7 @@ services:
     ports:
       - "6118:6118"
     labels:  
-      - caddy=coradir.ai
+      - caddy=pruebas.coradir.ai
       - caddy.reverse_proxy="{{upstreams 6118}}" /// despues cambiar por el puerto de caddy
     environment:
       - NODE_ENV=production 

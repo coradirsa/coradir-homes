@@ -9,7 +9,7 @@ export default function SectionHero() {
          style={{
             textShadow: '6px 3px 4px rgba(0,0,0,0.5)',
          }}
-        > Proyectos en Pozo<br/>con Valor Futuro</h1>
+        >Inversiones en pozo <br/> con futuro asegurado</h1>
         <p className="text-center text-white max-w-[90%] md:max-w-full text-lg xl:text-3xl"> Departamentos inteligentes en Juana Koslay · <br/> Entrega proyectada · Cupos limitados</p>
         <ButtonContact href="#formulario" className="text-xl md:text-2xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-1" label=" RESERVÁ AHORA"/>
         <div className={`absolute top-0 left-0 w-full -z-1 bg-[rgba(26,52,85,0.5)]`} style={{ height: `${H}vh` }}></div>
