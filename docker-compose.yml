@@ -16,7 +16,7 @@ services:
       - "6118:6118"
     labels:  
       - caddy=pruebas.coradir.ai
-      - caddy.reverse_proxy="{{upstreams 6118}}" /// despues cambiar por el puerto de caddy
+      - caddy.reverse_proxy="{{upstreams 6118}}"
     environment:
       - NODE_ENV=production 
       - NEXT_PUBLIC_N8N_WEBHOOK_URL=${NEXT_PUBLIC_N8N_WEBHOOK_URL}
