@@ -33,7 +33,7 @@ export default function SectionVideos({
                             checkList.map((item,index)=>(
                                 <li key={`check-list-${index}`} className="flex items-center justify-center gap-5">
                                     <Image src="/icons/check.png" alt="check" width={100} height={100} className="w-16 h-16" />
-                                    <p className="text-xl md:text-3xl font-raleway text-center text-black inline"  dangerouslySetInnerHTML={{ __html: item, }}/>
+                                    <p className="text-xl md:text-3xl font-raleway text-left xl:text-center text-black inline"  dangerouslySetInnerHTML={{ __html: item, }}/>
                                 </li>
                             ))
                         }

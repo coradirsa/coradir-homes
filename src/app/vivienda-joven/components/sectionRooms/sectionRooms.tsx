@@ -38,7 +38,7 @@ export default function SectionRooms() {
                 <p className="mb-2 text-2xl md:text-4xl font-raleway text-center text-black w-full">Obtené tu propio departamento</p>
                 <article className="flex flex-col items-center justify-center">
                     <h2 className="text-6xl md:text-8xl font-playfair text-center text-blue amb relative">Ambientes</h2>
-                    <div className="flex flex-col md:flex-row w-full gap-5 md:gap-2 py-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 w-full gap-5 md:gap-5 2xl:gap-2 py-10">
                         {
                             rooms.map((room,index)=>(
                                 <div key={`room-${index}`} className="relative flex flex-col items-center justify-center md:opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-500 opacity-100 hover:z-10">
@@ -49,7 +49,7 @@ export default function SectionRooms() {
                                         height={1000}
                                         className="w-full h-full object-cover"
                                     />
-                                    <h3 className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-4xl md:text-5xl font-raleway text-center text-white bg-blue w-72 md:w-96 rounded-full ">{room.title}</h3>
+                                    <h3 className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-4xl xl:text-5xl font-raleway text-center text-white bg-blue w-72 xl:w-96 rounded-full ">{room.title}</h3>
                                 </div>
                             ))
                         }

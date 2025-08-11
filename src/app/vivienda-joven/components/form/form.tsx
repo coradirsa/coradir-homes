@@ -17,37 +17,39 @@ export default function FormularioInversion() {
   const onSubmit = (data: SchemaFormViviendaJoven) => {
     console.log(data)
   };
+  const labelClassName="text-blue text-xl md:text-3xl 2xl:w-full xl:text-right" ;
+  const inputClassName="bg-white text-blue w-full md:w-[80%] 2xl:w-full h-12 rounded-md mb-5 pl-4";
   const inputs:InputForm[] = [
     { 
       name: "nombre", 
       label: "NOMBRE Y APELLIDO", 
       type: "text", 
       ref: useRef<HTMLInputElement>(null), 
-      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5 pl-4",
-      labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right" 
+      inputClassName,
+      labelClassName 
     },
     { 
       name: "email", 
       label: "CORREO ELECTRÓNICO", 
       type: "email", 
       ref: useRef<HTMLInputElement>(null),
-      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5 pl-4",
-      labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
+      inputClassName,
+      labelClassName
     },
     { 
       name: "celular", 
       label: "CELULAR", 
       type: "tel", ref: 
       useRef<HTMLInputElement>(null), 
-      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-5 pl-4",
-      labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
+      inputClassName,
+      labelClassName  
     },
     { 
       name: "mensaje", 
       label: "TU MENSAJE (opcional)", 
       type: "textarea", ref:useRef<HTMLTextAreaElement>(null), 
-      inputClassName:"bg-white text-blue w-full md:w-full h-12 rounded-md mb-10 ",
-      labelClassName:"text-blue text-xl md:text-3xl md:w-full md:text-right"   
+      inputClassName,
+      labelClassName   
     },
   ]
   return (
@@ -64,19 +66,19 @@ export default function FormularioInversion() {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="relative z-10 w-full max-w-2xl px-6 py-12 flex flex-col md:flex-row items-start justify-center gap-6 text-white container"
+        className="relative z-10 w-full max-w-2xl px-6 py-12 flex flex-col xl:flex-row items-start justify-center gap-6 text-white container"
       >
-        <section className="h-full w-full flex flex-col items-center md:items-start md:justify-start gap-2 md:gap-20">
-          <h2 className="text-4xl md:text-9xl text-blue  md:w-[150%] font-playfair md:text-left text-center leading-tight font-bold">
+        <section className="h-full w-full flex flex-col items-center md:items-start md:justify-start gap-2 xl:gap-20">
+          <h2 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-9xl text-blue w-full 2xl:w-[150%] font-playfair xl:text-left text-center leading-tight font-bold">
             Descubrí una nueva<br />forma de vivir.
           </h2>
 
-          <p className="text-center w-full text-xl md:text-3xl text-black font-raleway font-semibold md:font-extrabold md:text-left">
+          <p className="text-center w-full text-xl md:text-3xl text-black font-raleway font-semibold md:font-extrabold xl:text-left">
             Comunicate con nosotros:
           </p>
 
         </section>
-        <section className="w-full md:w-[70%] flex flex-col items-center justify-center md:pt-56">
+        <section className="w-full 2xl:w-[70%] flex flex-col items-center justify-center xl:pt-56">
           {
             inputs.map((input)=>(
               <CustomInput<SchemaFormViviendaJoven>
