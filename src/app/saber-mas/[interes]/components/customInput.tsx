@@ -95,12 +95,12 @@ export default function CustomInput<T extends FieldValues>({
                 <div className={className || "flex flex-col items-center justify-center gap-2 md:gap-4 text-white font-raleway w-full text-lg md:text-xl"}>
                     <label htmlFor={name} className={labelClassName || defaultLabelClass}>{label}</label>
                     {render(e)}
-                    {errors[name] && (
-                        <p className="text-red-400 text-sm mt-2 h-5 text-left w-[80%]">
-                            {errors[name]?.message as string}
-                        </p>
-                    )}
-                </div>
+                    <p className="text-red-400 text-sm mt-2 h-5 text-left w-[80%]">
+                        {errors[name] && (
+                            errors[name]?.message as string
+                        )}
+                    </p>
+                    </div>
             )}
         />
     );

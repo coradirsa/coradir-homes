@@ -1,6 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { FormSchema, InputForm, Interests } from "./formSchema";
+import { FormSchema, InputForm, Interests } from "../../../../schemas/formSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import CustomInput from "./customInput";
 import { useEffect, useRef, useState } from "react";

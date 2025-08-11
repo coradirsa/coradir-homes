@@ -1,5 +1,5 @@
 import z from 'zod';
-export const Interests = z.enum(["inversiones", "instituciones", "corporativos", "casa-joven", "terrenos"]); 
+export const Interests = z.enum(["inversiones", "instituciones", "corporativos", "vivienda-joven", "terrenos"]); 
 export const FormSchema = z.object({
     name: z.string().min(3, "El nombre debe tener al menos 3 caracteres"),
     email: z.string().email("Debes ingresar un email válido"),
@@ -15,6 +15,8 @@ export type InputForm = {
     type: string;
     ref: React.RefObject<HTMLInputElement | HTMLTextAreaElement | null>;
     options?: string[];
+    inputClassName?:string;
+    labelClassName?:string;
 }
 
 export type Interests = z.infer<typeof Interests>;
