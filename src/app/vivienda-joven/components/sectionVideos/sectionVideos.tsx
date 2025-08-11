@@ -17,7 +17,7 @@ export default function SectionVideos({
 }) {
     return ( 
         <section className="w-full bg-white py-10 flex items-center justify-center">
-            <section className={`container flex  xl:h-[50vh] items-center justify-center ${reverse ? "flex-col-reverse xl:flex-row-reverse " : "flex-col xl:flex-row"}`}> 
+            <section className={`container flex  xl:h-[50vh] items-center justify-center ${reverse ? "flex-col-reverse xl:flex-row-reverse " : "flex-col-reverse xl:flex-row"}`}> 
                 {video && <video src={video} autoPlay loop muted className="h-full w-full md:w-[40%]" />}
                 {image && <Image src={image} alt={title} width={1000} height={1000} className="h-full w-full md:w-[40%]" />} 
                 <div 
