@@ -119,11 +119,11 @@ textarea:focus:-webkit-autofill {
   z-index: 2;
 } 
 .slide-left{ 
-  transform: translate(66%, -50%); 
+  transform: translate(-50%,66%) ; 
   z-index: 1;
 }
 .slide-right{ 
-  transform: translate(-166%, -50%); 
+  transform: translate(-50%, -166%); 
 }
 .amb::after,
 .amb::before{

@@ -21,31 +21,44 @@ export default function SectionCarucel() {
   }, []);
   useEffect(()=>{},[isMobile])
   return (
-    <section className="relative w-full overflow-hidden h-[50vh] md:h-[60vh] mt-10 bg-white">
-      {images.map((image, index) => {
-        const leftIndex = (middle - 1 + COUNT) % COUNT;
-        const rightIndex = (middle + 1) % COUNT;
+    <section className="flex items-center justify-center container py-10">
+      <section className="relative w-[50%]  h-[50vh] md:h-[90vh]  bg-white overflow-hidden hidden xl:block">
+        {images.map((image, index) => {
+          const leftIndex = (middle - 1 + COUNT) % COUNT;
+          const rightIndex = (middle + 1) % COUNT;
 
-        let positionClass = "absolute opacity-0";
-        if (index === middle) positionClass = "slide-middle";
-        else if (index === leftIndex) positionClass = "slide-left";
-        else if (index === rightIndex) positionClass = "slide-right";
+          let positionClass = "absolute opacity-0";
+          if (index === middle) positionClass = "slide-middle";
+          else if (index === leftIndex) positionClass = "slide-left";
+          else if (index === rightIndex) positionClass = "slide-right";
 
-        return (
-          <Image
-            key={`image-${index}`}
-            src={image}
-            alt="Vivienda Joven"
-            width={1000}
-            height={1000}
-            className={`object-cover transition-all duration-500 ${positionClass}`}
-            style={{
-              width: !isMobile ? "40em" : "17em",
-              height: !isMobile ? "30em" : "15em",
-            }}
-          />
-        );
-      })}
+          return (
+            <Image
+              key={`image-${index}`}
+              src={image}
+              alt="Vivienda Joven"
+              width={1000}
+              height={1000}
+              className={`object-cover transition-all duration-500 ${positionClass}`}
+              style={{
+                width: !isMobile ? "30em" : "7em",
+                height: !isMobile ? "20em" : "5em",
+              }}
+            />
+          );
+        })}
+      </section> 
+      <video  
+        preload="true"
+        src="/videos/vvj.mp4"
+        width={3000}
+        height={3000}
+        autoPlay
+        loop 
+        muted
+        playsInline
+        className="w-full h-full"
+      /> 
     </section>
   );
 }
