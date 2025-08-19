@@ -1,46 +1,59 @@
-import Image from "next/image";
+"use client"
+import { useMediaQuery } from "@/hooks/useMediaQuery"; 
+import { useMemo } from "react";
+import Item from "./components/item";
 
-export default function SectionVideos({
-    title,
-    description,
-    checkList,
-    video,
-    reverse = false,
-    image,
-}: {
-    title: string;
-    description: string;
-    checkList: string[];
-    video?:string;
-    image?:string;
-    reverse?: boolean;
-}) {
+export default function SectionVideos() {
+    const isMobile = useMediaQuery("(max-width: 768px)");
+    
+    const sectionsVideos = useMemo(() => {
+        const baseContent = [
+            {
+                title: "Construcción en seco: rápida y eficiente.",
+                description: `Entregas el doble de rápidas, con eficiencia energética <br class="hidden md:inline" /> y menor impacto ambiental.`,
+                checkList: [
+                    "Entrega rápida",
+                    "Menores costos",
+                    "Menor impacto ambiental",
+                ],
+                video: isMobile ?  "/videos/walk.mp4":"/videos/vvj.mp4" , 
+            },
+            {
+                title: "Seguridad inteligente con IA.",
+                description: `Cámaras inteligentes, control de accesos y protección<br class="hidden md:inline" /> 24/7 para tu familia.`,
+                checkList: [
+                    "Expensas más bajas por reducción de personal",
+                    "Seguridad continua",
+                    "Mayor tranquilidad",
+                    "Domótica: integración fácil a la rutina de los inquilinos",
+                ],
+                video: "/videos/sec.mp4",
+                reverse: true 
+            },
+            {
+                title: "Espacios recreativos integrados.",
+                description: `Tranquilidad natural y cercanía urbana.`,
+                checkList: [
+                    "Ubicación estratégica",
+                    "Plazas con juegos",
+                    "Conectividad",
+                    "Zonas verdes",
+                ],
+                video: isMobile ?  "/videos/park.mp4": "/videos/vvj.mp4", 
+            }
+        ];
+        
+        return baseContent;
+    }, [isMobile]);
+    
     return ( 
-        <section className="w-full bg-white py-10 flex items-center justify-center">
-            <section className={`container flex  xl:h-[50vh] items-center justify-center ${reverse ? "flex-col-reverse xl:flex-row-reverse " : "flex-col-reverse xl:flex-row"}`}> 
-                {video && <video src={video} autoPlay loop muted className="h-full w-full md:w-[40%]" />}
-                {image && <Image src={image} alt={title} width={1000} height={1000} className="h-full w-full md:w-[40%]" />} 
-                <div 
-                    className={
-                        " flex flex-col items-center justify-center z-10  py-8 bg-white w-full gap-5 "
-                        + (reverse ? "md:-right-10 right-0" : "md:-left-10 left-0")
-                    }>
-                    <h2 className="text-3xl md:text-[50px] font-playfair text-center text-blue font-bold w-full">{title}</h2>
-                    <p className="text-xl md:text-3xl font-raleway text-center  text-black w-full md:pl-14" dangerouslySetInnerHTML={{ __html: description }} />
-                    <ul className="md:pl-32 flex flex-col items-start justify-start h-full w-full gap-2">
-                        
-                        {
-                            checkList.map((item,index)=>(
-                                <li key={`check-list-${index}`} className="flex items-center justify-center gap-5">
-                                    <Image src="/icons/check.png" alt="check" width={100} height={100} className="w-16 h-16" />
-                                    <p className="text-xl md:text-3xl font-raleway text-left xl:text-center text-black inline"  dangerouslySetInnerHTML={{ __html: item, }}/>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-                 
-            </section>
-        </section>
+        <>
+            {sectionsVideos.map((s, inx) => (
+                <Item
+                    key={`section-video-${inx}`}
+                    {...s}
+                />
+            ))}
+        </>
     );
 }

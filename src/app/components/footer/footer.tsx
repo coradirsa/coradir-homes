@@ -6,9 +6,9 @@ export default function Footer(){
         { href: "https://www.linkedin.com/company/502705", img:"/icons/linkedin.png", ariaLabel:"Logo de LinkedIn", alt:"Logo de LinkedIn" }, 
     ];
     return(
-        <footer className="flex  xl:flex-row justify-between pt-10 xl:pt-0 items-center  xl:max-h-[25vh] bg-blue xl:px-10 px-5 overflow-hidden">
+        <footer className="flex  flex-col xl:flex-row justify-between pt-10 xl:pt-0 items-center  xl:max-h-[25vh] bg-blue xl:px-10 px-5 overflow-hidden">
             <div className="flex flex-col justify-start items-center gap-3">
-                <span className="text-xs xl:text-xl text-white font-raleway">¡Seguinos y conocé más!</span>
+                <span className="text-sm xl:text-2xl text-white font-raleway">¡Seguinos y conocé más!</span>
                 <span className="flex items-center justify-center md:justify-start gap-3 pl-2 text-white">
                     {
                         socialMedia.map((social, index) => (
@@ -26,6 +26,7 @@ export default function Footer(){
                         ))
                     }
                 </span>
+                <span className="text-xs md:text-xl text-white font-raleway">Este sitio esta protegido por reCAPTCHA</span>
             </div>
             <div className="overflow-hidden h-[10vh] xl:h-auto">
                 <Image 
@@ -36,7 +37,7 @@ export default function Footer(){
                 width={1000} 
                 height={1000} 
                 className="xl:w-90 xl:h-90 w-50 h-50 -mt-12 xl:-mt-0"
-            />
+                /> 
             </div>
         </footer>
     )

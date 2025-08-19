@@ -119,11 +119,11 @@ textarea:focus:-webkit-autofill {
   z-index: 2;
 } 
 .slide-left{ 
-  transform: translate(-50%,66%) ; 
+  transform: translate(66%,-50%) ; 
   z-index: 1;
 }
 .slide-right{ 
-  transform: translate(-50%, -166%); 
+  transform: translate(-166%,-50%) ; 
 }
 .amb::after,
 .amb::before{
@@ -141,4 +141,8 @@ textarea:focus:-webkit-autofill {
 }
 .amb::before{
     left: -15%;;
+}
+
+.grecaptcha-badge{
+  visibility: hidden;
 }

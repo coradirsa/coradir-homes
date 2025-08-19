@@ -20,9 +20,9 @@ export default function SectionCarucel() {
     return () => clearInterval(interval);
   }, []);
   useEffect(()=>{},[isMobile])
-  return (
-    <section className="flex items-center justify-center container py-10">
-      <section className="relative w-[50%]  h-[50vh] md:h-[90vh]  bg-white overflow-hidden hidden xl:block">
+  return ( 
+    <>
+      <section className="relative w-full h-[50vh] md:h-[60vh]  bg-white overflow-hidden hidden md:block my-5">
         {images.map((image, index) => {
           const leftIndex = (middle - 1 + COUNT) % COUNT;
           const rightIndex = (middle + 1) % COUNT;
@@ -41,13 +41,13 @@ export default function SectionCarucel() {
               height={1000}
               className={`object-cover transition-all duration-500 ${positionClass}`}
               style={{
-                width: !isMobile ? "30em" : "7em",
-                height: !isMobile ? "20em" : "5em",
+                width: !isMobile ? "40em" : "15em",
+                height: !isMobile ? "25em" : "15em",
               }}
             />
           );
         })}
-      </section> 
+      </section>  
       <video  
         preload="true"
         src="/videos/vvj.mp4"
@@ -57,8 +57,8 @@ export default function SectionCarucel() {
         loop 
         muted
         playsInline
-        className="w-full h-full"
+        className="w-full h-full md:hidden my-5"
       /> 
-    </section>
+    </>
   );
 }

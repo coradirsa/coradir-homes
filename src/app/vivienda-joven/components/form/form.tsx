@@ -148,7 +148,7 @@ export default function FormularioInversion() {
                   ):(
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="relative z-10 w-full max-w-2xl px-6 py-12 flex flex-col xl:flex-row items-center justify-center gap-6 text-white container"
+                className="relative z-10 w-full max-w-2xl px-6 py-12 flex flex-col xl:flex-row items-center md:items-start justify-center gap-6 text-white container"
               >
                 <section className="h-full w-full flex flex-col items-center md:items-start md:justify-start gap-2 xl:gap-20">
                   <h2 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-9xl text-blue w-full 2xl:w-[150%] font-playfair xl:text-left text-center leading-tight font-bold">
