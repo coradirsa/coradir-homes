@@ -67,7 +67,15 @@ export default function RootLayout({
         {children}
         <SectionProjectsDone/>
         <Footer/>
-        <Script src={"https://testbothome.coradir.ai/embed.js"} strategy="afterInteractive" />
+        {/* <Script src={"http://localhost:8850/embed.js"} strategy="afterInteractive" /> */}
+
+        <Script 
+            src={"https://testbothome.coradir.ai/embed.js"} 
+            strategy="afterInteractive"
+            data-mode="custom"
+            data-trigger="#coradir-custom-avatar"
+        />
+
       </body>
     </html>
   );
