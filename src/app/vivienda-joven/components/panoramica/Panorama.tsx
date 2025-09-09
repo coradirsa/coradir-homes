@@ -46,7 +46,7 @@ function usePannellumViewer() {
 
     viewerRef.current = window.pannellum.viewer(containerRef.current, {
       type: "equirectangular",
-      panorama: "/img/vivienda-joven/panorama.png",
+      panorama: "/img/vivienda-joven/panorama.webp",
       autoLoad: true,
       pitch: 10,
       yaw: 180,
