@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home(){
     return(  
-        <section className="sticky top-0 flex flex-col justify-center items-center py-16  h-[60vh] bg-transparent -z-1"> 
+        <section className="sticky top-0 flex flex-col justify-center items-center py-16  h-[80vh] bg-transparent -z-1"> 
             <h1 
                 className="z-10 flex flex-col justify-center items-center font-raleway text-3xl xl:text-7xl gap-4 text-white uppercase xl:mt-20 "
                 aria-label="Elegí tu nuevo hogar Y viví la vida que mereces."
@@ -19,7 +19,7 @@ export default function Home(){
                 aria-label="Hero Pagina Principal"
                 width={2000} 
                 height={2000} 
-                className="w-full h-[60vh] absolute top-0 left-0 object-top -z-1"
+                className="w-full h-[80vh] absolute top-0 left-0 object-top -z-1"
             />
         </section> 
               

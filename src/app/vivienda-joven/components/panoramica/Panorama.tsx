@@ -132,7 +132,7 @@ export default function Panorama() {
         </>
       ) : (
         // Desktop inline
-        <div className="h-[100vh] w-full">
+        <div className="h-[100vh] w-[80%]">
           <div ref={desktop.containerRef} className="w-full h-full" />
         </div>
       )}
