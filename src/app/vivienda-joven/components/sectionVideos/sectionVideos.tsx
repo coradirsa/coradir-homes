@@ -14,7 +14,8 @@ export default function SectionVideos() {
                 checkList: [
                     "Entrega rápida",
                     "Menores costos",
-                    "Menor impacto ambiental",
+                    "Montaje simple",
+                    "Retorno de inversión veloz"
                 ],
                 video: isMobile ?  "/videos/walk.mp4":"/videos/vvj.mp4" , 
             },
@@ -25,7 +26,7 @@ export default function SectionVideos() {
                     "Expensas más bajas por reducción de personal",
                     "Seguridad continua",
                     "Mayor tranquilidad",
-                    "Domótica: integración fácil a la rutina de los inquilinos",
+                    "Wifi en toda la zona",
                 ],
                 video: "/videos/sec.mp4",
                 reverse: true 
@@ -35,9 +36,10 @@ export default function SectionVideos() {
                 description: `Tranquilidad natural y cercanía urbana.`,
                 checkList: [
                     "Ubicación estratégica",
-                    "Plazas con juegos",
+                    "Plazas con juegos y zonas verdes",
                     "Conectividad",
-                    "Zonas verdes",
+                    "Paneles solares",
+                    "Iluminación LED",
                 ],
                 video: isMobile ?  "/videos/park.mp4": "/videos/vvj.mp4", 
             }

@@ -41,7 +41,7 @@ export default function SectionRooms() {
                     <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 w-full gap-5 md:gap-5 2xl:gap-2 py-10">
                         {
                             rooms.map((room,index)=>(
-                                <div key={`room-${index}`} className="relative flex flex-col items-center justify-center md:opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-500 opacity-100 hover:z-10">
+                                <div key={`room-${index}`} className="relative flex flex-col items-center h-[100vh] md:h-[70vh] justify-center md:opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-500 opacity-100 hover:z-10">
                                     <Image  
                                         src={room.image}
                                         alt={room.title}

@@ -16,13 +16,13 @@ export default function Item({
     reverse?: boolean;
 }) {
     return ( 
-        <section className="w-full bg-white py-10 flex items-center justify-center">
-            <section className={`container flex  xl:h-[50vh] items-center justify-center ${reverse ? "flex-col-reverse xl:flex-row-reverse " : "flex-col-reverse xl:flex-row"}`}> 
+        <section className="w-full bg-white my-10 flex items-center justify-center">
+            <section className={`container flex  xl:h-[80vh] items-center justify-center ${reverse ? "flex-col-reverse xl:flex-row-reverse " : "flex-col-reverse xl:flex-row"}`}> 
                 {video && <video src={video} autoPlay loop muted className="h-full w-full md:w-[40%]" />}
                 {image && <Image src={image} alt={title} width={1000} height={1000} className="h-full w-full md:w-[40%]" />} 
                 <div 
                     className={
-                        " flex flex-col items-center justify-center z-10  py-8 bg-white w-full gap-5 "
+                        " flex flex-col items-center justify-center z-10  py-20 bg-white w-full gap-5 "
                         + (reverse ? "md:-right-10 right-0" : "md:-left-10 left-0")
                     }>
                     <h2 className="text-3xl md:text-[50px] font-playfair text-center text-blue font-bold w-full">{title}</h2>
