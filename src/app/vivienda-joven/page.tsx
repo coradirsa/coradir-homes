@@ -37,11 +37,7 @@ export default function Page() {
         { 
             title: "Pileta",
             icon:"/icons/vivienda-joven/06.png"
-        },
-        { 
-            title: "Salón compartido",
-            icon:"/icons/vivienda-joven/07.png"
-        },
+        }, 
     ];
     const specificationsSecond = [
         { 

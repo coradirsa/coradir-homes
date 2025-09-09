@@ -16,7 +16,7 @@ export default function SectionHero() {
                 textShadow: '6px 3px 4px rgba(0,0,0,0.5)',
             }}
         > Departamentos inteligentes en Juana Koslay · <br/> Entrega proyectada · Cupos limitados</p>
-        <ButtonContact href="#formulario" className="text-xl md:text-2xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-1" label=" RESERVÁ AHORA EN PREVENTA"/>
+        <ButtonContact href="#formulario" className="text-sm md:text-2xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-1" label="CONSULTA HOY MISMO QUE SE AGOTAN"/>
         <Image 
             src="/img/vivienda-joven/hero.png"
             alt="Vivienda Joven"

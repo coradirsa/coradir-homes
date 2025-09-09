@@ -9,7 +9,7 @@ export default function SectionVideos() {
     const sectionsVideos = useMemo(() => {
         const baseContent = [
             {
-                title: "Construcción en seco: rápida y eficiente.",
+                title: "Construcción moderna: rápida y eficiente.",
                 description: `Entregas el doble de rápidas, con eficiencia energética <br class="hidden md:inline" /> y menor impacto ambiental.`,
                 checkList: [
                     "Entrega rápida",
@@ -26,7 +26,7 @@ export default function SectionVideos() {
                     "Expensas más bajas por reducción de personal",
                     "Seguridad continua",
                     "Mayor tranquilidad",
-                    "Wifi en toda la zona",
+                    "Conectividad de wifi individual",
                 ],
                 video: "/videos/sec.mp4",
                 reverse: true 

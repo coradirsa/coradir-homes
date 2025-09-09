@@ -7,23 +7,19 @@ import   Counter  from "./components/counter";
 export default function SectionStats() {
   const stats = [
     {
-      count: 18,
+      count: 44,
       text: <>Departamentos <b>Disponibles</b></>,
     },
     {
       count: 20,
       text: <>Departamentos <b>Reservados</b></>,
-    },
-    {
-      count: 26,
-      text: <>Departamentos <b>Vendidos</b></>,
-    },
+    }, 
   ];
 
   return (
     <section className="w-full bg-white">
       <section className="container py-10 px-5 gap-5 flex flex-col items-center justify-center bg-white">
-        <article className="w-full flex items-center justify-center gap-5">
+        <article className="w-[40vw] flex items-center justify-evenly">
           {stats.map((s, idx) => (
             <div
               className="flex flex-col items-center justify-center gap-5"
@@ -38,7 +34,7 @@ export default function SectionStats() {
         </article>
         <ButtonContact
           href="#formulario"
-          className="bg-blue text-white hover:opacity-100 opacity-95"
+          className="bg-blue text-white hover:opacity-100 opacity-95 my-10"
           label="¡SUMATE A ESTE GRAN PROYECTO!"
         />
         <Image

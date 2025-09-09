@@ -3,7 +3,7 @@
 import {  animate, useInView, useMotionValue } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-export default function Counter({ end, duration = 1.2 }: { end: number; duration?: number }) {
+export default function Counter({ end, duration = 1.2,  }: { end: number; duration?: number; }) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const isInView = useInView(ref, { once: true }); // corre solo una vez
   const mv = useMotionValue(0);
@@ -27,7 +27,7 @@ export default function Counter({ end, duration = 1.2 }: { end: number; duration
 
   return (
     <span ref={ref} className="text-blue text-center text-7xl xl:text-[154px]">
-      +{display}
+       {display}
     </span>
   );
 }
