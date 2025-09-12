@@ -19,7 +19,7 @@ export default function SectionStats() {
   return (
     <section className="w-full bg-white">
       <section className="container py-10 px-5 gap-5 flex flex-col items-center justify-center bg-white">
-        <article className="w-[40vw] flex items-center justify-evenly">
+        <article className="gap-10 flex items-center justify-evenly">
           {stats.map((s, idx) => (
             <div
               className="flex flex-col items-center justify-center gap-5"
@@ -34,7 +34,7 @@ export default function SectionStats() {
         </article>
         <ButtonContact
           href="#formulario"
-          className="bg-blue text-white hover:opacity-100 opacity-95 my-10"
+          className="bg-blue text-white hover:opacity-100 opacity-95 my-10 text-[18px]"
           label="¡SUMATE A ESTE GRAN PROYECTO!"
         />
         <Image
@@ -43,9 +43,9 @@ export default function SectionStats() {
           alt="Slider"
           width={2000}
           height={2000}
-          className="w-[70%] h-full object-cover"
+          className="md:w-[70%] h-full object-cover"
         />
-        <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-9xl text-blue w-full  font-playfair   text-center leading-tight font-bold pt-10">
+        <h1 className="text-3xl md:text-4xl md:text-6xl xl:text-7xl 2xl:text-9xl text-blue w-full  font-playfair   text-center leading-tight font-bold pt-10">
           Accedé a planes de pago
         </h1>
         <Image
@@ -54,7 +54,7 @@ export default function SectionStats() {
           alt="Slider"
           width={2000}
           height={2000}
-          className="w-full h-full object-cover"
+          className="!w-[130vw] md:w-full md:h-full object-cover"
         />
       </section>
     </section>

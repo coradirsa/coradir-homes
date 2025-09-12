@@ -29,7 +29,7 @@ export default function SectionCarucel() {
   useEffect(()=>{},[isMobile])
   return ( 
     <>
-      <section className="relative w-full h-[50vh] md:h-[60vh]  bg-white overflow-hidden hidden md:block my-5">
+      <section className="relative w-full h-[50vh] md:h-[60vh]  bg-white overflow-hidden   my-5">
         {images.map((image, index) => {
           const getPosition = () => {
             const diff = index - currentIndex;
@@ -59,18 +59,7 @@ export default function SectionCarucel() {
             />
           );
         })}
-      </section>  
-      <video  
-        preload="true"
-        src="/videos/vvj.mp4"
-        width={3000}
-        height={3000}
-        autoPlay
-        loop 
-        muted
-        playsInline
-        className="w-full h-full md:hidden my-5"
-      /> 
+      </section>   
     </>
   );
 }
