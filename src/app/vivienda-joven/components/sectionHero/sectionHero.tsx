@@ -22,7 +22,7 @@ export default function SectionHero() {
             alt="Vivienda Joven"
             width={1000}
             height={1000}
-            className={`absolute top-0 left-0 w-full object-cover object-top-rigth -z-2`} 
+            className={`absolute top-0 left-0 w-full object-cover md:object-center -z-2`} 
             style={{ height: `${H}vh` }}
         />
     </section>
