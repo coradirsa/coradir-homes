@@ -39,7 +39,7 @@ export default function SectionStats() {
         />
         <Image
           loading="lazy"
-          src="/img/vivienda-joven/PLANO.png"
+          src="/img/vivienda-joven/PLANO.webp"
           alt="Slider"
           width={2000}
           height={2000}
@@ -50,7 +50,7 @@ export default function SectionStats() {
         </h1>
         <Image
           loading="lazy"
-          src="/img/vivienda-joven/TABLA DE PRECIOS.jpg"
+          src="/img/vivienda-joven/TABLA DE PRECIOS.webp"
           alt="Slider"
           width={2000}
           height={2000}

@@ -5,7 +5,7 @@ import CardProyect from "./home/components/cardProyect";
 
 export default function SectionProjectsDone() {
   const proyects = [
-    { title: "Proyecto Juana Koslay", image: "/img/projects/jk.png", link: "/vivienda-joven", id: "boton-homes-home-proyectos-jk" },
+    { title: "Proyecto Juana Koslay", image: "/img/projects/jk.webp", link: "/vivienda-joven", id: "boton-homes-home-proyectos-jk" },
     { title: "Complejo Coradir", image: "/img/projects/complejo.png" },
     { title: "La Torre I", image: "/img/projects/torre1.png" },
     { title: "La Torre II", image: "/img/projects/torre2.png" },

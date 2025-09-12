@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ButtonContact from "../../../components/buttonContact"
 export default function SectionHero() {
-    const H = 70;
+    const H = 80;
     return (
         <section className={`relative w-full flex flex-col items-center justify-center gap-8 md:gap-14`} style={{ height: `${H}vh` }}>
         <h1
@@ -18,11 +18,11 @@ export default function SectionHero() {
         > Departamentos inteligentes en Juana Koslay · <br/> Entrega proyectada · Cupos limitados</p>
         <ButtonContact href="#formulario" className="text-sm md:text-2xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-1" label="CONSULTA HOY MISMO QUE SE AGOTAN"/>
         <Image 
-            src="/img/vivienda-joven/hero.png"
+            src="/img/projects/jk.webp"
             alt="Vivienda Joven"
             width={1000}
             height={1000}
-            className={`absolute top-0 left-0 w-full object-cover object-top-left -z-2`} 
+            className={`absolute top-0 left-0 w-full  -z-2`} 
             style={{ height: `${H}vh` }}
         />
     </section>

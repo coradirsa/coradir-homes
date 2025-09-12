@@ -1,13 +1,9 @@
-"use client"
-import { useMediaQuery } from "@/hooks/useMediaQuery"; 
-import { useMemo } from "react";
+"use client" 
 import Item from "./components/item";
 
-export default function SectionVideos() {
-    const isMobile = useMediaQuery("(max-width: 768px)");
+export default function SectionVideos() {  
     
-    const sectionsVideos = useMemo(() => {
-        const baseContent = [
+    const sectionsVideos = [
             {
                 title: "Construcción moderna: rápida y eficiente.",
                 description: `Entregas el doble de rápidas, con eficiencia energética <br class="hidden md:inline" /> y menor impacto ambiental.`,
@@ -17,7 +13,7 @@ export default function SectionVideos() {
                     "Montaje simple",
                     "Retorno de inversión veloz"
                 ],
-                video: isMobile ?  "/videos/walk.mp4":"/videos/vvj.mp4" , 
+                video:   "/videos/locales.webm" , 
             },
             {
                 title: "Seguridad inteligente con IA.",
@@ -28,7 +24,7 @@ export default function SectionVideos() {
                     "Mayor tranquilidad",
                     "Conectividad de wifi individual",
                 ],
-                video: "/videos/sec.mp4",
+                video: "/videos/sec.webm",
                 reverse: true 
             },
             {
@@ -40,13 +36,12 @@ export default function SectionVideos() {
                     "Conectividad",
                     "Paneles solares",
                     "Iluminación LED",
+                    "Pileta"
                 ],
-                video: isMobile ?  "/videos/park.mp4": "/videos/vvj.mp4", 
+                video: "/videos/sec2.webm", 
             }
         ];
         
-        return baseContent;
-    }, [isMobile]);
     
     return ( 
         <>

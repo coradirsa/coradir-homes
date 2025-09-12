@@ -45,7 +45,7 @@ export default function Page() {
             icon:"/icons/vivienda-joven/08.png"
         },
         { 
-            title: "Paneles solares con sistema de protección anticorte.",
+            title: "Paneles solares con protección anticorte.",
             icon:"/icons/vivienda-joven/09.png"
         },
         { 
@@ -68,7 +68,7 @@ export default function Page() {
                 <SectionEspecification specifications={specificationsFirst} border={true}/>
                 <SectionCarucel />
                 <SectionRooms /> 
-                <SectionEspecification specifications={specificationsSecond} border={false} x={2}/>
+                <SectionEspecification specifications={specificationsSecond} border={false} x={5}/>
                 <Panorama />
                 <SectionVideos  /> 
                 <SectionStats />

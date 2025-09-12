@@ -5,17 +5,24 @@ import { useEffect, useState } from "react";
 
 export default function SectionCarucel() {
   const isMobile = useMediaQuery("(max-width: 900px)");
-  const [middle, setMiddle] = useState(1);
-  const COUNT = 3;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const COUNT = 5;
   const images = [];
 
   for (let i = 0; i < COUNT; i++) {
-    images.push(`/img/vivienda-joven/carucel-${i}.png`);
+    images.push(`/img/vivienda-joven/carucel-${i}.webp`);
   }
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setMiddle((prev) => (prev + 1) % COUNT);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % COUNT);
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 50);
+      }, 50);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -24,14 +31,19 @@ export default function SectionCarucel() {
     <>
       <section className="relative w-full h-[50vh] md:h-[60vh]  bg-white overflow-hidden hidden md:block my-5">
         {images.map((image, index) => {
-          const leftIndex = (middle - 1 + COUNT) % COUNT;
-          const rightIndex = (middle + 1) % COUNT;
+          const getPosition = () => {
+            const diff = index - currentIndex;
+            const adjustedDiff = diff < -2 ? diff + COUNT : diff > 2 ? diff - COUNT : diff;
+            
+            if (adjustedDiff === 0) return "slide-middle";
+            if (adjustedDiff === -1 || (currentIndex === 0 && index === COUNT - 1)) return "slide-left";
+            if (adjustedDiff === 1 || (currentIndex === COUNT - 1 && index === 0)) return "slide-right";
+            return "absolute opacity-0 pointer-events-none";
+          };
 
-          let positionClass = "absolute opacity-0";
-          if (index === middle) positionClass = "slide-middle";
-          else if (index === leftIndex) positionClass = "slide-left";
-          else if (index === rightIndex) positionClass = "slide-right";
-
+          const positionClass = getPosition();
+          const shouldShow = positionClass !== "absolute opacity-0 pointer-events-none";
+          
           return (
             <Image
               key={`image-${index}`}
@@ -39,7 +51,7 @@ export default function SectionCarucel() {
               alt="Vivienda Joven"
               width={1000}
               height={1000}
-              className={`object-cover transition-all duration-500 ${positionClass}`}
+              className={`object-cover ${positionClass} ${isTransitioning && !shouldShow ? 'transition-none' : ''}`}
               style={{
                 width: !isMobile ? "40em" : "15em",
                 height: !isMobile ? "25em" : "15em",

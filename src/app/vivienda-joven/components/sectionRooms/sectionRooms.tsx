@@ -4,19 +4,19 @@ export default function SectionRooms() {
     const rooms = [
         {
             title: "Comedor",
-            image: "/img/vivienda-joven/ambiente-0.png",
+            image: "/img/vivienda-joven/ambiente-0.webp",
         },
         {
             title: "Cocina",
-            image: "/img/vivienda-joven/ambiente-1.png",
+            image: "/img/vivienda-joven/ambiente-1.webp",
         },
         {
             title: "Baño",
-            image: "/img/vivienda-joven/ambiente-2.png",
+            image: "/img/vivienda-joven/ambiente-2.webp",
         },
         {
             title: "2 dormitorios",
-            image: "/img/vivienda-joven/ambiente-3.png",
+            image: "/img/vivienda-joven/ambiente-3.webp",
         },
     ]
     
@@ -31,7 +31,7 @@ export default function SectionRooms() {
                 </h3>
                 <p className="text-xl md:text-3xl font-raleway text-center text-black w-full">
                     Juana Koslay, San Luis <span className="hidden md:inline">–</span> <br className="md:hidden"/>
-                    a sólo 15 minutos del centro
+                    a sólo 10 minutos del centro
                     </p>
             </section>
             <section className="w-full flex flex-col items-center justify-center">
