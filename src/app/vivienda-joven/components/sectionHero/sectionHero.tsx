@@ -18,11 +18,11 @@ export default function SectionHero() {
         > Departamentos inteligentes en Juana Koslay · <br/> Entrega proyectada · Cupos limitados</p>
         <ButtonContact href="#formulario" className="text-xs md:text-2xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-1 py-5" label="CONSULTA HOY MISMO QUE SE AGOTAN"/>
         <Image 
-            src="/img/vivienda-joven/hero.png"
+            src="/img/vivienda-joven/hero.webp"
             alt="Vivienda Joven"
-            width={1000}
-            height={1000}
-            className={`absolute top-0 left-0 w-full object-cover md:object-center -z-2`} 
+            width={2000}
+            height={2000}
+            className={`absolute top-0 left-0 w-full object-cover object-left -z-2`} 
             style={{ height: `${H}vh` }}
         />
     </section>

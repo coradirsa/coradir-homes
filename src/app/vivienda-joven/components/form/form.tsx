@@ -129,7 +129,7 @@ export default function FormularioInversion() {
     <section
       className="relative w-full flex items-center justify-center bg-white min-h-[90vh]"
       style={{
-        backgroundImage: 'url("/img/vivienda-joven/bg-form.jpg")', 
+        backgroundImage: 'url("/img/vivienda-joven/bg-form.webp")', 
         backgroundSize: "fill",
         backgroundPosition: "center",
       }}

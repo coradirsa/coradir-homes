@@ -19,7 +19,7 @@ export default function Home(){
                 aria-label="Hero Pagina Principal"
                 width={2000} 
                 height={2000} 
-                className="w-full h-[80vh] absolute  top-0 left-0 object-top -z-1"
+                className="w-full h-[90vh] absolute  top-0 left-0 object-top -z-1"
             />
         </section> 
               
