@@ -48,14 +48,46 @@ export default function SectionStats() {
         <h1 className="text-3xl md:text-4xl md:text-6xl xl:text-7xl 2xl:text-9xl text-blue w-full  font-playfair   text-center leading-tight font-bold pt-10">
           Accedé a planes de pago
         </h1>
-        <Image
-          loading="lazy"
-          src="/img/vivienda-joven/TABLA DE PRECIOS.webp"
-          alt="Slider"
-          width={2000}
-          height={2000}
-          className="!w-[130vw] md:w-full md:h-full object-cover"
-        />
+       <div className="container">
+            <div className="w-full rounded-xl border-3 border-blue grid grid-rows-4 font-raleway text-[8px] sm:text-sm md:text-lg xl:text-2xl">
+                <div className="flex items-center justify-between w-full font-bold p-4 px-2 xl:px-8 border-b-3 border-blue text-center grid grid-cols-6">
+                    <span className="text-left">Esquema</span>
+                    <span>Precio ref.</span>
+                    <span>Reserva</span> 
+                    <span>A 30 dias</span>
+                    <span>A 120-180 días</span>
+                    <span>Contrata entrega /<br/>posesión</span>
+                </div>
+                <div className="flex items-center justify-between w-full p-4 px-2 xl:px-8 border-b-2 border-blue/60 text-center grid grid-cols-6">
+                    <span className="font-bold text-left">LISTA</span>
+                    <span>USD 63.000</span>
+                    <span>3%</span> 
+                    <span>Completar <br/> hasta 10% <br/> </span>
+                    <span>-</span>
+                    <span>90%<br/></span>
+                </div>
+                <div className="flex items-center justify-between w-full p-4 px-2 xl:px-8 border-b-2 border-blue/60 text-center grid grid-cols-6">
+                    <span className="font-bold text-left">PREFERENCIAL</span>
+                    <span>USD 55.000</span>
+                    <span>3%</span> 
+                    <span>40%</span>
+                    <span>40%</span>
+                    <span>20%</span>
+                </div>
+                <div className="flex items-center justify-between w-full p-4 px-2 xl:px-8 text-center grid grid-cols-6">
+                    <span className="font-bold text-left">INVERSOR</span>
+                    <span>USD 47.000</span>
+                    <span>3%</span> 
+                    <span>Boleto por <br/> 100% <br/> (saldo)</span>
+                    <span>-</span>
+                    <span>-</span>
+                </div>
+
+            </div>
+        </div>
+ 
+
+
       </section>
     </section>
   );
