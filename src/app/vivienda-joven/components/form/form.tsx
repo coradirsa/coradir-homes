@@ -19,77 +19,76 @@ export default function FormularioInversion() {
     }
   }) 
   const { handleSubmit, control , formState:{ errors, isSubmitting }, reset } = form; 
-      const [submitMessage, setSubmitMessage] = useState({ type: ' ',
-          text: ' ' });
-      const {executeRecaptcha} = useGoogleReCaptcha();
-      const [loading, setLoading] = useState(false);
-      const onSubmit = async (data:FormSchema) => { 
-          setLoading(true);
-          try{
-              if (!executeRecaptcha) throw new Error('Debes completar el captcha.'); 
-              const token = await executeRecaptcha('form_submit');
-              const verifyCaptcha = await fetch('/api/verify-captcha', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({ token }),
-              });
-              const verifyCaptchaJson = await verifyCaptcha.json(); 
-              if (!verifyCaptchaJson.ok) throw new Error(verifyCaptchaJson.error); 
-  
-          }catch(error : unknown){ 
-              const err = error as Error; 
-              setSubmitMessage({
-                  type: 'error',
-                  text: err.message,
-              });
-              setLoading(false);
-              return;
-          }
-         
-          const dataToSend = {
-              name: data.name.trim(),
-              email: data.email.trim().toLowerCase(),
-              phone: data.phone?.trim() || null,
-              interesting: data.interesting.trim(),
-              message: data.message?.trim() || null,
-              timestamp: new Date().toISOString(),
-              source: 'website_coradir_homes_form'
-            };
-          try { 
-              const response = await fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL!, {
-                  method: 'POST',
-                  headers: {
+  const [submitMessage, setSubmitMessage] = useState({ type: ' ', text: ' ' });
+  const {executeRecaptcha} = useGoogleReCaptcha();
+  const [loading, setLoading] = useState(false);
+  const onSubmit = async (data:FormSchema) => { 
+      setLoading(true);
+      try{
+          if (!executeRecaptcha) throw new Error('Debes completar el captcha.'); 
+          const token = await executeRecaptcha('form_submit');
+          const verifyCaptcha = await fetch('/api/verify-captcha', {
+              method: 'POST',
+              headers: {
                   'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(dataToSend)
-              });
-          
-              if (!response.ok) {
-                  throw new Error(`Error HTTP: ${response.status}`);
-              }
-              setSubmitMessage({
-                  type: 'success',
-                  text: '¡Gracias por tu interés! Hemos recibido tu solicitud y te contactaremos pronto.',
-              });
-          } catch (error : unknown) { 
-              const err = error as Error;
-              console.log(err);
-              setLoading(false);
-              setSubmitMessage({
-                  type: 'error',
-                  text: 'Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.',
-              });
-              return;
-          }  
-          setTimeout(() => {
-              setSubmitMessage({ type: '', text: '' });
-              reset(); 
-          }, 5000);
+              },
+              body: JSON.stringify({ token }),
+          });
+          const verifyCaptchaJson = await verifyCaptcha.json(); 
+          if (!verifyCaptchaJson.ok) throw new Error(verifyCaptchaJson.error); 
+
+      }catch(error : unknown){ 
+          const err = error as Error; 
+          setSubmitMessage({
+              type: 'error',
+              text: err.message,
+          });
           setLoading(false);
-      };  
-  const labelClassName="text-blue text-xl md:text-3xl 2xl:w-full xl:text-right" ;
+          return;
+      }
+      
+      const dataToSend = {
+          name: data.name.trim(),
+          email: data.email.trim().toLowerCase(),
+          phone: data.phone?.trim() || null,
+          interesting: data.interesting.trim(),
+          message: data.message?.trim() || null,
+          timestamp: new Date().toISOString(),
+          source: 'website_coradir_homes_form'
+        };
+      try { 
+          const response = await fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL!, {
+              method: 'POST',
+              headers: {
+              'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(dataToSend)
+          });
+      
+          if (!response.ok) {
+              throw new Error(`Error HTTP: ${response.status}`);
+          }
+          setSubmitMessage({
+              type: 'success',
+              text: '¡Gracias por tu interés! Hemos recibido tu solicitud y te contactaremos pronto.',
+          });
+      } catch (error : unknown) { 
+          const err = error as Error;
+          console.log(err);
+          setLoading(false);
+          setSubmitMessage({
+              type: 'error',
+              text: 'Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.',
+          });
+          return;
+      }  
+      setTimeout(() => {
+          setSubmitMessage({ type: '', text: '' });
+          reset(); 
+      }, 5000);
+      setLoading(false);
+  };  
+  const labelClassName="text-blue text-xl md:text-3xl 2xl:w-full xl:text-right font-bold" ;
   const inputClassName="bg-white text-blue w-full md:w-[80%] 2xl:w-full h-12 rounded-md mb-5 pl-4";
   const inputs:InputForm[] = [
     { 
