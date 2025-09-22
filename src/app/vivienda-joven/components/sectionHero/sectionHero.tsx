@@ -11,9 +11,9 @@ export default function SectionHero() {
          }}
         > Senderos de Koslay: <br/><span className="text-4xl xl:text-6xl">tu nuevo hogar a precio accesible.</span></h1>
         <p
-            className="text-center text-white max-w-[90%] md:max-w-full text-xl md:text-lg xl:text-3xl"
+            className="text-center text-white max-w-[90%] md:max-w-full text-xl md:text-lg xl:text-3xl font-raleway"
             style={{
-                textShadow: '6px 3px 4px rgba(0,0,0,0.5)',
+                textShadow: '1px 3px 3px rgba(0,0,0,0.9)',
             }}
         > Departamentos inteligentes en Juana Koslay · <br/> Entrega proyectada · Cupos limitados</p>
         <ButtonContact href="#formulario" className="text-xs md:text-2xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-1 py-5" label="CONSULTA HOY MISMO QUE SE AGOTAN"/>
