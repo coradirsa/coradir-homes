@@ -118,7 +118,7 @@ textarea:focus:-webkit-autofill {
               z-index 0s;
 }
 .slide-middle{  
-  transform: translate(-50%, -50%) scale(1.3);   
+  transform: translate(-50%, -50%) scale(1.6);   
   z-index: 2;
   opacity: 1;
 } 
@@ -165,4 +165,11 @@ textarea:focus:-webkit-autofill {
 
 .btn-pulse {
   animation: pulseB 1.2s infinite;
+}
+
+@media (min-width: 768px) {
+  .slide-middle{  
+    transform: translate(-50%, -50%) scale(1.2);  
+  }
+
 }

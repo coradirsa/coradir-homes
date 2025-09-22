@@ -10,7 +10,7 @@ export default function SectionVideos() {
                 checkList: [
                     "Entrega rápida",
                     "Menores costos",
-                    "Montaje simple",
+                    "Oportunidad de inversión",
                     "Retorno de inversión veloz"
                 ],
                 video:   "/videos/locales.webm" , 
