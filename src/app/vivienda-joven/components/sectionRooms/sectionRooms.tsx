@@ -27,7 +27,7 @@ export default function SectionRooms() {
                 <h3 className="text-3xl md:text-5xl font-raleway font-bold text-center text-black w-full">
                     Proyecto en pozo <span className="hidden md:inline">·</span> <br className="md:hidden"/>
                     Viviendas inteligentes <span className="hidden md:inline">·</span>  <br className="md:hidden"/>
-                    +60 familias proyectadas
+                    +64 familias proyectadas
                 </h3>
                 <p className="text-xl md:text-3xl font-raleway text-center text-black w-full">
                     Juana Koslay, San Luis <span className="hidden md:inline">–</span> <br className="md:hidden"/>

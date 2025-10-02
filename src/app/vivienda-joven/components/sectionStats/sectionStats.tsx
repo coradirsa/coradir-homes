@@ -39,7 +39,7 @@ export default function SectionStats() {
         />
         <Image
           loading="lazy"
-          src="/img/vivienda-joven/PLANO.webp"
+          src="/img/vivienda-joven/croquis.png"
           alt="Slider"
           width={2000}
           height={2000}

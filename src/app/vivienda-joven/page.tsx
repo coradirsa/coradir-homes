@@ -69,7 +69,7 @@ export default function Page() {
                 <SectionCarucel />
                 <SectionRooms /> 
                 <SectionEspecification specifications={specificationsSecond} border={false} x={5}/>
-                <Panorama />
+               
                 <SectionVideos  /> 
                 <SectionStats />
                 <Form  />
