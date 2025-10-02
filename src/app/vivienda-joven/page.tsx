@@ -1,6 +1,5 @@
 import ReCaptcha from "../components/reCaptcha";
 import Form from "./components/form/form";
-import Panorama from "./components/panoramica/Panorama";
 import SectionCarucel from "./components/sectionCarucel/sectionCarucel";
 import SectionEspecification from "./components/sectionEspeciification/sectionEspecification";
 import SectionHero from "./components/sectionHero/sectionHero";
