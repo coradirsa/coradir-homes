@@ -5,10 +5,25 @@ import CardProyect from "./home/components/cardProyect";
 
 export default function SectionProjectsDone() {
   const proyects = [
-    { title: "Proyecto Juana Koslay", image: "/img/projects/jk.webp", link: "/vivienda-joven", id: "boton-homes-home-proyectos-jk" },
+    {
+      title: "Proyecto Juana Koslay",
+      image: "/img/projects/jk.webp",
+      link: "/vivienda-joven",
+      id: "boton-homes-home-proyectos-jk",
+    },
     { title: "Complejo Coradir", image: "/img/projects/complejo.png" },
-    { title: "La Torre I", image: "/img/projects/torre1.png" },
-    { title: "La Torre II", image: "/img/projects/torre2.png" },
+    {
+      title: "La Torre I",
+      image: "/img/projects/torre1.png",
+      link: "https://torreprivada.coradir.com.ar/",
+      id: "boton-homes-home-proyectos-torre-1",
+    },
+    {
+      title: "La Torre II",
+      image: "/img/projects/torre2.png",
+      link: "/la-torre-ii",
+      id: "boton-homes-home-proyectos-torre-2",
+    },
   ];
 
   const SEPY = 180;

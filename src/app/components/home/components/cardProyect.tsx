@@ -44,8 +44,12 @@ export default function CardProyect({
       : "bg-gradient-to-r from-white via-black/50 to-blue"
     : "";
 
+  const isExternalLink = !!link && /^https?:\/\//i.test(link);
+  const actionClassName =
+    "absolute bottom-6 xl:bottom-12 z-200 text-center bg-white text-blue font-raleway px-10 md:px-12 py-1.5 md:py-2 text-base md:text-xl rounded-full transition-colors duration-300 ease-in-out hover:bg-blue hover:text-white hover:border-white border-transparent border-2";
+
   return (
-    <div 
+    <div
       className={`flex flex-col items-center justify-center bg-transparent transition-all duration-300 ${
         useStairEffect ? "absolute top-0 left-1/2" : "relative"
       } ${spanClass}`}
@@ -56,7 +60,7 @@ export default function CardProyect({
         zIndex: zIndex || 0,
       }}
     >
-      <Image 
+      <Image
         loading="lazy"
         src={image}
         alt={title}
@@ -73,25 +77,39 @@ export default function CardProyect({
       />
       <span className="relative mb-3 xl:mb-10"></span>
 
-      {link && (
-        <Link id={id} href={link} aria-label="Ver Proyecto"
-          className={`absolute bottom-8 xl:bottom-14 z-200 text-center bg-white text-blue font-raleway px-20 py-2 xl:text-2xl 2xl:text-4xl rounded-full transition-colors duration-300 ease-in-out
-            hover:bg-blue hover:text-white hover:border-white border-transparent border-2
-          `}
-        >
-          ¡Saber más!
-        </Link>
-      )}
+      {link &&
+        (isExternalLink ? (
+          <a
+            id={id}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={actionClassName}
+            aria-label="Ver Proyecto"
+          >
+            Saber mas
+          </a>
+        ) : (
+          <Link
+            prefetch={false}
+            id={id}
+            href={link}
+            aria-label="Ver Proyecto"
+            className={actionClassName}
+          >
+            Saber mas
+          </Link>
+        ))}
 
-      <h3 
-        className={`relative z-50 w-full text-center text-white font-raleway xl:text-2xl 2xl:text-3xl transition-all duration-300 ${gradientClass}`} 
-        style={{ 
-          textShadow: useStairEffect ? '6px 3px 4px rgba(0,0,0,0.5)' : 'none',
-          backgroundColor: useStairEffect ? undefined : 'transparent',
+      <h3
+        className={`relative z-50 w-full text-center text-white font-raleway xl:text-2xl 2xl:text-3xl transition-all duration-300 ${gradientClass}`}
+        style={{
+          textShadow: useStairEffect ? "6px 3px 4px rgba(0,0,0,0.5)" : "none",
+          backgroundColor: useStairEffect ? undefined : "transparent",
         }}
       >
         {title}
       </h3>
     </div>
-  )
+  );
 }
