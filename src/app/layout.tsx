@@ -1,14 +1,24 @@
-import type { Metadata } from "next"; 
-import "./globals.css";
-import Header from "./components/header/header"; 
-import Footer from "./components/footer/footer";
-import Bot from "./components/bot"; 
+import type { Metadata } from "next";
 import Script from "next/script";
-import SectionProjectsDone from "./components/sectionProjectsDone";
+import dynamic from "next/dynamic";
+import "./globals.css";
+import { playfairDisplay, raleway } from "@/content/ui/fonts";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+import Bot from "./components/bot";
+import { createMetadata, siteConfig } from "@/lib/seo";
+
+// Lazy load heavy sections
+const SectionProjectsDone = dynamic(() => import("./components/sectionProjectsDone"), {
+  loading: () => <div className="w-full h-[400px] bg-blue animate-pulse" />,
+  ssr: true,
+});
+
+const { metadata: defaultMetadata, structuredData: defaultStructuredData } = createMetadata({ pathname: "/" });
 
 export const metadata: Metadata = {
-  title: "Coradir Homes",
-  description: "Coradir Homes",
+  ...defaultMetadata,
+  metadataBase: new URL(siteConfig.url),
 };
 
 export default function RootLayout({
@@ -18,7 +28,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="bg-white overflow-x-hidden">
+      <head>
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+      </head>
+      <body className={`${playfairDisplay.variable} ${raleway.variable} bg-white overflow-x-hidden`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-blue focus:shadow-lg"
+        >
+          Saltar al contenido principal
+        </a>
+
         {/* Google Tag Manager Script */}
         <Script
           id="gtm-script"
@@ -62,19 +86,33 @@ export default function RootLayout({
           />
         </noscript>
 
+        {defaultStructuredData?.map((entry, index) => (
+          <Script
+            key={`global-structured-data-${index}`}
+            id={`global-structured-data-${index}`}
+            type="application/ld+json"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(entry) }}
+          />
+        ))}
+
         <Header/>   
         <Bot/>
-        {children}
-        <SectionProjectsDone/>
+        <main id="main-content" role="main" className="focus:outline-none">
+          {children}
+          <SectionProjectsDone/>
+        </main>
         <Footer/>
         {/* <Script src={"http://localhost:8850/embed.js"} strategy="afterInteractive" /> */}
 
-        <Script
-            src={process.env.NEXT_PUBLIC_BOT_SCRIPT_URL!}
-            strategy="afterInteractive"
-            data-mode="custom"
-            data-trigger="#coradir-custom-avatar"
-        />
+        {process.env.NEXT_PUBLIC_BOT_SCRIPT_URL && (
+          <Script
+              src={process.env.NEXT_PUBLIC_BOT_SCRIPT_URL}
+              strategy="lazyOnload"
+              data-mode="custom"
+              data-trigger="#coradir-custom-avatar"
+          />
+        )}
 
       </body>
     </html>

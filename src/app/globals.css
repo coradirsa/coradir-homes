@@ -1,32 +1,19 @@
 @import "tailwindcss";
-/* En globals.css */
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf') ;
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'Raleway';
-    src: url('/fonts/Raleway/Raleway-VariableFont_wght.ttf')  ;
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-   
 
-@theme { 
-    --font-playfair: 'Playfair Display', serif;
-    --font-raleway: 'Raleway', sans-serif; 
+:root {
+  font-family: var(--font-raleway-sans), sans-serif;
+}
+
+@theme {
+    --font-playfair: var(--font-playfair-display), serif;
+    --font-raleway: var(--font-raleway-sans), sans-serif;
     --color-gray:#4d4d4f;
     --color-blue: #1a3455;
     --color-blue-gray: #475c77;
     --color-blue-light: #3eb3e4;
     --color-black: #343333;
 }
-  /* Repite para cada variante o fuente */
+
 .container{
     max-width: 1700px;
     margin: 0 auto;
@@ -42,7 +29,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--color-blue); /* Tailwind blue-600 */
+  background: var(--color-blue);
   clip-path: circle(0% at 50% 50%);
   transition: clip-path 500ms ease-in;
   z-index: -1;
@@ -65,7 +52,7 @@
 }
 
 .link-clip-hover:not(:hover):not(:focus) {
-  color: #222 !important; /* O el color base que uses */
+  color: #222 !important;
   transition-delay: 0.2s;
 }
 .link-clip-hover > * {
@@ -74,7 +61,7 @@
 }
 
 .slider-burger{
-  display: block;    
+  display: block;
   height: 4px;
   width: 100%;
   border-radius: 20px;
@@ -95,14 +82,14 @@
 
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px var(--color-blue) inset !important; /* tu color de fondo (ejemplo: bg-blue-800) */
+  -webkit-box-shadow: 0 0 0 1000px var(--color-blue) inset !important;
   box-shadow: 0 0 0 1000px var(--color-blue) inset !important;
-  -webkit-text-fill-color: white !important; /* tu color de texto */
-  background-color: var(--color-blue) !important; 
+  -webkit-text-fill-color: white !important;
+  background-color: var(--color-blue) !important;
 }
 
 input:focus:-webkit-autofill,
-textarea:focus:-webkit-autofill { 
+textarea:focus:-webkit-autofill {
   outline: none !important;
 }
 
@@ -111,24 +98,24 @@ textarea:focus:-webkit-autofill {
 .slide-left,
 .slide-right{
   position: absolute;
-  top: 50%; 
-  left:50%; 
-  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), 
+  top: 50%;
+  left:50%;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
               z-index 0s;
 }
-.slide-middle{  
-  transform: translate(-50%, -50%) scale(1.6);   
+.slide-middle{
+  transform: translate(-50%, -50%) scale(1.1);
   z-index: 2;
   opacity: 1;
-} 
-.slide-left{ 
-  transform: translate(66%,-50%) ; 
+}
+.slide-left{
+  transform: translate(66%,-50%) ;
   z-index: 1;
   opacity: 0.7;
 }
-.slide-right{ 
-  transform: translate(-166%,-50%) ; 
+.slide-right{
+  transform: translate(-166%,-50%) ;
   z-index: 1;
   opacity: 0.7;
 }
@@ -136,7 +123,7 @@ textarea:focus:-webkit-autofill {
 .amb::before{
     content: "";
     position: absolute;
-    top: 60%; 
+    top: 60%;
     width: .7em;
     height: 3px;
     background-color: var(--color-blue);
@@ -147,7 +134,7 @@ textarea:focus:-webkit-autofill {
     right: -15%;
 }
 .amb::before{
-    left: -15%;;
+    left: -15%;
 }
 
 .grecaptcha-badge{
@@ -167,9 +154,24 @@ textarea:focus:-webkit-autofill {
   animation: pulseB 1.2s infinite;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
 @media (min-width: 768px) {
-  .slide-middle{  
-    transform: translate(-50%, -50%) scale(1.2);  
+  .slide-middle{
+    transform: translate(-50%, -50%) scale(1.05);
   }
 
 }

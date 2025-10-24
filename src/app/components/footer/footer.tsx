@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Footer(){
     const socialMedia = [
-        { href: "https://www.facebook.com/CoradirSA/", img:"/icons/facebook.png", ariaLabel:"Logo de Facebook", alt:"Logo de Facebook" },
-        { href: "https://www.linkedin.com/company/502705", img:"/icons/linkedin.png", ariaLabel:"Logo de LinkedIn", alt:"Logo de LinkedIn" }, 
+        { href: "https://www.facebook.com/CoradirSA/", img:"/icons/facebook.webp", ariaLabel:"Logo de Facebook", alt:"Logo de Facebook" },
+        { href: "https://www.linkedin.com/company/502705", img:"/icons/linkedin.webp", ariaLabel:"Logo de LinkedIn", alt:"Logo de LinkedIn" },
     ];
     return(
         <footer className="flex  flex-col xl:flex-row justify-between pt-10 xl:pt-0 items-center  xl:max-h-[25vh] bg-blue xl:px-10 px-5 overflow-hidden">
@@ -29,13 +29,13 @@ export default function Footer(){
                 <span className="text-xs md:text-xl text-white font-raleway">Este sitio esta protegido por reCAPTCHA</span>
             </div>
             <div className="overflow-hidden h-[10vh] xl:h-auto">
-                <Image 
+                <Image
                 loading="lazy"
-                src="/img/marca blanco.png" 
-                alt="Logo Coradir Homes" 
+                src="/img/marca blanco.webp"
+                alt="Logo Coradir Homes"
                 aria-label="Logo Coradir Homes"
-                width={1000} 
-                height={1000} 
+                width={1000}
+                height={1000}
                 className="xl:w-90 xl:h-90 w-50 h-50 -mt-12 xl:-mt-0"
                 /> 
             </div>

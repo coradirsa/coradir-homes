@@ -11,16 +11,20 @@ export default function SectionProjectsDone() {
       link: "/vivienda-joven",
       id: "boton-homes-home-proyectos-jk",
     },
-    { title: "Complejo Coradir", image: "/img/projects/complejo.png" },
+    {
+      title: "Complejo Coradir",
+      image: "/img/projects/complejo.webp",
+      comingSoon: true,
+    },
     {
       title: "La Torre I",
-      image: "/img/projects/torre1.png",
+      image: "/img/projects/torre1.webp",
       link: "https://torreprivada.coradir.com.ar/",
       id: "boton-homes-home-proyectos-torre-1",
     },
     {
       title: "La Torre II",
-      image: "/img/projects/torre2.png",
+      image: "/img/projects/torre2.webp",
       link: "/la-torre-ii",
       id: "boton-homes-home-proyectos-torre-2",
     },
@@ -86,10 +90,17 @@ export default function SectionProjectsDone() {
 
     return cards;
   };
+  // Calculate height to prevent CLS
+  const getMinHeight = () => {
+    if (isSmallMobile) return `${proyects.length * 320 + 80}px`; // Card height + gap
+    if (isMobile) return `calc(20rem + ${proyects.length * SEPY}px)`;
+    return '500px'; // Desktop fixed height
+  };
+
   return (
     <section className="w-full flex items-center justify-center bg-white py-10">
-      <section className="bg-blue p-5 flex flex-col items-center justify-start container w-full gap-10 ">
-        <h2 className="text-5xl xl:text-6xl text-center font-playfair text-white">¡Nuestro proyectos!</h2>
+      <section className="bg-blue p-5 flex flex-col items-center justify-start container w-full gap-10">
+        <h2 className="text-5xl xl:text-6xl text-center font-playfair text-white">Nuestros proyectos</h2>
 
         <section
           ref={containerRef}
@@ -99,9 +110,7 @@ export default function SectionProjectsDone() {
               : "grid xl:grid-cols-10 items-start xl:items-center xl:justify-center gap-10 xl:gap-8"
           }`}
           style={{
-            minHeight: isMobile && !isSmallMobile
-              ? `calc(20rem + ${proyects.length * SEPY}px)`
-              : undefined,
+            minHeight: getMinHeight(),
           }}
         >
           { render() }

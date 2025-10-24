@@ -1,4 +1,9 @@
-import ProjectForm from "@/app/components/projectForm";
+import dynamic from "next/dynamic";
+
+const ProjectForm = dynamic(() => import("@/app/components/projectForm"), {
+  loading: () => <div className="h-[400px] animate-pulse bg-gray-100 rounded-lg" />,
+  ssr: true,
+});
 
 const SOCIALS = [
   {

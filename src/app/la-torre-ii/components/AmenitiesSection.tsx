@@ -1,19 +1,19 @@
 import Image from "next/image";
 
 const AMENITIES = [
-  { title: "WIFI", icon: "/img/la-torre-ii/features/feature-00.png" },
-  { title: "Cerradura smart", icon: "/img/la-torre-ii/features/feature-01.png" },
-  { title: "Seguridad 24 hs", icon: "/img/la-torre-ii/features/feature-02.png" },
-  { title: "Eficiencia energetica", icon: "/img/la-torre-ii/features/feature-03.png" },
-  { title: "Doble vidrio hermetico", icon: "/img/la-torre-ii/features/feature-04.png" },
-  { title: "Losa radiante", icon: "/img/la-torre-ii/features/feature-05.png" },
-  { title: "Cocina equipada", icon: "/img/la-torre-ii/features/feature-06.png" },
-  { title: "Pileta y solarium", icon: "/img/la-torre-ii/features/feature-07.png" },
-  { title: "Amoblado", icon: "/img/la-torre-ii/features/feature-08.png" },
-  { title: "Muy luminoso", icon: "/img/la-torre-ii/features/feature-09.png" },
-  { title: "Cocheras", icon: "/img/la-torre-ii/features/feature-10.png" },
-  { title: "Aire acondicionado", icon: "/img/la-torre-ii/features/feature-11.png" },
-  { title: "Sistema constructivo sustentable", icon: "/img/la-torre-ii/features/feature-12.png" },
+  { title: "WIFI", icon: "/img/la-torre-ii/features/feature-00.webp" },
+  { title: "Cerradura smart", icon: "/img/la-torre-ii/features/feature-01.webp" },
+  { title: "Seguridad 24 hs", icon: "/img/la-torre-ii/features/feature-02.webp" },
+  { title: "Eficiencia energetica", icon: "/img/la-torre-ii/features/feature-03.webp" },
+  { title: "Doble vidrio hermetico", icon: "/img/la-torre-ii/features/feature-04.webp" },
+  { title: "Losa radiante", icon: "/img/la-torre-ii/features/feature-05.webp" },
+  { title: "Cocina equipada", icon: "/img/la-torre-ii/features/feature-06.webp" },
+  { title: "Pileta y solarium", icon: "/img/la-torre-ii/features/feature-07.webp" },
+  { title: "Amoblado", icon: "/img/la-torre-ii/features/feature-08.webp" },
+  { title: "Muy luminoso", icon: "/img/la-torre-ii/features/feature-09.webp" },
+  { title: "Cocheras", icon: "/img/la-torre-ii/features/feature-10.webp" },
+  { title: "Aire acondicionado", icon: "/img/la-torre-ii/features/feature-11.webp" },
+  { title: "Sistema constructivo sustentable", icon: "/img/la-torre-ii/features/feature-12.webp" },
 ];
 
 export default function AmenitiesSection() {

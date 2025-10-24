@@ -15,6 +15,7 @@ export default function CardProyect({
   isSmallMobile,
   colSpan = 2,
   gradientDirection = "left",
+  comingSoon = false,
 }: {
   title: string;
   image: string;
@@ -28,6 +29,7 @@ export default function CardProyect({
   isSmallMobile: boolean;
   colSpan?: number;
   gradientDirection?: "left" | "right";
+  comingSoon?: boolean;
 }) {
   const useStairEffect = isMobile && !isSmallMobile;
   const isDesktop = !isMobile && !isSmallMobile;
@@ -77,7 +79,15 @@ export default function CardProyect({
       />
       <span className="relative mb-3 xl:mb-10"></span>
 
-      {link &&
+      {comingSoon ? (
+        <span
+          className="absolute bottom-6 xl:bottom-12 z-200 text-center bg-white text-blue font-raleway px-10 md:px-12 py-1.5 md:py-2 text-base md:text-xl rounded-full border-transparent border-2 cursor-default"
+          aria-label="Próximamente"
+        >
+          Próximamente
+        </span>
+      ) : (
+        link &&
         (isExternalLink ? (
           <a
             id={id}
@@ -99,7 +109,8 @@ export default function CardProyect({
           >
             Saber mas
           </Link>
-        ))}
+        ))
+      )}
 
       <h3
         className={`relative z-50 w-full text-center text-white font-raleway xl:text-2xl 2xl:text-3xl transition-all duration-300 ${gradientClass}`}

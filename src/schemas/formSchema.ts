@@ -9,10 +9,10 @@ export const Interests = z.enum([
 ]);
 export const FormSchema = z.object({
     name: z.string().min(3, "El nombre debe tener al menos 3 caracteres"),
-    email: z.string().email("Debes ingresar un email válido"),
+    email: z.string().email("Debes ingresar un email valido"),
     phone: z.string()
-    .min(10, "El teléfono debe tener al menos 10 dígitos")
-    .regex(/^\+?\d{10,15}$/, "El teléfono solo puede contener números y un '+' inicial opcional"),
+    .min(10, "El telefono debe tener al menos 10 digitos")
+    .regex(/^\+?\d{10,15}$/, "El telefono solo puede contener numeros y un '+' inicial opcional"),
     interesting: Interests,
     message: z.string().optional() 
 });

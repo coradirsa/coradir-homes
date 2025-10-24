@@ -1,13 +1,20 @@
+import { HOME_COPY } from "@/content/seo/copy";
 import SectionInvestments from "./sectionInvestments";
 import SectionActives from "./sectionActives";
 
 export default function SectionCreateHomes(){
     return(
         <section className="w-full flex items-center justify-center bg-white">
-            <section className="flex flex-col items-center justify-center bg-white rounded-t-4xl p-10 container xl:pt-20">
-                <h2 className="text-3xl xl:text-6xl w-full xl:w-[50%] text-center font-playfair text-blue font-bold">Creamos hogares con diseño, confort y sostenibilidad.</h2>
-                <p className="text-lg xl:text-xl w-full text-center font-raleway text-black mt-10"> Ofrecemos espacios que <b>elevan la calidad de vida.</b> <br/>  </p>
-                <p className="text-lg xl:text-xl w-full text-center font-raleway text-black mb-20">Integramos <b>tecnología inteligente</b>  soluciones <b>eco-eficientes.</b> </p>
+            <section className="flex flex-col items-center justify-center bg-white rounded-t-4xl p-10 container xl:pt-20 gap-10">
+                <h2 className="text-3xl xl:text-6xl w-full xl:w-[60%] text-center font-playfair text-blue font-bold">
+                    {HOME_COPY.createHomes.heading}
+                </h2>
+                <p className="text-lg xl:text-xl w-full text-center font-raleway text-black">
+                    {HOME_COPY.createHomes.lead}
+                </p>
+                <p className="text-lg xl:text-xl w-full text-center font-raleway text-black">
+                    {HOME_COPY.createHomes.sublead}
+                </p>
                 
                 <SectionInvestments/>  
                 <SectionActives/>

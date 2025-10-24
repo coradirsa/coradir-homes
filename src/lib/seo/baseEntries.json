@@ -1,0 +1,84 @@
+[
+  {
+    "pathname": "/",
+    "title": "Coradir Homes | Desarrollos inmobiliarios sustentables en San Luis",
+    "description": "Conoce los proyectos residenciales e inversiones de Coradir Homes. Viviendas inteligentes y sustentables diseniadas para elevar la calidad de vida en San Luis y la region.",
+    "changefreq": "weekly",
+    "priority": 1,
+    "image": "/img/hero_paginaprincipal.webp"
+  },
+  {
+    "pathname": "/vivienda-joven",
+    "title": "Vivienda Joven | Departamentos con tecnologia y amenities Coradir Homes",
+    "description": "Descubri Vivienda Joven: unidades con domotica, zonas comunes equipadas y soluciones ecoeficientes. Ideal para vivir o invertir con respaldo Coradir Homes.",
+    "changefreq": "monthly",
+    "priority": 0.9,
+    "image": "/img/vivienda-joven/hero.webp"
+  },
+  {
+    "pathname": "/la-torre-ii",
+    "title": "La Torre II | Residencias premium Coradir Homes",
+    "description": "Tipologias flexibles, amenities de primer nivel y ubicacion estrategica en La Torre II. Sumate a uno de los desarrollos insignia de Coradir Homes.",
+    "changefreq": "monthly",
+    "priority": 0.9,
+    "image": "/img/la-torre-ii/overview.webp"
+  },
+  {
+    "pathname": "/inversiones-inteligentes",
+    "title": "Inversiones Inteligentes | Rentas inmobiliarias con respaldo Coradir",
+    "description": "Alternativas de inversion inmobiliaria de Coradir Homes con administracion profesional y foco en rentabilidad a largo plazo.",
+    "changefreq": "monthly",
+    "priority": 0.8
+  },
+  {
+    "pathname": "/corporativos",
+    "title": "Corporativos | Espacios a medida para empresas y oficinas",
+    "description": "Soluciones corporativas de Coradir Homes: oficinas inteligentes, servicios integrales y ubicaciones estrategicas para tu empresa.",
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
+  {
+    "pathname": "/instituciones",
+    "title": "Instituciones | Infraestructura moderna para organismos y entidades",
+    "description": "Desarrollos para instituciones educativas y organismos publicos con diseno eficiente y tecnologia de vanguardia.",
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
+  {
+    "pathname": "/terrenos",
+    "title": "Terrenos | Lotes estrategicos para desarrollo inmobiliario",
+    "description": "Seleccionamos terrenos con potencial de valorizacion para proyectos residenciales y comerciales en la provincia de San Luis.",
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
+  {
+    "pathname": "/beneficios",
+    "title": "Beneficios | Ventajas exclusivas de invertir con Coradir Homes",
+    "description": "Conoce los beneficios de elegir Coradir Homes: financiamiento flexible, soporte integral y tecnologia aplicada a cada desarrollo.",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "pathname": "/proyectos",
+    "title": "Proyectos de inversion | Portafolio Coradir Homes",
+    "description": "Recorre los proyectos activos de Coradir Homes y encontra la oportunidad ideal para vivir o invertir en San Luis.",
+    "changefreq": "weekly",
+    "priority": 0.8,
+    "image": "/img/projects/torre2.png"
+  },
+  {
+    "pathname": "/casa-joven",
+    "title": "Casa Joven | Tu primer hogar con tecnologia y confort",
+    "description": "Casa Joven de Coradir Homes ofrece departamentos accesibles, seguros y diseniados para quienes buscan su primera vivienda con soluciones inteligentes.",
+    "changefreq": "monthly",
+    "priority": 0.6,
+    "image": "/img/casa_joven_1.png"
+  },
+  {
+    "pathname": "/saber-mas",
+    "title": "Saber mas | Recursos y guias de inversion inmobiliaria",
+    "description": "Articulos, guias y novedades sobre inversion inmobiliaria, vivienda inteligente y tendencias del mercado de la construccion.",
+    "changefreq": "weekly",
+    "priority": 0.6
+  }
+]

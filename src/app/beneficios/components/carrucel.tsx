@@ -3,11 +3,11 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
 export default function Carrucel(){
     const sliders = [
-        "/img/pozo.png",
-        "/img/casa_joven_1.png",
-        "/img/casajoven_2.png",
-        "/img/casa_joven_3.png",
-        "/img/coraporativos_final.jpg",
+        "/img/pozo.webp",
+        "/img/casa_joven_1.webp",
+        "/img/casajoven_2.webp",
+        "/img/casa_joven_3.webp",
+        "/img/coraporativos_final.webp",
     ];
     const [currentSlide, setCurrentSlide] = useState(0);
     const autoplayRef = useRef<NodeJS.Timeout | null>(null);

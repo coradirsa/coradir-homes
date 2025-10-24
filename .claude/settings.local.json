@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(npm start)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nMigrate hardcoded URLs to environment variables\n\n- Add APP_DOMAIN variable for Caddy configuration\n- Add NEXT_PUBLIC_BOT_SCRIPT_URL for chatbot script\n- Update Dockerfile with new environment variable\n- Update docker-compose.yml to use dynamic domain\n- Update layout.tsx to use bot script URL from env\n- Add .env.example with all required variables\n\nThis allows easy switching between domains (pruebas.coradir.ai / complejos.coradir.com.ar) without code changes.\n\nCo-Authored-By: IA Software Coradir <ia@coradir.com.ar>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(npx lighthouse:*)",
+      "Bash(curl:*)",
+      "Bash(/dev/null)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(cat:*)",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(taskkill:*)",
+      "Bash(find:*)",
+      "Bash(git log:*)",
+      "Bash(findstr:*)",
+      "Bash(netstat:*)",
+      "Bash(npx next start:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

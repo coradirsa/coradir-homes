@@ -66,26 +66,32 @@ export default function MobileMenu({open,setOpen}: {open: boolean,setOpen: (open
                         <div key={index} className="pl-14 flex flex-col justify-start items-start"> 
                             <div className="flex flex-col justify-start items-start gap-1 -mt-6" >
                                 <div 
-                                    className="relative w-64 flex gap-10 items-center justify-center text-white 
-                                    font-raleway px-5 py-2 rounded-3xl"
+                                    className="relative w-64 flex gap-4 items-center justify-between text-white font-raleway px-5 py-2 rounded-3xl"
                                     style={{
-                                        backgroundColor: openHover === index ? "rgba(255,255,255,0.1)" : "" 
+                                        backgroundColor: openHover === index ? "rgba(255,255,255,0.1)" : ""
                                     }}
-                                    onClick={link.href !== "#" ? () => setOpen(false) : () => handleOpenHover(index)}
-                                > 
-                                    <Link href={link.href} className="w-full text-2xl" > {link.label} </Link>
+                                >
+                                    <Link
+                                        href={link.href}
+                                        className="flex flex-col w-full text-2xl uppercase tracking-wide"
+                                        onClick={() => setOpen(false)}
+                                    >
+                                        <span>{link.label}</span>
+                                        {link.secondaryLabel && <span className="text-base">{link.secondaryLabel}</span>}
+                                    </Link>
                                     {link.hover && (
-                                        <span 
-                                            className="flex justify-start items-center text-center text-white font-raleway rotate-270 text-3xl" 
-                                            
-                                            aria-label="Boton para abrir y cerrar el submenu"
+                                        <button
+                                            type="button"
+                                            className="flex items-center justify-center text-center text-white font-raleway text-3xl"
+                                            aria-label={openHover === index ? "Cerrar submenu" : "Abrir submenu"}
+                                            onClick={() => handleOpenHover(index)}
                                             style={{
                                                 transform: openHover === index ? "rotate(-180deg)" : "rotate(0deg)",
                                                 transition: "transform 0.3s ease-in-out"
                                             }}
                                         >
                                             {"<"}
-                                        </span>
+                                        </button>
                                     )}
                                 </div> 
                                 <div
