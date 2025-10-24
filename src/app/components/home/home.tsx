@@ -25,9 +25,9 @@ export default function Home() {
                 src={heroImage}
                 alt="Hero pagina principal"
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1600px"
+                sizes="(max-width: 768px) 828px, (max-width: 1280px) 1280px, 1920px"
                 className="absolute inset-0 -z-1 h-full w-full object-cover"
-                quality={85}
+                quality={70}
             />
         </section>
     );

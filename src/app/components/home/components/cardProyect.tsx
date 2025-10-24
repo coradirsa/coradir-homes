@@ -69,6 +69,8 @@ export default function CardProyect({
         aria-label={title}
         width={1000}
         height={1000}
+        quality={60}
+        sizes={principal ? "(max-width: 768px) 630px, 580px" : "(max-width: 768px) 480px, 300px"}
         className={`rounded-2xl object-cover transition-all duration-300 ${
           isMobile ? "w-[300px]" : principal ? "w-[580px]" : "w-[300px]"
         } ${useStairEffect ? "shadow-[10px_10px_2px_0_rgba(0,0,0,0.6)]" : ""}`}

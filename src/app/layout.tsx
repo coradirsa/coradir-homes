@@ -29,6 +29,15 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Preload critical LCP image */}
+        <link
+          rel="preload"
+          as="image"
+          href="/_next/image?url=%2Fimg%2Foptimized%2Fhero_paginaprincipal.webp&w=828&q=70"
+          imageSrcSet="/_next/image?url=%2Fimg%2Foptimized%2Fhero_paginaprincipal.webp&w=828&q=70 828w"
+          imageSizes="(max-width: 768px) 828px"
+          fetchPriority="high"
+        />
         {/* Preconnect to external domains for faster loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -58,14 +67,14 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Analytics Script */}
+        {/* Google Analytics Script - Deferred for better performance */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0FW1131XF8"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
           id="ga-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
