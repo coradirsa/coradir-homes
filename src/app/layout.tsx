@@ -29,13 +29,13 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Preload critical LCP image - mobile optimized */}
+        {/* Preload critical LCP image - direct file for fastest load */}
         <link
           rel="preload"
           as="image"
-          href="/_next/image?url=%2Fimg%2Foptimized%2Fhero_mobile.webp&w=828&q=70"
-          imageSrcSet="/_next/image?url=%2Fimg%2Foptimized%2Fhero_mobile.webp&w=828&q=70 828w"
-          imageSizes="(max-width: 768px) 828px"
+          href="/img/optimized/hero_mobile.webp"
+          imageSrcSet="/img/optimized/hero_mobile.webp 828w, /img/optimized/hero_tablet.webp 1280w, /img/optimized/hero_desktop.webp 1920w"
+          imageSizes="(max-width: 768px) 828px, (max-width: 1280px) 1280px, 1920px"
           fetchPriority="high"
         />
         {/* Preconnect to external domains for faster loading */}

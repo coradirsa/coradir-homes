@@ -4,10 +4,12 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import CardProyect from "./home/components/cardProyect";
 
 export default function SectionProjectsDone() {
+  const isMobileView = useMediaQuery("(max-width: 768px)");
+
   const proyects = [
     {
       title: "Proyecto Juana Koslay",
-      image: "/img/projects/jk.webp",
+      image: isMobileView ? "/img/optimized/projects/jk_mobile.webp" : "/img/optimized/projects/jk_desktop.webp",
       link: "/vivienda-joven",
       id: "boton-homes-home-proyectos-jk",
     },
@@ -18,13 +20,13 @@ export default function SectionProjectsDone() {
     },
     {
       title: "La Torre I",
-      image: "/img/projects/torre1.webp",
+      image: "/img/optimized/projects/torre1.webp",
       link: "https://torreprivada.coradir.com.ar/",
       id: "boton-homes-home-proyectos-torre-1",
     },
     {
       title: "La Torre II",
-      image: "/img/projects/torre2.webp",
+      image: "/img/optimized/projects/torre2.webp",
       link: "/la-torre-ii",
       id: "boton-homes-home-proyectos-torre-2",
     },
