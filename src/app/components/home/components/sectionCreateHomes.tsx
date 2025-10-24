@@ -1,4 +1,5 @@
 import { HOME_COPY } from "@/content/seo/copy";
+import Link from "next/link";
 import SectionInvestments from "./sectionInvestments";
 import SectionActives from "./sectionActives";
 
@@ -15,11 +16,30 @@ export default function SectionCreateHomes(){
                 <p className="text-lg xl:text-xl w-full text-center font-raleway text-black">
                     {HOME_COPY.createHomes.sublead}
                 </p>
-                
-                <SectionInvestments/>  
+
+                {/* Internal contextual links */}
+                <div className="flex flex-wrap justify-center gap-4 text-sm xl:text-base">
+                    <Link href="/vivienda-joven" className="text-blue hover:underline font-raleway">
+                        Vivienda Joven
+                    </Link>
+                    <span className="text-gray-400">•</span>
+                    <Link href="/la-torre-ii" className="text-blue hover:underline font-raleway">
+                        La Torre II
+                    </Link>
+                    <span className="text-gray-400">•</span>
+                    <Link href="/beneficios" className="text-blue hover:underline font-raleway">
+                        Beneficios
+                    </Link>
+                    <span className="text-gray-400">•</span>
+                    <Link href="/proyectos" className="text-blue hover:underline font-raleway">
+                        Ver todos los proyectos
+                    </Link>
+                </div>
+
+                <SectionInvestments/>
                 <SectionActives/>
             </section>
-        
+
         </section>
 
     )

@@ -26,28 +26,28 @@
   {
     "pathname": "/inversiones-inteligentes",
     "title": "Inversiones Inteligentes | Rentas inmobiliarias con respaldo Coradir",
-    "description": "Alternativas de inversion inmobiliaria de Coradir Homes con administracion profesional y foco en rentabilidad a largo plazo.",
+    "description": "Invierte en departamentos con alta rentabilidad en San Luis. Administracion profesional, alquileres garantizados y retornos superiores al 8% anual. Consultanos ahora.",
     "changefreq": "monthly",
     "priority": 0.8
   },
   {
     "pathname": "/corporativos",
     "title": "Corporativos | Espacios a medida para empresas y oficinas",
-    "description": "Soluciones corporativas de Coradir Homes: oficinas inteligentes, servicios integrales y ubicaciones estrategicas para tu empresa.",
+    "description": "Departamentos corporativos en San Luis con contratos flexibles, ubicacion estrategica y servicios integrales. Optimiza costos y mejora la calidad de vida de tu equipo.",
     "changefreq": "monthly",
     "priority": 0.7
   },
   {
     "pathname": "/instituciones",
     "title": "Instituciones | Infraestructura moderna para organismos y entidades",
-    "description": "Desarrollos para instituciones educativas y organismos publicos con diseno eficiente y tecnologia de vanguardia.",
+    "description": "Residencias estudiantiles inteligentes sin inversion inicial. La institucion aporta el terreno, Coradir construye y administra. Modelo seguro y escalable.",
     "changefreq": "monthly",
     "priority": 0.7
   },
   {
     "pathname": "/terrenos",
     "title": "Terrenos | Lotes estrategicos para desarrollo inmobiliario",
-    "description": "Seleccionamos terrenos con potencial de valorizacion para proyectos residenciales y comerciales en la provincia de San Luis.",
+    "description": "Convierte tu terreno en ingresos pasivos sin invertir capital. Coradir construye, vos recibes unidades listas para alquilar. Modelo sin riesgos, rentabilidad garantizada.",
     "changefreq": "monthly",
     "priority": 0.7
   },
@@ -61,7 +61,7 @@
   {
     "pathname": "/proyectos",
     "title": "Proyectos de inversion | Portafolio Coradir Homes",
-    "description": "Recorre los proyectos activos de Coradir Homes y encontra la oportunidad ideal para vivir o invertir en San Luis.",
+    "description": "Explora proyectos inmobiliarios activos en San Luis: La Torre II, Vivienda Joven, Complejo Coradir. Oportunidades para vivir o invertir con financiacion flexible.",
     "changefreq": "weekly",
     "priority": 0.8,
     "image": "/img/projects/torre2.png"
