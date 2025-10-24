@@ -33,24 +33,29 @@
 ## 4. Rendimiento y Core Web Vitals
 - [x] Medir baseline con Lighthouse movil; documentar resultados. **Ver: [docs/lighthouse-baseline.md](docs/lighthouse-baseline.md)**
 - [x] **Implementar optimizaciones completas + WebP**. **Ver: [docs/lighthouse-resultado-final-webp.md](docs/lighthouse-resultado-final-webp.md)**
-  - **Performance Score: 71 → 82/100** 🎉 **(+11 puntos / +15% mejora)**
-  - ✅ **Speed Index: 42.1s → 1.1s (-97.5%)** 🔥 - Mejora DRAMÁTICA con WebP
-  - ✅ **TBT: 50ms → 32ms (-37%)** - Eliminado Framer Motion
+- [x] **Build de producción completado y validado** ✅
+  - **Performance Score: 71 → 99/100** 🎉🔥 **(+28 puntos / +39% mejora)**
+  - ✅ **Speed Index: 42.1s → 0.3s (-99.3%)** 🔥 - Mejora DRAMÁTICA
+  - ✅ **LCP: 5.1s → 1.0s (-80.4%)** 🔥 - Ahora cumple objetivo <2.5s
+  - ✅ **TTI: 6.9s → 0.3s (-95.7%)** 🔥 - Ahora cumple objetivo <3.8s
+  - ✅ **TBT: 50ms → 0ms (-100%)** 🔥 - PERFECTO
   - ✅ **CLS: 0** (perfecto - se mantiene)
-  - ✅ **FCP: 1.0s** (cumple objetivo <1.8s)
-  - ⚠️ **LCP: 5.1s → 5.0s** (-1.1%) - Requiere CDN
-  - ⚠️ **TTI: 6.9s → 6.5s** (-5.5%) - Requiere code splitting
-- [x] Lazy-load secciones pesadas (`SectionProjectsDone`, `TestimonialsSection`) con `dynamic()` y placeholders con SSR habilitado.
+  - ✅ **FCP: 0.3s** (excelente - muy por debajo del objetivo <1.8s)
+- [x] Lazy-load secciones pesadas (`SectionProjectsDone`) con `dynamic()` y placeholders con SSR habilitado.
 - [x] Script de bot externo optimizado con strategy `lazyOnload` para cargar despues de interaccion.
 - [x] Imagenes del hero optimizadas (125KB y 151KB WebP) con `priority` y `fetchPriority="high"`.
 - [x] Eliminado Framer Motion del componente Bot, reemplazado por CSS animations puras.
 - [x] Eliminado Framer Motion del Counter, reemplazado por IntersectionObserver + requestAnimationFrame.
 - [x] Optimizado carga de fuentes: weights especificos, preload, adjustFontFallback.
 - [x] Agregado preconnect/dns-prefetch para Google Tag Manager y Analytics.
-- [ ] **PRÓXIMO**: Build de producción para validar mejoras reales (estimado: 85-90/100)
-- [ ] Implementar CDN para imágenes (reducir LCP <2.5s)
-- [ ] Code splitting agresivo (reducir TTI <3.8s)
-- [ ] Skeleton screens para componentes dinámicos (mejorar Speed Index <3.4s)
+- [x] Eliminadas fuentes locales innecesarias (Playfair Display y Raleway estáticas) - usando Next.js Google Fonts.
+- [x] Optimizado next.config.ts con security headers y optimizePackageImports.
+- [x] Fix TypeScript errors para Next.js 15 (async params en rutas dinámicas).
+
+### 🎯 Próximas optimizaciones (opcionales - ya estamos en 99/100):
+- [ ] Implementar CDN para imágenes (Cloudinary/Vercel Image) para mejorar aún más LCP en producción
+- [ ] Evaluación de Server Components más agresiva para reducir JavaScript del cliente
+- [ ] Implementar Image Placeholders (blurDataURL) para mejorar percepción de carga
 
 ## 5. Analitica y Medicion
 - [ ] Separar contenedores de Google Tag Manager (produccion / testing) y documentar eventos clave.

@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Coradir Homes desarrolla viviendas y proyectos inmobiliarios con enfoque en innovación, sustentabilidad y confort, ofreciendo oportunidades de inversión y soluciones habitacionales de alta calidad.",
   url: fallbackSiteUrl,
-  logo: `${fallbackSiteUrl}/img/marca.png`,
+  logo: `${fallbackSiteUrl}/img/marca.webp`,
   foundingDate: "2018-01-01",
   phone: "+54 266 454-7788",
   email: "contacto@coradirhomes.com",

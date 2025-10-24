@@ -7,7 +7,7 @@ User-agent: *
 Disallow: /api/
 
 # Host
-Host: https://www.coradirhomes.com
+Host: https://homes.coradir.com.ar
 
 # Sitemaps
-Sitemap: https://www.coradirhomes.com/sitemap.xml
+Sitemap: https://homes.coradir.com.ar/sitemap.xml
