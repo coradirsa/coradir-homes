@@ -8,6 +8,7 @@ import Loader from "@/app/saber-mas/[interes]/components/loader";
 import { FormSchema as FormSchemaDefinition } from "@/schemas/formSchema";
 import type { FormSchema as FormSchemaType, Interests as InterestType, InputForm } from "@/schemas/formSchema";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { GAEvents } from "@/lib/analytics/gtag";
 
 type ProjectFormProps = {
   interest: InterestType;
@@ -91,6 +92,13 @@ export default function ProjectForm({
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
       }
+
+      // Track successful form submission
+      GAEvents.formSubmit(
+        `Form ${interest}`,
+        window.location.pathname
+      );
+
       setSubmitMessage({
         type: "success",
         text: successMessage,

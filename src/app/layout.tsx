@@ -6,6 +6,7 @@ import { playfairDisplay, raleway } from "@/content/ui/fonts";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Bot from "./components/bot";
+import ScrollTracker from "./components/analytics/ScrollTracker";
 import { createMetadata, siteConfig } from "@/lib/seo";
 
 // Lazy load heavy sections
@@ -105,7 +106,8 @@ export default function RootLayout({
           />
         ))}
 
-        <Header/>   
+        <ScrollTracker />
+        <Header/>
         <Bot/>
         <main id="main-content" role="main" className="focus:outline-none">
           {children}
