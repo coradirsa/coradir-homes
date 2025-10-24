@@ -5,8 +5,15 @@ import { HOME_COPY } from "@/content/seo/copy";
 import Image from "next/image";
 
 export default function Home() {
-    const isMobile = useMediaQuery("(max-width: 1280px)");
-    const heroImage = isMobile ? "/img/optimized/hero_paginaprincipal.webp" : "/img/optimized/hero_paginaprincipal1.webp";
+    const isMobile = useMediaQuery("(max-width: 768px)");
+    const isTablet = useMediaQuery("(max-width: 1280px)");
+
+    // Usar imágenes optimizadas específicas por dispositivo
+    const heroImage = isMobile
+        ? "/img/optimized/hero_mobile.webp"
+        : isTablet
+            ? "/img/optimized/hero_tablet.webp"
+            : "/img/optimized/hero_desktop.webp";
 
     return (
         <section className="sticky top-0 flex flex-col justify-center items-center py-16 h-[80vh] bg-transparent -z-1">
