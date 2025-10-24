@@ -1,13 +1,61 @@
-# *
+# Robots.txt para Coradir Homes
+# https://homes.coradir.com.ar
+
+# Reglas para todos los bots
 User-agent: *
 Allow: /
 
-# *
-User-agent: *
+# Bloquear rutas internas y APIs
 Disallow: /api/
+Disallow: /_next/static/
+Disallow: /_next/image
 
-# Host
-Host: https://homes.coradir.com.ar
+# Bloquear archivos de sistema
+Disallow: /*.json$
+Disallow: /sitemap-*.xml
 
-# Sitemaps
+# Permitir explícitamente páginas públicas importantes
+Allow: /vivienda-joven
+Allow: /la-torre-ii
+Allow: /inversiones-inteligentes
+Allow: /corporativos
+Allow: /instituciones
+Allow: /terrenos
+Allow: /beneficios
+Allow: /proyectos
+Allow: /saber-mas/
+
+# Reglas específicas para bots malos conocidos
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10
+
+# Bloquear scrapers agresivos
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+# Bots importantes - sin restricciones
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Sitemap
 Sitemap: https://homes.coradir.com.ar/sitemap.xml

@@ -1,0 +1,3 @@
+Contact: mailto:ia@coradir.com.ar
+Preferred-Languages: es, en
+Canonical: https://homes.coradir.com.ar/.well-known/security.txt
