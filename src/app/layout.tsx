@@ -6,7 +6,6 @@ import { playfairDisplay, raleway } from "@/content/ui/fonts";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Bot from "./components/bot";
-import ScrollTracker from "./components/analytics/ScrollTracker";
 import { createMetadata, siteConfig } from "@/lib/seo";
 
 // Lazy load heavy sections
@@ -53,7 +52,7 @@ export default function RootLayout({
           Saltar al contenido principal
         </a>
 
-        {/* Google Tag Manager Script */}
+        {/* Google Tag Manager Script - Maneja todos los eventos automáticamente */}
         <Script
           id="gtm-script"
           strategy="beforeInteractive"
@@ -64,24 +63,6 @@ export default function RootLayout({
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GTM-PBZQ65VZ');
-            `
-          }}
-        />
-
-        {/* Google Analytics Script - Deferred for better performance */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-0FW1131XF8"
-          strategy="lazyOnload"
-        />
-        <Script
-          id="ga-script"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0FW1131XF8');
             `
           }}
         />
@@ -106,7 +87,6 @@ export default function RootLayout({
           />
         ))}
 
-        <ScrollTracker />
         <Header/>
         <Bot/>
         <main id="main-content" role="main" className="focus:outline-none">

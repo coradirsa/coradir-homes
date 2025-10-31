@@ -13,7 +13,6 @@ export default function ViviendaJovenForm() {
       heading="Descubri una nueva forma de vivir."
       subtitle="Comunicate con nosotros:"
       submitLabel="Quiero invertir"
-      successMessage="Gracias por tu interes. Hemos recibido tu solicitud y te contactaremos pronto."
       id="formulario"
     />
   );

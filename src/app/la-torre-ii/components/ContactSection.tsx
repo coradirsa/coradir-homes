@@ -49,7 +49,6 @@ export default function ContactSection() {
           heading="Consultanos por La Torre II"
           subtitle="Completa tus datos y te contactamos."
           submitLabel="Enviar consulta"
-          successMessage="Gracias por tu interes. Nos contactaremos a la brevedad."
           id="formulario"
         />
       </div>

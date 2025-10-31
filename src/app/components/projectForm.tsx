@@ -3,12 +3,12 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import CustomInput from "@/app/saber-mas/[interes]/components/customInput";
 import Loader from "@/app/saber-mas/[interes]/components/loader";
 import { FormSchema as FormSchemaDefinition } from "@/schemas/formSchema";
 import type { FormSchema as FormSchemaType, Interests as InterestType, InputForm } from "@/schemas/formSchema";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { GAEvents } from "@/lib/analytics/gtag";
 
 type ProjectFormProps = {
   interest: InterestType;
@@ -16,11 +16,8 @@ type ProjectFormProps = {
   heading?: string;
   subtitle?: string;
   submitLabel?: string;
-  successMessage?: string;
   id?: string;
 };
-
-const DEFAULT_SUCCESS = "Gracias por tu interes. Hemos recibido tu solicitud y te contactaremos pronto.";
 
 export default function ProjectForm({
   interest,
@@ -28,7 +25,6 @@ export default function ProjectForm({
   heading = "Descubri una nueva forma de vivir.",
   subtitle = "Comunicate con nosotros:",
   submitLabel = "Quiero invertir",
-  successMessage = DEFAULT_SUCCESS,
   id = "formulario",
 }: ProjectFormProps) {
   const form = useForm<FormSchemaType>({
@@ -41,10 +37,11 @@ export default function ProjectForm({
       phone: "",
     },
   });
-  const { handleSubmit, control, formState: { errors, isSubmitting }, reset } = form;
+  const { handleSubmit, control, formState: { errors, isSubmitting } } = form;
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [submitMessage, setSubmitMessage] = useState({ type: "", text: "" });
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const onSubmit = async (data: FormSchemaType) => {
     setLoading(true);
@@ -93,16 +90,8 @@ export default function ProjectForm({
         throw new Error(`Error HTTP: ${response.status}`);
       }
 
-      // Track successful form submission
-      GAEvents.formSubmit(
-        `Form ${interest}`,
-        window.location.pathname
-      );
-
-      setSubmitMessage({
-        type: "success",
-        text: successMessage,
-      });
+      // Redirigir a página de agradecimiento para que GTM detecte la conversión
+      router.push('/gracias');
     } catch (error) {
       const err = error as Error;
       console.log(err);
@@ -111,13 +100,7 @@ export default function ProjectForm({
         type: "error",
         text: "Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.",
       });
-      return;
     }
-
-    setTimeout(() => {
-      setSubmitMessage({ type: "", text: "" });
-      reset();
-    }, 5000);
     setLoading(false);
   };
 
@@ -172,13 +155,6 @@ export default function ProjectForm({
       <div className="w-full h-full absolute top-0 left-0 bg-white/70 z-0" />
       {loading ? (
         <Loader />
-      ) : submitMessage.type === "success" ? (
-        <section className="flex flex-col items-center justify-center gap-5 bg-blue p-10 rounded-2xl">
-          <h2 className="w-full text-sm md:text-xl text-white font-raleway text-center">{submitMessage.text}</h2>
-          <h3 className="w-full text-lg md:text-2xl text-white font-raleway text-center font-bold">
-            Vivir bien nunca fue tan sencillo.
-          </h3>
-        </section>
       ) : (
         <form
           onSubmit={handleSubmit(onSubmit)}

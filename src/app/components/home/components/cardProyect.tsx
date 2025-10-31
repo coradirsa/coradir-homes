@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link";
 import Image from "next/image";
-import { GAEvents } from "@/lib/analytics/gtag";
 
 export default function CardProyect({
   title,
@@ -51,10 +50,6 @@ export default function CardProyect({
   const actionClassName =
     "absolute bottom-6 xl:bottom-12 z-200 text-center bg-white text-blue font-raleway px-10 md:px-12 py-1.5 md:py-2 text-base md:text-xl rounded-full transition-colors duration-300 ease-in-out hover:bg-blue hover:text-white hover:border-white border-transparent border-2";
 
-  const handleProjectClick = () => {
-    GAEvents.projectClick(title, window.location.pathname);
-  };
-
   return (
     <div
       className={`flex flex-col items-center justify-center bg-transparent transition-all duration-300 ${
@@ -103,7 +98,6 @@ export default function CardProyect({
             rel="noopener noreferrer"
             className={actionClassName}
             aria-label="Ver Proyecto"
-            onClick={handleProjectClick}
           >
             Saber mas
           </a>
@@ -114,7 +108,6 @@ export default function CardProyect({
             href={link}
             aria-label="Ver Proyecto"
             className={actionClassName}
-            onClick={handleProjectClick}
           >
             Saber mas
           </Link>

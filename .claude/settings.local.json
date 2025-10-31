@@ -21,7 +21,8 @@
       "Bash(git log:*)",
       "Bash(findstr:*)",
       "Bash(netstat:*)",
-      "Bash(npx next start:*)"
+      "Bash(npx next start:*)",
+      "Bash(npm run lint)"
     ],
     "deny": [],
     "ask": []
