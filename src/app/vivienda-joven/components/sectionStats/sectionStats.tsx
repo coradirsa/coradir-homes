@@ -23,34 +23,35 @@ const stats = [
     },
 ];
 
-const tableHeader = ["Esquema", "Precio ref.", "Reserva", "A 30 dias", "A 120-180 dias", "Entrega/posicion"];
+// Temporalmente comentado - datos de planes de pago
+// const tableHeader = ["Esquema", "Precio ref.", "Reserva", "A 30 dias", "A 120-180 dias", "Entrega/posicion"];
 
-const tableRows = [
-    {
-        scheme: "Lista",
-        price: "USD 63.000",
-        reserve: "3%",
-        to30: "Completar hasta 10%",
-        to180: "-",
-        delivery: "90%",
-    },
-    {
-        scheme: "Preferencial",
-        price: "USD 55.000",
-        reserve: "3%",
-        to30: "40%",
-        to180: "40%",
-        delivery: "20%",
-    },
-    {
-        scheme: "Inversor",
-        price: "CONSULTAR",
-        reserve: "3%",
-        to30: "Boleto por 100% (saldo)",
-        to180: "-",
-        delivery: "-",
-    },
-];
+// const tableRows = [
+//     {
+//         scheme: "Lista",
+//         price: "USD 63.000",
+//         reserve: "3%",
+//         to30: "Completar hasta 10%",
+//         to180: "-",
+//         delivery: "90%",
+//     },
+//     {
+//         scheme: "Preferencial",
+//         price: "USD 55.000",
+//         reserve: "3%",
+//         to30: "40%",
+//         to180: "40%",
+//         delivery: "20%",
+//     },
+//     {
+//         scheme: "Inversor",
+//         price: "CONSULTAR",
+//         reserve: "3%",
+//         to30: "Boleto por 100% (saldo)",
+//         to180: "-",
+//         delivery: "-",
+//     },
+// ];
 
 export default function SectionStats() {
     return (

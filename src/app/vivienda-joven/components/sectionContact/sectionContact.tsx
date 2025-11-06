@@ -2,7 +2,7 @@
 
 export default function SectionContact() {
     const email = "juana64@coradir.com.ar";
-    const whatsapp = ""; // Agregar número cuando esté disponible
+    const whatsapp: string = ""; // Agregar número cuando esté disponible
     const mapUrl = "https://www.google.com/maps/place/33%C2%B015'54.8%22S+66%C2%B014'07.5%22W/@-33.2652177,-66.2379777,915m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-33.2652177!4d-66.2354028?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D";
     const embedUrl = "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3486.7834566144747!2d-66.2379777!3d-33.2652177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDE1JzU0LjgiUyA2NsKwMTQnMDcuNSJX!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar";
 
