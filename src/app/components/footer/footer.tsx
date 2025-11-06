@@ -69,6 +69,12 @@ export default function Footer(){
                             {link.label}
                         </Link>
                     ))}
+                    <a
+                        href="mailto:juana64@coradir.com.ar"
+                        className="text-white/80 hover:text-white font-raleway text-sm xl:text-base transition-colors duration-200"
+                    >
+                        juana64@coradir.com.ar
+                    </a>
                 </div>
             </div>
 

@@ -15,6 +15,7 @@ type ProjectFormProps = {
   backgroundImage?: string;
   heading?: string;
   subtitle?: string;
+  contactEmail?: string;
   submitLabel?: string;
   id?: string;
 };
@@ -24,6 +25,7 @@ export default function ProjectForm({
   backgroundImage,
   heading = "Descubri una nueva forma de vivir.",
   subtitle = "Comunicate con nosotros:",
+  contactEmail,
   submitLabel = "Quiero invertir",
   id = "formulario",
 }: ProjectFormProps) {

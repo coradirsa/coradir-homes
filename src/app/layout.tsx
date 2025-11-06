@@ -96,14 +96,15 @@ export default function RootLayout({
         <Footer/>
         {/* <Script src={"http://localhost:8850/embed.js"} strategy="afterInteractive" /> */}
 
-        {process.env.NEXT_PUBLIC_BOT_SCRIPT_URL && (
+        {/* Bot deshabilitado temporalmente para desarrollo local */}
+        {/* {process.env.NEXT_PUBLIC_BOT_SCRIPT_URL && (
           <Script
               src={process.env.NEXT_PUBLIC_BOT_SCRIPT_URL}
               strategy="lazyOnload"
               data-mode="custom"
               data-trigger="#coradir-custom-avatar"
           />
-        )}
+        )} */}
 
       </body>
     </html>

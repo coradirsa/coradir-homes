@@ -82,10 +82,34 @@ if (homeEntry) {
 const viviendaJovenEntry = entryMap.get("/vivienda-joven");
 if (viviendaJovenEntry) {
   viviendaJovenEntry.structuredData = (context) => [
-    buildRealEstateProjectJsonLd(context),
+    buildRealEstateProjectJsonLd({
+      ...context,
+      additional: {
+        numberOfRooms: 2,
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "Pileta" },
+          { "@type": "LocationFeatureSpecification", name: "Estacionamiento individual" },
+          { "@type": "LocationFeatureSpecification", name: "Paneles solares" },
+          { "@type": "LocationFeatureSpecification", name: "Seguridad con IA 24hs" },
+          { "@type": "LocationFeatureSpecification", name: "Zona comercial" },
+          { "@type": "LocationFeatureSpecification", name: "Aire acondicionado" },
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Juana Koslay",
+          addressRegion: "San Luis",
+          addressCountry: "AR",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "-33.265218",
+          longitude: "-66.235403",
+        },
+      },
+    }),
     buildBreadcrumbJsonLd([
       { name: "Inicio", item: siteConfig.url },
-      { name: "Vivienda Joven", item: context.canonical },
+      { name: "Juana 64 - Vivienda Joven", item: context.canonical },
     ]),
   ];
 }

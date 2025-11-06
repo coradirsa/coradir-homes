@@ -35,7 +35,6 @@ export default function SectionHero() {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1440px) 100vw, 1600px"
                 className="absolute top-0 left-0 -z-2 h-full w-full object-cover object-left"
-                style={{ height: `${heroHeight}vh` }}
                 priority
             />
         </section>

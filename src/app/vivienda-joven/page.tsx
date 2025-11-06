@@ -9,6 +9,7 @@ import SectionHero from "./components/sectionHero/sectionHero";
 import SectionRooms from "./components/sectionRooms/sectionRooms";
 import SectionStats from "./components/sectionStats/sectionStats";
 import SectionVideos from "./components/sectionVideos/sectionVideos";
+import SectionContact from "./components/sectionContact/sectionContact";
 
 const SPECIFICATIONS_TOP = [
     { title: "Construccion rapida", icon: "/icons/vivienda-joven/01.png" },
@@ -46,6 +47,7 @@ export default function Page() {
                 <SectionVideos />
                 <SectionStats />
                 <Form />
+                <SectionContact />
             </>
         </ReCaptcha>
     );

@@ -79,7 +79,8 @@ export default function SectionStats() {
                     height={2000}
                     className="md:w-[70%] h-full object-cover"
                 />
-                <h2 className="text-3xl md:text-4xl xl:text-7xl 2xl:text-9xl text-blue w-full font-playfair text-center leading-tight font-bold pt-10">
+                {/* Temporalmente comentado - planes de pago */}
+                {/* <h2 className="text-3xl md:text-4xl xl:text-7xl 2xl:text-9xl text-blue w-full font-playfair text-center leading-tight font-bold pt-10">
                     Accede a planes de pago
                 </h2>
                 <div className="container">
@@ -107,7 +108,7 @@ export default function SectionStats() {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
             </section>
         </section>
     );
