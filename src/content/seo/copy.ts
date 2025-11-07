@@ -1,7 +1,7 @@
 export const HOME_COPY = {
   heroTitle: {
-    primary: "Elegi tu nuevo hogar",
-    secondary: "y vivi la vida que mereces.",
+    primary: "Elegí tu nuevo hogar",
+    secondary: "y viví la vida que merecés.",
   },
   createHomes: {
     heading: "Creamos hogares con diseño, confort y sostenibilidad",
@@ -11,7 +11,7 @@ export const HOME_COPY = {
   investments: {
     title: "Tu oportunidad de",
     highlight: "Inversión",
-    description: "Inverti con seguridad, incluso sin experiencia previa, y se parte activa del desarrollo inmobiliario.",
+    description: "Invertí con seguridad, incluso sin experiencia previa, y sé parte activa del desarrollo inmobiliario.",
   },
 };
 
@@ -23,13 +23,13 @@ export const BENEFICIOS_COPY = {
     "Con infraestructura inteligente, eficiencia energética y tecnología aplicada, nuestras unidades como Smart Building y Torre II maximizan el valor y reducen costos operativos hasta un 80%.",
     "Hace crecer tu inversión con seguridad, innovación y visión de futuro.",
   ],
-  closing: "Inverti inteligente. Inverti con Coradir Homes.",
+  closing: "Invertí inteligente. Invertí con Coradir Homes.",
 };
 
 export const CORPORATIVOS_COPY = {
   title: "Corporativos",
   intro: [
-    "Inverti en eficiencia para tu empresa con Coradir Homes.",
+    "Invertí en eficiencia para tu empresa con Coradir Homes.",
     "Soluciones habitacionales listas para tu equipo. Departamentos modernos, conectividad de punta y ubicación estratégica para optimizar tiempos y recursos.",
   ],
   benefits: [
