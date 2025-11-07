@@ -16,7 +16,7 @@ const SOCIALS = [
   },
   {
     label: "Whatsapp",
-    href: "https://api.whatsapp.com/send/?phone=2665108855&text=Hola%2C+quiero+solicitar+una+visita+...&type=phone_number&app_absent=0",
+    href: "https://wa.me/5492664649967?text=" + encodeURIComponent("Hola, vi el proyecto en la web y quiero saber más..."),
   },
 ];
 
@@ -25,9 +25,9 @@ export default function ContactSection() {
     <section className="bg-white py-16" id="contacto">
       <div className="container mx-auto px-6 flex flex-col gap-8">
         <div className="flex flex-col gap-4 text-center md:text-left">
-          <h2 className="text-4xl md:text-5xl font-playfair text-blue">Contactanos</h2>
+          <h2 className="text-4xl md:text-5xl font-playfair text-blue">Contáctanos</h2>
           <p className="text-lg md:text-xl font-raleway text-black/70">
-            Completa el formulario y un asesor se comunicara con vos para contarte todo sobre La Torre II.
+            Completá el formulario y un asesor se comunicará con vos para contarte todo sobre La Torre II.
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             {SOCIALS.map((social) => (
@@ -46,8 +46,8 @@ export default function ContactSection() {
         <ProjectForm
           interest="la-torre-ii"
           backgroundImage="/img/la-torre-ii/slider/slide-00.webp"
-          heading="Consultanos por La Torre II"
-          subtitle="Completa tus datos y te contactamos."
+          heading="Consultános por La Torre II"
+          subtitle="Completá tus datos y te contactamos."
           submitLabel="Enviar consulta"
           id="formulario"
         />

@@ -8,7 +8,7 @@ type ButtonContactProps = {
     label?: string;
 };
 
-const DEFAULT_LABEL = "Saber mas";
+const DEFAULT_LABEL = "Saber más";
 
 export default function ButtonContact({ href, className = "", id, label = DEFAULT_LABEL }: ButtonContactProps){
     return(

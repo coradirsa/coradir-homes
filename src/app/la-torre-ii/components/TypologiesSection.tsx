@@ -22,7 +22,7 @@ const TYPOLOGIES: Typology[] = [
     key: "monoambiente",
     title: "Monoambiente",
     description:
-      "Departamentos integrados con espacios eficientes y luminosos. Opciones con patio interior en planta baja o balcon corrido del primer al sexto piso.",
+      "Departamentos integrados con espacios eficientes y luminosos. Opciones con patio interior en planta baja o balcón corrido del primer al sexto piso.",
     cover: "/img/la-torre-ii/typologies/monoambiente.webp",
     variants: [
       {
@@ -33,17 +33,17 @@ const TYPOLOGIES: Typology[] = [
       {
         title: "Dpto A - Patio interior",
         image: "/img/la-torre-ii/typologies/monoambientes/variant-02.webp",
-        highlights: ["Planta baja", "Patio interior", "Orientacion norte"],
+        highlights: ["Planta baja", "Patio interior", "Orientación norte"],
       },
       {
-        title: "Dpto F - Balcon",
+        title: "Dpto F - Balcón",
         image: "/img/la-torre-ii/typologies/monoambientes/variant-03.webp",
-        highlights: ["1º al 6º piso", "Balcon corrido", "Vista panoramica"],
+        highlights: ["1º al 6º piso", "Balcón corrido", "Vista panorámica"],
       },
       {
-        title: "Dpto B - Balcon",
+        title: "Dpto B - Balcón",
         image: "/img/la-torre-ii/typologies/monoambientes/variant-04.webp",
-        highlights: ["1º al 6º piso", "Balcon al frente", "Gran iluminacion natural"],
+        highlights: ["1º al 6º piso", "Balcón al frente", "Gran iluminación natural"],
       },
     ],
   },
@@ -51,7 +51,7 @@ const TYPOLOGIES: Typology[] = [
     key: "un-dormitorio",
     title: "Un dormitorio",
     description:
-      "Distribucion pensada para sumar privacidad y confort. Versiones con patio verde o balcon corrido segun el nivel del edificio.",
+      "Distribución pensada para sumar privacidad y confort. Versiones con patio verde o balcón corrido según el nivel del edificio.",
     cover: "/img/la-torre-ii/typologies/un-dormitorio.webp",
     variants: [
       {
@@ -70,19 +70,19 @@ const TYPOLOGIES: Typology[] = [
         highlights: ["Planta baja", "Dormitorio suite", "Patio semicubierto"],
       },
       {
-        title: "Dpto E - Balcon",
+        title: "Dpto E - Balcón",
         image: "/img/la-torre-ii/typologies/un-dormitorio/variant-04.webp",
-        highlights: ["1º al 6º piso", "Balcon corrido", "Cocina integrada"],
+        highlights: ["1º al 6º piso", "Balcón corrido", "Cocina integrada"],
       },
       {
-        title: "Dpto D - Balcon",
+        title: "Dpto D - Balcón",
         image: "/img/la-torre-ii/typologies/un-dormitorio/variant-05.webp",
-        highlights: ["1º al 6º piso", "Amplio estar comedor", "Balcon al frente"],
+        highlights: ["1º al 6º piso", "Amplio estar comedor", "Balcón al frente"],
       },
       {
-        title: "Dpto C - Balcon",
+        title: "Dpto C - Balcón",
         image: "/img/la-torre-ii/typologies/un-dormitorio/variant-06.webp",
-        highlights: ["1º al 6º piso", "Sector de trabajo", "Balcon con vista abierta"],
+        highlights: ["1º al 6º piso", "Sector de trabajo", "Balcón con vista abierta"],
       },
     ],
   },
@@ -90,16 +90,16 @@ const TYPOLOGIES: Typology[] = [
     key: "dos-dormitorios",
     title: "Dos dormitorios",
     description:
-      "Alternativas familiares con dos dormitorios definidos, balcon aterrazado y circulaciones optimizadas para sumar espacios de guardado.",
+      "Alternativas familiares con dos dormitorios definidos, balcón aterrazado y circulaciones optimizadas para sumar espacios de guardado.",
     cover: "/img/la-torre-ii/typologies/dos-dormitorios.webp",
     variants: [
       {
-        title: "Dpto G - Balcon panoramico",
+        title: "Dpto G - Balcón panorámico",
         image: "/img/la-torre-ii/typologies/dos-dormitorios/variant-01.webp",
-        highlights: ["1º al 6º piso", "Suite principal", "Balcon aterrazado"],
+        highlights: ["1º al 6º piso", "Suite principal", "Balcón aterrazado"],
       },
       {
-        title: "Dpto A - Balcon al frente",
+        title: "Dpto A - Balcón al frente",
         image: "/img/la-torre-ii/typologies/dos-dormitorios/variant-02.webp",
         highlights: ["1º al 6º piso", "Living comedor amplio", "Lavadero integrado"],
       },
@@ -109,18 +109,18 @@ const TYPOLOGIES: Typology[] = [
     key: "cocheras",
     title: "Cocheras",
     description:
-      "Opciones cubiertas en planta baja y subsuelo con circulaciones seguras, acceso controlado y puntos de carga preparados para movilidad electrica.",
+      "Opciones cubiertas en planta baja y subsuelo con circulaciones seguras, acceso controlado y puntos de carga preparados para movilidad eléctrica.",
     cover: "/img/la-torre-ii/typologies/cocheras.webp",
     variants: [
       {
         title: "Cocheras subsuelo",
         image: "/img/la-torre-ii/typologies/cocheras/variant-01.webp",
-        highlights: ["Acceso porton automatizado", "Conectividad directa al lobby", "Vigilancia 24 hs"],
+        highlights: ["Acceso portón automatizado", "Conectividad directa al lobby", "Vigilancia 24 hs"],
       },
       {
         title: "Cocheras planta baja",
         image: "/img/la-torre-ii/typologies/cocheras/variant-02.webp",
-        highlights: ["Ingreso agil", "Circulacion perimetral", "Listas para cargadores EV"],
+        highlights: ["Ingreso ágil", "Circulación perimetral", "Listas para cargadores EV"],
       },
     ],
   },
@@ -137,7 +137,7 @@ export default function TypologiesSection() {
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-playfair text-blue">Tu depto</h2>
           <p className="mt-4 text-lg md:text-xl font-raleway text-black/70">
-            Elegi la tipologia que mejor se adapta a tu estilo de vida. Cada unidad se disena para aprovechar la luz natural y optimizar cada metro cuadrado.
+            Elegí la tipología que mejor se adapta a tu estilo de vida. Cada unidad se diseña para aprovechar la luz natural y optimizar cada metro cuadrado.
           </p>
         </div>
 
@@ -169,7 +169,7 @@ export default function TypologiesSection() {
                       isActive ? "bg-white text-blue" : "bg-white/80 text-blue group-hover:bg-white group-hover:text-blue"
                     }`}
                   >
-                    {isActive ? "Seleccionado" : "Conocer mas"}
+                    {isActive ? "Seleccionado" : "Conocer más"}
                   </span>
                 </div>
               </button>

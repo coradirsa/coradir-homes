@@ -2,7 +2,8 @@
 
 export default function SectionContact() {
     const email = "juana64@coradir.com.ar";
-    const whatsapp: string = ""; // Agregar número cuando esté disponible
+    const whatsapp: string = "+54 9 266 4649967";
+    const whatsappMessage = "Hola, vi el proyecto en la web y quiero saber más...";
     const mapUrl = "https://www.google.com/maps/place/33%C2%B015'54.8%22S+66%C2%B014'07.5%22W/@-33.2652177,-66.2379777,915m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-33.2652177!4d-66.2354028?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D";
     const embedUrl = "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3486.7834566144747!2d-66.2379777!3d-33.2652177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDE1JzU0LjgiUyA2NsKwMTQnMDcuNSJX!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar";
 
@@ -10,7 +11,7 @@ export default function SectionContact() {
         <section className="w-full bg-white py-10 md:py-16 xl:py-20">
             <div className="container px-5 flex flex-col items-center gap-8 md:gap-12">
                 <h2 className="text-3xl md:text-5xl xl:text-7xl text-blue font-playfair text-center font-bold">
-                    Contactanos
+                    Contáctanos
                 </h2>
 
                 <div className="w-full flex flex-col lg:flex-row items-center gap-6 md:gap-8">
@@ -34,7 +35,7 @@ export default function SectionContact() {
                         {/* WhatsApp */}
                         {whatsapp ? (
                             <a
-                                href={`https://wa.me/${whatsapp.replace(/\D/g, '')}`}
+                                href={`https://wa.me/${whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-green-500 text-white rounded-xl p-6 md:p-8 flex flex-col items-center justify-center gap-3 hover:bg-green-600 transition-all hover:scale-105"

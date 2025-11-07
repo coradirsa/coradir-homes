@@ -7,28 +7,28 @@ import { StructuredDataScripts } from "../components/structuredDataScripts";
 const PROJECTS = [
     {
         name: "Vivienda Joven",
-        description: "Unidades con domotica, zonas comunes equipadas y soluciones ecoeficientes en Juana Koslay.",
+        description: "Unidades con domótica, zonas comunes equipadas y soluciones ecoeficientes en Juana Koslay.",
         href: "/vivienda-joven",
         image: "/img/projects/jk.webp",
         ctaId: "proyectos-vivienda-joven",
     },
     {
         name: "La Torre II",
-        description: "Residencias premium con amenities de alta gama y ubicacion estrategica en el centro de San Luis.",
+        description: "Residencias premium con amenities de alta gama y ubicación estratégica en el centro de San Luis.",
         href: "/la-torre-ii",
         image: "/img/projects/torre2.png",
         ctaId: "proyectos-la-torre-ii",
     },
     {
         name: "Inversiones Inteligentes",
-        description: "Portafolio administrado para inversores que buscan rentabilidad sostenible y gestion profesional.",
+        description: "Portafolio administrado para inversores que buscan rentabilidad sostenible y gestión profesional.",
         href: "/inversiones-inteligentes",
         image: "/img/inversiones_inteligentes.webp",
         ctaId: "proyectos-inversiones-inteligentes",
     },
     {
         name: "Terrenos",
-        description: "Lotes seleccionados con potencial de valorizacion para desarrollos residenciales y comerciales.",
+        description: "Lotes seleccionados con potencial de valorización para desarrollos residenciales y comerciales.",
         href: "/terrenos",
         image: "/img/terrenos_hero.webp",
         ctaId: "proyectos-terrenos",
@@ -61,11 +61,11 @@ export default function ProyectosPage() {
             <StructuredDataScripts pathname="/proyectos" />
             <section className="container py-16 px-6 flex flex-col gap-12">
                 <header className="flex flex-col items-center gap-6 text-center">
-                    <h1 className="text-4xl md:text-6xl xl:text-7xl font-playfair text-blue">Proyectos de inversion</h1>
+                    <h1 className="text-4xl md:text-6xl xl:text-7xl font-playfair text-blue">Proyectos de inversión</h1>
                     <p className="max-w-3xl text-base md:text-xl font-raleway text-black">
-                        Explora el portafolio activo de Coradir Homes y encontra la propuesta que mejor se adapte a tu
+                        Explorá el portafolio activo de Coradir Homes y encontrá la propuesta que mejor se adapte a tu
                         perfil: desarrollos en preventa, residencias terminadas y oportunidades para diversificar tu
-                        inversion inmobiliaria.
+                        inversión inmobiliaria.
                     </p>
                 </header>
                 <section className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">

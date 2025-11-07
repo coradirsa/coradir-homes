@@ -99,7 +99,7 @@ export default function CardProyect({
             className={actionClassName}
             aria-label="Ver Proyecto"
           >
-            Saber mas
+            Saber más
           </a>
         ) : (
           <Link
@@ -109,7 +109,7 @@ export default function CardProyect({
             aria-label="Ver Proyecto"
             className={actionClassName}
           >
-            Saber mas
+            Saber más
           </Link>
         ))
       )}

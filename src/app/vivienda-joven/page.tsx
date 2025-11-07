@@ -12,7 +12,7 @@ import SectionVideos from "./components/sectionVideos/sectionVideos";
 import SectionContact from "./components/sectionContact/sectionContact";
 
 const SPECIFICATIONS_TOP = [
-    { title: "Construccion rapida", icon: "/icons/vivienda-joven/01.png" },
+    { title: "Construcción rápida", icon: "/icons/vivienda-joven/01.png" },
     { title: "Seguridad con IA 24 hs", icon: "/icons/vivienda-joven/02.png" },
     { title: "Zona comercial", icon: "/icons/vivienda-joven/03.png" },
     { title: "Estacionamientos", icon: "/icons/vivienda-joven/04.png" },
@@ -22,9 +22,9 @@ const SPECIFICATIONS_TOP = [
 
 const SPECIFICATIONS_BOTTOM = [
     { title: "Estacionamiento individual", icon: "/icons/vivienda-joven/08.png" },
-    { title: "Paneles solares con proteccion anticorte", icon: "/icons/vivienda-joven/09.png" },
-    { title: "Calefon electrico", icon: "/icons/vivienda-joven/10.png" },
-    { title: "Cocina con artefactos electricos", icon: "/icons/vivienda-joven/11.png" },
+    { title: "Paneles solares con protección anticorte", icon: "/icons/vivienda-joven/09.png" },
+    { title: "Calefón eléctrico", icon: "/icons/vivienda-joven/10.png" },
+    { title: "Cocina con artefactos eléctricos", icon: "/icons/vivienda-joven/11.png" },
     { title: "Aire acondicionado", icon: "/icons/vivienda-joven/12.png" },
 ];
 

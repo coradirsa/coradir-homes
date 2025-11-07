@@ -99,7 +99,7 @@ export default function Footer(){
                             ))
                         }
                     </span>
-                    <span className="text-xs md:text-sm text-white/70 font-raleway">Este sitio esta protegido por reCAPTCHA</span>
+                    <span className="text-xs md:text-sm text-white/70 font-raleway">Este sitio está protegido por reCAPTCHA</span>
                 </div>
                 <div className="flex items-center">
                     <Link href="/" aria-label="Ir a inicio">

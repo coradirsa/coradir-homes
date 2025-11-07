@@ -147,7 +147,7 @@ if (proyectosEntry) {
   proyectosEntry.structuredData = (context) => [
     buildBreadcrumbJsonLd([
       { name: "Inicio", item: siteConfig.url },
-      { name: "Proyectos de inversion", item: context.canonical },
+      { name: "Proyectos de inversión", item: context.canonical },
     ]),
     {
       "@context": "https://schema.org",
