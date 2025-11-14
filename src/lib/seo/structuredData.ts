@@ -87,3 +87,36 @@ export const buildBreadcrumbJsonLd = (items: { name: string; item: string }[]): 
   })),
 });
 
+/**
+ * Structured Data para Inversiones Inmobiliarias
+ * Schema.org FinancialProduct + Service
+ */
+export const buildInvestmentProductJsonLd = (site: SiteConfig = siteConfig): StructuredDataEntry => ({
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  name: "Inversión Inmobiliaria con Respaldo",
+  description:
+    "Oportunidad de inversión en proyectos de construcción de departamentos con garantía real sobre inmuebles mediante contratos privados e hipotecas sobre unidades terminadas.",
+  provider: {
+    "@type": "Organization",
+    name: site.legalName,
+    url: site.url,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: site.phone,
+      email: site.email,
+      contactType: "investment inquiry",
+      areaServed: "AR",
+      availableLanguage: ["es"],
+    },
+  },
+  termsOfService: `${site.url}/politica-de-privacidad`,
+  category: "Real Estate Investment",
+  areaServed: {
+    "@type": "Country",
+    name: "Argentina",
+  },
+  feesAndCommissionsSpecification:
+    "Las condiciones específicas (plazos, moneda, intereses, garantías) se acuerdan en contratos privados entre las partes.",
+});
+
