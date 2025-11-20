@@ -75,6 +75,13 @@
     "image": "/img/casa_joven_1.png"
   },
   {
+    "pathname": "/contacto",
+    "title": "Contacto | Coradir Homes",
+    "description": "Contactanos para consultas sobre proyectos de vivienda o inversiones inmobiliarias. Estamos para ayudarte a encontrar la solucion que necesitas.",
+    "changefreq": "monthly",
+    "priority": 0.8
+  },
+  {
     "pathname": "/saber-mas",
     "title": "Saber mas | Recursos y guias de inversion inmobiliaria",
     "description": "Articulos, guias y novedades sobre inversion inmobiliaria, vivienda inteligente y tendencias del mercado de la construccion.",

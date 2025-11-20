@@ -5,6 +5,8 @@ import { StructuredDataScripts } from "../components/structuredDataScripts";
 import CardInvestment from "../components/cardInvestment";
 import ButtonContact from "../components/buttonContact";
 import FaqSection from "../components/faq/faqSection";
+import InvestmentForm from "../components/InvestmentForm/InvestmentForm";
+import InvestmentHero from "./components/InvestmentHero";
 import { INVERSIONES_COPY, FAQ_CONTENT } from "@/content/seo/copy";
 
 export function generateMetadata(): Metadata {
@@ -18,6 +20,15 @@ export default function Investments() {
     return (
         <>
             <StructuredDataScripts pathname="/inversiones-inteligentes" />
+
+            {/* Hero Section - Inversión con Garantía Hipotecaria */}
+            <InvestmentHero />
+
+            {/* Formulario de inversión */}
+            <section className="container py-10 px-6 md:px-16">
+                <InvestmentForm />
+            </section>
+
             <section className="flex flex-col items-center justify-center container py-10 pb-0 gap-5">
                 <h1 className="font-raleway text-black text-4xl xl:text-8xl text-center px-6 md:px-16">
                     <span className="block font-playfair text-blue">{INVERSIONES_COPY.heroTitle}</span>
@@ -44,7 +55,8 @@ export default function Investments() {
                 />
                 <ButtonContact
                     id="boton-homes-inversiones-inteligentes"
-                    href="/saber-mas/inversiones"
+                    href="https://wa.me/5492664649967?text=Hola!%20Vengo%20de%20la%20web%20de%20Inversiones%20Inteligentes.%20Quiero%20m%C3%A1s%20informaci%C3%B3n."
+                    label="Contactanos"
                     className="absolute bottom-10 xl:bottom-1/3 left-1/2 transform -translate-x-1/2 text-blue bg-white hover:text-white hover:border-white hover:bg-blue/80 border-transparent border-2"
                 />
             </section>

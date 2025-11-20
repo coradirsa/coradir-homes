@@ -14,9 +14,6 @@ const SectionProjectsDone = dynamic(() => import("./components/sectionProjectsDo
   ssr: true,
 });
 
-// Investment Modal Wrapper (client component)
-import InvestmentModalWrapper from "./components/InvestmentModal/InvestmentModalWrapper";
-
 // Investment Structured Data
 import InvestmentModalStructuredData from "./components/InvestmentModal/InvestmentModalStructuredData";
 
@@ -49,7 +46,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        {/* Preconnect to WhatsApp for Investment Modal */}
+        {/* Preconnect to WhatsApp for Investment Form */}
         <link rel="preconnect" href="https://wa.me" />
         <link rel="dns-prefetch" href="https://wa.me" />
       </head>
@@ -106,9 +103,6 @@ export default function RootLayout({
           <SectionProjectsDone/>
         </main>
         <Footer/>
-
-        {/* Investment Modal - Popup de inversiones inmobiliarias */}
-        <InvestmentModalWrapper />
 
         {/* <Script src={"http://localhost:8850/embed.js"} strategy="afterInteractive" /> */}
 

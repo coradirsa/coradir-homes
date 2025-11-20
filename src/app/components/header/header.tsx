@@ -17,18 +17,17 @@ export type NavigationLink = {
 export const links: NavigationLink[] = [
     {
         href: "/proyectos",
-        label: "Proyectos de",
-        secondaryLabel: "inversion",
+        label: "Proyectos",
         hover: [
             { href: "/vivienda-joven", label: "Vivienda Joven" },
-            { href: "/inversiones-inteligentes", label: "Inversiones Inteligentes" },
             { href: "/corporativos", label: "Corporativos" },
             { href: "/instituciones", label: "Instituciones" },
             { href: "/terrenos", label: "Terrenos" },
         ],
     },
     { href: "/beneficios", label: "Beneficios", hover: null },
-    { href: "/", label: "Sobre nosotros", hover: null },
+    { href: "/inversiones-inteligentes", label: "Inversores", hover: null },
+    { href: "/contacto", label: "Contacto", hover: null },
 ];
 
 export default function Header() {
