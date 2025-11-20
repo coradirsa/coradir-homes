@@ -4,10 +4,9 @@ import { createMetadata } from "@/lib/seo";
 import { StructuredDataScripts } from "../components/structuredDataScripts";
 import CardInvestment from "../components/cardInvestment";
 import ButtonContact from "../components/buttonContact";
-import FaqSection from "../components/faq/faqSection";
 import InvestmentForm from "../components/InvestmentForm/InvestmentForm";
 import InvestmentHero from "./components/InvestmentHero";
-import { INVERSIONES_COPY, FAQ_CONTENT } from "@/content/seo/copy";
+import { INVERSIONES_COPY } from "@/content/seo/copy";
 
 export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/inversiones-inteligentes" }).metadata;
@@ -16,7 +15,6 @@ export function generateMetadata(): Metadata {
 export const revalidate = 3600;
 
 export default function Investments() {
-    const faq = FAQ_CONTENT["inversiones-inteligentes"];
     return (
         <>
             <StructuredDataScripts pathname="/inversiones-inteligentes" />
@@ -43,7 +41,6 @@ export default function Investments() {
                     ))}
                 </div>
             </section>
-            <FaqSection title={faq.title} items={faq.items} schemaId="inversiones-inteligentes" />
             <section className="relative w-full">
                 <Image
                     src="/img/inversiones_inteligentes.webp"
