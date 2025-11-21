@@ -21,6 +21,17 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['react-hook-form', '@hookform/resolvers'],
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/manuales",
+        destination: "https://torre2.coradir.com.ar/manuales/",
+        permanent: true,
+      },
+    ];
+  },
+
+
   async headers() {
     return [
       {
