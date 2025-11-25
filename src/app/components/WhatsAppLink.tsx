@@ -2,44 +2,20 @@
 
 import Link from "next/link";
 import { useWhatsAppUtm } from "../../hooks/useWhatsAppUtm";
-import { ReactNode, Suspense } from "react";
+import { Suspense } from "react";
 
-interface WhatsAppLinkProps {
-    href: string;
-    children: ReactNode;
-    className?: string;
-    target?: string;
-    rel?: string;
-}
+type WhatsAppLinkProps = React.ComponentProps<typeof Link>;
 
-function WhatsAppLinkContent({ href, children, className, target, rel }: WhatsAppLinkProps) {
+function WhatsAppLinkContent(props: WhatsAppLinkProps) {
     const { getTrackedUrl } = useWhatsAppUtm();
-    const trackedHref = getTrackedUrl(href);
+    const trackedHref = typeof props.href === "string" ? getTrackedUrl(props.href) : props.href;
 
-    return (
-        <Link
-            href={trackedHref}
-            className={className}
-            target={target}
-            rel={rel}
-        >
-            {children}
-        </Link>
-    );
+    return <Link {...props} href={trackedHref} />;
 }
 
 export default function WhatsAppLink(props: WhatsAppLinkProps) {
     return (
-        <Suspense fallback={
-            <Link
-                href={props.href}
-                className={props.className}
-                target={props.target}
-                rel={props.rel}
-            >
-                {props.children}
-            </Link>
-        }>
+        <Suspense fallback={<Link {...props} />}>
             <WhatsAppLinkContent {...props} />
         </Suspense>
     );

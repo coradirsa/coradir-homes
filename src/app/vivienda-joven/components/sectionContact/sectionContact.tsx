@@ -1,4 +1,5 @@
 "use client";
+import WhatsAppLink from "../../../components/WhatsAppLink";
 
 export default function SectionContact() {
     const email = "juana64@coradir.com.ar";
@@ -34,7 +35,7 @@ export default function SectionContact() {
 
                         {/* WhatsApp */}
                         {whatsapp ? (
-                            <a
+                            <WhatsAppLink
                                 href={`https://wa.me/${whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -47,7 +48,7 @@ export default function SectionContact() {
                                     <p className="font-raleway font-bold text-sm md:text-base mb-1">WhatsApp</p>
                                     <p className="font-raleway text-sm md:text-lg">{whatsapp}</p>
                                 </div>
-                            </a>
+                            </WhatsAppLink>
                         ) : (
                             <div className="bg-gray-300 text-gray-600 rounded-xl p-6 md:p-8 flex flex-col items-center justify-center gap-3 opacity-60 cursor-not-allowed">
                                 <svg className="w-12 h-12 md:w-16 md:h-16" fill="currentColor" viewBox="0 0 24 24">

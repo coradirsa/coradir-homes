@@ -186,11 +186,10 @@ export default function ProjectForm({
             <button
               type="submit"
               disabled={isSubmitting || Object.keys(errors).length > 0}
-              className={`bg-blue text-white max-w-96 mx-auto text-2xl md:text-3xl py-3 px-16 rounded-full transition uppercase cursor-pointer ${
-                isSubmitting || Object.keys(errors).length > 0
+              className={`bg-blue text-white max-w-96 mx-auto text-2xl md:text-3xl py-3 px-16 rounded-full transition uppercase cursor-pointer ${isSubmitting || Object.keys(errors).length > 0
                   ? "opacity-70 cursor-not-allowed"
                   : "hover:bg-blue/70 cursor-pointer"
-              }`}
+                }`}
             >
               {isSubmitting ? "Enviando..." : submitLabel}
             </button>
