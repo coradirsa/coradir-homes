@@ -8,13 +8,18 @@ type ButtonContactProps = {
     label?: string;
 };
 
+import { useWhatsAppUtm } from "../../hooks/useWhatsAppUtm";
+
 const DEFAULT_LABEL = "Saber más";
 
-export default function ButtonContact({ href, className = "", id, label = DEFAULT_LABEL }: ButtonContactProps){
-    return(
+export default function ButtonContact({ href, className = "", id, label = DEFAULT_LABEL }: ButtonContactProps) {
+    const { getTrackedUrl } = useWhatsAppUtm();
+    const trackedHref = getTrackedUrl(href);
+
+    return (
         <Link
             id={id}
-            href={href}
+            href={trackedHref}
             className={`xl:text-3xl text-xl z-10 xl:px-24 px-10 py-2 xl:py-4 rounded-full uppercase transition-colors duration-300 ease-in-out ${className}`}
         >
             {label}

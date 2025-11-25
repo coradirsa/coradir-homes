@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import WhatsAppLink from "../../components/WhatsAppLink";
 
 export default function InvestmentHero() {
   const benefits = [
@@ -86,7 +86,7 @@ export default function InvestmentHero() {
 
           {/* CTA Button */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
+            <WhatsAppLink
               href="https://wa.me/5492664649967?text=Hola!%20Quiero%20solicitar%20una%20propuesta%20de%20inversi%C3%B3n%20con%20garant%C3%ADa%20hipotecaria."
               target="_blank"
               rel="noopener noreferrer"
@@ -101,7 +101,7 @@ export default function InvestmentHero() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </WhatsAppLink>
           </div>
 
           {/* Trust Badge */}

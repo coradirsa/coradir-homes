@@ -35,7 +35,7 @@ export default function Header() {
     const isMobile = useMediaQuery("(max-width: 1280px)");
 
     return (
-        <header className="relative flex justify-between xl:justify-start items-center xl:px-10 px-2 bg-blue w-full h-auto xl:max-h-[15vh]">
+        <header className="relative flex justify-between xl:justify-start items-center xl:px-10 px-2 bg-blue w-full h-auto xl:max-h-[15vh] z-70">
             <Link
                 onClick={() => setOpen(false)}
                 href="/"
@@ -58,11 +58,10 @@ export default function Header() {
                         <div className="flex items-center justify-center relative py-4 p-9 xl:max-w-64 group" key={`navlink-${index}`}>
                             <Link
                                 href={link.href}
-                                className={`relative text-center text-white xl:px-4 xl:py-5 font-raleway uppercase sm:text-xs xl:text-lg font-bold z-2 ${
-                                    link.hover
-                                        ? "group-hover:text-blue"
-                                        : "hover:bg-white hover:text-blue hover:rounded-3xl hover:shadow-[4px_2px_5px_0_rgba(0,0,0,0.5)]"
-                                }`}
+                                className={`relative text-center text-white xl:px-4 xl:py-5 font-raleway uppercase sm:text-xs xl:text-lg font-bold z-30 ${link.hover
+                                    ? "group-hover:bg-white group-hover:text-blue group-hover:rounded-3xl group-hover:shadow-[4px_2px_5px_0_rgba(0,0,0,0.5)]"
+                                    : "hover:bg-white hover:text-blue hover:rounded-3xl hover:shadow-[4px_2px_5px_0_rgba(0,0,0,0.5)]"
+                                    }`}
                                 onClick={() => setOpen(false)}
                             >
                                 <span className="block">{link.label}</span>

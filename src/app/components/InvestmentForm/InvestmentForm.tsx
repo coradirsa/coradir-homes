@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useWhatsAppUtm } from "../../../hooks/useWhatsAppUtm";
 
 // Schema de validación con Zod
 const investmentSchema = z.object({
@@ -38,6 +39,8 @@ export default function InvestmentForm({
     resolver: zodResolver(investmentSchema),
   });
 
+  const { getTrackedUrl } = useWhatsAppUtm();
+
   const onSubmit = (data: InvestmentFormData) => {
     // Construir mensaje de WhatsApp
     const mensaje = `Hola! Vengo del formulario de inversiones de la web homes.
@@ -51,7 +54,14 @@ Mis datos son:
 `;
 
     const mensajeCodificado = encodeURIComponent(mensaje);
-    const urlWsp = `https://wa.me/${whatsappNumber}?text=${mensajeCodificado}`;
+    let urlWsp = `https://wa.me/${whatsappNumber}?text=${mensajeCodificado}`;
+
+    // Apply UTM tracking if available
+    // We can't use the hook directly inside the callback easily without refactoring to use the hook at component level
+    // But we are in a component, so we can use the hook at the top level
+    if (getTrackedUrl) {
+      urlWsp = getTrackedUrl(urlWsp);
+    }
 
     // GTM Event: form submit
     if (trackEvents && typeof window !== "undefined") {

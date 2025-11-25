@@ -5,20 +5,20 @@
 }
 
 @theme {
-    --font-playfair: var(--font-playfair-display), serif;
-    --font-raleway: var(--font-raleway-sans), sans-serif;
-    --color-gray:#4d4d4f;
-    --color-blue: #1a3455;
-    --color-blue-gray: #475c77;
-    --color-blue-light: #3eb3e4;
-    --color-black: #343333;
+  --font-playfair: var(--font-playfair-display), serif;
+  --font-raleway: var(--font-raleway-sans), sans-serif;
+  --color-gray: #4d4d4f;
+  --color-blue: #1a3455;
+  --color-blue-gray: #475c77;
+  --color-blue-light: #3eb3e4;
+  --color-black: #343333;
 }
 
-.container{
-    max-width: 1700px;
-    margin: 0 auto;
+.container {
+  max-width: 1700px;
+  margin: 0 auto;
 }
- 
+
 .link-clip-hover {
   position: relative;
   overflow: hidden;
@@ -41,7 +41,7 @@
 }
 
 .link-clip-hover {
-  transition: color 0.6s cubic-bezier(0.4,0,0.2,1) 0s;
+  transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0s;
 }
 
 .link-clip-hover:hover,
@@ -55,12 +55,13 @@
   color: #222 !important;
   transition-delay: 0.2s;
 }
-.link-clip-hover > * {
+
+.link-clip-hover>* {
   position: relative;
   z-index: 1;
 }
 
-.slider-burger{
+.slider-burger {
   display: block;
   height: 4px;
   width: 100%;
@@ -73,11 +74,12 @@
   max-height: 0;
   opacity: 0;
 }
+
 .menu-submenu-open {
   max-height: 1000px;
   opacity: 1;
 }
- 
+
 /* Formulario */
 
 input:-webkit-autofill,
@@ -96,55 +98,64 @@ textarea:focus:-webkit-autofill {
 /*Carrucel Vivienda joven*/
 .slide-middle,
 .slide-left,
-.slide-right{
+.slide-right {
   position: absolute;
   top: 50%;
-  left:50%;
+  left: 50%;
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
-              z-index 0s;
+    opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s;
 }
-.slide-middle{
+
+.slide-middle {
   transform: translate(-50%, -50%) scale(1.1);
   z-index: 2;
   opacity: 1;
 }
-.slide-left{
-  transform: translate(66%,-50%) ;
+
+.slide-left {
+  transform: translate(66%, -50%);
   z-index: 1;
   opacity: 0.7;
-}
-.slide-right{
-  transform: translate(-166%,-50%) ;
-  z-index: 1;
-  opacity: 0.7;
-}
-.amb::after,
-.amb::before{
-    content: "";
-    position: absolute;
-    top: 60%;
-    width: .7em;
-    height: 3px;
-    background-color: var(--color-blue);
-    border-radius: 10%;
-    transform: translateY(50%);
-}
-.amb::after{
-    right: -15%;
-}
-.amb::before{
-    left: -15%;
 }
 
-.grecaptcha-badge{
+.slide-right {
+  transform: translate(-166%, -50%);
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.amb::after,
+.amb::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  width: .7em;
+  height: 3px;
+  background-color: var(--color-blue);
+  border-radius: 10%;
+  transform: translateY(50%);
+}
+
+.amb::after {
+  right: -15%;
+}
+
+.amb::before {
+  left: -15%;
+}
+
+.grecaptcha-badge {
   visibility: hidden;
 }
 
 @keyframes pulseB {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -159,6 +170,7 @@ textarea:focus:-webkit-autofill {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -170,8 +182,7 @@ textarea:focus:-webkit-autofill {
 }
 
 @media (min-width: 768px) {
-  .slide-middle{
+  .slide-middle {
     transform: translate(-50%, -50%) scale(1.05);
   }
-
 }

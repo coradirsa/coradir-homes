@@ -6,7 +6,12 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      zIndex: {
+        '70': '70',
+        '80': '80',
+      },
+    },
   },
   plugins: [],
 }
