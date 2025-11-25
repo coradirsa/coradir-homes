@@ -25,7 +25,9 @@ interface InvestmentFormProps {
   onSubmitCallback?: (data: InvestmentFormData) => void;
 }
 
-export default function InvestmentForm({
+import { Suspense } from "react";
+
+function InvestmentFormContent({
   whatsappNumber = "5492664649967",
   trackEvents = true,
   showTitle = true,
@@ -224,5 +226,13 @@ Mis datos son:
         </div>
       </form>
     </div>
+  );
+}
+
+export default function InvestmentForm(props: InvestmentFormProps) {
+  return (
+    <Suspense fallback={<div className="bg-white rounded-2xl shadow-xl p-7 md:p-8 h-96 animate-pulse"></div>}>
+      <InvestmentFormContent {...props} />
+    </Suspense>
   );
 }

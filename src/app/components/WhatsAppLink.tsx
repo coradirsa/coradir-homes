@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useWhatsAppUtm } from "../../hooks/useWhatsAppUtm";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 
 interface WhatsAppLinkProps {
     href: string;
@@ -12,7 +12,7 @@ interface WhatsAppLinkProps {
     rel?: string;
 }
 
-export default function WhatsAppLink({ href, children, className, target, rel }: WhatsAppLinkProps) {
+function WhatsAppLinkContent({ href, children, className, target, rel }: WhatsAppLinkProps) {
     const { getTrackedUrl } = useWhatsAppUtm();
     const trackedHref = getTrackedUrl(href);
 
@@ -25,5 +25,22 @@ export default function WhatsAppLink({ href, children, className, target, rel }:
         >
             {children}
         </Link>
+    );
+}
+
+export default function WhatsAppLink(props: WhatsAppLinkProps) {
+    return (
+        <Suspense fallback={
+            <Link
+                href={props.href}
+                className={props.className}
+                target={props.target}
+                rel={props.rel}
+            >
+                {props.children}
+            </Link>
+        }>
+            <WhatsAppLinkContent {...props} />
+        </Suspense>
     );
 }
