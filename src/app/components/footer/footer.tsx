@@ -9,7 +9,7 @@ export default function Footer() {
 
     const footerLinks = {
         projects: [
-            { label: "Vivienda Joven", href: "/vivienda-joven" },
+            { label: "Juana 64", href: "/juana-64" },
             { label: "La Torre II", href: "/la-torre-ii" },
             { label: "Proyectos", href: "/proyectos" },
             { label: "Locales Coradir", href: "/complejo-coradir" },

@@ -8,7 +8,7 @@
     "image": "/img/hero_paginaprincipal.webp"
   },
   {
-    "pathname": "/vivienda-joven",
+    "pathname": "/juana-64",
     "title": "Juana 64 - Vivienda Joven | Departamentos inteligentes en Juana Koslay",
     "description": "Departamentos inteligentes en Juana Koslay con paneles solares, seguridad 24hs, pileta y estacionamiento. Entrega proyectada. Contacto: juana64@coradir.com.ar",
     "changefreq": "monthly",
@@ -61,7 +61,7 @@
   {
     "pathname": "/proyectos",
     "title": "Proyectos de inversion | Portafolio Coradir Homes",
-    "description": "Explora proyectos inmobiliarios activos en San Luis: La Torre II, Vivienda Joven, Complejo Coradir. Oportunidades para vivir o invertir con financiacion flexible.",
+    "description": "Explora proyectos inmobiliarios activos en San Luis: La Torre II, Juana 64, Complejo Coradir. Oportunidades para vivir o invertir con financiacion flexible.",
     "changefreq": "weekly",
     "priority": 0.8,
     "image": "/img/projects/torre2.png"

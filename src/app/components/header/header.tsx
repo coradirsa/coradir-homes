@@ -19,7 +19,7 @@ export const links: NavigationLink[] = [
         href: "/proyectos",
         label: "Proyectos",
         hover: [
-            { href: "/vivienda-joven", label: "Vivienda Joven" },
+            { href: "/juana-64", label: "Juana 64" },
             { href: "/corporativos", label: "Corporativos" },
             { href: "/instituciones", label: "Instituciones" },
             { href: "/terrenos", label: "Terrenos" },

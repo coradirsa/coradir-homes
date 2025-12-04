@@ -3,7 +3,7 @@ export const Interests = z.enum([
     "inversiones",
     "instituciones",
     "corporativos",
-    "vivienda-joven",
+    "juana-64",
     "terrenos",
     "la-torre-ii"
 ]);

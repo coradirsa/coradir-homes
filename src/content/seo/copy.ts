@@ -480,11 +480,11 @@ export const SABER_MAS_CONTENT: Record<string, SaberMasLandingCopy> = {
 };
 
 export const FAQ_CONTENT: Record<
-  "vivienda-joven" | "la-torre-ii" | "inversiones-inteligentes",
+  "juana-64" | "la-torre-ii" | "inversiones-inteligentes",
   { title: string; items: FaqItem[] }
 > = {
-  "vivienda-joven": {
-    title: "Preguntas frecuentes sobre Vivienda Joven",
+  "juana-64": {
+    title: "Preguntas frecuentes sobre Juana 64",
     items: [
       {
         question: "¿Qué incluye la cuota mensual?",

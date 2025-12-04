@@ -10,7 +10,7 @@ export default function SectionProjectsDone() {
     {
       title: "Proyecto Juana Koslay",
       image: isMobileView ? "/img/optimized/projects/jk_mobile.webp" : "/img/optimized/projects/jk_desktop.webp",
-      link: "/vivienda-joven",
+      link: "/juana-64",
       id: "boton-homes-home-proyectos-jk",
     },
     {

@@ -6,11 +6,11 @@ import { StructuredDataScripts } from "../components/structuredDataScripts";
 
 const PROJECTS = [
     {
-        name: "Vivienda Joven",
+        name: "Juana 64",
         description: "Unidades con domótica, zonas comunes equipadas y soluciones ecoeficientes en Juana Koslay.",
-        href: "/vivienda-joven",
+        href: "/juana-64",
         image: "/img/projects/jk.webp",
-        ctaId: "proyectos-vivienda-joven",
+        ctaId: "proyectos-juana-64",
     },
     {
         name: "La Torre II",

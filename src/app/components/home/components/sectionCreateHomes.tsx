@@ -19,8 +19,8 @@ export default function SectionCreateHomes(){
 
                 {/* Internal contextual links */}
                 <div className="flex flex-wrap justify-center gap-4 text-sm xl:text-base">
-                    <Link href="/vivienda-joven" className="text-blue hover:underline font-raleway">
-                        Vivienda Joven
+                    <Link href="/juana-64" className="text-blue hover:underline font-raleway">
+                        Juana 64
                     </Link>
                     <span className="text-gray-400">•</span>
                     <Link href="/la-torre-ii" className="text-blue hover:underline font-raleway">

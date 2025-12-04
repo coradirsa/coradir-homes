@@ -27,7 +27,14 @@
       "Bash(mkdir:*)",
       "Bash(npm run start:*)",
       "Bash(awk:*)",
-      "Bash(npx kill-port:*)"
+      "Bash(npx kill-port:*)",
+      "Bash(del:*)",
+      "Bash(dir:*)",
+      "Bash(npm install:*)",
+      "Bash(git reset:*)",
+      "Bash(ren:*)",
+      "Bash(git mv:*)",
+      "Bash(docker build:*)"
     ],
     "deny": [],
     "ask": []

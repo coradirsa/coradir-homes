@@ -1,11 +1,11 @@
 import Link from "next/link";  
 
 const ACTIVE_LINKS = [
-    { href: "/vivienda-joven", label: "Vivienda Joven" },
+    { href: "/juana-64", label: "Juana 64" },
     { href: "/inversiones-inteligentes", label: "Inversiones Inteligentes" },
-    { href: "/corporativos", label: "Corporativos" },  
+    { href: "/corporativos", label: "Corporativos" },
     { href: "/instituciones", label: "Instituciones" },
-    { href: "/terrenos", label: "Terrenos" }, 
+    { href: "/terrenos", label: "Terrenos" },
 ];
 
 export default function SectionActives(){

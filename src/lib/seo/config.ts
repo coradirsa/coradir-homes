@@ -68,7 +68,7 @@ baseSeoEntries.forEach((entry) => {
   entryMap.set(entry.pathname, entry);
 });
 
-const projectPaths = ["/vivienda-joven", "/la-torre-ii", "/inversiones-inteligentes", "/terrenos", "/corporativos", "/instituciones"];
+const projectPaths = ["/juana-64", "/la-torre-ii", "/inversiones-inteligentes", "/terrenos", "/corporativos", "/instituciones"];
 
 const homeEntry = entryMap.get("/");
 if (homeEntry) {
@@ -79,9 +79,9 @@ if (homeEntry) {
   ];
 }
 
-const viviendaJovenEntry = entryMap.get("/vivienda-joven");
-if (viviendaJovenEntry) {
-  viviendaJovenEntry.structuredData = (context) => [
+const juana64Entry = entryMap.get("/juana-64");
+if (juana64Entry) {
+  juana64Entry.structuredData = (context) => [
     buildRealEstateProjectJsonLd({
       ...context,
       additional: {
