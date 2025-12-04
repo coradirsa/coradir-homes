@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo";
 import { StructuredDataScripts } from "../components/structuredDataScripts";
 import ReCaptcha from "../components/reCaptcha";
-import UnifiedContactForm, { type UnifiedContactFormData } from "../components/shared/UnifiedContactForm";
+import ProjectForm from "../components/projectForm";
 import AlquilarEnPozo from "./components/AlquilarEnPozo";
 import SectionCarucel from "./components/sectionCarucel/sectionCarucel";
 import SectionEspecification from "./components/sectionEspeciification/sectionEspecification";
@@ -29,23 +29,6 @@ const SPECIFICATIONS_BOTTOM = [
     { title: "Aire acondicionado", icon: "/icons/vivienda-joven/12.png" },
 ];
 
-const CONTACT_FORM_DATA: UnifiedContactFormData = {
-    title: "Tu futura casa te espera",
-    subtitle: "El lugar soñado existe",
-    bgImage: "/img/vivienda-joven/bg-form.webp",
-    fields: [
-        { label: "Nombre completo", name: "name", type: "text" },
-        { label: "Teléfono", name: "phone", type: "tel" },
-        { label: "Email", name: "email", type: "email" },
-        { label: "Mensaje (opcional)", name: "message", type: "textarea" }
-    ],
-    profileTypes: [
-        { label: "Inversor", value: "inversor" },
-        { label: "Consumidor", value: "consumidor" }
-    ],
-    options: ["Alquilar", "Comprar"]
-};
-
 export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/juana-64" }).metadata;
 }
@@ -65,7 +48,19 @@ export default function Page() {
                 <SectionVideos />
                 <SectionStats />
                 <AlquilarEnPozo />
-                <UnifiedContactForm data={CONTACT_FORM_DATA} />
+                <ProjectForm
+                    interest="juana-64"
+                    heading="Tu futura casa te espera"
+                    subtitle="El lugar soñado existe"
+                    backgroundImage="/img/vivienda-joven/bg-form.webp"
+                    submitLabel="Quiero invertir"
+                    id="formulario"
+                    profileTypes={[
+                        { label: "Inversor", value: "inversor" },
+                        { label: "Consumidor", value: "consumidor" }
+                    ]}
+                    transactionTypes={["Alquilar", "Comprar"]}
+                />
                 <SectionContact />
             </>
         </ReCaptcha>

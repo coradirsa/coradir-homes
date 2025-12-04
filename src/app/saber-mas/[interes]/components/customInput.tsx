@@ -21,6 +21,7 @@ export default function CustomInput<T extends FieldValues>({
     className,
     labelClassName,
     inputClassName,
+    placeholder,
 }: {
     name: Path<T>,
     label: string,
@@ -31,7 +32,8 @@ export default function CustomInput<T extends FieldValues>({
     options?: string[],
     className?: string,
     labelClassName?: string,
-    inputClassName?: string
+    inputClassName?: string,
+    placeholder?: string
 }) {
     let render: (e: {
         field: ControllerRenderProps<T, Path<T>>;
@@ -40,7 +42,7 @@ export default function CustomInput<T extends FieldValues>({
     }) => JSX.Element;
 
     const defaultInputClass = "border-b-2 border-white/50 focus:border-white outline-none w-[80%] md:text-xl cursor-pointer";
-    const defaultLabelClass = "md:text-2xl"; 
+    const defaultLabelClass = "md:text-2xl";
     switch (type) {
         case "select":
             render = (e) => (
@@ -69,6 +71,7 @@ export default function CustomInput<T extends FieldValues>({
                 <textarea
                     {...e.field}
                     id={name}
+                    placeholder={placeholder}
                     ref={ref as React.RefObject<HTMLTextAreaElement>}
                     className={inputClassName || `${defaultInputClass} h-24 md:h-auto resize-none`}
                 />
@@ -80,6 +83,7 @@ export default function CustomInput<T extends FieldValues>({
                     type={type}
                     {...e.field}
                     id={name}
+                    placeholder={placeholder}
                     ref={ref as React.RefObject<HTMLInputElement>}
                     className={inputClassName || `${defaultInputClass} autofill:!bg-transparent`}
                 />
@@ -100,7 +104,7 @@ export default function CustomInput<T extends FieldValues>({
                             errors[name]?.message as string
                         )}
                     </p>
-                    </div>
+                </div>
             )}
         />
     );

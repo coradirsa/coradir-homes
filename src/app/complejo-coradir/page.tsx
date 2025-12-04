@@ -6,7 +6,7 @@ import ProjectLocation from "./components/ProjectLocation";
 import Ambientes from "./components/Ambientes";
 import Construction from "./components/Construction";
 import CtaBanner from "./components/CtaBanner";
-import UnifiedContactForm from "../components/shared/UnifiedContactForm";
+import ProjectForm from "../components/projectForm";
 import { SITE_DATA } from "./data";
 
 export const metadata: Metadata = {
@@ -50,7 +50,16 @@ export default function ComplejoCoradirPage() {
       <Ambientes data={SITE_DATA} />
       <Construction data={SITE_DATA} />
       <CtaBanner data={SITE_DATA} />
-      <UnifiedContactForm data={SITE_DATA.contact} />
+      <ProjectForm
+        interest="complejo-coradir"
+        heading={SITE_DATA.contact.title}
+        subtitle={SITE_DATA.contact.subtitle}
+        backgroundImage={SITE_DATA.contact.bgImage}
+        profileTypes={SITE_DATA.contact.profileTypes}
+        transactionTypes={SITE_DATA.contact.options}
+        submitLabel="ENVIAR CONSULTA"
+        id="venta"
+      />
     </main>
   );
 }
