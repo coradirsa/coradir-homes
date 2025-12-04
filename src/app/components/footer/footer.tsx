@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer(){
+export default function Footer() {
     const socialMedia = [
-        { href: "https://www.facebook.com/CoradirSA/", img:"/icons/facebook.webp", ariaLabel:"Logo de Facebook", alt:"Logo de Facebook" },
-        { href: "https://www.linkedin.com/company/502705", img:"/icons/linkedin.webp", ariaLabel:"Logo de LinkedIn", alt:"Logo de LinkedIn" },
+        { href: "https://www.facebook.com/CoradirSA/", img: "/icons/facebook.webp", ariaLabel: "Logo de Facebook", alt: "Logo de Facebook" },
+        { href: "https://www.linkedin.com/company/502705", img: "/icons/linkedin.webp", ariaLabel: "Logo de LinkedIn", alt: "Logo de LinkedIn" },
     ];
 
     const footerLinks = {
@@ -12,6 +12,7 @@ export default function Footer(){
             { label: "Vivienda Joven", href: "/vivienda-joven" },
             { label: "La Torre II", href: "/la-torre-ii" },
             { label: "Proyectos", href: "/proyectos" },
+            { label: "Locales Coradir", href: "/complejo-coradir" },
         ],
         opportunities: [
             { label: "Inversiones Inteligentes", href: "/inversiones-inteligentes" },
@@ -25,7 +26,7 @@ export default function Footer(){
         ]
     };
 
-    return(
+    return (
         <footer className="flex flex-col bg-blue xl:px-10 px-5 py-8 xl:py-10">
             {/* Links section */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 max-w-5xl mx-auto w-full">
@@ -104,13 +105,13 @@ export default function Footer(){
                 <div className="flex items-center">
                     <Link href="/" aria-label="Ir a inicio">
                         <Image
-                        loading="lazy"
-                        src="/img/marca blanco.webp"
-                        alt="Logo Coradir Homes"
-                        aria-label="Logo Coradir Homes"
-                        width={1000}
-                        height={1000}
-                        className="w-32 h-32 xl:w-40 xl:h-40"
+                            loading="lazy"
+                            src="/img/marca blanco.webp"
+                            alt="Logo Coradir Homes"
+                            aria-label="Logo Coradir Homes"
+                            width={1000}
+                            height={1000}
+                            className="w-32 h-32 xl:w-40 xl:h-40"
                         />
                     </Link>
                 </div>

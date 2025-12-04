@@ -16,7 +16,8 @@ export default function SectionProjectsDone() {
     {
       title: "Complejo Coradir",
       image: "/img/projects/complejo.webp",
-      comingSoon: true,
+      link: "/complejo-coradir",
+      id: "boton-homes-home-proyectos-complejo",
     },
     {
       title: "La Torre I",
@@ -106,16 +107,15 @@ export default function SectionProjectsDone() {
 
         <section
           ref={containerRef}
-          className={`w-full py-5 relative ${
-            isSmallMobile
+          className={`w-full py-5 relative ${isSmallMobile
               ? "flex flex-col items-center justify-center gap-5"
               : "grid xl:grid-cols-10 items-start xl:items-center xl:justify-center gap-10 xl:gap-8"
-          }`}
+            }`}
           style={{
             minHeight: getMinHeight(),
           }}
         >
-          { render() }
+          {render()}
         </section>
       </section>
     </section>

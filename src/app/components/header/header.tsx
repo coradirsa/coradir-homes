@@ -23,6 +23,7 @@ export const links: NavigationLink[] = [
             { href: "/corporativos", label: "Corporativos" },
             { href: "/instituciones", label: "Instituciones" },
             { href: "/terrenos", label: "Terrenos" },
+            { href: "/complejo-coradir", label: "Locales Coradir" },
         ],
     },
     { href: "/beneficios", label: "Beneficios", hover: null },
