@@ -90,6 +90,12 @@ export default function SaberMas({ copy }: Props) {
       });
 
       if (!response.ok) {
+        const errorText = await response.text().catch(() => "");
+        console.error("Error al enviar formulario:", {
+          status: response.status,
+          statusText: response.statusText,
+          body: errorText,
+        });
         throw new Error(`Error HTTP: ${response.status}`);
       }
 
@@ -99,7 +105,7 @@ export default function SaberMas({ copy }: Props) {
       });
     } catch (error) {
       const err = error as Error;
-      console.error(err);
+      console.error("Error en envío de formulario:", err);
       setLoading(false);
       setSubmitMessage({
         type: "error",

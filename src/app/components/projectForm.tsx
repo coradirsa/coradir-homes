@@ -97,20 +97,26 @@ export default function ProjectForm({
       });
 
       if (!response.ok) {
+        const errorText = await response.text().catch(() => "");
+        console.error("Error al enviar formulario:", {
+          status: response.status,
+          statusText: response.statusText,
+          body: errorText,
+        });
         throw new Error(`Error HTTP: ${response.status}`);
       }
 
+      setLoading(false);
       router.push('/gracias');
     } catch (error) {
       const err = error as Error;
-      console.log(err);
+      console.error("Error en envío de formulario:", err);
       setLoading(false);
       setSubmitMessage({
         type: "error",
         text: "Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.",
       });
     }
-    setLoading(false);
   };
 
   // Standard styles
