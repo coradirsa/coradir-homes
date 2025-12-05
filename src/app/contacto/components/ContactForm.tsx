@@ -34,11 +34,19 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormSchema) => {
     setLoading(true);
+    setSubmitMessage({ type: "", text: "" }); // Limpiar mensajes previos
+
     try {
       if (!executeRecaptcha) {
-        throw new Error("Debes completar el captcha.");
+        throw new Error("El sistema de verificación no está listo. Por favor recarga la página e intenta nuevamente.");
       }
+
       const token = await executeRecaptcha("form_submit");
+
+      if (!token) {
+        throw new Error("No se pudo generar el token de verificación. Por favor recarga la página e intenta nuevamente.");
+      }
+
       const verifyCaptcha = await fetch("/api/verify-captcha", {
         method: "POST",
         headers: {
@@ -46,9 +54,10 @@ export default function ContactForm() {
         },
         body: JSON.stringify({ token }),
       });
+
       const verifyCaptchaJson = await verifyCaptcha.json();
       if (!verifyCaptchaJson.ok) {
-        throw new Error(verifyCaptchaJson.error);
+        throw new Error(verifyCaptchaJson.error || "Error en la verificación. Por favor intenta nuevamente.");
       }
     } catch (error) {
       const err = error as Error;

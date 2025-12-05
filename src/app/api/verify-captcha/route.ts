@@ -11,6 +11,15 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { token } = body;
 
+    // Validar que el token existe
+    if (!token || typeof token !== 'string' || token.trim() === '') {
+      console.error("Token de reCAPTCHA faltante o inválido");
+      return NextResponse.json(
+        { ok: false, error: "Token de verificación faltante. Por favor recarga la página e intenta nuevamente." },
+        { status: 400 }
+      );
+    }
+
     if (!RECAPTCHA_SECRET) {
       console.error("reCAPTCHA no configurado: falta RECAPTCHA_SECRET_KEY");
       return NextResponse.json(
@@ -37,9 +46,19 @@ export async function POST(request: NextRequest) {
     const recaptchaJson = await recaptchaRes.json();
 
     if (!recaptchaJson.success) {
-      console.error("reCAPTCHA rechazo:", recaptchaJson["error-codes"] || recaptchaJson);
+      const errorCodes = recaptchaJson["error-codes"] || [];
+      console.error("reCAPTCHA rechazo:", errorCodes, recaptchaJson);
+
+      // Mensajes específicos según el error
+      let errorMessage = "No pudimos verificar que eres humano, por favor recarga la página e intenta nuevamente.";
+      if (errorCodes.includes("timeout-or-duplicate")) {
+        errorMessage = "El token de verificación expiró. Por favor recarga la página e intenta nuevamente.";
+      } else if (errorCodes.includes("invalid-input-response")) {
+        errorMessage = "Token de verificación inválido. Por favor recarga la página e intenta nuevamente.";
+      }
+
       return NextResponse.json(
-        { ok: false, error: "No pudimos verificar que eres humano, por favor recarga la pagina o intenta nuevamente." },
+        { ok: false, error: errorMessage },
         { status: 400 }
       );
     }
