@@ -41,7 +41,10 @@
       "Bash(docker stop:*)",
       "Bash(docker rm:*)",
       "Bash(npm audit:*)",
-      "Bash(npm ls:*)"
+      "Bash(npm ls:*)",
+      "Bash(docker system prune:*)",
+      "Bash(docker rmi:*)",
+      "Bash(docker:*)"
     ],
     "deny": [],
     "ask": []
