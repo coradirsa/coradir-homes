@@ -101,13 +101,20 @@ export default function ProjectForm({
     };
 
     try {
+      // Timeout controller to prevent hanging
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 seconds timeout
+
       const response = await fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL!, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(dataToSend),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         const errorText = await response.text().catch(() => "");
@@ -125,9 +132,15 @@ export default function ProjectForm({
       const err = error as Error;
       console.error("Error en envío de formulario:", err);
       setLoading(false);
+
+      // Better error message for timeout
+      const errorMessage = err.name === 'AbortError'
+        ? "La solicitud tardó demasiado. Por favor, intenta nuevamente."
+        : "Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.";
+
       setSubmitMessage({
         type: "error",
-        text: "Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.",
+        text: errorMessage,
       });
     }
   };
