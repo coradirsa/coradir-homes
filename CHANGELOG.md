@@ -7,21 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Security
-- **CRITICAL: Hardened Dockerfile to prevent RCE attacks**
+### Security - CRITICAL POST-BREACH HARDENING (2025-12-09)
+- **EMERGENCY: Maximum Security Hardening After RCE/Cryptominer Attack**
+
+  **Dockerfile Hardening (Zero Trust Implementation):**
   - Implemented multi-stage build to reduce attack surface
   - Added non-root user (`nextjs:nodejs` UID 1001) for container execution
-  - Prevented privilege escalation by removing write access to system directories
-  - Container now cannot install packages (curl, bash, etc.) preventing cryptominer injection
+  - **REMOVED package managers (npm, npx, apk)** to prevent malware installation
+  - **REMOVED ability to install packages** - attacker cannot install curl, wget, XMRig
+  - Made shell (/bin/sh) read-only to prevent modification
+  - Added strict file ownership with `--chown=nextjs:nodejs` on all files
+  - Used `--ignore-scripts` flag to prevent malicious npm script execution
   - Reduced final image size by ~60% using standalone Next.js build
-  - Added proper file ownership with `--chown` flags
-  - Used `--ignore-scripts` flag in npm install to prevent malicious script execution
+  - Cleared npm cache after each stage
+
+  **Docker Compose Hardening (Defense in Depth):**
+  - **ENABLED read_only: true** - Prevents malware from writing files to disk
+  - **CONFIGURED tmpfs** - Temporary files in memory only, cleared on restart
+    - /tmp: 64MB, noexec, nosuid, nodev
+    - /app/.next/cache: 128MB, noexec, nosuid, nodev
+  - **DROPPED ALL Linux capabilities** - Minimal container permissions
+  - **ADDED resource limits** - Prevents cryptomining CPU abuse
+    - CPU limit: 2.0 cores max (prevents 174% CPU mining)
+    - Memory limit: 1024MB max
+  - **ENFORCED no-new-privileges** - Prevents privilege escalation
+  - Added health check endpoint for monitoring
+
+### Added
+- Created `/api/health` endpoint for Docker health checks and monitoring
+- Added DEPLOYMENT_GUIDE.md with comprehensive security procedures
+- Added security testing procedures and incident response guide
+- Added SECURITY_AUDIT_REPORT.md documenting forensic analysis
 
 ### Changed
 - Updated `next.config.ts` to use `output: 'standalone'` for optimized Docker deployment
 - Configured container to listen on port 6118 via `PORT` and `HOSTNAME` environment variables
 - Switched from `npm install` to `npm ci` for deterministic builds
 - Changed CMD to use exec form for proper signal handling
+- Changed restart policy from `always` to `unless-stopped`
 
 ### Security Headers (already present, documented for reference)
 - X-Content-Type-Options: nosniff
