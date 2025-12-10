@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed (2025-12-10)
+- **Migrated from reCAPTCHA v3 to reCAPTCHA Enterprise**
+  - Updated API route to use REST API instead of SDK (simpler for Docker)
+  - Configured frontend provider for Enterprise mode
+  - Updated all forms to send action parameter for validation
+  - Removed deprecated `NEXT_PUBLIC_RECAPTCHA_SECRET_KEY`
+  - Added `RECAPTCHA_PROJECT_ID` and `RECAPTCHA_API_KEY` environment variables
+  - See `RECAPTCHA_ENTERPRISE_SETUP.md` for configuration details
+
+- **Increased Docker container memory limits**
+  - Memory limit: 1GB → 2GB (prevents hanging on image processing)
+  - Memory reservation: 256MB → 512MB
+  - Added `NODE_OPTIONS=--max-old-space-size=1536` for Node.js heap
+
+### Fixed (2025-12-10)
+- Fixed next-sitemap transform function syntax for v4 compatibility
+- Fixed "browser-error" caused by mismatched reCAPTCHA keys
+
 ### Security - CRITICAL POST-BREACH HARDENING (2025-12-09)
 - **EMERGENCY: Maximum Security Hardening After RCE/Cryptominer Attack**
 
