@@ -10,7 +10,15 @@ export default function ReCaptcha({children }: Readonly<{
     }
 
     return(
-        <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+        <GoogleReCaptchaProvider
+            reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            useEnterprise={true}
+            scriptProps={{
+                async: true,
+                defer: true,
+                appendTo: "head",
+            }}
+        >
             {children}
         </GoogleReCaptchaProvider>
     );

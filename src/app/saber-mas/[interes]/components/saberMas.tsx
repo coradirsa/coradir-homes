@@ -62,7 +62,7 @@ export default function SaberMas({ copy }: Props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ token }),
+        body: JSON.stringify({ token, action: "form_submit" }),
       });
 
       const verifyCaptchaJson = await verifyCaptcha.json();

@@ -1,15 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const RECAPTCHA_SECRET =
-  process.env.RECAPTCHA_SECRET_KEY || process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY;
-
-const MIN_SCORE =
-  Number(process.env.NEXT_PUBLIC_RECAPTCHA_MIN_SCORE || process.env.RECAPTCHA_MIN_SCORE) || 0.5;
+const RECAPTCHA_PROJECT_ID = process.env.RECAPTCHA_PROJECT_ID;
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_API_KEY = process.env.RECAPTCHA_API_KEY;
+const MIN_SCORE = Number(process.env.RECAPTCHA_MIN_SCORE) || 0.5;
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { token } = body;
+    const { token, action = "form_submit" } = body;
 
     // Validar que el token existe
     if (!token || typeof token !== 'string' || token.trim() === '') {
@@ -20,80 +19,105 @@ export async function POST(request: NextRequest) {
       );
     }
 
-
-    // Debug: Verificar SÓLO EN DESARROLLO o LOGS SEGUROS si la clave está cargada (mostrar solo últimos 4 caracteres)
-    if (RECAPTCHA_SECRET) {
-      console.log(`Verificando reCAPTCHA con secret terminada en ...${RECAPTCHA_SECRET.slice(-4)}`);
-    } else {
-      console.error("CRÍTICO: RECAPTCHA_SECRET es undefined o vacío.");
-    }
-
-    if (!RECAPTCHA_SECRET) {
-      console.error("reCAPTCHA no configurado: falta RECAPTCHA_SECRET_KEY");
+    // Validar configuración
+    if (!RECAPTCHA_PROJECT_ID || !RECAPTCHA_SITE_KEY || !RECAPTCHA_API_KEY) {
+      console.error("CRÍTICO: Variables de reCAPTCHA Enterprise no configuradas");
       return NextResponse.json(
-        { ok: false, error: "Captcha no configurado. Falta RECAPTCHA_SECRET_KEY en el entorno." },
+        { ok: false, error: "Captcha no configurado. Contacte al administrador." },
         { status: 500 }
       );
     }
 
-    // 1. Validar el token de reCAPTCHA con Google
-    const recaptchaRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `secret=${RECAPTCHA_SECRET}&response=${token}`,
-    });
+    // Construir la URL del endpoint de reCAPTCHA Enterprise
+    const apiUrl = `https://recaptchaenterprise.googleapis.com/v1/projects/${RECAPTCHA_PROJECT_ID}/assessments?key=${RECAPTCHA_API_KEY}`;
 
-    if (!recaptchaRes.ok) {
-      console.error("Error HTTP al verificar reCAPTCHA", recaptchaRes.status);
-      return NextResponse.json(
-        { ok: false, error: "No pudimos verificar el captcha. Intenta nuevamente en unos segundos." },
-        { status: 400 }
-      );
-    }
+    // Preparar el payload
+    const assessmentPayload = {
+      event: {
+        token: token,
+        siteKey: RECAPTCHA_SITE_KEY,
+        expectedAction: action,
+      },
+    };
 
-    const recaptchaJson = await recaptchaRes.json();
+    try {
+      // Llamar a la API de reCAPTCHA Enterprise
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(assessmentPayload),
+      });
 
-    // LOG COMPLETO de la respuesta de Google para depuración
-    console.log("Respuesta de Google reCAPTCHA:", JSON.stringify(recaptchaJson, null, 2));
-
-    if (!recaptchaJson.success) {
-      const errorCodes = recaptchaJson["error-codes"] || [];
-      console.error("reCAPTCHA FALLÓ. Códigos de error:", errorCodes);
-
-      let errorMessage = "No pudimos verificar que eres humano, por favor recarga la página e intenta nuevamente.";
-      
-      // Errores de configuración del servidor (no deberían mostrarse al usuario final en prod, pero ayudan a depurar ahora)
-      if (errorCodes.includes("missing-input-secret") || errorCodes.includes("invalid-input-secret")) {
-        console.error("ERROR DE CONFIGURACIÓN: La clave secreta de reCAPTCHA es inválida o no se envió correctamente.");
-        errorMessage = "Error de configuración del sistema (Captcha). Contacte al administrador.";
-      } else if (errorCodes.includes("timeout-or-duplicate")) {
-        errorMessage = "El token de verificación expiró. Por favor recarga la página e intenta nuevamente.";
-      } else if (errorCodes.includes("invalid-input-response")) {
-        errorMessage = "Token de verificación inválido. Por favor recarga la página e intenta nuevamente.";
-      } else if (errorCodes.includes("bad-request")) {
-         errorMessage = "Solicitud inválida al servidor de verificación.";
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`Error HTTP de reCAPTCHA Enterprise: ${response.status}`, errorText);
+        return NextResponse.json(
+          { ok: false, error: "No pudimos verificar el captcha. Intenta nuevamente en unos segundos." },
+          { status: 500 }
+        );
       }
 
-      return NextResponse.json(
-        { ok: false, error: errorMessage, debugCodes: errorCodes }, // debugCodes útil durante desarrollo
-        { status: 400 }
-      );
+      const result = await response.json();
+
+      // LOG COMPLETO de la respuesta para depuración
+      console.log("Respuesta de reCAPTCHA Enterprise:", JSON.stringify({
+        valid: result.tokenProperties?.valid,
+        invalidReason: result.tokenProperties?.invalidReason,
+        action: result.tokenProperties?.action,
+        score: result.riskAnalysis?.score,
+        reasons: result.riskAnalysis?.reasons,
+      }, null, 2));
+
+      // Verificar si el token es válido
+      if (!result.tokenProperties?.valid) {
+        console.error(`Token inválido: ${result.tokenProperties?.invalidReason}`);
+        return NextResponse.json(
+          { ok: false, error: "Token de verificación inválido. Por favor recarga la página e intenta nuevamente." },
+          { status: 400 }
+        );
+      }
+
+      // Verificar si se ejecutó la acción esperada
+      if (result.tokenProperties?.action !== action) {
+        console.error(`Acción no coincide. Esperada: ${action}, Recibida: ${result.tokenProperties?.action}`);
+        return NextResponse.json(
+          { ok: false, error: "Acción de verificación no válida." },
+          { status: 400 }
+        );
+      }
+
+      // Verificar el score de riesgo
+      const score = result.riskAnalysis?.score ?? 0;
+      if (score < MIN_SCORE) {
+        console.warn(`Score reCAPTCHA bajo: ${score} (Mínimo requerido: ${MIN_SCORE})`);
+        console.warn(`Razones:`, result.riskAnalysis?.reasons);
+        return NextResponse.json(
+          { ok: false, error: "No pudimos verificar que eres humano. Por favor intenta nuevamente." },
+          { status: 400 }
+        );
+      }
+
+      return NextResponse.json({
+        ok: true,
+        message: "Verificación exitosa",
+        score: score
+      });
+
+    } catch (fetchError) {
+      console.error("Error al llamar a reCAPTCHA Enterprise API:", fetchError);
+      return NextResponse.json({
+        ok: false,
+        error: "Error procesando la solicitud."
+      }, { status: 500 });
     }
 
-    if (typeof recaptchaJson.score === "number" && recaptchaJson.score < MIN_SCORE) {
-      console.warn(`Score reCAPTCHA bajo: ${recaptchaJson.score} (Mínimo requerido: ${MIN_SCORE})`);
-      return NextResponse.json(
-        { ok: false, error: "No pudimos verificar que eres humano, por favor recarga la pagina o intenta nuevamente." },
-        { status: 400 }
-      );
-    }
-
-    // 2. Procesa el formulario (enviar mail, guardar en DB, etc.)
-    // Aqui puedes hacer lo que necesites con formData
-
-    return NextResponse.json({ ok: true, message: "Formulario recibido", score: recaptchaJson.score ?? null });
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ ok: false, error: "Error procesando la solicitud." }, { status: 500 });
+    console.error("Error en verify-captcha:", error);
+    return NextResponse.json({
+      ok: false,
+      error: "Error procesando la solicitud."
+    }, { status: 500 });
   }
 }
