@@ -88,7 +88,7 @@ export default function ProjectForm({
       return;
     }
 
-    const dataToSend = {
+    const dataToSend: Record<string, unknown> = {
       name: data.name.trim(),
       email: data.email.trim().toLowerCase(),
       phone: data.phone?.trim() || null,
@@ -96,16 +96,28 @@ export default function ProjectForm({
       message: data.message?.trim() || null,
       timestamp: new Date().toISOString(),
       source: "website_coradir_homes_form",
-      profileType: data.profileType,
-      transactionType: data.transactionType,
     };
+
+    // Add optional fields only if they exist
+    if (data.profileType) {
+      dataToSend.profileType = data.profileType;
+    }
+    if (data.transactionType) {
+      dataToSend.transactionType = data.transactionType;
+    }
 
     try {
       // Timeout controller to prevent hanging
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 seconds timeout
 
-      const response = await fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL!, {
+      const webhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+      console.log("Enviando formulario a N8N:", {
+        url: webhookUrl,
+        data: dataToSend,
+      });
+
+      const response = await fetch(webhookUrl!, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,6 +127,11 @@ export default function ProjectForm({
       });
 
       clearTimeout(timeoutId);
+
+      console.log("Respuesta de N8N:", {
+        status: response.status,
+        statusText: response.statusText,
+      });
 
       if (!response.ok) {
         const errorText = await response.text().catch(() => "");
