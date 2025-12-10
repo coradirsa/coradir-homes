@@ -24,12 +24,14 @@ module.exports = {
   sitemapSize: 5000,
   changefreq: "weekly",
   priority: 0.7,
-  transform: async (config, path) => ({
-    loc: `${siteUrl}${path}`,
-    changefreq: config?.changefreq ?? "weekly",
-    priority: config?.priority ?? 0.7,
-    lastmod: new Date().toISOString(),
-  }),
+  transform: async (config, path) => {
+    return {
+      loc: path,
+      changefreq: config?.changefreq ?? "weekly",
+      priority: config?.priority ?? 0.7,
+      lastmod: new Date().toISOString(),
+    };
+  },
   additionalPaths: async () => {
     const today = new Date().toISOString();
     const extraPaths = dynamicInterestPaths.filter((path) => !staticPaths.includes(path));
