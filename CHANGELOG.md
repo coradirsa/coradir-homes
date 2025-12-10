@@ -24,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed (2025-12-10)
 - Fixed next-sitemap transform function syntax for v4 compatibility
 - Fixed "browser-error" caused by mismatched reCAPTCHA keys
+- Fixed N8N webhook payload to only send defined optional fields (profileType, transactionType)
+- Added debug logging for N8N webhook calls to troubleshoot delivery issues
 
 ### Security - CRITICAL POST-BREACH HARDENING (2025-12-09)
 - **EMERGENCY: Maximum Security Hardening After RCE/Cryptominer Attack**
