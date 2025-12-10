@@ -108,8 +108,9 @@ export default function ProjectForm({
 
     try {
       // Timeout controller to prevent hanging
+      // 30 seconds to allow time for AI validation, DB insert, and email sending
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 seconds timeout
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
 
       const webhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
       console.log("Enviando formulario a N8N:", {

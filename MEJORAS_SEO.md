@@ -69,8 +69,48 @@
 - [ ] Publicar casos de exito descargables y notas de prensa linkeadas a paginas destino.
 - [ ] Fomentar citaciones NAP consistentes en directorios confiables; asegurar datos en Google Business Profile.
 
+### Plan 4 semanas (implantacion rapida)
+- **Semana 1 - Prospeccion y activos**
+  - Armar lista de 40-60 dominios locales/afines (camaras, colegios profesionales, universidades, medios, blogs de arquitectura/deco, portales inmobiliarios serios). Campos: dominio, URL contacto, contacto, DA/visitas, tematica, estado.
+  - Preparar 2 activos linkables: (1) caso de exito PDF con KPI/ROI y CTA a landing; (2) guia evergreen "Como invertir en desarrollos en San Luis 2025".
+  - Auditar NAP (nombre/telefono/direccion/horario) en sitio, GBP y redes; definir version canonica.
+- **Semana 2 - Outreach inicial + GBP**
+  - Enviar 6-10 emails personalizados con datos exclusivos; 1 follow-up a los 3-4 dias.
+  - Publicar nota de prensa en tu sala de prensa y compartir a 10-15 medios locales/regionales.
+  - Completar/optimizar GBP: categorias, fotos WebP, descripcion con keywords suaves; 2-3 posts con UTM y solicitar 3-5 reseñas.
+- **Semana 3 - Alianzas y directorios**
+  - Reuniones con camaras/universidades para webinar/charla; pedir enlace desde agenda/noticia al recurso evergreen.
+  - Alta/actualizacion en 5-8 directorios confiables con NAP consistente; agregar UTM en enlaces de perfil si permite.
+  - Segundo set de 6-10 emails + follow-up del lote anterior.
+- **Semana 4 - Cierre y control**
+  - Reenviar follow-up final a pendientes; ofrecer dato nuevo (ej. avance de obra, KPI de sustentabilidad).
+  - Registrar enlaces conseguidos y anclas; evaluar diversidad (marca, parcial, URL).
+  - Revisar Search Console: enlaces nuevos, impresiones y CTR de URLs enlazadas; ajustar mensajes segun top queries.
+
+### Plantillas de outreach (personalizar)
+- **Prensa/medios**
+  - Asunto: Dato exclusivo sobre desarrollos sustentables en San Luis
+  - Cuerpo: Hola {nombre}, soy {tu nombre} de Coradir Homes. Estamos publicando datos sobre {dato concreto, ej. ROI o avance de obra} y preparamos una nota + recursos (fotos WebP y cifras verificables). Te dejo el sumario y link a la guia/caso: {URL con UTM}. Si te sirve, te comparto cifras en bruto o vocero para entrevista breve.
+- **Camaras / universidades / colegios**
+  - Asunto: Charla + datos para socios sobre vivienda/inversion en San Luis
+  - Cuerpo: Hola {nombre}, proponemos una charla de 20-30 min para sus socios/estudiantes sobre {tema}. Incluimos un recurso descargable y beneficios para su audiencia. Podemos agendar la proxima semana; aqui el material base: {URL}. Si les interesa, agregamos su logo y les compartimos fotos para su agenda/noticia con enlace al recurso.
+- **Blogs/portales afines**
+  - Asunto: Guia con datos accionables para {audiencia} en San Luis
+  - Cuerpo: Hola {nombre}, vimos su cobertura sobre {articulo}. Preparamos una guia con datos locales (costos de construccion, tiempos de obra, tendencias) y seria un buen complemento para su nota. Link con UTM: {URL}. Puedo adaptar 2-3 parrafos para su audiencia y compartir fotos WebP optimizadas.
+
+### Buenas practicas de anclas y destinos
+- Usar mezcla: marca + ubicacion ("Coradir Homes en San Luis"), parciales ("proyectos inmobiliarios en San Luis"), y naked URLs. Evitar exact-match repetitivo.
+- Apuntar cada enlace a la URL mas relevante (landing de proyecto, guia evergreen o caso de exito), no siempre a home. Incluir UTM en enlaces de prensa para medir.
+
+### Seguimiento semanal (sheet simple)
+- Columnas sugeridas: fecha, dominio origen, URL origen, anchor, URL destino, tipo (dofollow/nofollow), tematica, pais, estado (enviado/aceptado/online), notas.
+- KPIs a monitorear: nuevos dominios referidos, trafico org/ref a URLs enlazadas, posiciones para keywords locales, reseñas y vistas en GBP, CTR de URLs enlazadas en Search Console.
+
+### Riesgos a evitar
+- No usar directorios masivos ni granjas; evitar posts pagados sin disclosure. Mezclar dofollow/nofollow natural.
+- Disavow solo si hay volumen alto de enlaces toxicos; antes, bloquear origenes obvios en Search Console si es necesario.
+
 ## 7. Roadmap y Control
 - [ ] Establecer backlog priorizado (tecnico, contenido, UX) con responsables y plazos.
 - [ ] Iterar en sprints: post-implementacion medir CWV, rankings y conversiones; ajustar estrategia.
 - [ ] Documentar aprendizaje en wiki interna y checklist de QA SEO previo a cada release.
-

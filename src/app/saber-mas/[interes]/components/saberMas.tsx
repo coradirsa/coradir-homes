@@ -90,13 +90,21 @@ export default function SaberMas({ copy }: Props) {
     };
 
     try {
+      // Timeout controller to prevent hanging
+      // 30 seconds to allow time for AI validation, DB insert, and email sending
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
       const response = await fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL!, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         const errorText = await response.text().catch(() => "");

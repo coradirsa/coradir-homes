@@ -44,7 +44,12 @@
       "Bash(npm ls:*)",
       "Bash(docker system prune:*)",
       "Bash(docker rmi:*)",
-      "Bash(docker:*)"
+      "Bash(docker:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npx next build:*)",
+      "Bash(tee:*)",
+      "Bash(git stash:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []
