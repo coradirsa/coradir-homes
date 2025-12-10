@@ -26,6 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed "browser-error" caused by mismatched reCAPTCHA keys
 - Fixed N8N webhook payload to only send defined optional fields (profileType, transactionType)
 - Added debug logging for N8N webhook calls to troubleshoot delivery issues
+- Increased form timeout from 10s to 30s to allow full N8N processing (AI validation, DB insert, email)
+- Added missing timeout to saberMas form
+
+### Added (2025-12-10)
+- Added comprehensive N8N webhook configuration guide (N8N_WEBHOOK_CONFIGURATION.md)
+- Documentation for proper webhook response handling and error management
 
 ### Security - CRITICAL POST-BREACH HARDENING (2025-12-09)
 - **EMERGENCY: Maximum Security Hardening After RCE/Cryptominer Attack**
