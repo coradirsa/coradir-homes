@@ -55,17 +55,23 @@ export default function ProjectForm({
     setLoading(true);
     setSubmitMessage({ type: "", text: "" }); // Limpiar mensajes previos
 
+    console.log("Iniciando envío de formulario...");
+
     try {
       if (!executeRecaptcha) {
+        console.error("executeRecaptcha no está disponible");
         throw new Error("El sistema de verificación no está listo. Por favor recarga la página e intenta nuevamente.");
       }
 
+      console.log("Ejecutando reCAPTCHA...");
       const token = await executeRecaptcha("form_submit");
 
       if (!token) {
+        console.error("No se generó token de reCAPTCHA");
         throw new Error("No se pudo generar el token de verificación. Por favor recarga la página e intenta nuevamente.");
       }
 
+      console.log("Token de reCAPTCHA generado, verificando...");
       const verifyCaptcha = await fetch("/api/verify-captcha", {
         method: "POST",
         headers: {
@@ -74,12 +80,23 @@ export default function ProjectForm({
         body: JSON.stringify({ token, action: "form_submit" }),
       });
 
+      console.log("Respuesta de verify-captcha:", {
+        status: verifyCaptcha.status,
+        statusText: verifyCaptcha.statusText,
+      });
+
       const verifyCaptchaJson = await verifyCaptcha.json();
+      console.log("Resultado de verificación:", verifyCaptchaJson);
+
       if (!verifyCaptchaJson.ok) {
+        console.error("reCAPTCHA falló:", verifyCaptchaJson.error);
         throw new Error(verifyCaptchaJson.error || "Error en la verificación. Por favor intenta nuevamente.");
       }
+
+      console.log("reCAPTCHA verificado exitosamente");
     } catch (error) {
       const err = error as Error;
+      console.error("Error en validación de reCAPTCHA:", err);
       setSubmitMessage({
         type: "error",
         text: err.message,
