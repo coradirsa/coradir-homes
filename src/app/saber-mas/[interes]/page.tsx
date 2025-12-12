@@ -19,7 +19,7 @@ const resolveContent = (slug: string): SaberMasLandingCopy => {
   return SABER_MAS_CONTENT[slug] ?? SABER_MAS_CONTENT[DEFAULT_INTEREST];
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return interestSlugs.map((slug) => ({ interes: slug }));
 }
 
