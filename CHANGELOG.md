@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security - CRITICAL HARDENING (2025-12-15)
+- **EMERGENCY: Additional Security Hardening Post-Malware Audit**
+
+  **Removed Unused Attack Surface:**
+  - **REMOVED `/app/uploads` volume** - This directory was NOT used by any form or feature
+  - All forms only send text data (no file uploads): InvestmentForm, ContactForm, ProjectForm
+  - Eliminates writable directory that could be exploited for malware persistence
+  - Reduces Docker volume footprint and potential persistence mechanisms
+
+  **Added Content Security Policy (CSP) Header:**
+  - Implemented strict CSP to prevent XSS and unauthorized script injection
+  - Whitelisted only necessary domains: GTM, Analytics, reCAPTCHA, N8N
+  - Restricted `frame-src` to Google only (reCAPTCHA)
+  - Added `base-uri 'self'` and `form-action 'self'` to prevent CSRF
+  - Blocks inline scripts except from trusted sources
+
+  **Code Audit Results (All Clean):**
+  - ✅ No file upload endpoints or vulnerabilities
+  - ✅ No malicious `eval()`, `Function()`, or obfuscated code
+  - ✅ No middleware bypass or authentication issues
+  - ✅ All `dangerouslySetInnerHTML` uses are safe (JSON-LD only)
+  - ✅ No command injection vectors (`child_process`, `exec`)
+  - ✅ All external fetches are to legitimate APIs only
+
 ### Changed (2025-12-10)
 - **Migrated from reCAPTCHA v3 to reCAPTCHA Enterprise**
   - Updated API route to use REST API instead of SDK (simpler for Docker)
