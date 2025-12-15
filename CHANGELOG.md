@@ -18,7 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
   **Added Content Security Policy (CSP) Header:**
   - Implemented strict CSP to prevent XSS and unauthorized script injection
-  - Whitelisted only necessary domains: GTM, Analytics, reCAPTCHA, N8N
+  - Whitelisted necessary domains: GTM, Analytics, reCAPTCHA, N8N (automatic.coradir.com.ar)
+  - Whitelisted chatbot domains: testbothome.coradir.ai (script-src and connect-src)
   - Restricted `frame-src` to Google only (reCAPTCHA)
   - Added `base-uri 'self'` and `form-action 'self'` to prevent CSRF
   - Blocks inline scripts except from trusted sources
