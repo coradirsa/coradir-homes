@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security (2025-12-16)
+- **Enhanced CSP for Google Tag Manager debugging**
+  - Added wildcard support for `*.googletagmanager.com` and `*.google-analytics.com` domains
+  - Added `tagmanager.google.com` to script-src and frame-src (enables Tag Assistant)
+  - Added `*.analytics.google.com` to connect-src for complete analytics functionality
+  - Updated img-src to allow Google Analytics and GTM tracking pixels
+  - Fixes CSP blocking issues with Tag Assistant debugging tool
+
 ### Security - CRITICAL HARDENING (2025-12-15)
 - **EMERGENCY: Additional Security Hardening Post-Malware Audit**
 
