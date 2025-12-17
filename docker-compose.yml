@@ -5,6 +5,55 @@
 version: "3.9"
 
 services:
+  # ========================================
+  # MONGODB - CMS DATABASE
+  # ========================================
+  mongodb:
+    image: mongo:7-jammy
+    container_name: mongodb_coradir_cms
+    restart: unless-stopped
+
+    # Security: Run as non-root user
+    user: "999:999"
+
+    # Security: Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1024M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+    # Security: Drop ALL capabilities
+    cap_drop:
+      - ALL
+
+    # Security: Additional security options
+    security_opt:
+      - no-new-privileges:true
+
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_INITDB_DATABASE=coradir_cms
+
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+
+    networks:
+      - coradir_internal
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
   frontend:
     build:
       context: .
@@ -52,6 +101,11 @@ services:
     # ========================================
     networks:
       - caddy
+      - coradir_internal
+
+    depends_on:
+      mongodb:
+        condition: service_healthy
 
     restart: unless-stopped
 
@@ -74,6 +128,10 @@ services:
       - RECAPTCHA_API_KEY=${RECAPTCHA_API_KEY}
       - RECAPTCHA_MIN_SCORE=${RECAPTCHA_MIN_SCORE:-0.5}
       - NEXT_PUBLIC_BOT_SCRIPT_URL=${NEXT_PUBLIC_BOT_SCRIPT_URL}
+      # CMS Environment Variables
+      - DATABASE_URI=mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/coradir_cms?authSource=admin
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
+      - PAYLOAD_PUBLIC_SERVER_URL=${PAYLOAD_PUBLIC_SERVER_URL}
 
     # ========================================
     # HEALTH CHECK
@@ -89,3 +147,12 @@ networks:
   caddy:
     name: caddy
     external: true
+  coradir_internal:
+    driver: bridge
+    internal: false # MongoDB needs to be accessible from frontend
+
+volumes:
+  mongodb_data:
+    driver: local
+  mongodb_config:
+    driver: local
