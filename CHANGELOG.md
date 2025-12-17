@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Updated metadata to `noindex, nofollow` for SEO
 
 ### Security (2025-12-17)
+- **Fixed CSP wildcard issue with stats.g.doubleclick.net**
+  - Added explicit `https://stats.g.doubleclick.net` to connect-src directive
+  - Some browsers don't respect third-level wildcard patterns in CSP
+  - Fixes: "La directiva connect-src ha bloqueado stats.g.doubleclick.net/g/collect"
+  - Now includes both wildcard (`*.doubleclick.net`) and explicit domain
+
 - **Complete CSP overhaul for Google services compatibility**
   - **Added Google DoubleClick tracking domains:**
     - Added `https://stats.g.doubleclick.net` to script-src, script-src-elem, and connect-src
