@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security (2025-12-17)
+- **Added LinkedIn Insight Tag support to CSP**
+  - Added `https://snap.licdn.com` and `https://*.licdn.com` to script-src and script-src-elem
+  - Added `https://*.licdn.com` to img-src for LinkedIn tracking pixels
+  - Added `https://*.licdn.com` to connect-src for analytics data transmission
+  - Fixes: "Loading the script 'https://snap.licdn.com/li.lms-analytics/insight.min.js' violates CSP"
+  - Allows LinkedIn conversion tracking and analytics to function properly
+
 ### Changed (2025-12-17)
 - **Temporarily disabled complejo-coradir landing page**
   - Changed project banner to show "Próximamente" instead of link
