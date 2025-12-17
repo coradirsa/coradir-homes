@@ -56,7 +56,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://tagmanager.google.com https://www.google-analytics.com https://*.google-analytics.com https://www.gstatic.com https://www.google.com https://testbothome.coradir.ai; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://recaptchaenterprise.googleapis.com https://*.n8n.cloud https://automatic.coradir.com.ar https://testbothome.coradir.ai; frame-src https://www.google.com https://tagmanager.google.com; base-uri 'self'; form-action 'self';"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://tagmanager.google.com https://www.google-analytics.com https://*.google-analytics.com https://www.gstatic.com https://www.google.com https://testbothome.coradir.ai; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://recaptchaenterprise.googleapis.com https://*.n8n.cloud https://automatic.coradir.com.ar https://testbothome.coradir.ai; frame-src https://www.google.com https://tagmanager.google.com; base-uri 'self'; form-action 'self';"
           },
         ],
       },

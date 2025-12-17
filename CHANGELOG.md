@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security (2025-12-17)
+- **Fixed CSP blocking Google Tag Manager CCM endpoint**
+  - Added `https://www.google.com` to connect-src directive
+  - Fixes Tag Assistant error: "La política de seguridad de contenido de su sitio bloquea algunos recursos"
+  - Allows connections to `https://www.google.com/ccm/collect` for proper GTM tracking
+
 ### Security (2025-12-16)
 - **Enhanced CSP for Google Tag Manager debugging**
   - Added wildcard support for `*.googletagmanager.com` and `*.google-analytics.com` domains
