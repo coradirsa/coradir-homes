@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Security (2025-12-17)
+- **Fixed CSP blocking Google Tag Manager stylesheets and iframes**
+  - Added `https://*.googletagmanager.com` and `https://tagmanager.google.com` to style-src
+  - Added `https://*.googletagmanager.com` to frame-src (for www.googletagmanager.com debug iframes)
+  - Fixes CSP errors: "style-src 'self' 'unsafe-inline'" blocking GTM stylesheets
+  - Fixes frame-src blocking www.googletagmanager.com debug interface
+
 - **Fixed CSP blocking Google Ads and Analytics resources**
   - Added explicit `script-src-elem` directive to allow `<script>` elements from Google domains
   - Added `https://googleads.g.doubleclick.net` to script-src and script-src-elem for conversion tracking
