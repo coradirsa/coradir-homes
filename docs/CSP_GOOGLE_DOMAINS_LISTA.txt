@@ -1,0 +1,188 @@
+═══════════════════════════════════════════════════════════════════
+  DOMINIOS DE GOOGLE HABILITADOS EN CSP - homes.coradir.com.ar
+═══════════════════════════════════════════════════════════════════
+
+Fecha: 2025-12-17
+GTM Container: GTM-PBZQ65VZ
+Sitio: https://homes.coradir.com.ar
+
+───────────────────────────────────────────────────────────────────
+  LISTA COMPLETA DE DOMINIOS (ÚNICOS)
+───────────────────────────────────────────────────────────────────
+
+✓ *.google.com
+✓ *.google-analytics.com
+✓ *.analytics.google.com
+✓ *.googletagmanager.com
+✓ *.doubleclick.net
+✓ *.googlesyndication.com
+
+✓ www.google.com
+✓ www.google.com.ar (Argentina)
+✓ www.google-analytics.com
+✓ www.gstatic.com
+✓ www.googleadservices.com
+
+✓ google.com (sin www)
+✓ google-analytics.com (sin www)
+✓ googletagmanager.com (sin www)
+
+✓ tagmanager.google.com
+✓ analytics.google.com
+✓ fonts.googleapis.com
+✓ fonts.gstatic.com
+
+✓ googleads.g.doubleclick.net
+✓ stats.g.doubleclick.net (EXPLÍCITO)
+✓ bid.g.doubleclick.net
+
+✓ pagead2.googlesyndication.com
+✓ recaptchaenterprise.googleapis.com
+
+───────────────────────────────────────────────────────────────────
+  POR SERVICIO DE GOOGLE
+───────────────────────────────────────────────────────────────────
+
+📊 GOOGLE TAG MANAGER (GTM):
+   • *.googletagmanager.com
+   • googletagmanager.com
+   • tagmanager.google.com
+   • www.googletagmanager.com
+
+📈 GOOGLE ANALYTICS 4 (GA4):
+   • *.google-analytics.com
+   • *.analytics.google.com
+   • www.google-analytics.com
+   • google-analytics.com
+   • analytics.google.com
+
+💰 GOOGLE ADS / DOUBLECLICK:
+   • *.doubleclick.net
+   • googleads.g.doubleclick.net
+   • stats.g.doubleclick.net (CRÍTICO - conversiones)
+   • bid.g.doubleclick.net
+   • www.googleadservices.com
+
+🎨 GOOGLE FONTS:
+   • fonts.googleapis.com
+   • fonts.gstatic.com
+
+🔒 reCAPTCHA ENTERPRISE:
+   • recaptchaenterprise.googleapis.com
+   • www.google.com/recaptcha/
+   • www.gstatic.com
+
+🌐 GOOGLE ADSENSE:
+   • *.googlesyndication.com
+   • pagead2.googlesyndication.com
+
+───────────────────────────────────────────────────────────────────
+  ENDPOINTS CRÍTICOS QUE DEBEN FUNCIONAR
+───────────────────────────────────────────────────────────────────
+
+✓ https://www.googletagmanager.com/gtm.js?id=GTM-PBZQ65VZ
+✓ https://www.google-analytics.com/g/collect
+✓ https://analytics.google.com/g/collect
+✓ https://stats.g.doubleclick.net/g/collect ⚠️ (antes bloqueado)
+✓ https://googleads.g.doubleclick.net/pagead/...
+✓ https://recaptchaenterprise.googleapis.com/v1/projects/...
+
+───────────────────────────────────────────────────────────────────
+  NOTAS IMPORTANTES
+───────────────────────────────────────────────────────────────────
+
+⚠️  stats.g.doubleclick.net está declarado EXPLÍCITAMENTE además del
+    wildcard *.doubleclick.net porque algunos navegadores no respetan
+    wildcards de tercer nivel en CSP.
+
+⭐  www.google.com.ar está incluido para geolocalización de usuarios
+    argentinos.
+
+🔓  Se usa 'unsafe-inline' y 'unsafe-eval' en script-src porque GTM
+    lo requiere para inyectar scripts dinámicamente.
+
+───────────────────────────────────────────────────────────────────
+  PREGUNTAS PARA GOOGLE TAG MANAGER SUPPORT
+───────────────────────────────────────────────────────────────────
+
+1. ¿Falta algún dominio crítico para GTM/GA4/Google Ads?
+
+2. ¿Hay subdominios regionales que debamos agregar?
+   Ej: region1.google-analytics.com
+
+3. ¿Es necesario www.gstatic.com/recaptcha/ en script-src?
+
+4. ¿Los wildcards *.google.com y *.doubleclick.net son suficientes
+   o debemos declarar subdominios específicos?
+
+5. ¿Existe alternativa a 'unsafe-inline' y 'unsafe-eval' usando
+   nonces para GTM?
+
+───────────────────────────────────────────────────────────────────
+  FORMATO CSP (para copiar/pegar)
+───────────────────────────────────────────────────────────────────
+
+script-src:
+  https://*.googletagmanager.com
+  https://googletagmanager.com
+  https://tagmanager.google.com
+  https://www.google-analytics.com
+  https://google-analytics.com
+  https://*.google-analytics.com
+  https://www.gstatic.com
+  https://www.google.com
+  https://www.google.com.ar
+  https://*.google.com
+  https://googleads.g.doubleclick.net
+  https://stats.g.doubleclick.net
+  https://www.googleadservices.com
+  https://*.googlesyndication.com
+  https://pagead2.googlesyndication.com
+
+connect-src:
+  https://*.google-analytics.com
+  https://*.analytics.google.com
+  https://analytics.google.com
+  https://google-analytics.com
+  https://*.googletagmanager.com
+  https://googletagmanager.com
+  https://www.google.com
+  https://www.google.com.ar
+  https://*.google.com
+  https://recaptchaenterprise.googleapis.com
+  https://*.doubleclick.net
+  https://stats.g.doubleclick.net
+  https://www.googleadservices.com
+  https://*.googlesyndication.com
+
+img-src:
+  https://*.google-analytics.com
+  https://*.googletagmanager.com
+  https://*.doubleclick.net
+  https://*.google.com
+  https://www.google.com.ar
+  https://www.googleadservices.com
+  https://*.googlesyndication.com
+
+style-src:
+  https://*.googletagmanager.com
+  https://googletagmanager.com
+  https://tagmanager.google.com
+  https://fonts.googleapis.com
+  https://*.google.com
+
+font-src:
+  https://fonts.gstatic.com
+
+frame-src:
+  https://www.google.com
+  https://www.google.com.ar
+  https://*.google.com
+  https://*.googletagmanager.com
+  https://googletagmanager.com
+  https://tagmanager.google.com
+  https://bid.g.doubleclick.net
+
+═══════════════════════════════════════════════════════════════════
+  Generado: 2025-12-17 | Coradir SA | San Luis, Argentina 🇦🇷
+═══════════════════════════════════════════════════════════════════
