@@ -94,8 +94,12 @@ src/lib/seo/
 
 ### RF-002: Gestión de Contenido
 - [ ] CRUD completo de páginas
-- [ ] Sistema de borradores y publicación
-- [ ] Versionado de contenido
+- [ ] **Sistema de borradores y publicación** (draft/published)
+  - [ ] Crear páginas en modo borrador sin afectar producción
+  - [ ] Vista previa de borradores antes de publicar
+  - [ ] Comparación lado a lado: versión publicada vs borrador
+  - [ ] Publicación con un solo clic cuando esté listo
+- [ ] Versionado de contenido automático
 - [ ] Rollback a versiones anteriores
 - [ ] Duplicación de páginas
 
@@ -121,10 +125,17 @@ src/lib/seo/
 - [ ] FAQs
 - [ ] Mapas de ubicación
 
-### RF-005: Control de Acceso
+### RF-005: Control de Acceso y Auditoría
 - [ ] Autenticación (usuarios del equipo)
 - [ ] Roles: Admin, Editor, Viewer
-- [ ] Log de cambios (quién modificó qué)
+- [ ] **Audit Logs completo (quién modificó qué y cuándo)**
+  - [ ] Registro automático de todas las acciones (crear, editar, eliminar, publicar)
+  - [ ] Detalle de cambios: qué campos cambiaron exactamente
+  - [ ] Información del usuario: nombre, email, IP address
+  - [ ] Timestamp preciso de cada acción
+  - [ ] Filtros por usuario, fecha, tipo de acción
+  - [ ] Comparación visual de versiones (antes/después)
+  - [ ] Solo lectura (logs no se pueden modificar, solo admin puede borrar)
 
 ---
 
@@ -265,12 +276,34 @@ npm install payload @payloadcms/db-mongodb @payloadcms/richtext-lexical
 collections: [
   {
     slug: 'pages',
-    admin: { useAsTitle: 'title' },
-    versions: { drafts: true },
+    admin: {
+      useAsTitle: 'title',
+      defaultColumns: ['title', 'slug', '_status', 'updatedAt'],
+      preview: (doc) => {
+        // Vista previa de borradores antes de publicar
+        return `${process.env.NEXT_PUBLIC_SITE_URL}/api/preview?slug=${doc.slug}&secret=${process.env.PREVIEW_SECRET}`
+      }
+    },
+    versions: {
+      drafts: true,  // ✅ Activa sistema de borradores
+      maxPerDoc: 50   // Guarda hasta 50 versiones
+    },
     fields: [
       { name: 'title', type: 'text', required: true },
       { name: 'slug', type: 'text', unique: true },
-      { name: 'status', type: 'select', options: ['draft', 'published'] },
+      {
+        name: '_status',
+        type: 'select',
+        options: [
+          { label: 'Borrador', value: 'draft' },      // ✅ No visible en web
+          { label: 'Publicado', value: 'published' }   // ✅ Visible en web
+        ],
+        defaultValue: 'draft',  // Por defecto se crea como borrador
+        admin: {
+          position: 'sidebar',
+          description: 'Los borradores solo son visibles en vista previa, no en producción'
+        }
+      },
       {
         name: 'content',
         type: 'blocks',
@@ -347,22 +380,74 @@ export function RenderBlocks({ blocks }) {
 }
 ```
 
-##### 2.3 Preview Mode
+##### 2.3 Sistema de Vista Previa (Draft Preview)
+**Objetivo:** Permitir ver cómo quedará la página antes de publicarla.
+
+**Flujo de trabajo:**
+1. Designer crea/edita página en CMS (modo `draft`)
+2. Hace clic en botón "Vista Previa" en admin panel
+3. Se abre nueva pestaña mostrando exactamente cómo se verá en producción
+4. Puede hacer cambios y refrescar preview en tiempo real
+5. Cuando está conforme, cambia estado a `published`
+
+**Implementación:**
 ```typescript
 // src/app/api/preview/route.ts
+import { draftMode } from 'next/headers'
+import { redirect } from 'next/navigation'
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const secret = searchParams.get('secret')
   const slug = searchParams.get('slug')
 
-  if (secret !== process.env.PAYLOAD_PREVIEW_SECRET) {
+  // Validar token secreto (previene acceso no autorizado)
+  if (secret !== process.env.PREVIEW_SECRET) {
     return new Response('Invalid token', { status: 401 })
   }
 
+  // Activar Draft Mode de Next.js
   draftMode().enable()
+
+  // Redirigir a la página en modo preview
   redirect(`/${slug}`)
 }
 ```
+
+```typescript
+// src/app/[slug]/page.tsx
+import { draftMode } from 'next/headers'
+
+export default async function Page({ params }) {
+  const { isEnabled: isDraft } = draftMode()
+
+  // Si está en modo draft, traer versión borrador
+  const page = await payload.find({
+    collection: 'pages',
+    where: { slug: { equals: params.slug } },
+    draft: isDraft  // ✅ Esto trae el borrador si isDraft=true
+  })
+
+  // Banner visual indicando que es preview
+  if (isDraft) {
+    return (
+      <>
+        <PreviewBanner />
+        <RenderBlocks blocks={page.content} />
+      </>
+    )
+  }
+
+  return <RenderBlocks blocks={page.content} />
+}
+```
+
+**Características del Preview:**
+- ✅ **Sin afectar producción**: Los visitantes siguen viendo la versión publicada
+- ✅ **Tiempo real**: Cambios se reflejan instantáneamente al refrescar
+- ✅ **Seguro**: Solo accesible con token secreto
+- ✅ **Comparación**: Se puede abrir versión publicada en otra pestaña para comparar
+- ✅ **Exit preview**: Botón para salir del modo preview
 
 #### Entregables:
 - ✅ Páginas dinámicas renderizando desde Payload
@@ -592,27 +677,195 @@ export const pagesAccess = {
 }
 ```
 
-##### 5.3 Audit Log
+##### 5.3 Sistema de Audit Logs (Registro de Cambios)
+**Objetivo:** Saber quién modificó qué y cuándo, con historial completo de cambios.
+
+**Características:**
+- ✅ **Registro automático**: Cada vez que alguien crea/edita/elimina algo, se guarda log
+- ✅ **Detalle completo**: Usuario, acción, fecha/hora, qué cambió exactamente
+- ✅ **Trazabilidad**: Ver historial de todas las modificaciones de una página
+- ✅ **Comparación visual**: Ver diferencias entre versiones (antes/después)
+- ✅ **Filtros**: Buscar por usuario, fecha, tipo de acción
+
+**Implementación:**
+
 ```typescript
-// payload/hooks/audit-log.ts
-export const auditLog: CollectionAfterChangeHook = async ({
+// src/payload/collections/AuditLogs.ts
+import type { CollectionConfig } from 'payload'
+
+export const AuditLogs: CollectionConfig = {
+  slug: 'audit-logs',
+  admin: {
+    useAsTitle: 'action',
+    defaultColumns: ['user', 'action', 'collection', 'timestamp'],
+  },
+  fields: [
+    {
+      name: 'user',
+      type: 'relationship',
+      relationTo: 'users',
+      required: true,
+      admin: {
+        readOnly: true,
+      }
+    },
+    {
+      name: 'action',
+      type: 'select',
+      required: true,
+      options: [
+        { label: 'Creó', value: 'create' },
+        { label: 'Actualizó', value: 'update' },
+        { label: 'Eliminó', value: 'delete' },
+        { label: 'Publicó', value: 'publish' },
+        { label: 'Despublicó', value: 'unpublish' },
+      ],
+      admin: {
+        readOnly: true,
+      }
+    },
+    {
+      name: 'collection',
+      type: 'text',
+      required: true,
+      admin: {
+        description: 'Qué colección fue modificada (pages, media, etc.)',
+        readOnly: true,
+      }
+    },
+    {
+      name: 'documentId',
+      type: 'text',
+      required: true,
+      admin: {
+        description: 'ID del documento modificado',
+        readOnly: true,
+      }
+    },
+    {
+      name: 'documentTitle',
+      type: 'text',
+      admin: {
+        description: 'Título de la página/documento modificado',
+        readOnly: true,
+      }
+    },
+    {
+      name: 'timestamp',
+      type: 'date',
+      required: true,
+      defaultValue: () => new Date(),
+      admin: {
+        readOnly: true,
+        date: {
+          displayFormat: 'dd/MM/yyyy HH:mm:ss',
+        }
+      }
+    },
+    {
+      name: 'changes',
+      type: 'json',
+      admin: {
+        description: 'Detalle de qué campos cambiaron',
+        readOnly: true,
+      }
+    },
+    {
+      name: 'ipAddress',
+      type: 'text',
+      admin: {
+        description: 'IP desde donde se hizo el cambio',
+        readOnly: true,
+      }
+    }
+  ],
+  access: {
+    create: () => true,  // El hook lo crea automáticamente
+    read: ({ req: { user } }) => !!user,  // Solo usuarios logueados
+    update: () => false,  // Los logs nunca se modifican
+    delete: ({ req: { user } }) => user?.role === 'admin',  // Solo admin puede borrar logs
+  },
+  timestamps: true,
+}
+```
+
+```typescript
+// src/payload/hooks/audit-log.ts
+import type { CollectionAfterChangeHook } from 'payload'
+
+export const createAuditLog: CollectionAfterChangeHook = async ({
   doc,
   req,
-  operation
+  operation,
+  previousDoc,
 }) => {
-  await payload.create({
+  // Solo crear log si hay usuario logueado
+  if (!req.user) return
+
+  // Detectar qué cambió
+  const changes: Record<string, { old: any; new: any }> = {}
+
+  if (operation === 'update' && previousDoc) {
+    Object.keys(doc).forEach((key) => {
+      if (JSON.stringify(doc[key]) !== JSON.stringify(previousDoc[key])) {
+        changes[key] = {
+          old: previousDoc[key],
+          new: doc[key],
+        }
+      }
+    })
+  }
+
+  // Crear registro en audit-logs
+  await req.payload.create({
     collection: 'audit-logs',
     data: {
       user: req.user.id,
-      action: operation, // create, update, delete
-      collection: 'pages',
+      action: operation,
+      collection: req.collection?.config.slug,
       documentId: doc.id,
+      documentTitle: doc.title || doc.name || doc.slug,
       timestamp: new Date(),
-      changes: getChanges(doc, previousDoc),
-    }
+      changes: operation === 'update' ? changes : doc,
+      ipAddress: req.headers.get('x-forwarded-for') || req.ip,
+    },
   })
 }
 ```
+
+```typescript
+// payload.config.ts - Agregar hook a Pages collection
+collections: [
+  {
+    slug: 'pages',
+    hooks: {
+      afterChange: [createAuditLog],  // ✅ Registra cada cambio
+    },
+    // ... resto de config
+  }
+]
+```
+
+**Vista en Admin Panel:**
+```
+╔══════════════════════════════════════════════════════════════════╗
+║ AUDIT LOGS - Historial de Cambios                                ║
+╠══════════════════════════════════════════════════════════════════╣
+║ Usuario      │ Acción      │ Página        │ Fecha/Hora          ║
+╠══════════════╪═════════════╪═══════════════╪═════════════════════╣
+║ juan@corp.ar │ Actualizó   │ Juana 64      │ 17/12/2025 14:30:22 ║
+║ maria@corp.ar│ Publicó     │ Corporativos  │ 17/12/2025 13:15:10 ║
+║ pedro@corp.ar│ Creó        │ Nueva Landing │ 17/12/2025 11:05:33 ║
+║ juan@corp.ar │ Eliminó     │ Test Page     │ 16/12/2025 18:42:11 ║
+╚══════════════╧═════════════╧═══════════════╧═════════════════════╝
+```
+
+**Beneficios:**
+- 🔍 **Trazabilidad completa**: Ver quién hizo cada cambio
+- 🕐 **Historial temporal**: Saber cuándo se hizo cada modificación
+- 🔒 **Seguridad**: Detectar accesos no autorizados o cambios sospechosos
+- 📊 **Análisis**: Ver qué usuarios son más activos, qué páginas se modifican más
+- 🔙 **Recovery**: Saber qué usuario causó un problema para poder revertir
 
 ##### 5.4 CSP para Admin Panel
 ```typescript
