@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Security (2025-12-17)
+- **Fixed CSP blocking Google Ads and Analytics resources**
+  - Added `https://googleads.g.doubleclick.net` to script-src for conversion tracking
+  - Added `https://*.doubleclick.net` to img-src for tracking pixels
+  - Added `https://analytics.google.com` to connect-src for Analytics collection
+  - Fixes Tag Assistant errors blocking Google Ads viewthrough conversions and Analytics data collection
+
 - **Fixed CSP blocking Google Tag Manager CCM endpoint**
   - Added `https://www.google.com` to connect-src directive
   - Fixes Tag Assistant error: "La política de seguridad de contenido de su sitio bloquea algunos recursos"
