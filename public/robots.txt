@@ -5,6 +5,7 @@ Allow: /
 # *
 User-agent: *
 Disallow: /api/
+Disallow: /complejo-coradir
 
 # Host
 Host: https://homes.coradir.com.ar

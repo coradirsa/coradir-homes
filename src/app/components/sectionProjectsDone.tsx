@@ -16,8 +16,9 @@ export default function SectionProjectsDone() {
     {
       title: "Complejo Coradir",
       image: "/img/projects/complejo.webp",
-      link: "/complejo-coradir",
+      link: "#",
       id: "boton-homes-home-proyectos-complejo",
+      comingSoon: true,
     },
     {
       title: "La Torre I",

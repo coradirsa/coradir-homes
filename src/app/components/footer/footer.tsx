@@ -12,7 +12,6 @@ export default function Footer() {
             { label: "Juana 64", href: "/juana-64" },
             { label: "La Torre II", href: "/la-torre-ii" },
             { label: "Proyectos", href: "/proyectos" },
-            { label: "Locales Coradir", href: "/complejo-coradir" },
         ],
         opportunities: [
             { label: "Inversiones Inteligentes", href: "/inversiones-inteligentes" },

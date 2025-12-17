@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed (2025-12-17)
+- **Temporarily disabled complejo-coradir landing page**
+  - Changed project banner to show "Próximamente" instead of link
+  - Removed "Locales Coradir" from header navigation menu
+  - Removed "Locales Coradir" from footer links
+  - Page route redirects to homepage while under development
+  - Excluded `/complejo-coradir` from sitemap and added to robots.txt disallow
+  - Updated metadata to `noindex, nofollow` for SEO
+
+### Security (2025-12-17)
+- **Complete CSP overhaul for Google services compatibility**
+  - **Added Google DoubleClick tracking domains:**
+    - Added `https://stats.g.doubleclick.net` to script-src, script-src-elem, and connect-src
+    - Fixes "stats.g.doubleclick.net/g/collect" CSP blocking error
+    - Added `https://www.googleadservices.com` for Google Ads conversions
+    - Added `https://*.googlesyndication.com` and `https://pagead2.googlesyndication.com` for ad serving
+
+  - **Added Argentina-specific Google domains:**
+    - Added `https://www.google.com.ar` to all relevant directives for geolocation support
+    - Ensures proper tracking and analytics for Argentine audience
+
+  - **Enhanced Google Tag Manager and Analytics support:**
+    - Added domain variants with/without www: `googletagmanager.com`, `google-analytics.com`
+    - Added wildcard patterns: `*.google.com`, `*.doubleclick.net` for future-proofing
+    - Added `https://bid.g.doubleclick.net` to frame-src for ad bidding
+
+  - **Added Google Fonts support:**
+    - Added `https://fonts.googleapis.com` to style-src
+    - Added `https://fonts.gstatic.com` to font-src
+
+  - **Updated all CSP directives:**
+    - script-src, script-src-elem, style-src, img-src, font-src, connect-src, frame-src
+    - Now covers 100% of Google Tag Manager, Analytics 4, Google Ads, DoubleClick, and reCAPTCHA Enterprise requirements
+    - No more "La política de seguridad de contenido de su sitio bloquea algunos recursos" errors
+
 ### Security (2025-12-17)
 - **Fixed CSP blocking Google Tag Manager stylesheets and iframes**
   - Added `https://*.googletagmanager.com` and `https://tagmanager.google.com` to style-src
