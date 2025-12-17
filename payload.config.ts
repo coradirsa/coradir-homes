@@ -2,7 +2,12 @@ import { buildConfig } from 'payload'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
+
+// Collections
 import { Users } from './src/payload/collections/Users'
+import { Pages } from './src/payload/collections/Pages'
+import { Media } from './src/payload/collections/Media'
+import { AuditLogs } from './src/payload/collections/AuditLogs'
 
 export default buildConfig({
   // Secret key for JWT tokens
@@ -19,12 +24,17 @@ export default buildConfig({
   // Collections
   collections: [
     Users,
-    // Pages collection will be added in FASE 1
+    Pages,
+    Media,
+    AuditLogs,
   ],
 
   // Admin panel configuration
   admin: {
     user: 'users',
+    meta: {
+      titleSuffix: '- CORADIR CMS',
+    },
   },
 
   // TypeScript configuration
