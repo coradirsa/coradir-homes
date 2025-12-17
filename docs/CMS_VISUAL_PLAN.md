@@ -1,9 +1,15 @@
 # Plan de Implementación: CMS Visual para Coradir Homes
 
 **Fecha de Creación:** 2025-12-17
+**Última Actualización:** 2025-12-17
 **Proyecto:** Sistema de Gestión de Contenido Visual con SEO Automático
 **Entorno de Desarrollo:** Rama `dev`
 **Objetivo:** Permitir a diseñadores crear/modificar páginas sin código manteniendo seguridad y SEO
+
+## ✅ Estado: FASE 0 Completada (100%)
+**Última FASE Completada:** FASE 0 - Preparación y Análisis
+**Commit:** `a54fbc4` - feat: FASE 0 CMS Visual - Setup MongoDB y Payload CMS
+**Próximo Paso:** FASE 1 - Instalación y Configuración Base de Payload CMS
 
 ---
 
@@ -191,10 +197,56 @@ Preview:       Next.js Draft Mode
 - [ ] Instalación de Payload CMS
 - [ ] Configuración de TypeScript types compartidos
 
+#### Tareas Completadas (FASE 0 - 100%):
+1. ✅ **Auditoría de Componentes Existentes**
+   - Analizado 62 componentes totales
+   - Identificado 35 componentes convertibles a bloques CMS
+   - Creado `docs/cms/COMPONENT_AUDIT.md` con esquemas detallados
+   - Priorizados 15 bloques esenciales en 3 fases
+
+2. ✅ **Setup de MongoDB en Docker**
+   - Agregado servicio MongoDB 7-jammy a `docker-compose.yml`
+   - Configuración de seguridad hardened:
+     - Usuario non-root (999:999)
+     - Límites de recursos (1 CPU, 1GB RAM)
+     - Capabilities eliminadas (cap_drop: ALL)
+     - Security options (no-new-privileges)
+   - Healthcheck configurado con mongosh
+   - Volúmenes persistentes para data y config
+   - Red interna `coradir_internal`
+
+3. ✅ **Instalación y Configuración de Payload CMS**
+   - Instalado Payload CMS 3.68.5 + dependencias:
+     - `@payloadcms/db-mongodb`
+     - `@payloadcms/richtext-lexical`
+     - `@payloadcms/next`
+     - `sharp` para optimización de imágenes
+   - Downgrade de Next.js 16.0.10 → 15.4.10 (requerimiento de compatibilidad)
+   - Creado `payload.config.ts` con configuración base
+   - Creado collection Users para autenticación
+   - Variables de entorno configuradas en `.env.example`
+
+4. ✅ **Generación de Secrets y Configuración Local**
+   - Generado `MONGO_PASSWORD` con openssl (base64 32 chars)
+   - Generado `PAYLOAD_SECRET` con openssl (base64 32 chars)
+   - Creado archivo `.env` local con todas las variables
+   - Documentado DATABASE_URI para ambos casos (local/Docker)
+
+5. ✅ **Testing de Deploy**
+   - Build de imagen Docker exitosa
+   - Ambos contenedores corriendo y healthy:
+     - `mongodb_coradir_cms` en puerto 27017
+     - `web_coradir_homes` en puerto 6118
+   - Healthchecks pasando correctamente
+   - Next.js 15.4.10 corriendo en modo production
+   - Sitemap generado correctamente (24 rutas)
+
 #### Entregables:
-- ✅ Documento de componentes reutilizables
-- ✅ MongoDB corriendo en Docker
-- ✅ Payload CMS instalado y configurado básico
+- ✅ Documento de componentes reutilizables (`docs/cms/COMPONENT_AUDIT.md`)
+- ✅ MongoDB corriendo en Docker con seguridad hardened
+- ✅ Payload CMS 3.68.5 instalado y configurado
+- ✅ Build de producción exitosa
+- ✅ Deploy local funcionando correctamente
 
 ---
 

@@ -46,6 +46,10 @@ services:
     networks:
       - coradir_internal
 
+    # Expose MongoDB port for local development only
+    ports:
+      - "27017:27017"
+
     # Health check
     healthcheck:
       test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
