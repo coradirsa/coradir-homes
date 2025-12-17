@@ -26,6 +26,9 @@
       "@/*": [
         "./src/*"
       ],
+      "@/payload-types": [
+        "./payload-types"
+      ],
       "@payload-config": [
         "./payload.config.ts"
       ]
