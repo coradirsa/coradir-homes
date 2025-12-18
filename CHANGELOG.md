@@ -7,6 +7,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed (2025-12-18)
+- **Migration from Payload CMS to Strapi (in progress)**
+  - **Reason**: Payload CMS 3.68.5 has compatibility issues with Next.js 15.5.9 - admin panel throws "Cannot destructure property 'config'" error
+  - **Database Migration**: Changed from MongoDB to PostgreSQL 16-alpine
+  - **Removed Payload CMS**:
+    - Removed all @payloadcms/* dependencies
+    - Removed payload.config.ts
+    - Removed withPayload from next.config.ts
+    - Removed @payload-config TypeScript path
+    - Removed src/payload/ folder (collections and blocks preserved for migration reference)
+  - **Added Strapi 5.8.0**:
+    - @strapi/strapi ^5.8.0
+    - @strapi/plugin-users-permissions ^5.8.0
+    - @strapi/plugin-i18n ^5.8.0
+    - pg (PostgreSQL driver) ^8.13.1
+  - **Docker Configuration**:
+    - Replaced mongodb service with postgres (PostgreSQL 16-alpine)
+    - Added strapi service (port 1337)
+    - Updated health checks for PostgreSQL
+    - Updated environment variables for Strapi
+  - **Pending Implementation**:
+    - Create /strapi folder with Strapi configuration
+    - Migrate Payload Collections → Strapi Content Types
+    - Migrate Payload Blocks → Strapi Components/Dynamic Zones
+    - Create Next.js API routes to consume Strapi REST API
+
+### Added (2025-12-18)
+- **FASE 1 - CMS Backend Core (Payload CMS - DEPRECATED)**
+  - **Colección Pages** con versionado completo y gestión de menú:
+    - Drafts con autosave cada 2 segundos, hasta 50 versiones por documento
+    - Sistema de menú: posición (main/secondary/footer), orden, etiqueta personalizada, soporte para submenús
+    - SEO completo: meta title, description, keywords, OG image, noindex
+    - Slug auto-formateado, fecha de publicación automática
+  - **Colección Media** con optimización automática:
+    - Conversión a WebP con 4 tamaños (thumbnail, card, tablet, desktop)
+    - Campos de accesibilidad (alt, caption, credit)
+  - **5 Bloques básicos** implementados:
+    - HeroBlock: 3 variantes, overlay configurable, 4 alturas, CTA con 3 estilos
+    - FeaturesBlock: 4 layouts, 12 iconos, array de características con enlaces opcionales
+    - ContactFormBlock: 6 tipos de formulario, integración N8N, reCAPTCHA Enterprise configurable
+    - CTABlock: 4 variantes, múltiples botones, 5 colores de fondo
+    - RichTextBlock: Lexical editor, 4 anchos, 4 alineaciones
+  - **Admin Panel** configurado:
+    - Branding personalizado (CORADIR CMS)
+    - Organización por grupos (Contenido, Multimedia)
+    - Formato de fecha español (dd/MM/yyyy)
+  - **Integración con Next.js y Docker**:
+    - Configurado `withPayload` en next.config.ts
+    - TypeScript paths para `@payload-config`
+    - Build de Docker exitoso con CMS integrado
+    - Contenedores funcionando correctamente (frontend + MongoDB)
+    - Panel admin accesible en http://localhost:6118/admin
+
 ### Changed (2025-12-17)
 - **Temporarily disabled complejo-coradir landing page**
   - Changed project banner to show "Próximamente" instead of link

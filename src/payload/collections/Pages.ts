@@ -131,6 +131,89 @@ export const Pages: CollectionConfig = {
       ],
     },
     {
+      name: 'menu',
+      type: 'group',
+      label: 'Configuración de Menú',
+      admin: {
+        description: 'Controla cómo aparece esta página en el menú de navegación',
+      },
+      fields: [
+        {
+          name: 'showInMenu',
+          type: 'checkbox',
+          label: 'Mostrar en Menú',
+          defaultValue: true,
+          admin: {
+            description: 'Activar para que la página aparezca en el menú de navegación',
+          },
+        },
+        {
+          name: 'menuLabel',
+          type: 'text',
+          label: 'Etiqueta del Menú',
+          admin: {
+            description: 'Texto que aparecerá en el menú (si está vacío, se usa el título de la página)',
+            placeholder: 'Dejar vacío para usar el título',
+            condition: (data) => data.menu?.showInMenu === true,
+          },
+        },
+        {
+          name: 'menuPosition',
+          type: 'select',
+          label: 'Posición en el Menú',
+          defaultValue: 'main',
+          options: [
+            {
+              label: 'Menú Principal',
+              value: 'main',
+            },
+            {
+              label: 'Menú Secundario',
+              value: 'secondary',
+            },
+            {
+              label: 'Footer',
+              value: 'footer',
+            },
+            {
+              label: 'No mostrar',
+              value: 'none',
+            },
+          ],
+          admin: {
+            description: 'Selecciona en qué sección del menú debe aparecer',
+            condition: (data) => data.menu?.showInMenu === true,
+          },
+        },
+        {
+          name: 'menuOrder',
+          type: 'number',
+          label: 'Orden',
+          defaultValue: 0,
+          admin: {
+            description: 'Orden de aparición (menor número = más arriba)',
+            step: 1,
+            condition: (data) => data.menu?.showInMenu === true,
+          },
+        },
+        {
+          name: 'parentPage',
+          type: 'relationship',
+          relationTo: 'pages',
+          label: 'Página Padre',
+          admin: {
+            description: 'Selecciona una página padre para crear submenús (opcional)',
+            condition: (data) => data.menu?.showInMenu === true,
+          },
+          filterOptions: ({ id }) => ({
+            id: {
+              not_equals: id, // Evitar que una página sea su propia padre
+            },
+          }),
+        },
+      ],
+    },
+    {
       name: 'publishedAt',
       type: 'date',
       label: 'Fecha de Publicación',
