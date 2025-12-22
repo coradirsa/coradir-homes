@@ -64,7 +64,8 @@ export default function WhatsAppButton() {
         const trackedUrl = getTrackedUrl(whatsappUrl);
 
         // Track event with gtag
-        if (typeof window !== 'undefined' && (window as any).gtag) {
+        if (typeof window !== 'undefined' && 'gtag' in window) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (window as any).gtag('event', 'whatsapp_click', {
                 event_category: 'engagement',
                 event_label: pathname,
