@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2025-12-22)
+- **WhatsApp Floating Button Widget**
+  - Replaced AI chatbot button with WhatsApp floating button
+  - Official WhatsApp branding with green color (#25D366)
+  - Tooltip message appears after 3 seconds: "¡Hola! 👋 ¿En qué puedo ayudarte? Chatea con nosotros..."
+  - Auto-hide tooltip after 8 seconds with manual close button
+  - Personalized messages based on current page route:
+    - Home: Interest in learning about properties
+    - Projects: Inquiry about specific projects
+    - La Torre II / Juana 64 / Complejo Coradir: Project-specific messages
+    - Inversiones Inteligentes: Investment inquiry
+    - Contact: General contact request
+  - Integrated with useWhatsAppUtm hook for UTM parameter tracking
+  - Google Analytics tracking with gtag event 'whatsapp_click'
+  - Button ID `whatsapp-float-button` for GTM integration
+  - Responsive design (mobile/tablet/desktop)
+  - Accessibility: ARIA labels and semantic HTML
+  - Pulsing animation ring and hover effects
+  - Created WHATSAPP_BUTTON_TRACKING.md documentation for GTM setup
+
+- **Tailwind CSS Custom Animations**
+  - Added `slide-in-right` keyframe animation (0.4s ease-out)
+  - Added `fade-in` keyframe animation (0.5s ease-out)
+  - Used for WhatsApp button tooltip and entrance animations
+
+### Changed (2025-12-22)
+- **Favicon Location**
+  - Moved favicon.ico from `src/app/` to `public/` directory
+  - Fixes Next.js build issue with favicon route generation
+  - Improves build compatibility and performance
+
 ### Security (2025-12-17)
 - **Added LinkedIn Insight Tag and Ads Pixel support to CSP**
   - Added `https://snap.licdn.com` and `https://*.licdn.com` to script-src and script-src-elem
