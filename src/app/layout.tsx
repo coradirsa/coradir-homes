@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import "./globals.css";
 import { playfairDisplay, raleway } from "@/content/ui/fonts";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import Bot from "./components/bot";
+import WhatsAppButton from "./components/WhatsAppButton";
 import { createMetadata, siteConfig } from "@/lib/seo";
 
 // Lazy load heavy sections
@@ -97,7 +98,9 @@ export default function RootLayout({
         <InvestmentModalStructuredData />
 
         <Header/>
-        <Bot/>
+        <Suspense fallback={null}>
+          <WhatsAppButton/>
+        </Suspense>
         <main id="main-content" role="main" className="focus:outline-none">
           {children}
           <SectionProjectsDone/>
