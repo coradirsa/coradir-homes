@@ -7,6 +7,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2025-12-26)
+- **Enhanced WhatsApp Button Scroll Tooltip**
+  - Added scroll-triggered tooltip that appears when user scrolls past 50% of page
+  - Message: "¿Tenés más dudas o consultas? Podés escribir directamente a nuestro WhatsApp, estamos para ayudarte."
+  - Enhanced visual design with green gradient background (from-[#25D366] to-[#20BA5A])
+  - White border and larger text for better visibility
+  - Added 💬 emoji icon for visual appeal
+  - Tooltip shows every time user crosses 50% scroll threshold
+  - Respects manual dismissal (X button) but reappears when scrolling back up and down again
+  - No auto-hide timeout - only closes when user clicks X button
+
+- **Contact Form on Homepage**
+  - Added ProjectForm component to main page (page.tsx)
+  - Form heading: "Descubrí tu próximo hogar"
+  - Interest type: "contacto-general"
+  - Includes dropdown for "Quiero comprar" / "Quiero alquilar"
+
+### Changed (2025-12-26)
+- **Simplified Contact Forms**
+  - Removed profileType field (inversión/consumidor final options)
+  - Replaced multiple interest options with single transactionType dropdown
+  - TransactionTypes: "comprar" and "alquilar" with labels "Quiero comprar" / "Quiero alquilar"
+  - Changed submit button text from "Quiero invertir" to "Enviar"
+  - Updated FormSchema to use transactionType field instead of profileType
+  - Modified ContactForm.tsx and ProjectForm.tsx to use new schema
+
+- **Form Dropdown Width Fix**
+  - Modified CustomInput.tsx to conditionally render select elements
+  - When inputClassName is provided, select uses it directly without wrapper div
+  - Ensures dropdown has same width as other form fields for better UX
+
+- **React Hooks ESLint Compliance**
+  - Fixed conditional useRef() calls in ProjectForm.tsx
+  - Moved all useRef declarations outside of inputs array definition
+  - Created dedicated refs: nameRef, emailRef, phoneRef, transactionTypeRef, messageRef
+
 ### Added (2025-12-22)
 - **WhatsApp Floating Button Widget**
   - Replaced AI chatbot button with WhatsApp floating button

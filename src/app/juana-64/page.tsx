@@ -53,13 +53,8 @@ export default function Page() {
                     heading="Tu futura casa te espera"
                     subtitle="El lugar soñado existe"
                     backgroundImage="/img/vivienda-joven/bg-form.webp"
-                    submitLabel="Quiero invertir"
                     id="formulario"
-                    profileTypes={[
-                        { label: "Inversor", value: "inversor" },
-                        { label: "Consumidor", value: "consumidor" }
-                    ]}
-                    transactionTypes={["Alquilar", "Comprar"]}
+                    transactionTypes={["comprar", "alquilar"]}
                 />
                 <SectionContact />
             </>

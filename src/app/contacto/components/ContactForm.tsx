@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import CustomInput from "../../saber-mas/[interes]/components/customInput";
 import Loader from "../../saber-mas/[interes]/components/loader";
-import { FormSchema, InputForm, Interests } from "../../../schemas/formSchema";
+import { FormSchema, InputForm, TransactionTypes, TransactionTypeLabels } from "../../../schemas/formSchema";
 
 export default function ContactForm() {
   const form = useForm<FormSchema>({
@@ -18,6 +18,7 @@ export default function ContactForm() {
       message: "",
       name: "",
       phone: "",
+      transactionType: undefined,
     },
   });
 
@@ -139,11 +140,11 @@ export default function ContactForm() {
     { name: "email", label: "Correo electrónico", type: "email", ref: useRef<HTMLInputElement>(null) },
     { name: "phone", label: "Celular", type: "tel", ref: useRef<HTMLInputElement>(null) },
     {
-      name: "interesting",
-      label: "Selecciona la opción que te interesa",
+      name: "transactionType",
+      label: "¿Qué te interesa?",
       type: "select",
       ref: useRef<HTMLInputElement>(null),
-      options: Interests.options,
+      options: TransactionTypes.options.map(opt => ({ value: opt, label: TransactionTypeLabels[opt] })),
     },
     { name: "message", label: "Tu mensaje (opcional)", type: "textarea", ref: useRef<HTMLInputElement>(null) },
   ];

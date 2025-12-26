@@ -7,7 +7,8 @@ import { useRouter } from "next/navigation";
 import CustomInput from "@/app/saber-mas/[interes]/components/customInput";
 import Loader from "@/app/saber-mas/[interes]/components/loader";
 import { FormSchema as FormSchemaDefinition } from "@/schemas/formSchema";
-import type { FormSchema as FormSchemaType, Interests as InterestType, InputForm } from "@/schemas/formSchema";
+import type { FormSchema as FormSchemaType, Interests as InterestType, InputForm, TransactionType } from "@/schemas/formSchema";
+import { TransactionTypeLabels } from "@/schemas/formSchema";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 type ProjectFormProps = {
@@ -17,7 +18,6 @@ type ProjectFormProps = {
   subtitle?: string;
   submitLabel?: string;
   id?: string;
-  profileTypes?: { label: string; value: string }[];
   transactionTypes?: string[];
 };
 
@@ -26,9 +26,8 @@ export default function ProjectForm({
   backgroundImage,
   heading = "Descubri una nueva forma de vivir.",
   subtitle = "Comunicate con nosotros:",
-  submitLabel = "Quiero invertir",
+  submitLabel = "Enviar",
   id = "formulario",
-  profileTypes,
   transactionTypes,
 }: ProjectFormProps) {
   const form = useForm<FormSchemaType>({
@@ -39,13 +38,10 @@ export default function ProjectForm({
       message: "",
       name: "",
       phone: "",
-      profileType: profileTypes ? profileTypes[0].value : undefined,
-      transactionType: transactionTypes ? transactionTypes[0] : undefined,
+      transactionType: transactionTypes ? transactionTypes[0] as TransactionType : undefined,
     },
   });
-  const { handleSubmit, control, setValue, watch, formState: { errors, isSubmitting } } = form;
-  const currentProfileType = watch("profileType");
-  const currentTransactionType = watch("transactionType");
+  const { handleSubmit, control, formState: { errors, isSubmitting } } = form;
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [submitMessage, setSubmitMessage] = useState({ type: "", text: "" });
   const [loading, setLoading] = useState(false);
@@ -109,16 +105,13 @@ export default function ProjectForm({
       name: data.name.trim(),
       email: data.email.trim().toLowerCase(),
       phone: data.phone?.trim() || null,
-      interesting: data.interesting.trim(),
+      interesting: data.interesting?.trim() || interest,
       message: data.message?.trim() || null,
       timestamp: new Date().toISOString(),
       source: "website_coradir_homes_form",
     };
 
     // Add optional fields only if they exist
-    if (data.profileType) {
-      dataToSend.profileType = data.profileType;
-    }
     if (data.transactionType) {
       dataToSend.transactionType = data.transactionType;
     }
@@ -184,13 +177,20 @@ export default function ProjectForm({
   const labelClassName = "text-blue text-lg font-bold mb-1 xl:text-right w-full block";
   const inputClassName = "bg-white text-blue w-full md:w-[90%] xl:w-full h-11 rounded-md mb-3 pl-4 text-base border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all shadow-sm";
 
+  // Create refs outside of conditional logic
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const transactionTypeRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
   const inputs: InputForm[] = [
     {
       name: "name",
       label: "Nombre y apellido",
       placeholder: "Nombre y apellido",
       type: "text",
-      ref: useRef<HTMLInputElement>(null),
+      ref: nameRef,
       inputClassName,
       labelClassName,
     },
@@ -199,7 +199,7 @@ export default function ProjectForm({
       label: "Correo electronico",
       placeholder: "nombre@email.com",
       type: "email",
-      ref: useRef<HTMLInputElement>(null),
+      ref: emailRef,
       inputClassName,
       labelClassName,
     },
@@ -208,16 +208,25 @@ export default function ProjectForm({
       label: "Celular",
       placeholder: "+54 9 ...",
       type: "tel",
-      ref: useRef<HTMLInputElement>(null),
+      ref: phoneRef,
       inputClassName,
       labelClassName,
     },
+    ...(transactionTypes ? [{
+      name: "transactionType" as keyof FormSchemaType,
+      label: "¿Qué te interesa?",
+      type: "select",
+      ref: transactionTypeRef,
+      options: transactionTypes.map(opt => ({ value: opt, label: TransactionTypeLabels[opt] || opt })),
+      inputClassName,
+      labelClassName,
+    }] : []),
     {
       name: "message",
       label: "Tu mensaje (opcional)",
       placeholder: "Escribe tu consulta...",
       type: "textarea",
-      ref: useRef<HTMLTextAreaElement>(null),
+      ref: messageRef,
       inputClassName: "bg-white text-blue w-full md:w-[90%] xl:w-full h-24 rounded-md mb-3 pl-4 pt-3 text-base border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all shadow-sm resize-none",
       labelClassName,
     },
@@ -266,54 +275,6 @@ export default function ProjectForm({
                   errors={errors}
                 />
               ))}
-
-              {/* Profile Type Selector */}
-              {profileTypes && (
-                <div className="w-full md:w-[90%] xl:w-full mb-5">
-                  <label className="block text-blue text-lg font-bold mb-2 xl:text-right">Perfil de Interesado:</label>
-                  <div className="flex gap-6 xl:justify-end justify-center">
-                    {profileTypes.map((type, idx) => (
-                      <label key={idx} className="flex items-center gap-2 cursor-pointer group">
-                        <div className={`relative flex items-center justify-center w-5 h-5 border-2 rounded-full transition-colors ${currentProfileType === type.value ? 'border-blue' : 'border-gray-400 group-hover:border-blue'}`}>
-                          <input
-                            type="radio"
-                            value={type.value}
-                            checked={currentProfileType === type.value}
-                            onChange={() => setValue("profileType", type.value)}
-                            className="appearance-none absolute inset-0 cursor-pointer"
-                          />
-                          {currentProfileType === type.value && (
-                            <div className="w-2.5 h-2.5 bg-blue rounded-full"></div>
-                          )}
-                        </div>
-                        <span className={`text-base font-medium transition-colors ${currentProfileType === type.value ? 'text-blue' : 'text-gray-600 group-hover:text-blue'}`}>
-                          {type.label}
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Transaction Type Selector (Buttons) */}
-              {transactionTypes && (
-                <div className="w-full md:w-[90%] xl:w-full mb-6 grid grid-cols-2 gap-3">
-                  {transactionTypes.map((opt, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setValue("transactionType", opt)}
-                      className={`py-2.5 text-sm font-bold uppercase tracking-wider border-2 rounded-lg transition-all
-                        ${currentTransactionType === opt
-                          ? 'bg-blue text-white border-blue shadow-md'
-                          : 'bg-transparent text-blue border-blue/30 hover:border-blue'
-                        }`}
-                    >
-                      {opt}
-                    </button>
-                  ))}
-                </div>
-              )}
 
               <div className="w-full md:w-[90%] xl:w-full flex justify-center xl:justify-end">
                 <button

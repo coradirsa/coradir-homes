@@ -7,6 +7,8 @@ import { useWhatsAppUtm } from "@/hooks/useWhatsAppUtm";
 export default function WhatsAppButton() {
     const [isVisible, setIsVisible] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
+    const [showScrollTooltip, setShowScrollTooltip] = useState(false);
+    const [wasManuallyDismissed, setWasManuallyDismissed] = useState(false);
     const pathname = usePathname();
     const { getTrackedUrl } = useWhatsAppUtm();
 
@@ -31,6 +33,28 @@ export default function WhatsAppButton() {
             return () => clearTimeout(hideTimer);
         }
     }, [showTooltip]);
+
+    useEffect(() => {
+        // Scroll listener for 50% scroll - shows tooltip every time user scrolls past 50%
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (scrollTop / documentHeight) * 100;
+
+            if (scrollPercentage >= 50 && !wasManuallyDismissed) {
+                setShowScrollTooltip(true);
+            } else if (scrollPercentage < 50) {
+                // Reset when scrolling back up - allows tooltip to show again
+                setShowScrollTooltip(false);
+                setWasManuallyDismissed(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [wasManuallyDismissed]);
+
+    // Removed auto-hide for scroll tooltip - it now only closes when user clicks X
 
     // Generate personalized message based on current page
     const getPersonalizedMessage = (): string => {
@@ -80,8 +104,8 @@ export default function WhatsAppButton() {
 
     return (
         <div className="fixed bottom-4 right-4 xl:bottom-6 xl:right-6 z-50 flex flex-col items-end gap-3">
-            {/* Tooltip Message */}
-            {showTooltip && (
+            {/* Initial Tooltip Message */}
+            {showTooltip && !showScrollTooltip && (
                 <div
                     className="bg-white rounded-2xl shadow-xl px-4 py-3 max-w-[250px] animate-slide-in-right relative"
                     role="tooltip"
@@ -102,6 +126,39 @@ export default function WhatsAppButton() {
                     </p>
                     {/* Triangle pointer */}
                     <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white transform rotate-45"></div>
+                </div>
+            )}
+
+            {/* Scroll Tooltip Message (50% scroll) - More prominent */}
+            {showScrollTooltip && (
+                <div
+                    className="bg-gradient-to-r from-[#25D366] to-[#20BA5A] rounded-2xl shadow-2xl px-6 py-5 max-w-[320px] xl:max-w-[350px] animate-slide-in-right relative border-4 border-white"
+                    role="tooltip"
+                    aria-label="WhatsApp scroll message bubble"
+                >
+                    <button
+                        onClick={() => {
+                            setShowScrollTooltip(false);
+                            setWasManuallyDismissed(true);
+                        }}
+                        className="absolute -top-2 -right-2 bg-white hover:bg-gray-100 rounded-full w-7 h-7 flex items-center justify-center text-gray-800 font-bold shadow-lg transition-all hover:scale-110"
+                        aria-label="Cerrar mensaje"
+                    >
+                        ✕
+                    </button>
+                    <div className="flex items-start gap-2">
+                        <span className="text-3xl">💬</span>
+                        <div>
+                            <p className="text-base xl:text-lg text-white font-bold mb-1">
+                                ¿Tenés más dudas o consultas?
+                            </p>
+                            <p className="text-sm xl:text-base text-white/95 font-medium">
+                                Podés escribir directamente a nuestro WhatsApp, estamos para ayudarte.
+                            </p>
+                        </div>
+                    </div>
+                    {/* Triangle pointer */}
+                    <div className="absolute -bottom-2 right-8 w-5 h-5 bg-gradient-to-br from-[#25D366] to-[#20BA5A] transform rotate-45 border-r-4 border-b-4 border-white"></div>
                 </div>
             )}
 

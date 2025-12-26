@@ -29,7 +29,7 @@ export default function CustomInput<T extends FieldValues>({
     control: Control<T>,
     errors: FieldErrors<T>,
     ref: React.RefObject<HTMLInputElement | HTMLTextAreaElement | null>,
-    options?: string[],
+    options?: string[] | Array<{ value: string; label: string }>,
     className?: string,
     labelClassName?: string,
     inputClassName?: string,
@@ -46,24 +46,51 @@ export default function CustomInput<T extends FieldValues>({
     switch (type) {
         case "select":
             render = (e) => (
-                <div className="rounded-2xl bg-white p-4 py-1 md:p-0 xl:pr-8 mt-5">
+                inputClassName ? (
                     <select
                         {...e.field}
                         id={name}
                         ref={ref as unknown as React.RefObject<HTMLSelectElement>}
-                        className={inputClassName || "outline-none text-blue text-xl p-0 uppercase text-left text-raleway w-full md:p-8 md:py-3 cursor-pointer"}
+                        className={inputClassName}
                     >
-                        {options?.map((option) => (
-                            <option
-                                key={option}
-                                value={option}
-                                className={e.field.value === option ? "text-sm md:text-lg" : "text-xs md:text-lg"}
-                            >
-                                {option}
-                            </option>
-                        ))}
+                        {options?.map((option) => {
+                            const optionValue = typeof option === 'string' ? option : option.value;
+                            const optionLabel = typeof option === 'string' ? option : option.label;
+                            return (
+                                <option
+                                    key={optionValue}
+                                    value={optionValue}
+                                    className="text-sm md:text-lg"
+                                >
+                                    {optionLabel}
+                                </option>
+                            );
+                        })}
                     </select>
-                </div>
+                ) : (
+                    <div className="rounded-2xl bg-white p-4 py-1 md:p-0 xl:pr-8 mt-5">
+                        <select
+                            {...e.field}
+                            id={name}
+                            ref={ref as unknown as React.RefObject<HTMLSelectElement>}
+                            className="outline-none text-blue text-xl p-0 uppercase text-left text-raleway w-full md:p-8 md:py-3 cursor-pointer"
+                        >
+                            {options?.map((option) => {
+                                const optionValue = typeof option === 'string' ? option : option.value;
+                                const optionLabel = typeof option === 'string' ? option : option.label;
+                                return (
+                                    <option
+                                        key={optionValue}
+                                        value={optionValue}
+                                        className={e.field.value === optionValue ? "text-sm md:text-lg" : "text-xs md:text-lg"}
+                                    >
+                                        {optionLabel}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
+                )
             );
             break;
         case "textarea":

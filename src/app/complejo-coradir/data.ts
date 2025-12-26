@@ -106,12 +106,7 @@ export const SITE_DATA: SiteData = {
       { name: "celular", label: "CELULAR", type: "tel" },
       { name: "mensaje", label: "TU MENSAJE (opcional)", type: "textarea" }
     ],
-    // NUEVA CONFIGURACIÓN: Tipos de perfil para el radio button
-    profileTypes: [
-      { label: "Soy Inversor", value: "inversor" },
-      { label: "Soy Consumidor Final", value: "consumidor" }
-    ],
-    options: ["¡QUIERO ALQUILAR!", "¡QUIERO COMPRAR!"],
+    options: ["comprar", "alquilar"],
     bgImage: "/img/complejo-coradir/12.webp"
   }
 };

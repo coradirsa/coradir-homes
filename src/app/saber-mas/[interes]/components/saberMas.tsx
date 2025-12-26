@@ -83,7 +83,7 @@ export default function SaberMas({ copy }: Props) {
       name: data.name.trim(),
       email: data.email.trim().toLowerCase(),
       phone: data.phone?.trim() || null,
-      interesting: data.interesting.trim(),
+      interesting: data.interesting?.trim() || interesResult.data || "contacto-general",
       message: data.message?.trim() || null,
       timestamp: new Date().toISOString(),
       source: "website_coradir_homes_form",

@@ -72,10 +72,6 @@ export interface SiteData {
       label: string;
       type: string;
     }>;
-    profileTypes: Array<{
-      label: string;
-      value: string;
-    }>;
     options: string[];
     bgImage: string;
   };
