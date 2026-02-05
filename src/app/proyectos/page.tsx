@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { createMetadata } from "@/lib/seo";
@@ -7,28 +7,35 @@ import { StructuredDataScripts } from "../components/structuredDataScripts";
 const PROJECTS = [
     {
         name: "Juana 64",
-        description: "Unidades con domótica, zonas comunes equipadas y soluciones ecoeficientes en Juana Koslay.",
+        description: "Unidades con domÃ³tica, zonas comunes equipadas y soluciones ecoeficientes en Juana Koslay.",
         href: "/juana-64",
         image: "/img/projects/jk.webp",
         ctaId: "proyectos-juana-64",
     },
     {
+        name: "Complejo Coradir",
+        description: "Locales comerciales con ubicacion estrategica y alto flujo en San Luis. Preventa y alquileres anticipados.",
+        href: "/complejo-coradir",
+        image: "/img/projects/complejo.webp",
+        ctaId: "proyectos-complejo-coradir",
+    },
+    {
         name: "La Torre II",
-        description: "Residencias premium con amenities de alta gama y ubicación estratégica en el centro de San Luis.",
+        description: "Residencias premium con amenities de alta gama y ubicaciÃ³n estratÃ©gica en el centro de San Luis.",
         href: "/la-torre-ii",
         image: "/img/projects/torre2.png",
         ctaId: "proyectos-la-torre-ii",
     },
     {
         name: "Inversiones Inteligentes",
-        description: "Portafolio administrado para inversores que buscan rentabilidad sostenible y gestión profesional.",
+        description: "Portafolio administrado para inversores que buscan rentabilidad sostenible y gestiÃ³n profesional.",
         href: "/inversiones-inteligentes",
         image: "/img/inversiones_inteligentes.webp",
         ctaId: "proyectos-inversiones-inteligentes",
     },
     {
         name: "Terrenos",
-        description: "Lotes seleccionados con potencial de valorización para desarrollos residenciales y comerciales.",
+        description: "Lotes seleccionados con potencial de valorizaciÃ³n para desarrollos residenciales y comerciales.",
         href: "/terrenos",
         image: "/img/terrenos_hero.webp",
         ctaId: "proyectos-terrenos",
@@ -61,11 +68,11 @@ export default function ProyectosPage() {
             <StructuredDataScripts pathname="/proyectos" />
             <section className="container py-16 px-6 flex flex-col gap-12">
                 <header className="flex flex-col items-center gap-6 text-center">
-                    <h1 className="text-4xl md:text-6xl xl:text-7xl font-playfair text-blue">Proyectos de inversión</h1>
+                    <h1 className="text-4xl md:text-6xl xl:text-7xl font-playfair text-blue">Proyectos de inversiÃ³n</h1>
                     <p className="max-w-3xl text-base md:text-xl font-raleway text-black">
-                        Explorá el portafolio activo de Coradir Homes y encontrá la propuesta que mejor se adapte a tu
+                        ExplorÃ¡ el portafolio activo de Coradir Homes y encontrÃ¡ la propuesta que mejor se adapte a tu
                         perfil: desarrollos en preventa, residencias terminadas y oportunidades para diversificar tu
-                        inversión inmobiliaria.
+                        inversiÃ³n inmobiliaria.
                     </p>
                 </header>
                 <section className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">

@@ -10,6 +10,7 @@ export default function Footer() {
     const footerLinks = {
         projects: [
             { label: "Juana 64", href: "/juana-64" },
+            { label: "Complejo Coradir", href: "/complejo-coradir" },
             { label: "La Torre II", href: "/la-torre-ii" },
             { label: "Proyectos", href: "/proyectos" },
         ],

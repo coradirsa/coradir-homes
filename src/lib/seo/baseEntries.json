@@ -16,6 +16,14 @@
     "image": "/img/vivienda-joven/hero.webp"
   },
   {
+    "pathname": "/complejo-coradir",
+    "title": "Complejo Coradir | Locales comerciales en San Luis",
+    "description": "Locales comerciales con ubicacion estrategica, alta afluencia y preventa disponible. Seguridad con IA, gas y aire acondicionado.",
+    "changefreq": "monthly",
+    "priority": 0.8,
+    "image": "/img/complejo-coradir/1.webp"
+  },
+  {
     "pathname": "/la-torre-ii",
     "title": "La Torre II | Residencias premium Coradir Homes",
     "description": "Tipologias flexibles, amenities de primer nivel y ubicacion estrategica en La Torre II. Sumate a uno de los desarrollos insignia de Coradir Homes.",

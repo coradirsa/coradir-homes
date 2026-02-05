@@ -42,7 +42,6 @@ module.exports = {
       lastmod: today,
     }));
   },
-  exclude: ["/complejo-coradir"],
   robotsTxtOptions: {
     policies: [
       {
@@ -51,7 +50,7 @@ module.exports = {
       },
       {
         userAgent: "*",
-        disallow: ["/api/", "/complejo-coradir"],
+        disallow: ["/api/"],
       },
     ],
     additionalSitemaps: [`${siteUrl}/sitemap.xml`],

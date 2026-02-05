@@ -68,7 +68,7 @@ baseSeoEntries.forEach((entry) => {
   entryMap.set(entry.pathname, entry);
 });
 
-const projectPaths = ["/juana-64", "/la-torre-ii", "/inversiones-inteligentes", "/terrenos", "/corporativos", "/instituciones"];
+const projectPaths = ["/juana-64", "/complejo-coradir", "/la-torre-ii", "/inversiones-inteligentes", "/terrenos", "/corporativos", "/instituciones"];
 
 const homeEntry = entryMap.get("/");
 if (homeEntry) {
