@@ -31,7 +31,7 @@ export const SITE_DATA: SiteData = {
       { label: "ALQUILER", href: "#alquiler", style: "outline" },
       {
         label: "DESCARGAR FOLLETO",
-        href: "/Folleto%20Locales%20CORADIR%20-%20low.pdf",
+        href: "/Folleto_Locales_CORADIR_low.pdf",
         style: "outline",
         download: true,
         id: "complejo-folleto-download",
