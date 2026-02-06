@@ -24,6 +24,8 @@ export interface SiteData {
       label: string;
       href: string;
       style: "solid" | "outline";
+      download?: boolean;
+      id?: string;
     }>;
     bgImage: string;
   };

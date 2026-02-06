@@ -38,19 +38,35 @@ export default function Hero({ data }: HeroProps) {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-          {data.hero.buttons.map((btn, idx) => (
-            <Link
-              key={idx}
-              href={btn.href}
-              className={`px-10 py-3 rounded-full font-raleway font-bold uppercase tracking-widest text-sm md:text-base transition-all transform hover:scale-105 shadow-xl ${
-                btn.style === 'solid'
-                ? 'bg-white text-blue hover:bg-gray-100 hover:shadow-white/30'
-                : 'bg-transparent border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm'
-              }`}
-            >
-              {btn.label}
-            </Link>
-          ))}
+          {data.hero.buttons.map((btn, idx) => {
+            const className = `px-10 py-3 rounded-full font-raleway font-bold uppercase tracking-widest text-sm md:text-base transition-all transform hover:scale-105 shadow-xl ${
+              btn.style === "solid"
+                ? "bg-white text-blue hover:bg-gray-100 hover:shadow-white/30"
+                : "bg-transparent border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm"
+            }`;
+
+            if (btn.download || btn.href.endsWith(".pdf")) {
+              return (
+                <a
+                  key={idx}
+                  href={btn.href}
+                  className={className}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id={btn.id}
+                >
+                  {btn.label}
+                </a>
+              );
+            }
+
+            return (
+              <Link key={idx} href={btn.href} className={className} id={btn.id}>
+                {btn.label}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </header>

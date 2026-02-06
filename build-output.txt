@@ -1,0 +1,40 @@
+
+> coradir_homes@0.1.0 build
+> next build && next-sitemap
+
+   ▲ Next.js 15.3.8
+   - Environments: .env
+
+   Creating an optimized production build ...
+
+[2m[154.45ms][22m [@tailwindcss/postcss] src\app\globals.css
+[2m[  0.04ms][22m  [2m ↳ [22mQuick bail check
+[2m[ 27.75ms][22m  [2m ↳ [22mSetup compiler
+[2m[  0.27ms][22m    [2m ↳ [22mPostCSS AST -> Tailwind CSS AST
+[2m[ 27.46ms][22m    [2m ↳ [22mCreate compiler
+[2m[  0.10ms][22m  [2m ↳ [22mRegister full rebuild paths
+[2m[  1.22ms][22m  [2m ↳ [22mSetup scanner
+[2m[ 25.66ms][22m  [2m ↳ [22mScan for candidates
+[2m[ 38.06ms][22m  [2m ↳ [22mRegister dependency messages
+[2m[ 35.06ms][22m  [2m ↳ [22mBuild utilities
+[2m[ 23.11ms][22m  [2m ↳ [22mOptimization
+[2m[  0.85ms][22m    [2m ↳ [22mAST -> CSS
+[2m[ 13.75ms][22m    [2m ↳ [22mLightning CSS
+[2m[  8.48ms][22m    [2m ↳ [22mCSS -> PostCSS AST
+[2m[  3.14ms][22m  [2m ↳ [22mUpdate PostCSS AST
+
+ ✓ Compiled successfully in 1000ms
+   Linting and checking validity of types ...
+Failed to compile.
+
+./src/app/components/projectForm.tsx:42:7
+Type error: Object literal may only specify known properties, and 'profileType' does not exist in type 'AsyncDefaultValues<{ email: string; name: string; transactionType: "comprar" | "alquilar"; phone?: string | undefined; interesting?: "inversiones" | "corporativos" | "instituciones" | "terrenos" | ... 4 more ... | undefined; message?: string | undefined; }> | { ...; }'.
+
+[0m [90m 40 |[39m       name[33m:[39m [32m""[39m[33m,[39m[0m
+[0m [90m 41 |[39m       phone[33m:[39m [32m""[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 42 |[39m       profileType[33m:[39m profileTypes [33m?[39m profileTypes[[35m0[39m][33m.[39mvalue [33m:[39m undefined[33m,[39m[0m
+[0m [90m    |[39m       [31m[1m^[22m[39m[0m
+[0m [90m 43 |[39m       transactionType[33m:[39m transactionTypes [33m?[39m transactionTypes[[35m0[39m] [36mas[39m [33mTransactionType[39m [33m:[39m undefined[33m,[39m[0m
+[0m [90m 44 |[39m     }[33m,[39m[0m
+[0m [90m 45 |[39m   })[33m;[39m[0m
+Next.js build worker exited with code: 1 and signal: null

@@ -28,7 +28,14 @@ export const SITE_DATA: SiteData = {
     tagline: "Un paso adelante para tu proyecto comercial. Entrega asegurada. Pre-reservas y alquileres anticipados.",
     buttons: [
       { label: "VENTA", href: "#venta", style: "solid" },
-      { label: "ALQUILER", href: "#alquiler", style: "outline" }
+      { label: "ALQUILER", href: "#alquiler", style: "outline" },
+      {
+        label: "DESCARGAR FOLLETO",
+        href: "/Folleto%20Locales%20CORADIR%20-%20low.pdf",
+        style: "outline",
+        download: true,
+        id: "complejo-folleto-download",
+      }
     ],
     bgImage: "/img/complejo-coradir/1.webp"
   },

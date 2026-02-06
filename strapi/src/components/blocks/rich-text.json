@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_blocks_rich_texts",
+  "info": {
+    "displayName": "Rich Text",
+    "icon": "align-left",
+    "description": "Bloque de texto enriquecido con formato"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "maxWidth": {
+      "type": "enumeration",
+      "enum": ["prose", "container", "wide", "full"],
+      "default": "prose"
+    },
+    "textAlign": {
+      "type": "enumeration",
+      "enum": ["left", "center", "right", "justify"],
+      "default": "left"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": ["transparent", "white", "gray-light", "gray-dark"],
+      "default": "transparent"
+    }
+  }
+}

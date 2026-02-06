@@ -1,0 +1,79 @@
+{
+  "collectionName": "components_blocks_contact_forms",
+  "info": {
+    "displayName": "Contact Form",
+    "icon": "envelope",
+    "description": "Formulario de contacto configurable"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "formType": {
+      "type": "enumeration",
+      "enum": ["contact", "inversiones", "corporativos", "instituciones", "terrenos", "saber-mas"],
+      "default": "contact",
+      "required": true
+    },
+    "showName": {
+      "type": "boolean",
+      "default": true
+    },
+    "showEmail": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPhone": {
+      "type": "boolean",
+      "default": true
+    },
+    "showMessage": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCompany": {
+      "type": "boolean",
+      "default": false
+    },
+    "showInterest": {
+      "type": "boolean",
+      "default": false
+    },
+    "submitButtonText": {
+      "type": "string",
+      "default": "Enviar"
+    },
+    "loadingText": {
+      "type": "string",
+      "default": "Enviando..."
+    },
+    "reCaptchaEnabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "reCaptchaMinScore": {
+      "type": "decimal",
+      "min": 0,
+      "max": 1,
+      "default": 0.5
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["single", "with-image-left", "with-image-right"],
+      "default": "single"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "successMessage": {
+      "type": "text",
+      "default": "¡Gracias por contactarnos! Te responderemos pronto."
+    }
+  }
+}

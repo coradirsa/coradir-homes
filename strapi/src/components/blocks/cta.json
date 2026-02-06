@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_blocks_ctas",
+  "info": {
+    "displayName": "Call to Action",
+    "icon": "bullhorn",
+    "description": "Llamado a la acción con botones"
+  },
+  "options": {},
+  "attributes": {
+    "variant": {
+      "type": "enumeration",
+      "enum": ["centered", "image-left", "image-right", "fullwidth"],
+      "default": "centered",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.cta-button",
+      "required": true,
+      "min": 1,
+      "max": 2
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": ["blue", "green", "gray", "white", "transparent"],
+      "default": "blue"
+    }
+  }
+}
