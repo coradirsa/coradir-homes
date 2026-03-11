@@ -30,11 +30,6 @@ export default function SectionHero() {
                     className="text-xs md:text-2xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-2 py-5 px-8 md:px-12"
                     label="Comprar"
                 />
-                <ButtonContact
-                    href="#alquilar-en-pozo"
-                    className="text-xs md:text-2xl uppercase bg-transparent text-white hover:bg-white hover:text-blue border-2 border-white py-5 px-8 md:px-12"
-                    label="Alquilar"
-                />
             </div>
             <Image
                 src="/img/vivienda-joven/hero.webp"

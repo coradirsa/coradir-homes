@@ -7,13 +7,20 @@ const ProjectForm = dynamic(() => import("@/app/components/projectForm"), {
 
 export default function ViviendaJovenForm() {
   return (
-    <ProjectForm
-      interest="juana-64"
-      backgroundImage="/img/vivienda-joven/bg-form.webp"
-      heading="Descubri una nueva forma de vivir."
-      subtitle="Comunicate con nosotros:"
-      submitLabel="Quiero invertir"
-      id="formulario"
-    />
+    <div className="juana-form">
+      <ProjectForm
+        interest="juana-64"
+        backgroundImage="/img/vivienda-joven/bg-form.webp"
+        heading="Tu futura casa te espera"
+        subtitle="El lugar soñado existe"
+        id="formulario"
+        transactionTypes={["comprar"]}
+      />
+      <style jsx>{`
+        .juana-form :global(div:has(> label[for="transactionType"])) {
+          display: none;
+        }
+      `}</style>
+    </div>
   );
 }

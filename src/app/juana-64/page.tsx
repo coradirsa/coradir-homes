@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo";
 import { StructuredDataScripts } from "../components/structuredDataScripts";
 import ReCaptcha from "../components/reCaptcha";
-import ProjectForm from "../components/projectForm";
 import AlquilarEnPozo from "./components/AlquilarEnPozo";
+import ViviendaJovenForm from "./components/form/form";
 import SectionCarucel from "./components/sectionCarucel/sectionCarucel";
 import SectionEspecification from "./components/sectionEspeciification/sectionEspecification";
 import SectionHero from "./components/sectionHero/sectionHero";
@@ -48,14 +48,7 @@ export default function Page() {
                 <SectionVideos />
                 <SectionStats />
                 <AlquilarEnPozo />
-                <ProjectForm
-                    interest="juana-64"
-                    heading="Tu futura casa te espera"
-                    subtitle="El lugar soñado existe"
-                    backgroundImage="/img/vivienda-joven/bg-form.webp"
-                    id="formulario"
-                    transactionTypes={["comprar", "alquilar"]}
-                />
+                <ViviendaJovenForm />
                 <SectionContact />
             </>
         </ReCaptcha>

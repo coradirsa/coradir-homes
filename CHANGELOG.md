@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed (2026-03-11)
+- **Juana 64 sin comunicación de alquiler**
+  - Se eliminó el botón `Alquilar` del hero de Juana 64
+  - Se removió la sección promocional de alquiler en pozo, junto con sus cards y CTA
+  - Se mantuvo la card principal con el nuevo título "Tu hogar en Juana Koslay"
+  - El formulario de Juana 64 quedó configurado sólo para compra y sin mostrar `¿Qué te interesa?`
+
 ### Added (2025-12-26)
 - **Enhanced WhatsApp Button Scroll Tooltip**
   - Added scroll-triggered tooltip that appears when user scrolls past 50% of page
