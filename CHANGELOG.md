@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Se removió la sección promocional de alquiler en pozo, junto con sus cards y CTA
   - Se mantuvo la card principal con el nuevo título "Tu hogar en Juana Koslay"
   - El formulario de Juana 64 quedó configurado sólo para compra y sin mostrar `¿Qué te interesa?`
+  - Se corrigió el wrapper del formulario para que compile correctamente en build productivo
 
 ### Added (2025-12-26)
 - **Enhanced WhatsApp Button Scroll Tooltip**
