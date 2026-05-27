@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-27
+
+### Changed
+- **Número de WhatsApp**: Se actualizó el número de contacto de WhatsApp a `+54 266 464-9967` (5492664649967) en el botón flotante y se actualizó la documentación de tracking asociada.
+
 ### Changed (2026-03-11)
 - **Juana 64 sin comunicación de alquiler**
   - Se eliminó el botón `Alquilar` del hero de Juana 64

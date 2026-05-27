@@ -113,7 +113,7 @@ Para verificar que el tracking funciona correctamente:
 
 ## Número de WhatsApp
 
-**Número configurado:** `+54 266 454-7788` (5492664547788)
+**Número configurado:** `+54 266 464-9967` (5492664649967)
 
 ---
 
