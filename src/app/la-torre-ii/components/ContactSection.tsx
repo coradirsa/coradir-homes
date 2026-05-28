@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import WhatsAppLink from "@/app/components/WhatsAppLink";
 
 const ProjectForm = dynamic(() => import("@/app/components/projectForm"), {
   loading: () => <div className="h-[400px] animate-pulse bg-gray-100 rounded-lg" />,
@@ -31,15 +32,27 @@ export default function ContactSection() {
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             {SOCIALS.map((social) => (
-              <a
-                key={social.href}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-2 rounded-full border border-blue text-blue font-raleway font-semibold uppercase hover:bg-blue hover:text-white transition"
-              >
-                {social.label}
-              </a>
+              social.label === "Whatsapp" ? (
+                <WhatsAppLink
+                  key={social.href}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-2 rounded-full border border-blue text-blue font-raleway font-semibold uppercase hover:bg-blue hover:text-white transition"
+                >
+                  {social.label}
+                </WhatsAppLink>
+              ) : (
+                <a
+                  key={social.href}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-2 rounded-full border border-blue text-blue font-raleway font-semibold uppercase hover:bg-blue hover:text-white transition"
+                >
+                  {social.label}
+                </a>
+              )
             ))}
           </div>
         </div>

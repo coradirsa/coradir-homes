@@ -1,3 +1,5 @@
+import WhatsAppLink from "@/app/components/WhatsAppLink";
+
 export default function HeroSection() {
   const whatsAppUrl = "https://wa.me/5492664649967?text=" + encodeURIComponent("Hola, vi el proyecto en la web y quiero saber más...");
 
@@ -25,14 +27,14 @@ export default function HeroSection() {
           Elegí tu nuevo hogar y viví la vida que merecés. Departamentos inteligentes con amenities pensados para tu comodidad.
         </p>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <a
+          <WhatsAppLink
             href={whatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-white text-blue font-raleway font-semibold uppercase px-10 py-4 rounded-full hover:bg-white/90 transition-all hover:scale-105 shadow-lg"
           >
             Solicitá una visita
-          </a>
+          </WhatsAppLink>
           <a
             href="https://torre2.coradir.com.ar"
             target="_blank"

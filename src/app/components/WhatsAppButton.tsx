@@ -1,19 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { usePathname } from "next/navigation";
 import { useWhatsAppUtm } from "@/hooks/useWhatsAppUtm";
+import {
+    addSenderNameToWhatsAppUrl,
+    subscribeToWhatsAppOpenRequests,
+    type WhatsAppOpenRequest,
+} from "@/lib/whatsappMessage";
 
 export default function WhatsAppButton() {
     const [isVisible, setIsVisible] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
     const [showScrollTooltip, setShowScrollTooltip] = useState(false);
     const [wasManuallyDismissed, setWasManuallyDismissed] = useState(false);
+    const [whatsappRequest, setWhatsappRequest] = useState<WhatsAppOpenRequest | null>(null);
+    const [senderName, setSenderName] = useState("");
     const pathname = usePathname();
     const { getTrackedUrl } = useWhatsAppUtm();
 
     // WhatsApp number from siteConfig
     const WHATSAPP_NUMBER = "5492664649967"; // +54 266 464-9967
+
+    const openNameCapture = useCallback((request: WhatsAppOpenRequest) => {
+        setWhatsappRequest(request);
+        setSenderName("");
+        setShowTooltip(false);
+        setShowScrollTooltip(false);
+        setWasManuallyDismissed(true);
+    }, []);
 
     useEffect(() => {
         // Show button after page is loaded
@@ -25,6 +40,8 @@ export default function WhatsAppButton() {
 
         return () => clearTimeout(timer);
     }, []);
+
+    useEffect(() => subscribeToWhatsAppOpenRequests(openNameCapture), [openNameCapture]);
 
     useEffect(() => {
         // Hide tooltip after 8 seconds of being shown
@@ -86,6 +103,16 @@ export default function WhatsAppButton() {
         const message = encodeURIComponent(getPersonalizedMessage());
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
         const trackedUrl = getTrackedUrl(whatsappUrl);
+        openNameCapture({ href: trackedUrl });
+    };
+
+    const handleNameSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        if (!whatsappRequest || !senderName.trim()) return;
+
+        const personalizedUrl = addSenderNameToWhatsAppUrl(whatsappRequest.href, senderName);
+        const target = whatsappRequest.target || "_blank";
 
         // Track event with gtag
         if (typeof window !== 'undefined' && 'gtag' in window) {
@@ -97,7 +124,14 @@ export default function WhatsAppButton() {
             });
         }
 
-        window.open(trackedUrl, "_blank", "noopener,noreferrer");
+        if (target === "_self") {
+            window.location.href = personalizedUrl;
+        } else {
+            window.open(personalizedUrl, target, whatsappRequest.features || "noopener,noreferrer");
+        }
+
+        setWhatsappRequest(null);
+        setSenderName("");
     };
 
     if (!isVisible) return null;
@@ -105,7 +139,7 @@ export default function WhatsAppButton() {
     return (
         <div className="fixed bottom-4 right-4 xl:bottom-6 xl:right-6 z-50 flex flex-col items-end gap-3">
             {/* Initial Tooltip Message */}
-            {showTooltip && !showScrollTooltip && (
+            {showTooltip && !showScrollTooltip && !whatsappRequest && (
                 <div
                     className="bg-white rounded-2xl shadow-xl px-4 py-3 max-w-[250px] animate-slide-in-right relative"
                     role="tooltip"
@@ -130,7 +164,7 @@ export default function WhatsAppButton() {
             )}
 
             {/* Scroll Tooltip Message (50% scroll) - More prominent */}
-            {showScrollTooltip && (
+            {showScrollTooltip && !whatsappRequest && (
                 <div
                     className="bg-gradient-to-r from-[#25D366] to-[#20BA5A] rounded-2xl shadow-2xl px-6 py-5 max-w-[320px] xl:max-w-[350px] animate-slide-in-right relative border-4 border-white"
                     role="tooltip"
@@ -163,31 +197,81 @@ export default function WhatsAppButton() {
             )}
 
             {/* WhatsApp Button */}
-            <button
-                id="whatsapp-float-button"
-                onClick={handleClick}
-                className="relative group"
-                aria-label="Contactar por WhatsApp"
-                type="button"
-            >
-                {/* Pulsing ring animation */}
-                <span className="absolute inset-0 w-14 h-14 xl:w-16 xl:h-16 rounded-full bg-[#25D366]/30 animate-ping" />
-                <span className="absolute inset-0 w-14 h-14 xl:w-16 xl:h-16 rounded-full bg-[#25D366]/50 animate-pulse" />
-
-                {/* Main button */}
-                <span className="relative flex items-center justify-center w-14 h-14 xl:w-16 xl:h-16 bg-[#25D366] hover:bg-[#20BA5A] rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-110">
-                    {/* WhatsApp Icon SVG */}
-                    <svg
-                        className="w-8 h-8 xl:w-10 xl:h-10 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
+            {whatsappRequest ? (
+                <form
+                    onSubmit={handleNameSubmit}
+                    className="flex w-[calc(100vw-2rem)] max-w-[360px] items-center gap-2 rounded-full border border-[#25D366]/30 bg-white p-2 pl-4 shadow-2xl animate-slide-in-right"
+                >
+                    <label htmlFor="whatsapp-sender-name" className="sr-only">
+                        Tu nombre
+                    </label>
+                    <div className="min-w-0 flex-1">
+                        <p className="text-xs font-bold text-gray-700">Nos decis tu nombre?</p>
+                        <input
+                            id="whatsapp-sender-name"
+                            value={senderName}
+                            onChange={(event) => setSenderName(event.target.value)}
+                            autoComplete="name"
+                            autoFocus
+                            className="w-full bg-transparent text-base font-medium text-gray-900 outline-none placeholder:text-gray-400"
+                            placeholder="Tu nombre"
+                        />
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            setWhatsappRequest(null);
+                            setSenderName("");
+                        }}
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-800"
+                        aria-label="Cerrar"
                     >
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                    </svg>
-                </span>
-            </button>
+                        x
+                    </button>
+                    <button
+                        type="submit"
+                        disabled={!senderName.trim()}
+                        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:bg-[#20BA5A] disabled:cursor-not-allowed disabled:opacity-50"
+                        aria-label="Enviar por WhatsApp"
+                    >
+                        <svg
+                            className="h-7 w-7"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                    </button>
+                </form>
+            ) : (
+                <button
+                    id="whatsapp-float-button"
+                    onClick={handleClick}
+                    className="relative group"
+                    aria-label="Contactar por WhatsApp"
+                    type="button"
+                >
+                    {/* Pulsing ring animation */}
+                    <span className="absolute inset-0 w-14 h-14 xl:w-16 xl:h-16 rounded-full bg-[#25D366]/30 animate-ping" />
+                    <span className="absolute inset-0 w-14 h-14 xl:w-16 xl:h-16 rounded-full bg-[#25D366]/50 animate-pulse" />
+
+                    {/* Main button */}
+                    <span className="relative flex items-center justify-center w-14 h-14 xl:w-16 xl:h-16 bg-[#25D366] hover:bg-[#20BA5A] rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-110">
+                        {/* WhatsApp Icon SVG */}
+                        <svg
+                            className="w-8 h-8 xl:w-10 xl:h-10 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.390-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.130-.606.134-.133.298-.347.446-.520.149-.174.198-.298.298-.497.099-.198.050-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.500-.669-.510-.173-.008-.371-.010-.570-.010-.198 0-.520.074-.792.372-.272.297-1.040 1.016-1.040 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.200 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.360.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347m-5.421 7.403h-.004a9.870 9.870 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.860 9.860 0 01-1.510-5.260c.001-5.450 4.436-9.884 9.888-9.884 2.640 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.450-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.050 0C5.495 0 .160 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.480-8.413Z" />
+                        </svg>
+                    </span>
+                </button>
+            )}
         </div>
     );
 }

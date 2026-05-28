@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import type { InvestmentFormData } from "./types";
+import { addSenderNameToWhatsAppUrl } from "@/lib/whatsappMessage";
 
 // Schema de validación con Zod
 const investmentSchema = z.object({
@@ -48,7 +49,10 @@ Mis datos son:
 `;
 
     const mensajeCodificado = encodeURIComponent(mensaje);
-    const urlWsp = `https://wa.me/${whatsappNumber}?text=${mensajeCodificado}`;
+    const urlWsp = addSenderNameToWhatsAppUrl(
+      `https://wa.me/${whatsappNumber}?text=${mensajeCodificado}`,
+      data.nombre
+    );
 
     // GTM Event: form submit
     if (trackEvents && typeof window !== "undefined") {

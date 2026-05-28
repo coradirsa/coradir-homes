@@ -1,4 +1,5 @@
 import Image from "next/image";
+import WhatsAppLink from "@/app/components/WhatsAppLink";
 
 export default function OverviewSection() {
   const whatsAppUrl = "https://wa.me/5492664649967?text=" + encodeURIComponent("Hola, vi el proyecto en la web y quiero saber más...");
@@ -11,14 +12,14 @@ export default function OverviewSection() {
           <p className="text-lg md:text-xl font-raleway text-black/80">
             Departamentos modernos ubicados en Mitre 526, San Luis. Disfrutá de espacios luminosos, seguridad las 24 horas y un entorno pensado para que vivas mejor.
           </p>
-          <a
+          <WhatsAppLink
             href={whatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-blue text-white font-raleway uppercase px-8 py-3 rounded-full hover:bg-blue/80 transition"
           >
             Solicitar visita
-          </a>
+          </WhatsAppLink>
         </div>
         <div className="flex-1 w-full">
           <Image
