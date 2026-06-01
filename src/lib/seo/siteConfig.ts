@@ -34,7 +34,7 @@ export const siteConfig: SiteConfig = {
   url: fallbackSiteUrl,
   logo: `${fallbackSiteUrl}/img/marca.webp`,
   foundingDate: "2018-01-01",
-  phone: "+54 266 454-7788",
+  phone: "5492664649967",
   email: "contacto@coradirhomes.com",
   socialProfiles: [
     { name: "LinkedIn", url: "https://www.linkedin.com/company/coradir" },
