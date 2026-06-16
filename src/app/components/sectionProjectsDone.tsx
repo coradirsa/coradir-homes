@@ -14,6 +14,12 @@ export default function SectionProjectsDone() {
       id: "boton-homes-home-proyectos-jk",
     },
     {
+      title: "San Luis",
+      image: "/img/san-luis/complejo.webp",
+      link: "/san-luis",
+      id: "boton-homes-home-proyectos-san-luis",
+    },
+    {
       title: "Complejo Coradir",
       image: "/img/projects/complejo.webp",
       link: "/complejo-coradir",
@@ -49,6 +55,7 @@ export default function SectionProjectsDone() {
     }
   }, [isMobile, isSmallMobile]);
   const render = () => {
+    const useFeaturedCard = proyects.length <= 4;
     let currentX = 0;
     let direction = 1;
     const cards = [];
@@ -82,10 +89,10 @@ export default function SectionProjectsDone() {
           translateX={useStair ? translateX : 0}
           translateY={useStair ? baseY : 0}
           zIndex={30 - i}
-          principal={i === 0}
+          principal={useFeaturedCard && i === 0}
           isMobile={isMobile}
           isSmallMobile={isSmallMobile}
-          colSpan={!isMobile && !isSmallMobile && i === 0 ? 4 : 2}
+          colSpan={!isMobile && !isSmallMobile && useFeaturedCard && i === 0 ? 4 : 2}
           gradientDirection={gradientDirection}
         />
       );

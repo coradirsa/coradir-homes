@@ -52,8 +52,8 @@ export default function Investments() {
                 />
                 <ButtonContact
                     id="boton-homes-inversiones-inteligentes"
-                    href="https://wa.me/5492664649967?text=Quiero%20mas%20informaci%C3%B3n%20de%20inversiones"
-                    label="Contactanos"
+                    href="https://wa.me/5492664649967?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20inversiones"
+                    label="Contáctanos"
                     className="absolute bottom-10 xl:bottom-1/3 left-1/2 transform -translate-x-1/2 text-blue bg-white hover:text-white hover:border-white hover:bg-blue/80 border-transparent border-2"
                 />
             </section>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRef, useState } from "react";
@@ -11,9 +12,14 @@ import type { FormSchema as FormSchemaType, Interests as InterestType, InputForm
 import { TransactionTypeLabels } from "@/schemas/formSchema";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
+type ProjectFormLayout = "overlay" | "split";
+
 type ProjectFormProps = {
   interest: InterestType;
   backgroundImage?: string;
+  backgroundOverlayClassName?: string;
+  layout?: ProjectFormLayout;
+  splitImageSide?: "left" | "right";
   heading?: string;
   subtitle?: string;
   submitLabel?: string;
@@ -24,12 +30,18 @@ type ProjectFormProps = {
 export default function ProjectForm({
   interest,
   backgroundImage,
-  heading = "Descubri una nueva forma de vivir.",
+  backgroundOverlayClassName = "bg-white/80 backdrop-blur-[2px]",
+  layout = "overlay",
+  splitImageSide = "left",
+  heading = "Descubrí una nueva forma de vivir.",
   subtitle = "Comunicate con nosotros:",
   submitLabel = "Enviar",
   id = "formulario",
   transactionTypes,
 }: ProjectFormProps) {
+  const availableTransactionTypes = transactionTypes ?? [];
+  const shouldShowTransactionTypeField = availableTransactionTypes.length > 1;
+
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchemaDefinition),
     defaultValues: {
@@ -38,10 +50,10 @@ export default function ProjectForm({
       message: "",
       name: "",
       phone: "",
-      transactionType: transactionTypes ? transactionTypes[0] as TransactionType : undefined,
+      transactionType: availableTransactionTypes[0] as TransactionType | undefined,
     },
   });
-  const { handleSubmit, control, formState: { errors, isSubmitting } } = form;
+  const { handleSubmit, control, register, formState: { errors, isSubmitting } } = form;
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [submitMessage, setSubmitMessage] = useState({ type: "", text: "" });
   const [loading, setLoading] = useState(false);
@@ -173,9 +185,18 @@ export default function ProjectForm({
     }
   };
 
+  const isSplitLayout = layout === "split" && Boolean(backgroundImage);
+
   // Standard styles
-  const labelClassName = "text-blue text-lg font-bold mb-1 xl:text-right w-full block";
-  const inputClassName = "bg-white text-blue w-full md:w-[90%] xl:w-full h-11 rounded-md mb-3 pl-4 text-base border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all shadow-sm";
+  const labelClassName = isSplitLayout
+    ? "text-blue text-base md:text-lg font-bold mb-1 w-full block text-left"
+    : "text-blue text-lg font-bold mb-1 xl:text-right w-full block";
+  const inputClassName = isSplitLayout
+    ? "bg-white text-blue w-full h-11 rounded-md mb-3 pl-4 text-base border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all shadow-sm"
+    : "bg-white text-blue w-full md:w-[90%] xl:w-full h-11 rounded-md mb-3 pl-4 text-base border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all shadow-sm";
+  const textareaClassName = isSplitLayout
+    ? "bg-white text-blue w-full h-24 rounded-md mb-3 pl-4 pt-3 text-base border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all shadow-sm resize-none"
+    : "bg-white text-blue w-full md:w-[90%] xl:w-full h-24 rounded-md mb-3 pl-4 pt-3 text-base border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all shadow-sm resize-none";
 
   // Create refs outside of conditional logic
   const nameRef = useRef<HTMLInputElement>(null);
@@ -196,7 +217,7 @@ export default function ProjectForm({
     },
     {
       name: "email",
-      label: "Correo electronico",
+      label: "Correo electrónico",
       placeholder: "nombre@email.com",
       type: "email",
       ref: emailRef,
@@ -212,12 +233,12 @@ export default function ProjectForm({
       inputClassName,
       labelClassName,
     },
-    ...(transactionTypes ? [{
+    ...(shouldShowTransactionTypeField ? [{
       name: "transactionType" as keyof FormSchemaType,
       label: "¿Qué te interesa?",
       type: "select",
       ref: transactionTypeRef,
-      options: transactionTypes.map(opt => ({ value: opt, label: TransactionTypeLabels[opt] || opt })),
+      options: availableTransactionTypes.map(opt => ({ value: opt, label: TransactionTypeLabels[opt] || opt })),
       inputClassName,
       labelClassName,
     }] : []),
@@ -227,10 +248,82 @@ export default function ProjectForm({
       placeholder: "Escribe tu consulta...",
       type: "textarea",
       ref: messageRef,
-      inputClassName: "bg-white text-blue w-full md:w-[90%] xl:w-full h-24 rounded-md mb-3 pl-4 pt-3 text-base border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all shadow-sm resize-none",
+      inputClassName: textareaClassName,
       labelClassName,
     },
   ];
+
+  if (isSplitLayout && backgroundImage) {
+    return (
+      <section className="w-full bg-[#f5f6f7] py-16" id={id}>
+        <div className="container mx-auto px-6">
+          {loading ? (
+            <Loader />
+          ) : (
+            <div className="grid overflow-hidden rounded-[2rem] border border-blue/10 bg-white shadow-[0_22px_50px_-30px_rgba(17,49,87,0.45)] lg:grid-cols-2">
+              <div className={`relative min-h-[320px] sm:min-h-[420px] lg:min-h-[760px] ${splitImageSide === "right" ? "lg:order-2" : ""}`}>
+                <Image
+                  src={backgroundImage}
+                  alt={`Imagen del proyecto ${interest}`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className={`flex flex-col justify-center p-8 md:p-10 lg:p-12 ${splitImageSide === "right" ? "lg:order-1" : ""}`}
+              >
+                <div className="w-full max-w-lg mx-auto">
+                  <section className="mb-7 flex flex-col gap-3 text-left">
+                    <h2 className="text-4xl md:text-5xl text-blue font-playfair font-bold leading-tight">
+                      {heading}
+                    </h2>
+
+                    <p className="text-lg md:text-xl text-gray-800 font-raleway font-medium">
+                      {subtitle}
+                    </p>
+                    {submitMessage.type === "error" && (
+                      <div className="w-full p-3 rounded-lg bg-red-100 text-red-700 text-sm border border-red-200">
+                        {submitMessage.text}
+                      </div>
+                    )}
+                  </section>
+
+                  {!shouldShowTransactionTypeField && availableTransactionTypes[0] && (
+                    <input type="hidden" value={availableTransactionTypes[0]} {...register("transactionType")} />
+                  )}
+
+                  {inputs.map((input) => (
+                    <CustomInput
+                      key={input.name}
+                      {...input}
+                      control={control}
+                      errors={errors}
+                    />
+                  ))}
+
+                  <div className="w-full flex justify-end">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting || Object.keys(errors).length > 0}
+                      className={`bg-blue text-white text-xl font-bold py-3 px-10 rounded-full transition-all uppercase shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${isSubmitting || Object.keys(errors).length > 0
+                        ? "opacity-70 cursor-not-allowed"
+                        : "hover:bg-blue/90 cursor-pointer"
+                        }`}
+                    >
+                      {isSubmitting ? "Enviando..." : submitLabel}
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
@@ -242,7 +335,7 @@ export default function ProjectForm({
       }}
       id={id}
     >
-      <div className="w-full h-full absolute top-0 left-0 bg-white/80 backdrop-blur-[2px] z-0" />
+      <div className={`w-full h-full absolute top-0 left-0 z-0 ${backgroundOverlayClassName}`} />
       {loading ? (
         <Loader />
       ) : (
@@ -267,6 +360,10 @@ export default function ProjectForm({
 
           <section className="w-full xl:w-1/2 flex flex-col items-center xl:items-end">
             <div className="w-full max-w-lg">
+              {!shouldShowTransactionTypeField && availableTransactionTypes[0] && (
+                <input type="hidden" value={availableTransactionTypes[0]} {...register("transactionType")} />
+              )}
+
               {inputs.map((input) => (
                 <CustomInput
                   key={input.name}

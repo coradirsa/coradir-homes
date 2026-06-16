@@ -118,7 +118,7 @@ export default function SaberMas({ copy }: Props) {
 
       setSubmitMessage({
         type: "success",
-        text: "Gracias por tu interes. Nos contactaremos muy pronto.",
+        text: "Gracias por tu interés. Nos contactaremos muy pronto.",
       });
     } catch (error) {
       const err = error as Error;
@@ -140,11 +140,11 @@ export default function SaberMas({ copy }: Props) {
 
   const inputs: InputForm[] = [
     { name: "name", label: "Nombre y apellido", type: "text", ref: useRef<HTMLInputElement>(null) },
-    { name: "email", label: "Correo electronico", type: "email", ref: useRef<HTMLInputElement>(null) },
+    { name: "email", label: "Correo electrónico", type: "email", ref: useRef<HTMLInputElement>(null) },
     { name: "phone", label: "Celular", type: "tel", ref: useRef<HTMLInputElement>(null) },
     {
       name: "interesting",
-      label: "Selecciona la opcion que te interesa",
+      label: "Selecciona la opción que te interesa",
       type: "select",
       ref: useRef<HTMLInputElement>(null),
       options: Interests.options,
@@ -169,7 +169,7 @@ export default function SaberMas({ copy }: Props) {
   }, [errors]);
 
   if (!interes || !interesResult.success) {
-    return <div>Interes no encontrado</div>;
+    return <div>Interés no encontrado</div>;
   }
 
   return (

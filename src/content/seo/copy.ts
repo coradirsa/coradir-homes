@@ -165,14 +165,14 @@ export const TESTIMONIALS_COPY = {
       author: "Laura Gimenez",
       role: "Inversora en Juana Koslay",
       quote:
-        "Elegimos Coradir Homes porque combinan tecnología, ubicaciones estratégicas y una administración muy clara. La renta llego incluso antes de lo proyectado.",
+        "Elegimos Coradir Homes porque combinan tecnología, ubicaciones estratégicas y una administración muy clara. La renta llegó incluso antes de lo proyectado.",
       ratingValue: 5,
     },
     {
       author: "Martin Rivas",
       role: "Propietario corporativo",
       quote:
-        "Nos acompaniaron desde la factibilidad hasta la gestión diaria de los espacios. El equipo entendio lo que necesitaba nuestra empresa para escalar en la región.",
+        "Nos acompañaron desde la factibilidad hasta la gestión diaria de los espacios. El equipo entendió lo que necesitaba nuestra empresa para escalar en la región.",
       ratingValue: 5,
     },
     {
@@ -261,7 +261,7 @@ export const SABER_MAS_CONTENT: Record<string, SaberMasLandingCopy> = {
       {
         question: "¿Las rentas se pueden reinvertir?",
         answer:
-          "Si. Podes capitalizar las rentas en nuevos desarrollos, ingresar a pools de renta administrados o destinarlas al plan de ahorro inmobiliario.",
+          "Sí. Podés capitalizar las rentas en nuevos desarrollos, ingresar a pools de renta administrados o destinarlas al plan de ahorro inmobiliario.",
       },
     ],
   },
@@ -286,7 +286,7 @@ export const SABER_MAS_CONTENT: Record<string, SaberMasLandingCopy> = {
       },
       {
         title: "Eficiencia operativa",
-        summary: "Optimiza costos fijos y variables desde el dia uno.",
+        summary: "Optimiza costos fijos y variables desde el día uno.",
         bulletPoints: [
           "Tablas comparativas de CAPEX vs OPEX en proyectos empresariales",
           "Cómo integrar tecnología IoT para reducir consumos",
@@ -297,7 +297,7 @@ export const SABER_MAS_CONTENT: Record<string, SaberMasLandingCopy> = {
         title: "Implementación express",
         summary: "Reduce el time to market con metodologías probadas.",
         bulletPoints: [
-          "Roadmap en 90 dias para lanzar sedes corporativas",
+          "Roadmap en 90 días para lanzar sedes corporativas",
           "Procesos de onboarding para nuevos equipos y residentes",
           "Herramientas para medir satisfacción y engagement interno",
         ],
@@ -347,13 +347,13 @@ export const SABER_MAS_CONTENT: Record<string, SaberMasLandingCopy> = {
     heroTitle: "Desarrolla tu terreno con respaldo profesional",
     heroSubtitle: "Transformamos lotes ociosos en proyectos rentables.",
     description:
-      "Aprende como evaluar tu terreno, definir el mix de unidades y proyectar retornos junto al equipo de Coradir Homes.",
+      "Aprendé cómo evaluar tu terreno, definir el mix de unidades y proyectar retornos junto al equipo de Coradir Homes.",
     clusters: [
       {
-        title: "Diagnostico del lote",
+        title: "Diagnóstico del lote",
         summary: "Identifica el potencial real de tu propiedad.",
         bulletPoints: [
-          "Checklist de zonificacion, servicios y accesos",
+          "Checklist de zonificación, servicios y accesos",
           "Herramientas para valuar el terreno en mercado actual",
           "Factores clave para elegir el mix de unidades",
         ],
@@ -468,7 +468,7 @@ export const SABER_MAS_CONTENT: Record<string, SaberMasLandingCopy> = {
       {
         question: "¿Puedo destinar la unidad a renta temporaria?",
         answer:
-          "Si. Las tipologías monoambiente y un dormitorio están pensadas para renta corta con amenities y seguridad 24 7 que elevan la ocupación.",
+          "Sí. Las tipologías monoambiente y un dormitorio están pensadas para renta corta con amenities y seguridad 24 7 que elevan la ocupación.",
       },
       {
         question: "¿Qué opciones de financiación dispone el proyecto?",
@@ -494,7 +494,7 @@ export const FAQ_CONTENT: Record<
       {
         question: "¿Puedo personalizar mi unidad?",
         answer:
-          "Si. Antes de cerrar obra podes elegir terminaciones, paquetes de domótica y optimizar espacios según tu estilo de vida.",
+          "Sí. Antes de cerrar obra podés elegir terminaciones, paquetes de domótica y optimizar espacios según tu estilo de vida.",
       },
       {
         question: "¿Cuál es la política de seguridad?",
@@ -509,12 +509,12 @@ export const FAQ_CONTENT: Record<
       {
         question: "¿Las expensas incluyen amenities?",
         answer:
-          "Si. En las expensas se prorratea el mantenimiento de piscina, gimnasio, cowork y terrazas verdes para todos los propietarios.",
+          "Sí. En las expensas se prorratea el mantenimiento de piscina, gimnasio, cowork y terrazas verdes para todos los propietarios.",
       },
       {
         question: "¿Qué documentación recibo al firmar?",
         answer:
-          "Recibís copia del reglamento de co propiedad, planos aprobados, manual de usuario de la unidad y cronograma de entrega con hitos claros.",
+          "Recibís copia del reglamento de copropiedad, planos aprobados, manual de usuario de la unidad y cronograma de entrega con hitos claros.",
       },
       {
         question: "¿Hay cocheras disponibles?",
@@ -529,7 +529,7 @@ export const FAQ_CONTENT: Record<
       {
         question: "¿Qué pasa si necesito liquidez antes de terminar la obra?",
         answer:
-          "Podes ceder tu posición a otro inversor validado por el equipo legal. Coradir Homes te acompaña en la gestión para preservar tu retorno.",
+          "Podés ceder tu posición a otro inversor validado por el equipo legal. Coradir Homes te acompaña en la gestión para preservar tu retorno.",
       },
       {
         question: "¿Cómo se distribuyen las rentas?",
@@ -539,7 +539,7 @@ export const FAQ_CONTENT: Record<
       {
         question: "¿Existe un equipo de postventa?",
         answer:
-          "Si. Contás con un equipo dedicado para administrar reparaciones, garantías y relación con inquilinos durante toda la vigencia del contrato.",
+          "Sí. Contás con un equipo dedicado para administrar reparaciones, garantías y relación con inquilinos durante toda la vigencia del contrato.",
       },
     ],
   },

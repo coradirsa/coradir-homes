@@ -68,7 +68,16 @@ baseSeoEntries.forEach((entry) => {
   entryMap.set(entry.pathname, entry);
 });
 
-const projectPaths = ["/juana-64", "/complejo-coradir", "/la-torre-ii", "/inversiones-inteligentes", "/terrenos", "/corporativos", "/instituciones"];
+const projectPaths = [
+  "/juana-64",
+  "/san-luis",
+  "/complejo-coradir",
+  "/la-torre-ii",
+  "/inversiones-inteligentes",
+  "/terrenos",
+  "/corporativos",
+  "/instituciones",
+];
 
 const homeEntry = entryMap.get("/");
 if (homeEntry) {
@@ -110,6 +119,34 @@ if (juana64Entry) {
     buildBreadcrumbJsonLd([
       { name: "Inicio", item: siteConfig.url },
       { name: "Juana 64 - Vivienda Joven", item: context.canonical },
+    ]),
+  ];
+}
+
+const sanLuisEntry = entryMap.get("/san-luis");
+if (sanLuisEntry) {
+  sanLuisEntry.structuredData = (context) => [
+    buildRealEstateProjectJsonLd({
+      ...context,
+      additional: {
+        numberOfRooms: 2,
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "Estacionamiento individual" },
+          { "@type": "LocationFeatureSpecification", name: "Seguridad con IA" },
+          { "@type": "LocationFeatureSpecification", name: "Departamentos equipados" },
+        ],
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Jose Hernandez y Chile",
+          addressLocality: "San Luis",
+          addressRegion: "San Luis",
+          addressCountry: "AR",
+        },
+      },
+    }),
+    buildBreadcrumbJsonLd([
+      { name: "Inicio", item: siteConfig.url },
+      { name: "San Luis", item: context.canonical },
     ]),
   ];
 }

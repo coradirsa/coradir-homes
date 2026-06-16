@@ -4,6 +4,10 @@
   font-family: var(--font-raleway-sans), sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   --font-playfair: var(--font-playfair-display), serif;
   --font-raleway: var(--font-raleway-sans), sans-serif;
@@ -215,9 +219,14 @@ textarea:focus:-webkit-autofill {
   animation: whatsappChatIn 0.26s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-
 @media (min-width: 768px) {
   .slide-middle {
     transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
