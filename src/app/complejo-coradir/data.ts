@@ -37,7 +37,7 @@ export const SITE_DATA: SiteData = {
         id: "complejo-folleto-download",
       }
     ],
-    bgImage: "/img/complejo-coradir/1.webp"
+    bgImage: "/img/complejo-coradir/locales_Coradir.webp"
   },
   features_bar: [
     { icon: "/icons/complejo-coradir/icono aire.svg", title: "Aire acondicionado y gas" },
