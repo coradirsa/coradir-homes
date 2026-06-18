@@ -20,6 +20,7 @@ const dynamicInterestPaths = Array.isArray(interestSlugs)
 module.exports = {
   siteUrl,
   generateRobotsTxt: true,
+  exclude: ["/locales-comerciales-maqueta"],
   outDir: "./public",
   sitemapSize: 5000,
   changefreq: "weekly",

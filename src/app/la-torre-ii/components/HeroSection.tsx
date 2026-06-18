@@ -1,4 +1,5 @@
 import WhatsAppLink from "@/app/components/WhatsAppLink";
+import MaterialIcon from "@/app/components/MaterialIcon";
 
 export default function HeroSection() {
   const whatsAppUrl = "https://wa.me/5492664649967?text=" + encodeURIComponent("Hola, vi el proyecto en la web y quiero saber más...");
@@ -42,9 +43,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 text-white font-raleway font-medium text-lg hover:gap-3 transition-all group"
           >
             Ver proyecto completo
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-5 h-5 group-hover:translate-x-1 transition-transform">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
+            <MaterialIcon name="arrow_forward" className="text-[20px] transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>

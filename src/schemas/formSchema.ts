@@ -8,7 +8,7 @@ export const Interests = z.enum([
     "san-luis",
     "terrenos",
     "la-torre-ii",
-    "complejo-coradir",
+    "locales-comerciales",
     "contacto-general"
 ]);
 

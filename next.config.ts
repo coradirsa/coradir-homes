@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
         destination: "https://torre2.coradir.com.ar/manuales/",
         permanent: true,
       },
+      {
+        source: "/complejo-coradir",
+        destination: "/locales-comerciales",
+        permanent: true,
+      },
     ];
   },
 

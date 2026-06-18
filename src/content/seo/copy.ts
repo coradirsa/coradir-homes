@@ -48,27 +48,27 @@ export const INSTITUCIONES_COPY = {
     "Ofrecemos una solución de residencias estudiantiles accesibles para instituciones educativas mediante financiamiento colectivo y el uso de terrenos disponibles, con construcciones tecnológicas y seguras.",
   features: [
     {
-      img: "/icons/1_infraestructura_sin_inversi%C3%B3n_inicial.png",
+      img: "apartment",
       title: "Infraestructura sin inversión inicial",
       description: "La universidad o escuela aporta el terreno y el proyecto mejora el campus sin destinar fondos propios.",
     },
     {
-      img: "/icons/2_accesibilidad.png",
+      img: "accessible",
       title: "Accesibilidad",
       description: "Arrendamientos accesibles para estudiantes que impulsan la inclusion educativa.",
     },
     {
-      img: "/icons/3_edificios_inteligentes.png",
+      img: "domain",
       title: "Edificios inteligentes",
       description: "Tecnología aplicada para optimizar consumo energético, seguridad y confort.",
     },
     {
-      img: "/icons/4_Impacto_social_positivo.png",
+      img: "diversity_3",
       title: "Impacto social positivo",
       description: "Mayor acceso a vivienda para la comunidad estudiantil.",
     },
     {
-      img: "/icons/5_Modelo_seguro.png",
+      img: "verified_user",
       title: "Modelo seguro",
       description: "Coradir administra la propiedad y minimiza riesgos para la institución.",
     },
@@ -109,17 +109,17 @@ export const INVERSIONES_COPY = {
   description: "Invierte de manera inteligente y obtene retornos solidos con el respaldo de Coradir Homes.",
   items: [
     {
-      img: "/icons/1_alta_rentabilidad.png",
+      img: "trending_up",
       title: "Alta rentabilidad",
       description: "Genera ingresos pasivos mes a mes con alquileres optimizados.",
     },
     {
-      img: "/icons/2_ubicaci%C3%B3n_estrat%C3%A9gica.png",
+      img: "location_on",
       title: "Ubicación estratégica",
       description: "Propiedades en zonas de gran demanda para asegurar valorización.",
     },
     {
-      img: "/icons/3_administraci%C3%B3n_profesional.png",
+      img: "manage_accounts",
       title: "Administración profesional",
       description: "Gestión integral para que disfrutes resultados sin preocupaciones.",
     },

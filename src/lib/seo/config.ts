@@ -71,7 +71,7 @@ baseSeoEntries.forEach((entry) => {
 const projectPaths = [
   "/juana-64",
   "/san-luis",
-  "/complejo-coradir",
+  "/locales-comerciales",
   "/la-torre-ii",
   "/inversiones-inteligentes",
   "/terrenos",

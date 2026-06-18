@@ -21,7 +21,7 @@ export const links: NavigationLink[] = [
         hover: [
             { href: "/juana-64", label: "Juana 64" },
             { href: "/san-luis", label: "San Luis" },
-            { href: "/complejo-coradir", label: "Locales Comerciales" },
+            { href: "/locales-comerciales", label: "Locales Comerciales" },
             { href: "/corporativos", label: "Corporativos" },
             { href: "/instituciones", label: "Instituciones" },
             { href: "/terrenos", label: "Terrenos" },

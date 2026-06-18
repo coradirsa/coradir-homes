@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { links } from "../header";
 import Link from "next/link";
+import MaterialIcon from "../../MaterialIcon";
 
 export default function MobileMenu({ open, setOpen }: { open: boolean, setOpen: (open: boolean) => void }) {
     const [openHover, setOpenHover] = useState<number | null>(null);
@@ -90,7 +91,7 @@ export default function MobileMenu({ open, setOpen }: { open: boolean, setOpen: 
                                                 transition: "transform 0.3s ease-in-out"
                                             }}
                                         >
-                                            {"<"}
+                                            <MaterialIcon name="keyboard_arrow_left" className="text-[32px]" />
                                         </button>
                                     )}
                                 </div>

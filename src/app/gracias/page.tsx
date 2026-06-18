@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "@/lib/seo";
+import MaterialIcon from "../components/MaterialIcon";
 
 const { metadata: defaultMetadata } = createMetadata({
   pathname: "/gracias",
@@ -20,19 +21,7 @@ export default function GraciasPage() {
           {/* Ícono de éxito */}
           <div className="mb-8 flex justify-center">
             <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
-              <svg
-                className="w-12 h-12 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <MaterialIcon name="check" className="text-[48px] text-green-600" />
             </div>
           </div>
 

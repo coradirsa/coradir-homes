@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MaterialIcon from "@/app/components/MaterialIcon";
 
 export default function Item({
     title,
@@ -32,7 +33,7 @@ export default function Item({
                         {
                             checkList.map((item, index) => (
                                 <li key={`check-list-${index}`} className="flex items-center justify-center gap-5">
-                                    <Image src="/icons/check.png" alt="check" width={100} height={100} className="w-16 h-16" />
+                                    <MaterialIcon name="check_circle" className="shrink-0 text-[64px] text-blue" />
                                     <p className="text-xl md:text-3xl font-raleway text-left xl:text-center text-black inline" dangerouslySetInnerHTML={{ __html: item, }} />
                                 </li>
                             ))

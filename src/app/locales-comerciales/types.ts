@@ -33,6 +33,18 @@ export interface SiteData {
     icon: string;
     title: string;
   }>;
+  energy_backup: {
+    title: string;
+    description: string;
+    highlights: Array<{
+      icon: "zap" | "shield";
+      title: string;
+      description: string;
+    }>;
+    panelIcon: string;
+    panelTitle: string;
+    panelSubtitle: string;
+  };
   carousel: {
     images: string[];
   };

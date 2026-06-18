@@ -21,11 +21,11 @@ const PROJECTS = [
         ctaId: "proyectos-san-luis",
     },
     {
-        name: "Complejo Coradir",
+        name: "Locales Comerciales",
         description: "Locales comerciales con ubicación estratégica y alto flujo en San Luis. Preventa en pozo.",
-        href: "/complejo-coradir",
+        href: "/locales-comerciales",
         image: "/img/projects/complejo.webp",
-        ctaId: "proyectos-complejo-coradir",
+        ctaId: "proyectos-locales-comerciales",
     },
     {
         name: "La Torre I Coradir",

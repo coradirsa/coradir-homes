@@ -4,6 +4,7 @@ import { createMetadata } from "@/lib/seo";
 import { StructuredDataScripts } from "../components/structuredDataScripts";
 import ButtonContact from "../components/buttonContact";
 import { CORPORATIVOS_COPY } from "@/content/seo/copy";
+import MaterialIcon from "../components/MaterialIcon";
 
 export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/corporativos" }).metadata;
@@ -36,13 +37,7 @@ export default function Page() {
                 <div className="flex flex-col items-center justify-center py-6 gap-8 xl:w-full w-[90%]">
                     {CORPORATIVOS_COPY.benefits.map((benefit, index) => (
                         <div key={`corporativos-benefit-${index}`} className="flex items-center justify-center gap-5 w-full">
-                            <Image
-                                src="/icons/check.png"
-                                alt="Icono de beneficio"
-                                width={100}
-                                height={100}
-                                className="xl:w-20 xl:h-20 w-10 h-10"
-                            />
+                            <MaterialIcon name="check_circle" className="text-[40px] text-blue xl:text-[80px]" />
                             <p className="text-black font-raleway text-lg xl:text-4xl w-[80%]">{benefit}</p>
                         </div>
                     ))}

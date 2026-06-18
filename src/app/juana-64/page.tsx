@@ -13,20 +13,20 @@ import SectionVideos from "./components/sectionVideos/sectionVideos";
 import SectionContact from "./components/sectionContact/sectionContact";
 
 const SPECIFICATIONS_TOP = [
-    { title: "Construcción rápida", icon: "/icons/vivienda-joven/01.png" },
-    { title: "Seguridad con IA 24 hs", icon: "/icons/vivienda-joven/02.png" },
-    { title: "Zona comercial", icon: "/icons/vivienda-joven/03.png" },
-    { title: "Estacionamientos", icon: "/icons/vivienda-joven/04.png" },
-    { title: "Conectividad optimizada", icon: "/icons/vivienda-joven/05.png" },
-    { title: "Pileta", icon: "/icons/vivienda-joven/06.png" },
+    { title: "Construcción rápida", icon: "construction" },
+    { title: "Seguridad con IA 24 hs", icon: "videocam" },
+    { title: "Zona comercial", icon: "storefront" },
+    { title: "Estacionamientos", icon: "local_parking" },
+    { title: "Conectividad optimizada", icon: "wifi" },
+    { title: "Pileta", icon: "pool" },
 ];
 
 const SPECIFICATIONS_BOTTOM = [
-    { title: "Estacionamiento individual", icon: "/icons/vivienda-joven/08.png" },
-    { title: "Paneles solares con protección anticorte", icon: "/icons/vivienda-joven/09.png" },
-    { title: "Calefón eléctrico", icon: "/icons/vivienda-joven/10.png" },
-    { title: "Cocina con artefactos eléctricos", icon: "/icons/vivienda-joven/11.png" },
-    { title: "Aire acondicionado", icon: "/icons/vivienda-joven/12.png" },
+    { title: "Estacionamiento individual", icon: "local_parking" },
+    { title: "Paneles solares con protección anticorte", icon: "solar_power" },
+    { title: "Calefón eléctrico", icon: "water_heater" },
+    { title: "Cocina con artefactos eléctricos", icon: "skillet" },
+    { title: "Aire acondicionado", icon: "climate_mini_split" },
 ];
 
 export function generateMetadata(): Metadata {

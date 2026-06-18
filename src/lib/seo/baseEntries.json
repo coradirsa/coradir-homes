@@ -24,12 +24,12 @@
     "image": "/img/san-luis/3.webp"
   },
   {
-    "pathname": "/complejo-coradir",
-    "title": "Complejo Coradir | Locales comerciales en San Luis",
+    "pathname": "/locales-comerciales",
+    "title": "Locales Comerciales | San Luis",
     "description": "Locales comerciales con ubicación estratégica, alta afluencia y preventa disponible. Seguridad con IA, gas y aire acondicionado.",
     "changefreq": "monthly",
     "priority": 0.8,
-    "image": "/img/complejo-coradir/1.webp"
+    "image": "/img/complejo-coradir/locales_Coradir.webp"
   },
   {
     "pathname": "/la-torre-ii",
@@ -77,7 +77,7 @@
   {
     "pathname": "/proyectos",
     "title": "Proyectos de inversión | Portafolio Coradir Homes",
-    "description": "Explora proyectos inmobiliarios activos en San Luis: La Torre II, Juana 64, Complejo Coradir. Oportunidades para vivir o invertir con financiación flexible.",
+    "description": "Explora proyectos inmobiliarios activos en San Luis: La Torre II, Juana 64 y Locales Comerciales. Oportunidades para vivir o invertir con financiación flexible.",
     "changefreq": "weekly",
     "priority": 0.8,
     "image": "/img/projects/torre2.webp"

@@ -25,21 +25,21 @@ export default function Hero({ data }: HeroProps) {
         <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
-      <div className="relative z-10 px-4 max-w-4xl mx-auto text-white flex flex-col items-center">
-        <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl mb-3 drop-shadow-2xl">{data.hero.title}</h1>
-        <h2 className="font-raleway text-xl md:text-2xl lg:text-3xl font-light italic mb-6 opacity-95 drop-shadow-lg">{data.hero.subtitle}</h2>
+      <div className="relative z-10 w-full max-w-4xl px-4 mx-auto text-white flex flex-col items-center">
+        <h1 className="max-w-full font-playfair text-4xl md:text-5xl lg:text-6xl mb-3 drop-shadow-2xl">{data.hero.title}</h1>
+        <h2 className="max-w-xs md:max-w-2xl font-raleway text-xl md:text-2xl lg:text-3xl font-light italic mb-6 opacity-95 drop-shadow-lg leading-tight">{data.hero.subtitle}</h2>
 
         <div className="border-2 border-white/40 backdrop-blur-md bg-white/15 px-6 py-2 rounded-full mb-8 shadow-2xl">
           <span className="font-raleway text-2xl md:text-3xl font-bold drop-shadow">{data.hero.specs}</span>
         </div>
 
-        <p className="font-raleway text-lg md:text-xl mb-10 max-w-2xl font-light drop-shadow-lg leading-relaxed">
+        <p className="font-raleway text-lg md:text-xl mb-10 max-w-xs md:max-w-2xl font-light drop-shadow-lg leading-relaxed">
           {data.hero.tagline}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
           {data.hero.buttons.map((btn, idx) => {
-            const className = `px-10 py-3 rounded-full font-raleway font-bold uppercase tracking-widest text-sm md:text-base transition-all transform hover:scale-105 shadow-xl ${
+            const className = `w-full max-w-xs sm:w-auto px-8 md:px-10 py-3 rounded-full font-raleway font-bold uppercase tracking-widest text-sm md:text-base transition-all transform hover:scale-105 shadow-xl ${
               btn.style === "solid"
                 ? "bg-white text-blue hover:bg-gray-100 hover:shadow-white/30"
                 : "bg-transparent border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm"

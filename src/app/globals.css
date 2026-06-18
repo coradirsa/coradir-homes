@@ -1,11 +1,39 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Material Symbols Rounded";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/material-symbols-rounded.ttf") format("truetype");
+}
+
 :root {
   font-family: var(--font-raleway-sans), sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+.material-symbols-rounded {
+  direction: ltr;
+  display: inline-block;
+  font-family: "Material Symbols Rounded";
+  font-feature-settings: "liga";
+  font-style: normal;
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
 }
 
 @theme {

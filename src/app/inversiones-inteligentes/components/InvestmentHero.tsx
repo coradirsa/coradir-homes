@@ -1,32 +1,21 @@
 import Image from "next/image";
 import WhatsAppLink from "../../components/WhatsAppLink";
+import MaterialIcon from "@/app/components/MaterialIcon";
 
 export default function InvestmentHero() {
   const benefits = [
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
+      icon: "verified_user",
       title: "Respaldo Real",
       description: "Tu inversión se garantiza con una Hipoteca de Primer Grado sobre departamentos escriturados.",
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-        </svg>
-      ),
+      icon: "trending_up",
       title: "Rentabilidad Pactada",
       description: "Tasas competitivas y plazos definidos.",
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-      ),
+      icon: "lock",
       title: "Seguridad Total",
       description: "Operado por Coradir S.A., 30 años de trayectoria tecnológica y financiera.",
     },
@@ -69,7 +58,7 @@ export default function InvestmentHero() {
               >
                 <div className="flex flex-col items-start gap-4">
                   <div className="p-3 bg-white/20 rounded-xl text-white group-hover:bg-white group-hover:text-blue transition-all duration-300">
-                    {benefit.icon}
+                    <MaterialIcon name={benefit.icon} className="text-[32px]" />
                   </div>
                   <div>
                     <h3 className="font-raleway text-white font-bold text-xl md:text-2xl mb-2">
@@ -93,14 +82,7 @@ export default function InvestmentHero() {
               className="inline-flex items-center justify-center bg-white text-blue font-raleway font-bold text-lg md:text-xl px-10 md:px-14 py-4 md:py-5 rounded-full hover:bg-blue-gray hover:text-white border-2 border-white hover:border-white transition-all duration-300 shadow-2xl hover:shadow-white/50 uppercase tracking-wide group"
             >
               <span>Solicitar Propuesta de Inversión</span>
-              <svg
-                className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <MaterialIcon name="arrow_forward" className="ml-3 text-[24px] transition-transform duration-300 group-hover:translate-x-1" />
             </WhatsAppLink>
           </div>
 

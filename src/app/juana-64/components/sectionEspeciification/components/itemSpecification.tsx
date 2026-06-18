@@ -1,4 +1,4 @@
-import Image from "next/image";
+import MaterialIcon from "@/app/components/MaterialIcon";
 
 export default function ItemSpecification(
     {
@@ -18,13 +18,7 @@ export default function ItemSpecification(
                 borderWidth: border ? "2px" : ""
             }}
         >
-            <Image 
-                src={icon} 
-                alt={title} 
-                width={100}
-                height={100}
-                className="w-20 h-20"
-            />
+            <MaterialIcon name={icon} className="shrink-0 text-[64px] text-blue" />
             <h3 className="text-blue font-playfair text-xl md:text-sm xl:text-2xl w-full">{title}</h3>
         </div>
     );

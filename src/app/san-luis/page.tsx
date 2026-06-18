@@ -1,17 +1,11 @@
 ﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  CheckCircle2,
-  CircleDollarSign,
-  FileCheck2,
-  MapPin,
-  ShieldCheck,
-} from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { StructuredDataScripts } from "../components/structuredDataScripts";
 import ReCaptcha from "../components/reCaptcha";
 import ProjectForm from "../components/projectForm";
+import MaterialIcon from "../components/MaterialIcon";
 
 const HERO_FEATURES = [
   "Departamentos inteligentes",
@@ -42,17 +36,17 @@ const PURCHASE_STEPS = [
     title: "Lista de interés",
     description:
       "Reserva tu lugar con prioridad comercial y elegí la unidad que mejor se adapte a tu objetivo.",
-    icon: ShieldCheck,
+    icon: "shield",
   },
   {
     title: "Pre-reserva",
     description: "Abona una seña para congelar condiciones y avanzar con asesoría personalizada.",
-    icon: CircleDollarSign,
+    icon: "monetization_on",
   },
   {
     title: "Boleto y posesión",
     description: "Finaliza la operación con respaldo jurídico y proyecta tu unidad con entrega planificada.",
-    icon: FileCheck2,
+    icon: "fact_check",
   },
 ];
 
@@ -125,7 +119,7 @@ export default function SanLuisPage() {
               <ul className="flex flex-col gap-4">
                 {MAIN_BENEFITS.map((item) => (
                   <li key={item.title} className="flex items-start gap-3 font-raleway text-base text-black md:text-xl">
-                    <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-[#24a5de]" />
+                    <MaterialIcon name="check_circle" className="mt-0.5 shrink-0 text-[24px] text-[#24a5de]" />
                     <span>
                       <b>{item.title}:</b> {item.description}
                     </span>
@@ -200,7 +194,7 @@ export default function SanLuisPage() {
               </p>
               <div className="flex flex-col items-start gap-4 md:items-end">
                 <span className="flex items-center gap-2 font-raleway text-lg font-semibold text-black md:text-xl">
-                  <MapPin className="h-5 w-5 text-blue" />
+                  <MaterialIcon name="location_on" className="text-[22px] text-blue" />
                   José Hernández y Chile, Ciudad de San Luis
                 </span>
                 <Link
@@ -338,15 +332,15 @@ export default function SanLuisPage() {
                 <p className="mt-5 font-raleway text-xl font-bold text-blue">Accede a comodidades como:</p>
                 <ul className="mt-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2 font-raleway text-lg text-black md:text-xl">
-                    <CheckCircle2 className="h-5 w-5 text-[#24a5de]" />
+                    <MaterialIcon name="check_circle" className="text-[22px] text-[#24a5de]" />
                     Estacionamiento individual
                   </li>
                   <li className="flex items-center gap-2 font-raleway text-lg text-black md:text-xl">
-                    <CheckCircle2 className="h-5 w-5 text-[#24a5de]" />
+                    <MaterialIcon name="check_circle" className="text-[22px] text-[#24a5de]" />
                     Cocina equipada
                   </li>
                   <li className="flex items-center gap-2 font-raleway text-lg text-black md:text-xl">
-                    <CheckCircle2 className="h-5 w-5 text-[#24a5de]" />2 dormitorios
+                    <MaterialIcon name="check_circle" className="text-[22px] text-[#24a5de]" />2 dormitorios
                   </li>
                 </ul>
               </div>
@@ -375,11 +369,10 @@ export default function SanLuisPage() {
 
             <div className="mt-10 grid gap-8 md:grid-cols-3">
               {PURCHASE_STEPS.map((step) => {
-                const Icon = step.icon;
                 return (
                   <article key={step.title} className="rounded-3xl bg-white p-8 shadow-sm">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue text-white">
-                      <Icon className="h-9 w-9" />
+                      <MaterialIcon name={step.icon} className="text-[36px]" />
                     </div>
                     <h4 className="mt-5 font-playfair text-3xl font-bold uppercase text-blue">{step.title}</h4>
                     <p className="mt-3 font-raleway text-lg text-black">{step.description}</p>

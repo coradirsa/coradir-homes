@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
+import MaterialIcon from "@/app/components/MaterialIcon";
 export default function Carrucel(){
     const sliders = [
         "/img/pozo.webp",
@@ -66,10 +67,14 @@ export default function Carrucel(){
                     </div>
                     <span 
                         onClick={() => setCurrentSlide((prev) => (prev - 1 + sliders.length) % sliders.length)}
-                        className="flex items-center justify-center absolute top-1/2 left-2 transform -translate-y-1/2 cursor-pointer z-10 xl:text-5xl text-white rounded-full pb-2 px-3 hover:bg-gray/80 transition-colors duration-300"> {"<"} </span>
+                        className="flex items-center justify-center absolute top-1/2 left-2 transform -translate-y-1/2 cursor-pointer z-10 text-white rounded-full p-2 hover:bg-gray/80 transition-colors duration-300">
+                        <MaterialIcon name="chevron_left" className="text-[48px]" />
+                    </span>
                     <span 
                         onClick={() => setCurrentSlide((prev) => (prev + 1) % sliders.length)}
-                        className="flex items-center justify-center absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer z-10 xl:text-5xl text-white rounded-full pb-2 px-3 hover:bg-gray/80 transition-colors duration-300"> {">"} </span>
+                        className="flex items-center justify-center absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer z-10 text-white rounded-full p-2 hover:bg-gray/80 transition-colors duration-300">
+                        <MaterialIcon name="chevron_right" className="text-[48px]" />
+                    </span>
                 </section>
     );
 }

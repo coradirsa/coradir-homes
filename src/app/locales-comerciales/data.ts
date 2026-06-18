@@ -34,16 +34,37 @@ export const SITE_DATA: SiteData = {
         href: "/Folleto_Locales_CORADIR_low.pdf",
         style: "outline",
         download: true,
-        id: "complejo-folleto-download",
+        id: "locales-comerciales-folleto-download",
       }
     ],
     bgImage: "/img/complejo-coradir/locales_Coradir.webp"
   },
   features_bar: [
-    { icon: "/icons/complejo-coradir/icono aire.svg", title: "Aire acondicionado y gas" },
-    { icon: "/icons/complejo-coradir/icono seguridad.svg", title: "Seguridad con IA" },
-    { icon: "/icons/complejo-coradir/icono comercio.svg", title: "Ubicación comercial estratégica" }
+    { icon: "climate_mini_split", title: "Aire acondicionado y gas" },
+    { icon: "videocam", title: "Seguridad con IA" },
+    { icon: "storefront", title: "Ubicación comercial estratégica" },
+    { icon: "battery_android_shield", title: "Backup energético 24/7" }
   ],
+  energy_backup: {
+    title: "Tu negocio no se detiene",
+    description:
+      "CORADIR garantiza durante el primer año respaldo mediante grupo electrógeno para reducir el impacto de cortes de luz y dar mayor continuidad operativa a cada local. 12 meses de energía asegurada para que tu facturación nunca se vea afectada por imprevistos técnicos.",
+    highlights: [
+      {
+        icon: "zap",
+        title: "Respaldo Total",
+        description: "Sistemas de iluminación y sistemas críticos.",
+      },
+      {
+        icon: "shield",
+        title: "Continuidad",
+        description: "Cero tiempo de inactividad operativa.",
+      },
+    ],
+    panelIcon: "battery_android_shield",
+    panelTitle: "BACKUP ACTIVO",
+    panelSubtitle: "MONITOREO 24/7 DE RED ELÉCTRICA",
+  },
   carousel: {
     images: [
       "/img/complejo-coradir/2.webp",

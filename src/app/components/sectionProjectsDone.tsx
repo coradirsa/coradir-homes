@@ -20,10 +20,10 @@ export default function SectionProjectsDone() {
       id: "boton-homes-home-proyectos-san-luis",
     },
     {
-      title: "Complejo Coradir",
+      title: "Locales Comerciales",
       image: "/img/projects/complejo.webp",
-      link: "/complejo-coradir",
-      id: "boton-homes-home-proyectos-complejo",
+      link: "/locales-comerciales",
+      id: "boton-homes-home-proyectos-locales-comerciales",
     },
     {
       title: "La Torre I",

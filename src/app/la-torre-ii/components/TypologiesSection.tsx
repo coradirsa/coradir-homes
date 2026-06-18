@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import MaterialIcon from "@/app/components/MaterialIcon";
 
 type Variant = {
   title: string;
@@ -201,20 +202,7 @@ export default function TypologiesSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-blue text-white px-10 py-5 rounded-xl font-raleway font-bold text-lg hover:bg-blue/90 transition-all shadow-[0_10px_30px_-10px_rgba(0,36,82,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(0,36,82,0.7)] hover:scale-105 transform"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-              />
-            </svg>
+            <MaterialIcon name="open_in_new" className="text-[24px]" />
             Ver Proyecto Completo
           </a>
 
@@ -296,12 +284,12 @@ export default function TypologiesSection() {
                     {/* Detalles esenciales */}
                     <div className="flex flex-wrap gap-2 text-sm font-raleway text-black/70">
                       <span className="flex items-center gap-1">
-                        <span className="font-semibold text-blue">📐</span>
+                        <MaterialIcon name="straighten" className="text-[18px] text-blue" />
                         {variant.area}
                       </span>
                       {variant.bathrooms > 0 && (
                         <span className="flex items-center gap-1">
-                          <span className="font-semibold text-blue">🚿</span>
+                          <MaterialIcon name="shower" className="text-[18px] text-blue" />
                           {variant.bathrooms} baño{variant.bathrooms > 1 ? 's' : ''}
                         </span>
                       )}

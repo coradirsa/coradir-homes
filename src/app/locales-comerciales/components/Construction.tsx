@@ -1,7 +1,7 @@
 "use client";
 
 import type { SiteData } from "../types";
-import { CheckCircle } from 'lucide-react';
+import MaterialIcon from "@/app/components/MaterialIcon";
 
 interface ConstructionProps {
   data: SiteData;
@@ -40,7 +40,7 @@ export default function Construction({ data }: ConstructionProps) {
               <ul className="space-y-4 pt-4">
                 {row.textBlock.list.map((item, itemIdx) => (
                   <li key={itemIdx} className="flex items-center gap-3">
-                    <CheckCircle className="w-6 h-6 text-blue flex-shrink-0" />
+                    <MaterialIcon name="check_circle" className="shrink-0 text-[24px] text-blue" />
                     <span className="text-gray font-raleway font-medium">{item}</span>
                   </li>
                 ))}
