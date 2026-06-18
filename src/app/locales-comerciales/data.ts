@@ -37,7 +37,7 @@ export const SITE_DATA: SiteData = {
         id: "locales-comerciales-folleto-download",
       }
     ],
-    bgImage: "/img/complejo-coradir/locales_Coradir.webp"
+    bgImage: "/img/complejo-coradir/locales_real_estacionamiento.webp"
   },
   features_bar: [
     { icon: "climate_mini_split", title: "Aire acondicionado y gas" },
