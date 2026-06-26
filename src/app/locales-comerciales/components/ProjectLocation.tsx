@@ -35,7 +35,7 @@ export default function ProjectLocation({ data }: ProjectLocationProps) {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           className="absolute inset-0 grayscale hover:grayscale-0 transition-all duration-500"
-          title="Ubicacion de Locales Comerciales en San Luis"
+          title="Ubicación de Locales Comerciales en San Luis"
         />
       </div>
     </section>

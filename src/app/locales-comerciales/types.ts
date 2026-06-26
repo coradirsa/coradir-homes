@@ -1,3 +1,63 @@
+export type PriceItem = {
+  label: string;
+  value: string;
+  note?: string;
+  featured?: boolean;
+};
+
+export type CommercialProject = {
+  id: "ruta-3" | "juana-64";
+  name: string;
+  eyebrow: string;
+  location: string;
+  address: string;
+  mapUrl: string;
+  mapEmbedUrl: string;
+  summary: string;
+  image: string;
+  status: string;
+  specs: Array<{
+    label: string;
+    value: string;
+  }>;
+  prices: PriceItem[];
+  iconFeatures: Array<{
+    icon: string;
+    title: string;
+  }>;
+  suitableFor: string[];
+  validationNote?: string;
+};
+
+export type GalleryImage = {
+  src: string;
+  alt: string;
+  label: string;
+};
+
+export type LeasingPlan = {
+  term: string;
+  interest: string;
+  downPayment: string;
+  monthlyPayment: string;
+  residualValue: string;
+};
+
+export type ConditionItem = {
+  title: string;
+  description: string;
+};
+
+export type ComparisonRow = {
+  project: string;
+  location: string;
+  surface: string;
+  presalePrice: string;
+  listPrice: string;
+  rent: string;
+  leasing: string;
+};
+
 export interface SiteData {
   theme: {
     colors: {
@@ -7,13 +67,6 @@ export interface SiteData {
       textLight: string;
       bgLight: string;
     };
-  };
-  navbar: {
-    logoText: string;
-    links: Array<{
-      label: string;
-      href: string;
-    }>;
   };
   hero: {
     title: string;
@@ -77,16 +130,5 @@ export interface SiteData {
     title: string;
     subtitle: string;
     button: string;
-  };
-  contact: {
-    title: string;
-    subtitle: string;
-    fields: Array<{
-      name: string;
-      label: string;
-      type: string;
-    }>;
-    options: string[];
-    bgImage: string;
   };
 }

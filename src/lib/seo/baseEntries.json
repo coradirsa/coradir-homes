@@ -9,8 +9,8 @@
   },
   {
     "pathname": "/juana-64",
-    "title": "Juana 64 - Vivienda Joven | Departamentos inteligentes en Juana Koslay",
-    "description": "Departamentos inteligentes en Juana Koslay con paneles solares, seguridad 24hs, pileta y estacionamiento. Entrega proyectada. Contacto: juana64@coradir.com.ar",
+    "title": "Juana 64 | Departamentos y locales comerciales en Juana Koslay",
+    "description": "Juana 64 combina departamentos inteligentes y locales comerciales en Juana Koslay, con opciones de compra en pozo, reserva y leasing inmobiliario.",
     "changefreq": "monthly",
     "priority": 0.9,
     "image": "/img/vivienda-joven/hero.webp"
@@ -25,11 +25,11 @@
   },
   {
     "pathname": "/locales-comerciales",
-    "title": "Locales Comerciales | San Luis",
-    "description": "Locales comerciales con ubicación estratégica, alta afluencia y preventa disponible. Seguridad con IA, gas y aire acondicionado.",
+    "title": "Locales comerciales en San Luis y Juana Koslay | CORADIR Homes",
+    "description": "Locales comerciales CORADIR Homes en Ruta 3 y Juana 64. Opciones de compra, alquiler, pozo y leasing inmobiliario hasta 96 meses.",
     "changefreq": "monthly",
-    "priority": 0.8,
-    "image": "/img/complejo-coradir/locales_real_estacionamiento.webp"
+    "priority": 0.9,
+    "image": "/img/locales-comerciales/ruta-3/frente-atardecer.webp"
   },
   {
     "pathname": "/la-torre-ii",

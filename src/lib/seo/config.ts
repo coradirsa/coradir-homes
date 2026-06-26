@@ -118,8 +118,36 @@ if (juana64Entry) {
     }),
     buildBreadcrumbJsonLd([
       { name: "Inicio", item: siteConfig.url },
-      { name: "Juana 64 - Vivienda Joven", item: context.canonical },
+      { name: "Juana 64", item: context.canonical },
     ]),
+  ];
+}
+
+const localesEntry = entryMap.get("/locales-comerciales");
+if (localesEntry) {
+  localesEntry.structuredData = (context) => [
+    buildBreadcrumbJsonLd([
+      { name: "Inicio", item: siteConfig.url },
+      { name: "Locales comerciales", item: context.canonical },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Locales CORADIR Ruta 3 km 0.6",
+          item: `${context.canonical}#ruta-3`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Locales comerciales Juana 64",
+          item: `${context.canonical}#juana-64`,
+        },
+      ],
+    },
   ];
 }
 

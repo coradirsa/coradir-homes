@@ -1,140 +1,172 @@
-﻿import type { SiteData } from './types';
+import type { CommercialProject, ConditionItem, GalleryImage, LeasingPlan } from "./types";
 
-export const SITE_DATA: SiteData = {
-  theme: {
-    colors: {
-      primary: "bg-slate-900",
-      accent: "bg-blue-600",
-      textMain: "text-slate-800",
-      textLight: "text-slate-500",
-      bgLight: "bg-slate-50"
-    }
-  },
-  // Navbar eliminado de la vista, pero mantenemos data por si se reutiliza
-  navbar: {
-    logoText: "CORADIR HOMES",
-    links: [
-      { label: "HOMES", href: "#" },
-      { label: "PROYECTOS", href: "#" },
-      { label: "BENEFICIOS", href: "#" },
-      { label: "INVERSORES", href: "#" },
-      { label: "CONTACTO", href: "#contact" }
-    ]
-  },
-  hero: {
-    title: "Locales CORADIR:",
-    subtitle: "Comercios diseñados para crecer con vos",
-    specs: "180 m²",
-    tagline: "Un paso adelante para tu proyecto comercial. Entrega asegurada. Pre-reservas y alquileres anticipados.",
-    buttons: [
-      { label: "VENTA", href: "#venta", style: "solid" },
-      { label: "ALQUILER", href: "#alquiler", style: "outline" },
-      {
-        label: "DESCARGAR FOLLETO",
-        href: "/Folleto_Locales_CORADIR_low.pdf",
-        style: "outline",
-        download: true,
-        id: "locales-comerciales-folleto-download",
-      }
+export const COMMERCIAL_HERO = {
+  eyebrow: "Locales comerciales en San Luis",
+  title: "Locales comerciales en San Luis y Juana Koslay",
+  subtitle:
+    "Invertí, alquilá o abrí tu negocio en ubicaciones estratégicas: Ruta 3 km 0.6 y Juana 64, con compra en pozo, alquiler y leasing inmobiliario.",
+  image: "/img/locales-comerciales/ruta-3/frente-atardecer.webp",
+  highlights: ["Venta y alquiler de locales", "Backup energético Ruta 3", "Leasing inmobiliario"],
+};
+
+export const COMMERCIAL_PROJECTS: CommercialProject[] = [
+  {
+    id: "ruta-3",
+    name: "Locales CORADIR Ruta 3 km 0.6",
+    eyebrow: "Ciudad de San Luis",
+    location: "Ruta 3 km 0.6",
+    address: "Ruta 3 Pque Ind Sur, San Luis",
+    mapUrl: "https://maps.app.goo.gl/zcztdS5itTgfrFns9",
+    mapEmbedUrl: "https://www.google.com/maps?q=-33.318220,-66.327227&z=17&output=embed",
+    summary:
+      "Complejo de 4 locales comerciales sobre un corredor de alto tránsito, con frente amplio, cocheras, acceso vehicular y acceso peatonal definidos en plano.",
+    image: "/img/locales-comerciales/ruta-3/frente-dia.webp",
+    status: "En obra / entrega estimada 2026-2027",
+    specs: [
+      { label: "Unidades", value: "4 locales" },
+      { label: "Superficie comercial", value: "180 m2 por local" },
+      { label: "Backup energético", value: "12 meses de respaldo" },
+      { label: "Frente", value: "6 m por local" },
+      { label: "Ubicación", value: "Ruta 3 km 0.6" },
     ],
-    bgImage: "/img/complejo-coradir/locales_real_estacionamiento.webp"
-  },
-  features_bar: [
-    { icon: "climate_mini_split", title: "Aire acondicionado y gas" },
-    { icon: "videocam", title: "Seguridad con IA" },
-    { icon: "storefront", title: "Ubicación comercial estratégica" },
-    { icon: "battery_android_shield", title: "Backup energético 24/7" }
-  ],
-  energy_backup: {
-    title: "Tu negocio no se detiene",
-    description:
-      "CORADIR garantiza durante el primer año respaldo mediante grupo electrógeno para reducir el impacto de cortes de luz y dar mayor continuidad operativa a cada local. 12 meses de energía asegurada para que tu facturación nunca se vea afectada por imprevistos técnicos.",
-    highlights: [
-      {
-        icon: "zap",
-        title: "Respaldo Total",
-        description: "Sistemas de iluminación y sistemas críticos.",
-      },
-      {
-        icon: "shield",
-        title: "Continuidad",
-        description: "Cero tiempo de inactividad operativa.",
-      },
+    prices: [
+      { label: "Precio pozo", value: "USD 85.000 + IVA", featured: true },
+      { label: "Precio de lista", value: "USD 107.000 + IVA" },
+      { label: "Alquiler mensual", value: "USD 690 + IVA" },
     ],
-    panelIcon: "battery_android_shield",
-    panelTitle: "BACKUP ACTIVO",
-    panelSubtitle: "MONITOREO 24/7 DE RED ELÉCTRICA",
-  },
-  carousel: {
-    images: [
-      "/img/complejo-coradir/2.webp",
-      "/img/complejo-coradir/6.webp",
-      "/img/complejo-coradir/7.webp",
-      "/img/complejo-coradir/8.webp",
-      "/img/complejo-coradir/8.2.webp"
-    ]
-  },
-  project_detail: {
-    title: "Proyecto de alquiler en pozo - 4 locales comerciales",
-    location: "Ruta 3km 0.6, Ciudad de San Luis",
-    description: "El complejo comercial se encuentra ubicado en una zona con gran afluencia de vehículos, proyección y demanda creciente. Coincide con barrios residenciales amplios, paradas de colectivos y nuevos desarrollos sociales que aumentan la demanda comercial y el tránsito de personas. Sumate a un desarrollo pensado para potenciar tu negocio",
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3334.467!2d-66.32722715716481!3d-33.3182200724134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDE5JzA1LjYiUyA2NsKwMTknMzguMCJX!5e0!3m2!1ses!2sar!4v1733325400000!5m2!1ses!2sar"
-  },
-  ambientes: {
-    title: "Ambientes",
-    cards: [
-      { label: "Espacio comercial", img: "/img/complejo-coradir/6.webp" },
-      { label: "Baño", img: "/img/complejo-coradir/8.webp" }
-    ]
-  },
-  construction: {
-    title: "Construcción rápida y eficiente",
-    rows: [
-      {
-        type: "video-text",
-        textBlock: {
-          mainText: "Entrega asegurada de tu local para el año 2026-2027, tu dinero crece mientras construimos.",
-          list: [
-            "Entrega rápida",
-            "Amplio descuento en pagos adelantado",
-            "Respaldo por PÓLIZA DE CAUCIÓN",
-            "Posibilidad de LEASING"
-          ]
-        },
-        videoUrl: "/img/complejo-coradir/locales.webm",
-        videoPoster: "/img/complejo-coradir/1.webp"
-      },
-      {
-        type: "text-video",
-        textBlock: {
-          mainText: "Empezá a planificar tu futuro hoy, elegí cómo va ser tu espacio comercial.",
-          list: [
-            "Ambientes de 180 m²",
-            "Locales amplios y modernos",
-            "Gas y aire acondicionado incluidos",
-            "Descuento mensual en el primer año de alquiler"
-          ]
-        },
-        videoUrl: "/img/complejo-coradir/v4.webm",
-        videoPoster: "/img/complejo-coradir/8.2.webp"
-      }
-    ]
-  },
-  cta_banner: {
-    title: "Cupos limitados",
-    subtitle: "Planificá tu local, congelá tu lugar en la lista y asegurá tu espacio este 2026",
-    button: "UNIRME A LA LISTA DE ESPERA"
-  },
-  contact: {
-    title: "Proyectá tu futuro, a precio de hoy.",
-    subtitle: "Comunicate con nosotros:",
-    fields: [
-      { name: "nombre", label: "NOMBRE Y APELLIDO", type: "text" },
-      { name: "email", label: "CORREO ELECTRÓNICO", type: "email" },
-      { name: "celular", label: "CELULAR", type: "tel" },
-      { name: "mensaje", label: "TU MENSAJE (opcional)", type: "textarea" }
+    iconFeatures: [
+      { icon: "bolt", title: "Backup energético para continuidad operativa" },
+      { icon: "local_parking", title: "Cocheras y accesos vehiculares definidos en plano" },
+      { icon: "videocam", title: "Seguridad con IA" },
+      { icon: "payments", title: "Posibilidad de leasing" },
+      { icon: "policy", title: "Póliza de caución" },
     ],
-    options: ["comprar", "alquilar"],
-    bgImage: "/img/complejo-coradir/12.webp"
-  }
+    suitableFor: ["Showroom", "Servicios", "Franquicias", "Oficinas comerciales"],
+  },
+  {
+    id: "juana-64",
+    name: "Locales comerciales Juana 64",
+    eyebrow: "Juana Koslay",
+    location: "Juana Koslay, San Luis",
+    address: "Juana Koslay, San Luis",
+    mapUrl: "https://maps.app.goo.gl/4zgfoDyicqu5jZR19",
+    mapEmbedUrl: "https://www.google.com/maps?q=Juana%2064%2C%20Juana%20Koslay%2C%20San%20Luis%2C%20Argentina&output=embed",
+    summary:
+      "Locales comerciales dentro de un desarrollo residencial, pensados para negocios de cercanía, servicios profesionales, atención diaria y renta comercial.",
+    image: "/img/locales-comerciales/juana-64/locales/jk-64.webp",
+    status: "En pozo / primera etapa estimada fin de julio 2026",
+    specs: [
+      { label: "Tipo", value: "Locales dentro del desarrollo Juana 64" },
+      { label: "Superficie", value: "84 m2 por local" },
+      { label: "Medidas", value: "6 m x 14 m" },
+      { label: "Cantidad", value: "6 locales" },
+      { label: "Entrega locales", value: "Primera etapa estimada fin de julio 2026" },
+    ],
+    prices: [
+      { label: "Precio pozo", value: "USD 53.000 + IVA", featured: true },
+      { label: "Precio de lista", value: "USD 70.000 + IVA" },
+      { label: "Alquiler mensual", value: "USD 391 + IVA" },
+    ],
+    iconFeatures: [
+      { icon: "groups", title: "Flujo natural del desarrollo residencial" },
+      { icon: "savings", title: "Compra en pozo o contado" },
+      { icon: "payments", title: "Leasing inmobiliario hasta 96 meses" },
+      { icon: "percent", title: "Reserva del 3%" },
+      { icon: "policy", title: "Póliza de caución para compra en pozo" },
+      { icon: "location_on", title: "Ubicación en Juana Koslay" },
+    ],
+    suitableFor: ["Comercio de cercanía", "Servicios profesionales", "Gastronomía liviana", "Atención diaria"],
+  },
+];
+
+export const GALLERY_IMAGES: GalleryImage[] = [
+  {
+    src: "/img/locales-comerciales/ruta-3/luminarias-locales.webp",
+    alt: "Luminarias exteriores de locales comerciales CORADIR Ruta 3",
+    label: "Ruta 3 - Luminarias",
+  },
+  {
+    src: "/img/locales-comerciales/ruta-3/nueva.webp",
+    alt: "Render exterior de locales comerciales CORADIR Ruta 3",
+    label: "Ruta 3 - Fachada comercial",
+  },
+  {
+    src: "/img/locales-comerciales/ruta-3/perfecto.webp",
+    alt: "Vista comercial de locales CORADIR Ruta 3",
+    label: "Ruta 3 - Proyecto comercial",
+  },
+  {
+    src: "/img/locales-comerciales/juana-64/locales/jk-64.webp",
+    alt: "Locales comerciales Juana 64 en Juana Koslay",
+    label: "Juana 64 - Locales comerciales",
+  },
+  {
+    src: "/img/locales-comerciales/juana-64/locales/local02.webp",
+    alt: "Vista exterior de local comercial Juana 64",
+    label: "Juana 64 - Frente comercial",
+  },
+  {
+    src: "/img/locales-comerciales/juana-64/locales/locales-08.webp",
+    alt: "Render de locales comerciales Juana 64",
+    label: "Juana 64 - Vista de locales",
+  },
+  {
+    src: "/img/locales-comerciales/juana-64/locales/locales-06.webp",
+    alt: "Locales Juana 64 dentro del desarrollo residencial",
+    label: "Juana 64 - Desarrollo comercial",
+  },
+  {
+    src: "/img/locales-comerciales/juana-64/locales/locales.webp",
+    alt: "Vista general de locales comerciales Juana 64",
+    label: "Juana 64 - Vista general",
+  },
+];
+
+export const JUANA_64_LEASING_PLANS: LeasingPlan[] = [
+  {
+    term: "24 meses",
+    interest: "0%",
+    downPayment: "USD 20.058,02",
+    monthlyPayment: "USD 1.552,11",
+    residualValue: "USD 1.552,11",
+  },
+  {
+    term: "48 meses",
+    interest: "4% anual",
+    downPayment: "USD 20.058,02",
+    monthlyPayment: "USD 841,08",
+    residualValue: "USD 929,40",
+  },
+  {
+    term: "96 meses",
+    interest: "8% anual",
+    downPayment: "USD 20.058,02",
+    monthlyPayment: "USD 526,60",
+    residualValue: "USD 526,60",
+  },
+];
+
+export const COMMERCIAL_CONDITIONS: ConditionItem[] = [
+  {
+    title: "Reserva",
+    description: "Para avanzar con la unidad se toma una reserva del 3%, sujeta a disponibilidad y aprobación comercial.",
+  },
+  {
+    title: "Compra en pozo",
+    description: "En compra en pozo adelantada, el saldo se abona según condiciones comerciales vigentes al momento de la operación.",
+  },
+  {
+    title: "Leasing inmobiliario",
+    description: "Permite ingresar con adelanto y cuotas pactadas, con opción de valor residual. Juana 64 cuenta con planes hasta 96 meses.",
+  },
+  {
+    title: "Garantía para inversores",
+    description: "Para compra en pozo se puede instrumentar póliza de caución por el total aportado, con incremento comercial del 3%.",
+  },
+];
+
+export const CONTACT_COPY = {
+  title: "Consultá disponibilidad y condiciones comerciales",
+  subtitle: "Te contactamos con precios vigentes, opciones de pago y alternativas de leasing.",
+  backgroundImage: "/img/locales-comerciales/ruta-3/frente-noche.webp",
 };

@@ -3,6 +3,7 @@ import { createMetadata } from "@/lib/seo";
 import { StructuredDataScripts } from "../components/structuredDataScripts";
 import ReCaptcha from "../components/reCaptcha";
 import AlquilarEnPozo from "./components/AlquilarEnPozo";
+import CommercialLocalesCta from "./components/CommercialLocalesCta";
 import ViviendaJovenForm from "./components/form/form";
 import SectionCarucel from "./components/sectionCarucel/sectionCarucel";
 import SectionEspecification from "./components/sectionEspeciification/sectionEspecification";
@@ -48,6 +49,7 @@ export default function Page() {
                 <SectionVideos />
                 <SectionStats />
                 <AlquilarEnPozo />
+                <CommercialLocalesCta />
                 <ViviendaJovenForm />
                 <SectionContact />
             </>
