@@ -28,11 +28,11 @@ export default function AlquilarEnPozo() {
 
             <div className="w-full lg:w-2/5 relative lg:-mr-12 mt-8 lg:mt-0 flex justify-center lg:justify-end">
               <Image
-                src="/img/vivienda-joven/croquis.webp"
-                alt="Plano 3D Departamento"
+                src="/img/juana-64/proyecto-jk64.webp"
+                alt="Ingreso a Juana 64"
                 width={600}
                 height={400}
-                className="w-full max-w-md lg:max-w-full h-auto object-contain transform lg:scale-110 lg:translate-x-6 origin-center rounded-lg lg:rounded-none drop-shadow-2xl"
+                className="w-full max-w-md lg:max-w-full max-h-[520px] h-auto object-cover transform lg:scale-110 lg:translate-x-6 origin-center rounded-lg lg:rounded-none drop-shadow-2xl"
               />
             </div>
           </div>

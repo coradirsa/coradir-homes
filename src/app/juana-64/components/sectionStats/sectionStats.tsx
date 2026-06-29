@@ -74,11 +74,11 @@ export default function SectionStats() {
                 />
                 <Image
                     loading="lazy"
-                    src="/img/vivienda-joven/croquis.webp"
-                    alt="Croquis viviendas"
+                    src="/img/juana-64/plan-maestro.webp"
+                    alt="Plan maestro Juana 64"
                     width={2000}
                     height={2000}
-                    className="md:w-[70%] h-full object-cover"
+                    className="md:w-[70%] h-full object-contain"
                 />
                 {/* Temporalmente comentado - planes de pago */}
                 {/* <h2 className="text-3xl md:text-4xl xl:text-7xl 2xl:text-9xl text-blue w-full font-playfair text-center leading-tight font-bold pt-10">

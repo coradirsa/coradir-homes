@@ -32,7 +32,7 @@ export default function SectionHero() {
                 />
             </div>
             <Image
-                src="/img/vivienda-joven/hero.webp"
+                src="/img/juana-64/espacios/hero-jk64.webp"
                 alt="Juana 64 - Departamentos en Juana Koslay"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1440px) 100vw, 1920px"

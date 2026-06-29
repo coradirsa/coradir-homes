@@ -12,7 +12,7 @@ export default function ViviendaJovenForm() {
     <div className="juana-form">
       <ProjectForm
         interest="juana-64"
-        backgroundImage="/img/vivienda-joven/bg-form.webp"
+        backgroundImage="/img/juana-64/espacios/hero-jk64.webp"
         heading="Tu futura casa te espera"
         subtitle="El lugar soñado existe"
         id="formulario"

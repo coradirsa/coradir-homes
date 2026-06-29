@@ -3,20 +3,20 @@ import Image from "next/image";
 export default function SectionRooms() { 
     const rooms = [
         {
-            title: "Comedor",
-            image: "/img/vivienda-joven/ambiente-0.webp",
-        },
-        {
             title: "Cocina",
-            image: "/img/vivienda-joven/ambiente-1.webp",
+            image: "/img/juana-64/cocina/cocina-01.webp",
         },
         {
-            title: "Baño",
-            image: "/img/vivienda-joven/ambiente-2.webp",
+            title: "Cocina equipada",
+            image: "/img/juana-64/cocina/cocina-04.webp",
+        },
+        {
+            title: "Dormitorio",
+            image: "/img/juana-64/dormitorio/dormitorio-01.webp",
         },
         {
             title: "2 dormitorios",
-            image: "/img/vivienda-joven/ambiente-3.webp",
+            image: "/img/juana-64/dormitorio/dormitorio-02.webp",
         },
     ]
     

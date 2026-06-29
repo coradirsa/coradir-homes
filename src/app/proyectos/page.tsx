@@ -9,7 +9,7 @@ const PROJECTS = [
         name: "Juana 64",
         description: "Unidades con domótica, zonas comunes equipadas y soluciones ecoeficientes en Juana Koslay.",
         href: "/juana-64",
-        image: "/img/projects/jk.webp",
+        image: "/img/juana-64/espacios/hero-jk64.webp",
         ctaId: "proyectos-juana-64",
     },
     {
@@ -24,7 +24,7 @@ const PROJECTS = [
         name: "Locales Comerciales",
         description: "Locales comerciales con ubicación estratégica y alto flujo en San Luis. Preventa en pozo.",
         href: "/locales-comerciales",
-        image: "/img/projects/complejo.webp",
+        image: "/img/juana-64/locales/locales-08.webp",
         ctaId: "proyectos-locales-comerciales",
     },
     {

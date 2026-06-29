@@ -4,12 +4,10 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import CardProyect from "./home/components/cardProyect";
 
 export default function SectionProjectsDone() {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
-
   const proyects = [
     {
       title: "Proyecto Juana Koslay",
-      image: isMobileView ? "/img/optimized/projects/jk_mobile.webp" : "/img/optimized/projects/jk_desktop.webp",
+      image: "/img/juana-64/espacios/hero-jk64.webp",
       link: "/juana-64",
       id: "boton-homes-home-proyectos-jk",
     },
@@ -21,7 +19,7 @@ export default function SectionProjectsDone() {
     },
     {
       title: "Locales Comerciales",
-      image: "/img/projects/complejo.webp",
+      image: "/img/juana-64/locales/locales-08.webp",
       link: "/locales-comerciales",
       id: "boton-homes-home-proyectos-locales-comerciales",
     },

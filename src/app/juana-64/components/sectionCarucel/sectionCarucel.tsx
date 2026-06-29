@@ -7,12 +7,14 @@ export default function SectionCarucel() {
   const isMobile = useMediaQuery("(max-width: 900px)");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const COUNT = 5;
-  const images = [];
-
-  for (let i = 0; i < COUNT; i++) {
-    images.push(`/img/vivienda-joven/carucel-${i}.webp`);
-  }
+  const images = [
+    "/img/juana-64/espacios/hero-jk64.webp",
+    "/img/juana-64/espacios/jk-64.webp",
+    "/img/juana-64/espacios/espacio-01.webp",
+    "/img/juana-64/espacios/espacios-02.webp",
+    "/img/juana-64/espacios/espacios-03.webp",
+  ];
+  const COUNT = images.length;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,7 +27,7 @@ export default function SectionCarucel() {
       }, 50);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [COUNT]);
   useEffect(()=>{},[isMobile])
   return ( 
     <>

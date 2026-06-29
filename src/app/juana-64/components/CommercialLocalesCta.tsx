@@ -38,8 +38,8 @@ export default function CommercialLocalesCta() {
 
         <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-blue/15 bg-white shadow-sm md:min-h-[420px]">
           <Image
-            src="/img/vivienda-joven/hero.webp"
-            alt="Juana 64"
+            src="/img/juana-64/locales/locales-08.webp"
+            alt="Locales comerciales en Juana 64"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover"
