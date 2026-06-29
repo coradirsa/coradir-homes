@@ -7,7 +7,7 @@ export default function SectionProjectsDone() {
   const proyects = [
     {
       title: "Proyecto Juana Koslay",
-      image: "/img/juana-64/espacios/hero-jk64.webp",
+      image: "/img/juana-64/proyecto-jk64.webp",
       link: "/juana-64",
       id: "boton-homes-home-proyectos-jk",
     },
@@ -19,7 +19,7 @@ export default function SectionProjectsDone() {
     },
     {
       title: "Locales Comerciales",
-      image: "/img/juana-64/locales/locales-08.webp",
+      image: "/img/locales-comerciales/proyecto-locales.webp",
       link: "/locales-comerciales",
       id: "boton-homes-home-proyectos-locales-comerciales",
     },
