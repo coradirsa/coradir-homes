@@ -21,6 +21,14 @@ const PROJECTS = [
         ctaId: "proyectos-san-luis",
     },
     {
+        name: "Villa Mercedes",
+        description:
+            "Complejo cerrado con 16 departamentos de 2 dormitorios, parking individual y seguridad con IA en Villa Mercedes.",
+        href: "/villa-mercedes",
+        image: "/img/villa-mercedes/complejo-atardecer.webp",
+        ctaId: "proyectos-villa-mercedes",
+    },
+    {
         name: "Locales Comerciales",
         description: "Locales comerciales con ubicación estratégica y alto flujo en San Luis. Preventa en pozo.",
         href: "/locales-comerciales",

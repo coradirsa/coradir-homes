@@ -71,6 +71,7 @@ baseSeoEntries.forEach((entry) => {
 const projectPaths = [
   "/juana-64",
   "/san-luis",
+  "/villa-mercedes",
   "/locales-comerciales",
   "/la-torre-ii",
   "/inversiones-inteligentes",
@@ -175,6 +176,34 @@ if (sanLuisEntry) {
     buildBreadcrumbJsonLd([
       { name: "Inicio", item: siteConfig.url },
       { name: "San Luis", item: context.canonical },
+    ]),
+  ];
+}
+
+const villaMercedesEntry = entryMap.get("/villa-mercedes");
+if (villaMercedesEntry) {
+  villaMercedesEntry.structuredData = (context) => [
+    buildRealEstateProjectJsonLd({
+      ...context,
+      additional: {
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "Estacionamiento individual" },
+          { "@type": "LocationFeatureSpecification", name: "Seguridad con IA 24hs" },
+          { "@type": "LocationFeatureSpecification", name: "Departamentos equipados" },
+          { "@type": "LocationFeatureSpecification", name: "Conexión WiFi" },
+        ],
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Riobamba 477",
+          addressLocality: "Villa Mercedes",
+          addressRegion: "San Luis",
+          addressCountry: "AR",
+        },
+      },
+    }),
+    buildBreadcrumbJsonLd([
+      { name: "Inicio", item: siteConfig.url },
+      { name: "Villa Mercedes", item: context.canonical },
     ]),
   ];
 }

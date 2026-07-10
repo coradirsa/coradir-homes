@@ -82,8 +82,9 @@ export default function WhatsAppButton() {
             "/": "Hola! Estoy interesado en conocer mas sobre sus propiedades",
             "/proyectos": "Hola! Vi los proyectos y me gustaria mas informacion",
             "/la-torre-ii": "Hola! Me interesa La Torre II, quisiera mas detalles",
-            "/juana-64": "Hola! Me interesa Juana 64, quisiera mas informacion",
-            "/locales-comerciales": "Hola! Me interesan los Locales Comerciales, quisiera mas detalles",
+            "/villa-mercedes": "Hola! Me interesa el Complejo Villa Mercedes, quisiera mas informacion",
+            "/juana-64": "Hola! Me interesa Juana 64, quisiera informacion sobre departamentos y locales comerciales",
+            "/locales-comerciales": "Hola! Me interesan los locales comerciales de CORADIR Homes, quisiera conocer precios, disponibilidad y leasing",
             "/inversiones-inteligentes": "Hola! Me interesa invertir, quisiera mas informacion",
             "/contacto": "Hola! Quisiera ponerme en contacto con ustedes",
         };

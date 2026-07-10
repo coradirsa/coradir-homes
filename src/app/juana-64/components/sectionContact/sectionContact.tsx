@@ -11,7 +11,7 @@ export default function SectionContact() {
     const embedUrl = "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3486.7834566144747!2d-66.2379777!3d-33.2652177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDE1JzU0LjgiUyA2NsKwMTQnMDcuNSJX!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar";
 
     return (
-        <section className="w-full bg-white py-10 md:py-16 xl:py-20">
+        <section id="ubicacion" className="w-full scroll-mt-24 bg-white py-10 md:py-16 xl:py-20">
             <div className="container px-5 flex flex-col items-center gap-8 md:gap-12">
                 <h2 className="text-3xl md:text-5xl xl:text-7xl text-blue font-playfair text-center font-bold">
                     Contactanos

@@ -24,6 +24,14 @@
     "image": "/img/san-luis/3.webp"
   },
   {
+    "pathname": "/villa-mercedes",
+    "title": "Villa Mercedes | Departamentos en venta con respaldo CORADIR",
+    "description": "Complejo cerrado en Villa Mercedes con 16 departamentos de 2 dormitorios, estacionamiento individual y seguridad con IA. Comprá con respaldo CORADIR.",
+    "changefreq": "monthly",
+    "priority": 0.9,
+    "image": "/img/villa-mercedes/hero-atardecer.webp"
+  },
+  {
     "pathname": "/locales-comerciales",
     "title": "Locales comerciales en San Luis y Juana Koslay | CORADIR Homes",
     "description": "Locales comerciales CORADIR Homes en Ruta 3 y Juana 64. Opciones de compra, alquiler, pozo y leasing inmobiliario hasta 96 meses.",

@@ -6,6 +6,7 @@ export const Interests = z.enum([
     "corporativos",
     "juana-64",
     "san-luis",
+    "villa-mercedes",
     "terrenos",
     "la-torre-ii",
     "locales-comerciales",

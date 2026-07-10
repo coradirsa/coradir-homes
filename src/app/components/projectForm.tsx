@@ -113,14 +113,16 @@ export default function ProjectForm({
       return;
     }
 
+    const interestingValue = data.interesting?.trim() || interest;
     const dataToSend: Record<string, unknown> = {
       name: data.name.trim(),
       email: data.email.trim().toLowerCase(),
       phone: data.phone?.trim() || null,
-      interesting: data.interesting?.trim() || interest,
+      interesting: interestingValue,
       message: data.message?.trim() || null,
       timestamp: new Date().toISOString(),
       source: "website_coradir_homes_form",
+      profileType: interestingValue === "inversiones" ? "inversor" : "consumidor",
     };
 
     // Add optional fields only if they exist
