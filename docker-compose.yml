@@ -87,6 +87,7 @@ services:
       - LEAD_BOT_LLM_BASE_URL=${LEAD_BOT_LLM_BASE_URL}
       - LEAD_BOT_LLM_API_KEY=${LEAD_BOT_LLM_API_KEY}
       - LEAD_BOT_LLM_TIMEOUT_MS=${LEAD_BOT_LLM_TIMEOUT_MS:-4500}
+      - LEAD_BOT_LLM_DISABLE_THINKING=${LEAD_BOT_LLM_DISABLE_THINKING:-false}
 
     # ========================================
     # HEALTH CHECK
