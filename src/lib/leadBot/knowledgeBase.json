@@ -1,0 +1,930 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-07-06",
+  "source_documents": {
+    "informe_tecnico_movilidad_rag": {
+      "title": "Chatbot RAG para Movilidad Electrica CORADIR",
+      "role": "methodology_reference",
+      "audience": "internal",
+      "source_file_path": "docs/lead-bot/sources/informe_tecnico_v2.md",
+      "source_path": "source_documents.informe_tecnico_movilidad_rag",
+      "pages": 21
+    },
+    "condiciones_venta_juana_64_r": {
+      "title": "Condiciones de venta Juana 64 -R",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "source_path": "source_documents.condiciones_venta_juana_64_r",
+      "pages": 2,
+      "document_date": "2026-02-06"
+    },
+    "precios_locales_ruta_3": {
+      "title": "Precios locales comerciales Ruta 3",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
+      "source_path": "source_documents.precios_locales_ruta_3",
+      "document_date": "2026-06-23"
+    },
+    "plano_estacionamiento_locales_ruta_3": {
+      "title": "Plano estacionamiento locales Ruta 3",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/plano_estacionamiento_locales_ruta_3.md",
+      "source_path": "source_documents.plano_estacionamiento_locales_ruta_3",
+      "pages": 5,
+      "document_date": "2026-06-19"
+    },
+    "backup_energetico_locales_ruta_3": {
+      "title": "Backup energetico locales Ruta 3",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/backup_energetico_locales_ruta_3.md",
+      "source_path": "source_documents.backup_energetico_locales_ruta_3",
+      "document_date": "2026-06-23"
+    },
+    "ubicacion_juana_64": {
+      "title": "Ubicacion publica Juana 64",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/ubicacion_juana_64.md",
+      "source_path": "source_documents.ubicacion_juana_64",
+      "document_date": "2026-06-30"
+    },
+    "juana_64_web": {
+      "title": "Juana 64 - datos web",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/juana_64_web.md",
+      "source_path": "source_documents.juana_64_web",
+      "document_date": "2026-07-01"
+    },
+    "links_publicos_proyectos": {
+      "title": "Links publicos de proyectos",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/links_publicos_proyectos.md",
+      "source_path": "source_documents.links_publicos_proyectos",
+      "document_date": "2026-06-30"
+    },
+    "villa_mercedes_web": {
+      "title": "Villa Mercedes - datos web",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+      "source_path": "source_documents.villa_mercedes_web",
+      "document_date": "2026-07-06"
+    },
+    "san_luis_web": {
+      "title": "Complejo San Luis - datos web",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+      "source_path": "source_documents.san_luis_web",
+      "document_date": "2026-06-30"
+    },
+    "locales_juana_64_web": {
+      "title": "Locales comerciales Juana 64 - datos web",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
+      "source_path": "source_documents.locales_juana_64_web",
+      "document_date": "2026-06-30"
+    },
+    "homes_crm_whatsapp_2026_06_30_sintesis": {
+      "title": "Sintesis de conversaciones WhatsApp Homes CRM - 2026-06-30",
+      "role": "conversation_feedback_reference",
+      "audience": "internal",
+      "source_file_path": "docs/lead-bot/sources/homes_crm_whatsapp_2026_06_30_sintesis.md",
+      "source_path": "source_documents.homes_crm_whatsapp_2026_06_30_sintesis",
+      "document_date": "2026-06-30"
+    }
+  },
+  "methodology": {
+    "corpus_design": {
+      "source_path": "methodology.corpus_design",
+      "source_document": "informe_tecnico_movilidad_rag",
+      "page_refs": [
+        2,
+        4,
+        5,
+        7,
+        17
+      ],
+      "customer_visible": false,
+      "principles": [
+        {
+          "id": "atomic_documents",
+          "title": "Documentos atomicos por dato verificable",
+          "content": "Crear unidades cortas por campo u objeto para conservar trazabilidad directa entre respuesta y fuente."
+        },
+        {
+          "id": "source_path_traceability",
+          "title": "Trazabilidad por source_path",
+          "content": "Guardar una ruta interna del dato dentro del JSON para auditar que la respuesta se apoyo en el nodo correcto."
+        },
+        {
+          "id": "literal_extraction_first",
+          "title": "Extraccion literal antes que generacion",
+          "content": "Para precios, direcciones, condiciones y valores puntuales, extraer el dato literal antes de pedirle al LLM que redacte."
+        },
+        {
+          "id": "guardrails_for_sensitive_commercial_data",
+          "title": "Guardrails para datos comerciales sensibles",
+          "content": "No inventar precios, stock ni condiciones. Si el corpus no contiene el dato o puede estar desactualizado, derivar a validacion humana."
+        },
+        {
+          "id": "evaluate_retrieval_and_answer_separately",
+          "title": "Separar retrieval de respuesta final",
+          "content": "Medir por separado si se recupero la fuente correcta y si la respuesta contiene el dato esperado."
+        },
+        {
+          "id": "production_feedback_loop",
+          "title": "Circuito de mejora con consultas reales",
+          "content": "Cerrar un ciclo de captura de consultas reales anonimizadas, revision humana, actualizacion controlada del corpus y monitoreo por categoria."
+        }
+      ]
+    }
+  },
+  "customer_knowledge": {
+    "projects": {
+      "juana_64": {
+        "name": "Juana 64",
+        "slug": "juana-64",
+        "source_path": "customer_knowledge.projects.juana_64",
+        "public_location": {
+          "source_document": "ubicacion_juana_64",
+          "source_file_path": "docs/lead-bot/sources/ubicacion_juana_64.md",
+          "source_path": "customer_knowledge.projects.juana_64.public_location",
+          "address": "Inocencio Guerrero 517, Juana Koslay, San Luis",
+          "project_url": "/juana-64",
+          "location_url": "/juana-64#ubicacion",
+          "communication_rule": "Responder con direccion humana y link clickeable. No mostrar coordenadas, latitud ni longitud."
+        },
+        "public_details": {
+          "source_document": "juana_64_web",
+          "source_file_path": "docs/lead-bot/sources/juana_64_web.md",
+          "source_path": "customer_knowledge.projects.juana_64.public_details",
+          "summary": "Juana 64 es un proyecto de departamentos inteligentes en Juana Koslay, a solo 10 minutos del centro, con entrega proyectada y cupos limitados.",
+          "scale": {
+            "source_path": "customer_knowledge.projects.juana_64.public_details.scale",
+            "total_departments": 64,
+            "available_departments": 44,
+            "reserved_departments": 20,
+            "projected_families": "+64 familias proyectadas"
+          },
+          "features": [
+            "departamentos de 2 dormitorios",
+            "cocina equipada",
+            "estacionamiento",
+            "estacionamiento individual",
+            "construccion rapida",
+            "seguridad con IA 24 hs",
+            "zona comercial",
+            "conectividad optimizada",
+            "pileta",
+            "paneles solares con proteccion anticorte",
+            "calefon electrico",
+            "cocina con artefactos electricos",
+            "aire acondicionado",
+            "espacios recreativos integrados",
+            "plazas con juegos y zonas verdes",
+            "iluminacion LED",
+            "pet friendly"
+          ],
+          "limits": "La pagina publica confirma que el proyecto es pet friendly, pero no confirma terraza, patio privado, orientacion/luminosidad por unidad, cantidad exacta de mascotas permitidas, reglamento de convivencia, sistema constructivo/materiales exactos, expensas ni disponibilidad actualizada por unidad."
+        },
+        "sales_conditions": {
+          "source_document": "condiciones_venta_juana_64_r",
+          "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+          "source_path": "customer_knowledge.projects.juana_64.sales_conditions",
+          "pages": [
+            1,
+            2
+          ],
+          "price_policy": {
+            "source_path": "customer_knowledge.projects.juana_64.sales_conditions.price_policy",
+            "pages": [
+              1
+            ],
+            "content": "El precio de los departamentos y los locales es el mismo para todos."
+          },
+          "prices": {
+            "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices",
+            "pages": [
+              1
+            ],
+            "currency": "USD",
+            "departments": {
+              "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.departments",
+              "list_price": {
+                "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.departments.list_price",
+                "value": 59000,
+                "display": "59.000,00 USD"
+              },
+              "pre_construction_cash_price": {
+                "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.departments.pre_construction_cash_price",
+                "value": 47000,
+                "display": "47.000,00 USD"
+              }
+            },
+            "commercial_units": {
+              "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units",
+              "tax_note": "+ IVA",
+              "list_price": {
+                "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units.list_price",
+                "value": 70000,
+                "display": "70.000,00 USD"
+              },
+              "pre_construction_cash_price": {
+                "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units.pre_construction_cash_price",
+                "value": 53000,
+                "display": "53.000,00 USD"
+              }
+            }
+          },
+          "financing": {
+            "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing",
+            "pages": [
+              1,
+              2
+            ],
+            "summary": "Se ofrece financiacion en leasing inmobiliario hasta 96 meses, en dolares o UVA, sin costo de hipoteca, con el 35% de adelanto e intereses desde 0% para 24 cuotas hasta 8% anual para 96 cuotas.",
+            "down_payment_percent": 35,
+            "currencies": [
+              "USD",
+              "UVA"
+            ],
+            "mortgage_cost": "Sin costo de hipoteca",
+            "plans": {
+              "departments": [
+                {
+                  "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing.plans.departments[0]",
+                  "months": 24,
+                  "annual_interest_percent": 0,
+                  "down_payment": "20.650,00 USD",
+                  "rent": "1.597,92 USD",
+                  "residual_value": "1.765,70 USD",
+                  "pages": [
+                    1
+                  ]
+                },
+                {
+                  "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing.plans.departments[1]",
+                  "months": 48,
+                  "annual_interest_percent": 4,
+                  "down_payment": "20.650,00 USD",
+                  "rent": "865,91 USD",
+                  "residual_value": "956,83 USD",
+                  "pages": [
+                    1
+                  ]
+                },
+                {
+                  "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing.plans.departments[2]",
+                  "months": 96,
+                  "annual_interest_percent": 8,
+                  "down_payment": "20.650,00 USD",
+                  "rent": "542,14 USD",
+                  "residual_value": "599,07 USD",
+                  "pages": [
+                    1
+                  ]
+                }
+              ],
+              "commercial_units": [
+                {
+                  "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing.plans.commercial_units[0]",
+                  "tax_note": "+ IVA 21%",
+                  "months": 24,
+                  "annual_interest_percent": 0,
+                  "down_payment": "20.058,02 USD",
+                  "rent": "1.552,11 USD",
+                  "residual_value": "1.552,11 USD",
+                  "pages": [
+                    1
+                  ]
+                },
+                {
+                  "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing.plans.commercial_units[1]",
+                  "tax_note": "+ IVA 21%",
+                  "months": 48,
+                  "annual_interest_percent": 4,
+                  "down_payment": "20.058,02 USD",
+                  "rent": "841,08 USD",
+                  "residual_value": "929,40 USD",
+                  "pages": [
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing.plans.commercial_units[2]",
+                  "tax_note": "+ IVA 21%",
+                  "months": 96,
+                  "annual_interest_percent": 8,
+                  "down_payment": "20.058,02 USD",
+                  "rent": "526,60 USD",
+                  "residual_value": "526,60 USD",
+                  "pages": [
+                    2
+                  ]
+                }
+              ]
+            }
+          },
+          "investor_guarantee": {
+            "source_path": "customer_knowledge.projects.juana_64.sales_conditions.investor_guarantee",
+            "pages": [
+              2
+            ],
+            "content": "Para inversores que compran en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con un 3% de incremento."
+          },
+          "delivery": {
+            "source_path": "customer_knowledge.projects.juana_64.sales_conditions.delivery",
+            "pages": [
+              2
+            ],
+            "first_stage": "Plazo de entrega estimado de 10 meses para la primera etapa: dos modulos de 16 departamentos y todos los locales, a fin de julio de 2026.",
+            "remaining_modules": "Los demas modulos se entregaran antes de fin de 2026 segun el orden de fecha de compra."
+          },
+          "reservation_and_payment": {
+            "source_path": "customer_knowledge.projects.juana_64.sales_conditions.reservation_and_payment",
+            "pages": [
+              2
+            ],
+            "reservation_percent": 3,
+            "pre_construction_cash": "En compra en pozo adelantada, el saldo se abona en 30 dias.",
+            "finished_purchase": "En compra terminado, se abona el 10% al boleto a los 30 dias y saldo contra entrega.",
+            "leasing": "En compra en leasing: 3% a la reserva, 10% a los 60 dias, 22% contra entrega y saldo en las cuotas pactadas."
+          }
+        }
+      },
+      "san_luis": {
+        "name": "Complejo San Luis",
+        "slug": "san-luis",
+        "source_path": "customer_knowledge.projects.san_luis",
+        "public_location": {
+          "source_document": "san_luis_web",
+          "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+          "source_path": "customer_knowledge.projects.san_luis.public_location",
+          "address": "Jose Hernandez y Chile, Ciudad de San Luis",
+          "project_url": "/san-luis",
+          "brochure_url": "/img/san-luis/Folleto%20vertical%20-%20San%20Luis.pdf",
+          "maps_url": "https://maps.app.goo.gl/PDRfuXWDYKb8iRJr6",
+          "communication_rule": "Responder con direccion humana y link interno clickeable. No mostrar coordenadas."
+        },
+        "public_details": {
+          "source_document": "san_luis_web",
+          "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+          "source_path": "customer_knowledge.projects.san_luis.public_details",
+          "description": "Proyecto residencial en San Luis con compra en pozo y respaldo CORADIR.",
+          "departments": {
+            "quantity": 26,
+            "typology": "2 dormitorios",
+            "features": [
+              "estacionamiento individual",
+              "cocina equipada",
+              "departamentos inteligentes",
+              "conexion WiFi",
+              "seguridad con IA",
+              "vigilancia inteligente con IA las 24 hs"
+            ]
+          },
+          "commercial_units": {
+            "quantity": 2,
+            "summary": "Locales comerciales para proyectos comerciales en crecimiento, con arquitectura moderna, infraestructura eficiente y seguridad gestionada con IA."
+          }
+        },
+        "purchase_process": {
+          "source_document": "san_luis_web",
+          "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+          "source_path": "customer_knowledge.projects.san_luis.purchase_process",
+          "steps": [
+            "Lista de interes con prioridad comercial y eleccion de unidad.",
+            "Pre-reserva con sena para congelar condiciones y avanzar con asesoria personalizada.",
+            "Boleto y posesion con respaldo juridico y entrega planificada."
+          ],
+          "guarantee": "La web comunica poliza de caucion y respaldo CORADIR para brindar previsibilidad desde el inicio."
+        },
+        "commercial_data_limits": {
+          "source_document": "san_luis_web",
+          "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+          "source_path": "customer_knowledge.projects.san_luis.commercial_data_limits",
+          "content": "La pagina publica no muestra precio, cuotas, financiacion exacta, fecha de entrega cerrada, stock ni disponibilidad por unidad. Esos datos deben validarse con un asesor."
+        }
+      },
+      "villa_mercedes": {
+        "name": "Complejo Villa Mercedes",
+        "slug": "villa-mercedes",
+        "source_path": "customer_knowledge.projects.villa_mercedes",
+        "public_location": {
+          "source_document": "villa_mercedes_web",
+          "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+          "source_path": "customer_knowledge.projects.villa_mercedes.public_location",
+          "address": "Riobamba 477, Ciudad de Villa Mercedes, San Luis",
+          "project_url": "/villa-mercedes",
+          "brochure_url": "/img/villa-mercedes/Folleto-vertical-Villa-Mercedes.pdf",
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Riobamba+477%2C+Villa+Mercedes%2C+San+Luis",
+          "communication_rule": "Responder con direccion humana y link interno clickeable. No mostrar coordenadas."
+        },
+        "public_details": {
+          "source_document": "villa_mercedes_web",
+          "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+          "source_path": "customer_knowledge.projects.villa_mercedes.public_details",
+          "description": "Complejo cerrado de departamentos en Villa Mercedes, para compra, con respaldo CORADIR y poliza de caucion.",
+          "departments": {
+            "quantity": 16,
+            "typology": "16 departamentos de 2 dormitorios",
+            "features": [
+              "parking individual con posibilidad de techado",
+              "cocina equipada",
+              "departamentos inteligentes",
+              "conexion WiFi",
+              "seguridad con IA",
+              "vigilancia inteligente con IA las 24 hs",
+              "complejo cerrado",
+              "a solo minutos del centro"
+            ],
+            "equipment": [
+              "cocina con artefactos electricos",
+              "calefon electrico",
+              "aire acondicionado",
+              "iluminacion LED",
+              "bano con lavarropas y tender rebatible"
+            ],
+            "equipment_note": "Equipamiento de referencia, el mismo que Juana 64. El detalle final por unidad lo confirma un asesor."
+          }
+        },
+        "commercial_data_limits": {
+          "source_document": "villa_mercedes_web",
+          "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+          "source_path": "customer_knowledge.projects.villa_mercedes.commercial_data_limits",
+          "content": "La pagina publica no muestra precio, cuotas, financiacion exacta, fecha de entrega cerrada, stock ni disponibilidad por unidad. La pagina no comunica locales comerciales en este proyecto. Esos datos deben validarse con un asesor."
+        }
+      },
+      "ruta_3_commercial_units": {
+        "name": "Locales CORADIR Ruta 3 km 0.6",
+        "slug": "locales-comerciales",
+        "source_path": "customer_knowledge.projects.ruta_3_commercial_units",
+        "public_location": {
+          "source_document": "links_publicos_proyectos",
+          "source_file_path": "docs/lead-bot/sources/links_publicos_proyectos.md",
+          "source_path": "customer_knowledge.projects.ruta_3_commercial_units.public_location",
+          "address": "Ruta 3 km 0.6, Parque Industrial Sur, San Luis",
+          "project_url": "/locales-comerciales",
+          "location_url": "/locales-comerciales#ruta-3",
+          "communication_rule": "Responder con direccion humana y link clickeable. No mostrar coordenadas, latitud ni longitud."
+        },
+        "sales_conditions": {
+          "source_document": "precios_locales_ruta_3",
+          "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
+          "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions",
+          "prices": {
+            "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
+            "currency": "USD",
+            "tax_note": "+ IVA",
+            "surface": "180 m2",
+            "list_price": {
+              "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.list_price",
+              "value": 107000,
+              "display": "107.000,00 USD"
+            },
+            "pre_construction_cash_price": {
+              "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.pre_construction_cash_price",
+              "value": 85000,
+              "display": "85.000,00 USD"
+            },
+            "monthly_rent": {
+              "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.monthly_rent",
+              "value": 690,
+              "display": "690,00 USD"
+            }
+          }
+        },
+        "architectural_plan": {
+          "source_document": "plano_estacionamiento_locales_ruta_3",
+          "source_file_path": "docs/lead-bot/sources/plano_estacionamiento_locales_ruta_3.md",
+          "source_path": "customer_knowledge.projects.ruta_3_commercial_units.architectural_plan",
+          "document_date": "2026-06-19",
+          "content": "El plano muestra 4 locales comerciales sobre Ruta 3 Pque Ind Sur, San Luis, con frente indicado de 6,00 m por local, superficies rotuladas de aproximadamente 168,63 m2 por unidad, banos, cocheras/estacionamientos, acceso vehicular, acceso peatonal, sector de seguridad, jardin y vereda."
+        },
+        "energy_backup": {
+          "source_document": "backup_energetico_locales_ruta_3",
+          "source_file_path": "docs/lead-bot/sources/backup_energetico_locales_ruta_3.md",
+          "source_path": "customer_knowledge.projects.ruta_3_commercial_units.energy_backup",
+          "document_date": "2026-06-23",
+          "content": "Los locales comerciales de Ruta 3 incorporan backup energetico durante el primer ano para reducir el impacto de cortes de luz y sostener la operacion del negocio."
+        }
+      }
+    }
+  },
+  "retrieval_documents": [
+    {
+      "id": "juana64_price_policy",
+      "section": "juana_64.sales_conditions.price_policy",
+      "title": "Politica de precios Juana 64",
+      "content": "El precio de los departamentos y los locales es el mismo para todos.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.price_policy",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_prices_departments",
+      "section": "juana_64.sales_conditions.prices",
+      "title": "Precios departamentos Juana 64",
+      "content": "Departamentos Juana 64: precio de lista 59.000,00 USD; precio pozo contado 47.000,00 USD.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.departments",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_prices_commercial_units",
+      "section": "juana_64.sales_conditions.prices",
+      "title": "Precios locales comerciales Juana 64",
+      "content": "Locales comerciales Juana 64 + IVA: precio de lista 70.000,00 USD; precio pozo contado 53.000,00 USD.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_financing_summary",
+      "section": "juana_64.sales_conditions.financing",
+      "title": "Financiacion Juana 64",
+      "content": "Leasing inmobiliario hasta 96 meses, en dolares o UVA, sin costo de hipoteca, con 35% de adelanto e intereses de 0% a 8% anual segun plazo.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_leasing_departments",
+      "section": "juana_64.sales_conditions.financing.plans.departments",
+      "title": "Leasing departamentos Juana 64",
+      "content": "Leasing departamentos: 24 meses 0% interes, adelanto 20.650,00 USD, alquiler 1.597,92 USD, VR 1.765,70 USD; 48 meses 4% anual, adelanto 20.650,00 USD, alquiler 865,91 USD, VR 956,83 USD; 96 meses 8% anual, adelanto 20.650,00 USD, alquiler 542,14 USD, VR 599,07 USD.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing.plans.departments",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_leasing_commercial_units",
+      "section": "juana_64.sales_conditions.financing.plans.commercial_units",
+      "title": "Leasing locales Juana 64",
+      "content": "Leasing locales + IVA 21%: 24 meses 0% interes, adelanto 20.058,02 USD, alquiler 1.552,11 USD, VR 1.552,11 USD; 48 meses 4% anual, adelanto 20.058,02 USD, alquiler 841,08 USD, VR 929,40 USD; 96 meses 8% anual, adelanto 20.058,02 USD, alquiler 526,60 USD, VR 526,60 USD.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.financing.plans.commercial_units",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        1,
+        2
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_investor_guarantee",
+      "section": "juana_64.sales_conditions.investor_guarantee",
+      "title": "Garantia para inversores Juana 64",
+      "content": "Para inversores que compran en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con un 3% de incremento.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.investor_guarantee",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        2
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_delivery",
+      "section": "juana_64.sales_conditions.delivery",
+      "title": "Entrega Juana 64",
+      "content": "Plazo de entrega estimado: 10 meses para la primera etapa, dos modulos de 16 departamentos y todos los locales, a fin de julio de 2026. Los demas modulos se entregaran antes de fin de 2026 segun orden de fecha de compra.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.delivery",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        2
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_reservation_payment",
+      "section": "juana_64.sales_conditions.reservation_and_payment",
+      "title": "Reserva y forma de pago Juana 64",
+      "content": "Para todas las compras se requiere 3% de reserva. Compra en pozo adelantada: saldo en 30 dias. Compra terminado: 10% al boleto a los 30 dias y saldo contra entrega. Leasing: 3% a la reserva, 10% a los 60 dias, 22% contra entrega y saldo en cuotas pactadas.",
+      "source_path": "customer_knowledge.projects.juana_64.sales_conditions.reservation_and_payment",
+      "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
+      "pages": [
+        2
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_public_location",
+      "section": "juana_64.public_location",
+      "title": "Ubicacion Juana 64",
+      "content": "Juana 64 queda en Inocencio Guerrero 517, Juana Koslay, San Luis. Para clientes se debe enviar un link clickeable: /juana-64#ubicacion. No mostrar coordenadas, latitud ni longitud. Si preguntan por departamentos, no mezclar con Locales Comerciales Ruta 3.",
+      "source_path": "customer_knowledge.projects.juana_64.public_location",
+      "source_file_path": "docs/lead-bot/sources/ubicacion_juana_64.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_public_page_link",
+      "section": "juana_64.public_links",
+      "title": "Link publico Juana 64",
+      "content": "La pagina publica de Juana 64 es /juana-64. La ubicacion dentro de la pagina es /juana-64#ubicacion. En respuestas al cliente usar links Markdown clickeables con texto claro.",
+      "source_path": "customer_knowledge.projects.juana_64.public_links",
+      "source_file_path": "docs/lead-bot/sources/links_publicos_proyectos.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_public_residential_features",
+      "section": "juana_64.public_details.features",
+      "title": "Caracteristicas publicas Juana 64",
+      "content": "Juana 64 comunica departamentos inteligentes en Juana Koslay, a solo 10 minutos del centro, con departamentos de 2 dormitorios, cocina equipada, estacionamiento, estacionamiento individual, construccion rapida, seguridad con IA 24 hs, zona comercial, conectividad optimizada, pileta, paneles solares con proteccion anticorte, calefon electrico, cocina con artefactos electricos, aire acondicionado, espacios recreativos integrados, plazas con juegos, zonas verdes, iluminacion LED y pet friendly. La pagina confirma pet friendly, pero no confirma terraza, patio privado, orientacion/luminosidad por unidad, cantidad exacta de mascotas permitidas, reglamento de convivencia, sistema constructivo/materiales exactos, expensas ni disponibilidad actualizada por unidad.",
+      "source_path": "customer_knowledge.projects.juana_64.public_details.features",
+      "source_file_path": "docs/lead-bot/sources/juana_64_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_public_residential_scale",
+      "section": "juana_64.public_details.scale",
+      "title": "Escala publica Juana 64",
+      "content": "La pagina publica de Juana 64 muestra 64 departamentos en total, expresados como 44 departamentos disponibles, 20 departamentos reservados y +64 familias proyectadas. Tambien muestra plan maestro del desarrollo. La landing de Locales Comerciales informa 6 locales comerciales Juana 64, de 84 m2 por local y medidas de 6 m x 14 m. Las condiciones comerciales indican que la primera etapa contempla dos modulos de 16 departamentos y todos los locales; disponibilidad actualizada por unidad debe validarla un asesor.",
+      "source_path": "customer_knowledge.projects.juana_64.public_details.scale",
+      "source_file_path": "docs/lead-bot/sources/juana_64_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "juana-64",
+      "customer_visible": true
+    },
+    {
+      "id": "san_luis_project_summary",
+      "section": "san_luis.public_details",
+      "title": "Resumen proyecto San Luis",
+      "content": "Complejo San Luis es un proyecto residencial de compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, seguridad con IA, WiFi y respaldo CORADIR.",
+      "source_path": "customer_knowledge.projects.san_luis.public_details",
+      "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "san-luis",
+      "customer_visible": true
+    },
+    {
+      "id": "san_luis_public_location",
+      "section": "san_luis.public_location",
+      "title": "Ubicacion proyecto San Luis",
+      "content": "Complejo San Luis se ubica en Jose Hernandez y Chile, Ciudad de San Luis. La pagina publica del proyecto es /san-luis. Responder con direccion humana y link interno clickeable; no mostrar coordenadas.",
+      "source_path": "customer_knowledge.projects.san_luis.public_location",
+      "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "san-luis",
+      "customer_visible": true
+    },
+    {
+      "id": "san_luis_features_units",
+      "section": "san_luis.public_details.departments",
+      "title": "Unidades y beneficios San Luis",
+      "content": "San Luis comunica 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, departamentos inteligentes, conexion WiFi, vigilancia inteligente con IA las 24 hs, zona consolidada, accesos rapidos y cercania a servicios claves.",
+      "source_path": "customer_knowledge.projects.san_luis.public_details.departments",
+      "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "san-luis",
+      "customer_visible": true
+    },
+    {
+      "id": "san_luis_commercial_units",
+      "section": "san_luis.public_details.commercial_units",
+      "title": "Locales comerciales San Luis",
+      "content": "El proyecto San Luis incluye 2 locales comerciales para proyectos comerciales en crecimiento, con arquitectura moderna, infraestructura eficiente, seguridad gestionada con inteligencia artificial, ubicacion, tecnologia y previsibilidad.",
+      "source_path": "customer_knowledge.projects.san_luis.public_details.commercial_units",
+      "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "san-luis",
+      "customer_visible": true
+    },
+    {
+      "id": "san_luis_purchase_process",
+      "section": "san_luis.purchase_process",
+      "title": "Proceso comercial San Luis",
+      "content": "Proceso comunicado para San Luis: lista de interes con prioridad comercial y eleccion de unidad; pre-reserva con sena para congelar condiciones y avanzar con asesoria personalizada; boleto y posesion con respaldo juridico y entrega planificada. La web comunica poliza de caucion y respaldo CORADIR.",
+      "source_path": "customer_knowledge.projects.san_luis.purchase_process",
+      "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "san-luis",
+      "customer_visible": true
+    },
+    {
+      "id": "san_luis_brochure_link",
+      "section": "san_luis.public_location.brochure",
+      "title": "Folleto San Luis",
+      "content": "El folleto publico de San Luis esta disponible en /img/san-luis/Folleto%20vertical%20-%20San%20Luis.pdf. La pagina del proyecto es /san-luis.",
+      "source_path": "customer_knowledge.projects.san_luis.public_location.brochure_url",
+      "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "san-luis",
+      "customer_visible": true
+    },
+    {
+      "id": "san_luis_commercial_data_limits",
+      "section": "san_luis.commercial_data_limits",
+      "title": "Limites informacion comercial San Luis",
+      "content": "La pagina publica de San Luis no muestra precio, cuotas, financiacion exacta, fecha de entrega cerrada, stock ni disponibilidad por unidad. Esos datos deben validarse con un asesor.",
+      "source_path": "customer_knowledge.projects.san_luis.commercial_data_limits",
+      "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "san-luis",
+      "customer_visible": true
+    },
+    {
+      "id": "villa_mercedes_project_summary",
+      "section": "villa_mercedes.public_details",
+      "title": "Resumen proyecto Villa Mercedes",
+      "content": "Complejo Villa Mercedes es un complejo cerrado de departamentos para compra en la Ciudad de Villa Mercedes, San Luis, con 16 departamentos de 2 dormitorios, parking individual con posibilidad de techado, cocina equipada, WiFi, seguridad con IA y respaldo CORADIR con poliza de caucion.",
+      "source_path": "customer_knowledge.projects.villa_mercedes.public_details",
+      "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "villa-mercedes",
+      "customer_visible": true
+    },
+    {
+      "id": "villa_mercedes_public_location",
+      "section": "villa_mercedes.public_location",
+      "title": "Ubicacion proyecto Villa Mercedes",
+      "content": "Complejo Villa Mercedes se ubica en Riobamba 477, Ciudad de Villa Mercedes, San Luis. La web comunica zona urbana, cerca del centro y cercania a puntos de alto transito. La pagina publica del proyecto es /villa-mercedes. Responder con direccion humana y link interno clickeable; no mostrar coordenadas.",
+      "source_path": "customer_knowledge.projects.villa_mercedes.public_location",
+      "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "villa-mercedes",
+      "customer_visible": true
+    },
+    {
+      "id": "villa_mercedes_features_units",
+      "section": "villa_mercedes.public_details.departments",
+      "title": "Unidades y beneficios Villa Mercedes",
+      "content": "Villa Mercedes comunica 16 departamentos de 2 dormitorios. Incluye parking individual con posibilidad de techado, cocina equipada, departamentos inteligentes, conexion WiFi, vigilancia inteligente con IA las 24 hs, complejo cerrado, construccion rapida y ubicacion a minutos del centro. Las unidades vienen equipadas igual que Juana 64: cocina con artefactos electricos, calefon electrico, aire acondicionado, iluminacion LED y bano con lavarropas y tender rebatible; el detalle final por unidad lo confirma un asesor. La web no comunica locales comerciales en este proyecto.",
+      "source_path": "customer_knowledge.projects.villa_mercedes.public_details.departments",
+      "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "villa-mercedes",
+      "customer_visible": true
+    },
+    {
+      "id": "villa_mercedes_brochure_link",
+      "section": "villa_mercedes.public_location.brochure",
+      "title": "Folleto Villa Mercedes",
+      "content": "El folleto publico de Villa Mercedes esta disponible en /img/villa-mercedes/Folleto-vertical-Villa-Mercedes.pdf. La pagina del proyecto es /villa-mercedes.",
+      "source_path": "customer_knowledge.projects.villa_mercedes.public_location.brochure_url",
+      "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "villa-mercedes",
+      "customer_visible": true
+    },
+    {
+      "id": "villa_mercedes_commercial_data_limits",
+      "section": "villa_mercedes.commercial_data_limits",
+      "title": "Limites informacion comercial Villa Mercedes",
+      "content": "La pagina publica de Villa Mercedes no muestra precio, cuotas, financiacion exacta, fecha de entrega cerrada, stock ni disponibilidad por unidad. Tampoco comunica locales comerciales en este proyecto. Esos datos deben validarse con un asesor.",
+      "source_path": "customer_knowledge.projects.villa_mercedes.commercial_data_limits",
+      "source_file_path": "docs/lead-bot/sources/villa_mercedes_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "villa-mercedes",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_commercial_units_web_details",
+      "section": "juana_64.commercial_units.public_details",
+      "title": "Ficha publica locales comerciales Juana 64",
+      "content": "Locales comerciales Juana 64: locales dentro del desarrollo residencial en Juana Koslay, 6 locales, 84 m2 por local, medidas 6 m x 14 m, primera etapa estimada fin de julio 2026. Pensados para comercio de cercania, servicios profesionales, gastronomia liviana y atencion diaria.",
+      "source_path": "customer_knowledge.projects.juana_64.commercial_units.public_details",
+      "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "locales-comerciales",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_commercial_units_web_rent",
+      "section": "juana_64.commercial_units.prices",
+      "title": "Alquiler locales comerciales Juana 64",
+      "content": "Locales comerciales Juana 64 + IVA: precio pozo USD 53.000; precio de lista USD 70.000; alquiler mensual USD 391 + IVA. Condiciones sujetas a disponibilidad y aprobacion comercial.",
+      "source_path": "customer_knowledge.projects.juana_64.commercial_units.prices",
+      "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "locales-comerciales",
+      "customer_visible": true
+    },
+    {
+      "id": "ruta3_commercial_prices",
+      "section": "ruta_3_commercial_units.sales_conditions.prices",
+      "title": "Precios locales comerciales Ruta 3",
+      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA: precio de lista 107.000,00 USD; precio pozo 85.000,00 USD; alquiler mensual 690,00 USD.",
+      "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
+      "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "locales-comerciales",
+      "customer_visible": true
+    },
+    {
+      "id": "ruta3_public_location",
+      "section": "ruta_3_commercial_units.public_location",
+      "title": "Ubicacion locales Ruta 3",
+      "content": "Locales CORADIR Ruta 3 queda en Ruta 3 km 0.6, Parque Industrial Sur, San Luis. Para clientes se debe enviar un link clickeable: /locales-comerciales#ruta-3. No mostrar coordenadas, latitud ni longitud.",
+      "source_path": "customer_knowledge.projects.ruta_3_commercial_units.public_location",
+      "source_file_path": "docs/lead-bot/sources/links_publicos_proyectos.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "locales-comerciales",
+      "customer_visible": true
+    },
+    {
+      "id": "ruta3_commercial_plan",
+      "section": "ruta_3_commercial_units.architectural_plan",
+      "title": "Plano locales comerciales Ruta 3",
+      "content": "Plano locales Ruta 3: 4 locales comerciales, frente indicado de 6,00 m por local, superficies rotuladas aproximadas de 168,63 m2 por unidad, banos, cocheras/estacionamientos, acceso vehicular, acceso peatonal, sector de seguridad, jardin y vereda. Para comunicacion comercial general se mantiene 180 m2 por local.",
+      "source_path": "customer_knowledge.projects.ruta_3_commercial_units.architectural_plan",
+      "source_file_path": "docs/lead-bot/sources/plano_estacionamiento_locales_ruta_3.md",
+      "pages": [
+        4,
+        5
+      ],
+      "project_slug": "locales-comerciales",
+      "customer_visible": true
+    },
+    {
+      "id": "ruta3_energy_backup",
+      "section": "ruta_3_commercial_units.energy_backup",
+      "title": "Backup energetico locales Ruta 3",
+      "content": "Locales Ruta 3: incorporan backup energetico durante el primer ano para reducir el impacto de cortes de luz y sostener operacion, facturacion, medios de pago, iluminacion, climatizacion, seguridad y atencion al cliente.",
+      "source_path": "customer_knowledge.projects.ruta_3_commercial_units.energy_backup",
+      "source_file_path": "docs/lead-bot/sources/backup_energetico_locales_ruta_3.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "locales-comerciales",
+      "customer_visible": true
+    }
+  ]
+}

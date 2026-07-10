@@ -7,6 +7,7 @@ import { playfairDisplay, raleway } from "@/content/ui/fonts";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import LeadQualificationChat from "./components/LeadQualificationChat";
 import { createMetadata, siteConfig } from "@/lib/seo";
 
 // Lazy load heavy sections
@@ -19,6 +20,7 @@ const SectionProjectsDone = dynamic(() => import("./components/sectionProjectsDo
 import InvestmentModalStructuredData from "./components/InvestmentModal/InvestmentModalStructuredData";
 
 const { metadata: defaultMetadata, structuredData: defaultStructuredData } = createMetadata({ pathname: "/" });
+const isNativeLeadBotEnabled = process.env.NEXT_PUBLIC_LEAD_BOT_ENABLED !== "false";
 
 export const metadata: Metadata = {
   ...defaultMetadata,
@@ -99,7 +101,7 @@ export default function RootLayout({
 
         <Header/>
         <Suspense fallback={null}>
-          <WhatsAppButton/>
+          {isNativeLeadBotEnabled ? <LeadQualificationChat /> : <WhatsAppButton />}
         </Suspense>
         <main id="main-content" role="main" className="focus:outline-none">
           {children}
@@ -109,7 +111,7 @@ export default function RootLayout({
 
         {/* <Script src={"http://localhost:8850/embed.js"} strategy="afterInteractive" /> */}
 
-        {/* Bot deshabilitado temporalmente para desarrollo local */}
+        {/* Bot externo deshabilitado: se usa el calificador nativo de leads */}
         {/* {process.env.NEXT_PUBLIC_BOT_SCRIPT_URL && (
           <Script
               src={process.env.NEXT_PUBLIC_BOT_SCRIPT_URL}

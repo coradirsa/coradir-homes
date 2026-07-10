@@ -1,0 +1,1524 @@
+[
+  {
+    "id": "juana_department_price",
+    "category": "price",
+    "path": "/juana-64",
+    "messages": [
+      "hola cuanto sale el departamento de juana koslay?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "59.000,00 USD",
+        "47.000,00 USD"
+      ],
+      "mustNotInclude": [
+        "/locales-comerciales",
+        "Ruta 3"
+      ],
+      "state": {
+        "project": "juana-64",
+        "intent": "comprar"
+      },
+      "knowledgeSourceIds": [
+        "juana64_prices_departments"
+      ]
+    }
+  },
+  {
+    "id": "juana_department_location_after_price",
+    "category": "location",
+    "path": "/juana-64",
+    "messages": [
+      "hola cuanto sale el departamento de juana koslay?",
+      "ahh y me decis bien donde quedan?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Inocencio Guerrero 517",
+        "/juana-64#ubicacion"
+      ],
+      "mustNotInclude": [
+        "Ruta 3",
+        "/locales-comerciales",
+        "coordenada",
+        "latitud",
+        "longitud"
+      ]
+    }
+  },
+  {
+    "id": "juana_department_exact_address",
+    "category": "location",
+    "path": "/juana-64",
+    "messages": [
+      "pero cual es la direccion?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Inocencio Guerrero 517",
+        "/juana-64#ubicacion"
+      ],
+      "mustNotInclude": [
+        "Ruta 3",
+        "/locales-comerciales",
+        "coordenada",
+        "latitud",
+        "longitud"
+      ]
+    }
+  },
+  {
+    "id": "juana_project_page_link",
+    "category": "link",
+    "path": "/juana-64",
+    "messages": [
+      "antes que eso, donde puedo ver lo de juana 64?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "/juana-64",
+        "/juana-64#ubicacion",
+        "Inocencio Guerrero 517"
+      ],
+      "mustNotInclude": [
+        "dejás tu nombre",
+        "dejas tu nombre",
+        "email o numero",
+        "email o número"
+      ]
+    }
+  },
+  {
+    "id": "juana_purchase_process",
+    "category": "purchase_process",
+    "path": "/juana-64",
+    "messages": [
+      "como es el proceso de compra?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "3%",
+        "30",
+        "Leasing",
+        "60"
+      ],
+      "mustNotInclude": [
+        "dejás tu nombre",
+        "dejas tu nombre",
+        "email o numero",
+        "email o número"
+      ]
+    }
+  },
+  {
+    "id": "juana_delivery",
+    "category": "delivery",
+    "path": "/juana-64",
+    "messages": [
+      "cuando estan listos los departamentos de juana koslay?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "fin de julio de 2026",
+        "fin de 2026"
+      ],
+      "knowledgeSourceIds": [
+        "juana64_delivery"
+      ]
+    }
+  },
+  {
+    "id": "juana_financing",
+    "category": "financing",
+    "path": "/juana-64",
+    "messages": [
+      "se puede financiar el departamento?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "96 meses",
+        "35%",
+        "542,14 USD"
+      ],
+      "knowledgeSourceIds": [
+        "juana64_financing_summary",
+        "juana64_leasing_departments"
+      ]
+    }
+  },
+  {
+    "id": "ruta3_commercial_price",
+    "category": "price",
+    "path": "/locales-comerciales",
+    "messages": [
+      "cuanto sale un local de ruta 3?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "107.000,00 USD",
+        "85.000,00 USD",
+        "690,00 USD"
+      ],
+      "knowledgeSourceIds": [
+        "ruta3_commercial_prices"
+      ]
+    }
+  },
+  {
+    "id": "ruta3_commercial_location",
+    "category": "location",
+    "path": "/locales-comerciales",
+    "messages": [
+      "donde queda ruta 3?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Ruta 3 km 0.6",
+        "/locales-comerciales#ruta-3"
+      ],
+      "mustNotInclude": [
+        "coordenada",
+        "latitud",
+        "longitud"
+      ]
+    }
+  },
+  {
+    "id": "mixed_department_and_commercial_interest",
+    "category": "classification",
+    "path": "/",
+    "messages": [
+      "quiero ver departamentos y locales comerciales"
+    ],
+    "expect": {
+      "mustMatch": [
+        "vivienda|departamento",
+        "local(es)? comercial"
+      ],
+      "mustInclude": [
+        "Juana 64"
+      ]
+    }
+  },
+  {
+    "id": "generic_juana_interest_from_web",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "Hola, vi el proyecto de Juana64 en la web y quiero saber mas..."
+    ],
+    "expect": {
+      "mustInclude": [
+        "Juana 64",
+        "2 dormitorios",
+        "vivienda",
+        "inversion",
+        "local comercial"
+      ],
+      "mustNotInclude": [
+        "presupuesto"
+      ]
+    }
+  },
+  {
+    "id": "juana_expenses_unknown_amount",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "se estiman gastos de expensas?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Esa informacion todavia no la tengo",
+        "expensas",
+        "asesor",
+        "contacto"
+      ]
+    }
+  },
+  {
+    "id": "juana_pets_rule",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "aceptan mascotas en los departamentos?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "pet friendly",
+        "reglamento",
+        "cantidad exacta",
+        "asesor"
+      ],
+      "mustNotInclude": [
+        "presupuesto"
+      ]
+    }
+  },
+  {
+    "id": "juana_pet_friendly_context_repair_after_san_luis",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "hola como estas?",
+      "queria una casa para vivir con mis perros",
+      "en san luis tenes algo?",
+      "Puede ser que en la web decia que son pet friendly?",
+      "los de juana 64",
+      "me refiero a que si los dpts de juana koslay son pet friendly"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Juana 64",
+        "pet friendly",
+        "reglamento",
+        "cantidad exacta",
+        "asesor"
+      ],
+      "mustNotInclude": [
+        "presupuesto",
+        "Jose Hernandez y Chile",
+        "/san-luis"
+      ]
+    }
+  },
+  {
+    "id": "juana_pet_friendly_web_phrase_not_project_link",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "hola como estas?",
+      "queria una casa para vivir con mis perros",
+      "en san luis tenes algo?",
+      "Puede ser que en la web decia que son pet friendly?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Juana 64",
+        "pet friendly",
+        "reglamento",
+        "cantidad exacta",
+        "asesor"
+      ],
+      "mustNotInclude": [
+        "Jose Hernandez y Chile",
+        "/san-luis"
+      ]
+    }
+  },
+  {
+    "id": "slang_greeting_no_intent_form",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "hola wachin todo bien?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Hola, todo bien",
+        "Juana 64"
+      ],
+      "mustNotInclude": [
+        "comprar, alquilar, invertir"
+      ]
+    }
+  },
+  {
+    "id": "juana_pet_context_then_department_features",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "quiero una casa para ir a vivir con mi perros, son 4. Pueden vivir conmigo?",
+      "pero como son los deptos?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "2 dormitorios",
+        "cocina",
+        "estacionamiento"
+      ],
+      "mustNotInclude": [
+        "reglamento de convivencia",
+        "cantidad exacta",
+        "presupuesto"
+      ]
+    }
+  },
+  {
+    "id": "juana_pet_context_then_scope_and_features",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "quiero una casa para ir a vivir con mi perros, son 4. Pueden vivir conmigo?",
+      "ahh y como son los departamentos, hay solo en Juana Koslay?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "No solo Juana Koslay",
+        "San Luis",
+        "2 dormitorios"
+      ],
+      "mustNotInclude": [
+        "buena luz",
+        "reglamento de convivencia",
+        "cantidad exacta",
+        "presupuesto"
+      ]
+    }
+  },
+  {
+    "id": "juana_pet_context_then_other_locations",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "quiero una casa para ir a vivir con mi perros, son 4. Pueden vivir conmigo?",
+      "los dptos son solo en juana kolay? o tienen en otro lado?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "No solo Juana Koslay",
+        "San Luis",
+        "2 dormitorios"
+      ],
+      "mustNotInclude": [
+        "reglamento de convivencia",
+        "cantidad exacta",
+        "presupuesto"
+      ]
+    }
+  },
+  {
+    "id": "housing_other_place_mentions_san_luis_and_torre_cta",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "si, quiero una casa para poder vivir con mis 4 perros, que tenes?",
+      "y tenes casas en otro lado?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Juana 64",
+        "San Luis",
+        "asesor"
+      ],
+      "mustMatch": [
+        "Torre"
+      ],
+      "mustNotInclude": [
+        "No tomo La Torre II",
+        "presupuesto aproximado"
+      ]
+    }
+  },
+  {
+    "id": "san_luis_context_pet_housing_options",
+    "category": "crm_real_pattern",
+    "path": "/san-luis",
+    "messages": [
+      "si, quiero una casa para poder vivir con mis 4 perros, que tenes?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Juana 64",
+        "pet friendly",
+        "San Luis",
+        "asesor"
+      ],
+      "mustNotInclude": [
+        "presupuesto",
+        "No tomo La Torre II"
+      ]
+    }
+  },
+  {
+    "id": "juana_media_or_brochure",
+    "category": "crm_real_pattern",
+    "path": "/juana-64",
+    "messages": [
+      "me pasas fotos o folleto?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "/juana-64"
+      ],
+      "mustMatch": [
+        "nombre.{0,30}(email|mail|numero|número)"
+      ]
+    }
+  },
+  {
+    "id": "juana64_commercial_rent",
+    "category": "crm_real_pattern",
+    "path": "/locales-comerciales",
+    "messages": [
+      "cuanto es el alquiler de los locales juana 64?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "391,00 USD",
+        "+ IVA"
+      ],
+      "knowledgeSourceIds": [
+        "juana64_commercial_units_web_rent"
+      ]
+    }
+  },
+  {
+    "id": "juana64_commercial_surface",
+    "category": "crm_real_pattern",
+    "path": "/locales-comerciales",
+    "messages": [
+      "que superficie tienen los locales de juana 64?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "84 m2",
+        "6 m x 14 m",
+        "6 locales"
+      ],
+      "knowledgeSourceIds": [
+        "juana64_commercial_units_web_details"
+      ]
+    }
+  },
+  {
+    "id": "structured_popup_contact",
+    "category": "crm_real_pattern",
+    "path": "/inversiones",
+    "messages": [
+      "Hola! Vengo del pop-up de inversiones de la web CORADIR. Quiero que me contacten.\n- *Nombre:* Maria Perez\n- *Email:* maria@example.com\n- *Telefono:* 2664000000\n- *Monto estimado:* No especificado"
+    ],
+    "expect": {
+      "state": {
+        "project": "inversiones",
+        "intent": "invertir",
+        "name": "Maria Perez",
+        "email": "maria@example.com",
+        "phone": "2664000000"
+      }
+    }
+  },
+  {
+    "id": "bakery_commercial_use_case",
+    "category": "real_conversation_regression",
+    "path": "/locales-comerciales",
+    "messages": [
+      "Hola quiero comprar un local comercial para poner una panaderia"
+    ],
+    "expect": {
+      "mustInclude": [
+        "panaderia"
+      ],
+      "mustMatch": [
+        "Juana 64|Ruta 3"
+      ],
+      "mustNotInclude": [
+        "presupuesto"
+      ]
+    }
+  },
+  {
+    "id": "bakery_central_location_preference",
+    "category": "real_conversation_regression",
+    "path": "/locales-comerciales",
+    "messages": [
+      "Hola quiero comprar un local comercial para poner una panaderia",
+      "en una zona centrica"
+    ],
+    "expect": {
+      "mustMatch": [
+        "Juana 64|Ruta 3"
+      ]
+    }
+  },
+  {
+    "id": "bakery_central_location_comparison",
+    "category": "real_conversation_regression",
+    "path": "/locales-comerciales",
+    "messages": [
+      "Hola quiero comprar un local comercial para poner una panaderia",
+      "en una zona centrica",
+      "Juana 64 es mas centrico que ruta 3?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Juana 64",
+        "Ruta 3"
+      ],
+      "mustNotInclude": [
+        "Si, Juana 64 esta mas centrica",
+        "Sí, Juana 64 está más céntrica"
+      ]
+    }
+  },
+  {
+    "id": "bakery_juana_commercial_price_benefits_financing",
+    "category": "real_conversation_regression",
+    "path": "/locales-comerciales",
+    "messages": [
+      "Hola quiero comprar un local comercial para poner una panaderia",
+      "en una zona centrica",
+      "Juana 64 es mas centrico que ruta 3?",
+      "okay, decime los precios, beneficios y financiacion"
+    ],
+    "expect": {
+      "mustInclude": [
+        "70.000,00 USD",
+        "53.000,00 USD",
+        "391,00 USD",
+        "84 m2",
+        "96 meses",
+        "comercio de cercania"
+      ],
+      "mustNotInclude": [
+        "Departamentos"
+      ]
+    }
+  },
+  {
+    "id": "bakery_juana_commercial_measures",
+    "category": "real_conversation_regression",
+    "path": "/locales-comerciales",
+    "messages": [
+      "Hola quiero comprar un local comercial para poner una panaderia",
+      "en una zona centrica",
+      "Juana 64 es mas centrico que ruta 3?",
+      "y que tiene el local, que medidas"
+    ],
+    "expect": {
+      "mustInclude": [
+        "84 m2",
+        "6 m x 14 m",
+        "6 locales"
+      ]
+    }
+  },
+  {
+    "id": "bakery_juana_commercial_bathroom_unknown",
+    "category": "real_conversation_regression",
+    "path": "/locales-comerciales",
+    "messages": [
+      "Hola quiero comprar un local comercial para poner una panaderia",
+      "en una zona centrica",
+      "Juana 64 es mas centrico que ruta 3?",
+      "tiene baño el local?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Esa informacion todavia no la tengo",
+        "bano",
+        "unidad exacta",
+        "asesor"
+      ]
+    }
+  },
+  {
+    "id": "email_only_still_needs_name",
+    "category": "real_conversation_regression",
+    "path": "/locales-comerciales",
+    "messages": [
+      "Hola quiero comprar un local comercial para poner una panaderia",
+      "okay, maerodriguez@coradir.com.ar"
+    ],
+    "expect": {
+      "mustMatch": [
+        "email"
+      ],
+      "mustInclude": [
+        "nombre"
+      ],
+      "state": {
+        "email": "maerodriguez@coradir.com.ar"
+      }
+    }
+  },
+  {
+    "id": "san_luis_department_availability",
+    "category": "san_luis_web_corpus",
+    "path": "/san-luis",
+    "messages": [
+      "quiero comprar un departamento, en San Luis tenes algo?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "San Luis",
+        "26 departamentos",
+        "2 dormitorios",
+        "/san-luis"
+      ],
+      "mustNotInclude": [
+        "Juana Koslay",
+        "/proyectos"
+      ],
+      "state": {
+        "project": "san-luis",
+        "intent": "comprar"
+      },
+      "knowledgeSourceIds": [
+        "san_luis_project_summary",
+        "san_luis_features_units"
+      ]
+    }
+  },
+  {
+    "id": "san_luis_real_followup_page_link",
+    "category": "real_conversation_regression",
+    "path": "/san-luis",
+    "messages": [
+      "quiero comprar un departamento, en San Luis tenes algo?",
+      "quiero vivir, pero en San Luis no tenes nada? creo que vi en la pagina algo de San Luis"
+    ],
+    "expect": {
+      "mustInclude": [
+        "/san-luis",
+        "Jose Hernandez y Chile",
+        "folleto"
+      ],
+      "mustNotInclude": [
+        "/proyectos",
+        "Juana Koslay"
+      ],
+      "state": {
+        "project": "san-luis"
+      }
+    }
+  },
+  {
+    "id": "san_luis_location",
+    "category": "san_luis_web_corpus",
+    "path": "/san-luis",
+    "messages": [
+      "donde queda el proyecto de San Luis?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Jose Hernandez y Chile",
+        "/san-luis"
+      ],
+      "mustNotInclude": [
+        "coordenada",
+        "latitud",
+        "longitud",
+        "Inocencio Guerrero"
+      ]
+    }
+  },
+  {
+    "id": "san_luis_price_unknown",
+    "category": "san_luis_web_corpus",
+    "path": "/san-luis",
+    "messages": [
+      "cuanto salen los departamentos de San Luis y como se financian?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "asesor"
+      ],
+      "mustMatch": [
+        "precio|cuota|financiaci"
+      ],
+      "mustNotInclude": [
+        "59.000,00 USD",
+        "47.000,00 USD"
+      ],
+      "knowledgeSourceIds": [
+        "san_luis_commercial_data_limits"
+      ]
+    }
+  },
+  {
+    "id": "san_luis_price_typo_cuantosale",
+    "category": "san_luis_web_corpus",
+    "path": "/san-luis",
+    "messages": [
+      "en san luis no tenes nada?",
+      "y cuantosale?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "San Luis",
+        "todavia no la tengo",
+        "precio",
+        "asesor",
+        "contacto"
+      ],
+      "mustNotInclude": [
+        "presupuesto",
+        "59.000,00 USD",
+        "47.000,00 USD"
+      ],
+      "knowledgeSourceIds": [
+        "san_luis_commercial_data_limits"
+      ]
+    }
+  },
+  {
+    "id": "san_luis_brochure",
+    "category": "san_luis_web_corpus",
+    "path": "/san-luis",
+    "messages": [
+      "me pasas el folleto de San Luis?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "/san-luis",
+        "Folleto%20vertical%20-%20San%20Luis.pdf"
+      ],
+      "knowledgeSourceIds": [
+        "san_luis_brochure_link"
+      ]
+    }
+  },
+  {
+    "id": "complaint_initial_not_commercial",
+    "category": "complaint_regression",
+    "path": "/san-luis",
+    "messages": [
+      "si escribi, pero me tratan mal, donde me puedo quejar"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Lamento",
+        "reclamo",
+        "nombre",
+        "email o numero"
+      ],
+      "mustNotInclude": [
+        "San Luis",
+        "26 departamentos",
+        "supervisor",
+        "corpus"
+      ],
+      "state": {
+        "wantsHumanHandoff": true,
+        "wantsComplaintFollowup": true
+      }
+    }
+  },
+  {
+    "id": "complaint_reject_abusive_email",
+    "category": "complaint_regression",
+    "path": "/san-luis",
+    "messages": [
+      "si escribi, pero me tratan mal, donde me puedo quejar",
+      "si soy laputaquetepariotrolo@botdelorto.com"
+    ],
+    "expect": {
+      "mustMatch": [
+        "no (parece|es) .{0,30}(valido|válido|real)|(email|contacto|numero|número) .{0,20}(real|valido|válido)"
+      ],
+      "mustNotInclude": [
+        "Gracias, ya tengo tus datos",
+        "supervisor",
+        "San Luis"
+      ],
+      "state": {
+        "wantsComplaintFollowup": true
+      }
+    }
+  },
+  {
+    "id": "complaint_status_no_hallucinated_supervisor",
+    "category": "complaint_regression",
+    "path": "/san-luis",
+    "messages": [
+      "si escribi, pero me tratan mal, donde me puedo quejar",
+      "Soy Pochi, mi email es pochi@example.com",
+      "ok, a quien deribaste mi queja?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "No puedo ver",
+        "asignado",
+        "WhatsApp"
+      ],
+      "mustNotInclude": [
+        "Lo paso al supervisor",
+        "supervisor del equipo",
+        "lo sigo de cerca",
+        "San Luis"
+      ],
+      "state": {
+        "name": "Pochi",
+        "email": "pochi@example.com",
+        "wantsComplaintFollowup": true
+      }
+    }
+  },
+  {
+    "id": "complaint_when_response_not_delivery",
+    "category": "complaint_regression",
+    "path": "/san-luis",
+    "messages": [
+      "si escribi, pero me tratan mal, donde me puedo quejar",
+      "Soy Pochi, mi email es pochi@example.com",
+      "y cuando me van a responder?"
+    ],
+    "expect": {
+      "mustMatch": [
+        "no puedo (ver|dar|confirmar|acceder)"
+      ],
+      "mustNotInclude": [
+        "26 departamentos",
+        "compra en pozo",
+        "San Luis",
+        "corpus"
+      ]
+    }
+  },
+  {
+    "id": "complaint_internal_term_apology",
+    "category": "complaint_regression",
+    "path": "/san-luis",
+    "messages": [
+      "si escribi, pero me tratan mal, donde me puedo quejar",
+      "ehhh de que estas hablando? que es el corpus?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "palabra tecnica interna",
+        "informacion del proyecto",
+        "reclamo"
+      ],
+      "mustNotInclude": [
+        "26 departamentos",
+        "San Luis",
+        "corpus"
+      ]
+    }
+  },
+  {
+    "id": "complaint_abuse_boundary",
+    "category": "complaint_regression",
+    "path": "/san-luis",
+    "messages": [
+      "si escribi, pero me tratan mal, donde me puedo quejar",
+      "Soy Pochi, mi email es pochi@example.com",
+      "anda a la puta que te pario"
+    ],
+    "expect": {
+      "mustInclude": [
+        "sin insultos",
+        "WhatsApp"
+      ],
+      "mustNotInclude": [
+        "supervisor",
+        "2665005400",
+        "San Luis"
+      ]
+    }
+  },
+  {
+    "id": "rental_scope_not_only_juana",
+    "category": "rental_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "Solo juana koslay?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "No solo Juana Koslay",
+        "San Luis",
+        "comprar o alquilar"
+      ],
+      "mustNotInclude": [
+        "por ahora si",
+        "por ahora sí"
+      ]
+    }
+  },
+  {
+    "id": "stale_san_luis_state_greeting_on_juana",
+    "category": "state_context_regression",
+    "path": "/juana-64",
+    "initialState": {
+      "clientId": "stale-state",
+      "intent": "consultar",
+      "project": "san-luis",
+      "messages": [
+        {
+          "role": "user",
+          "content": "quiero comprar un departamento, en San Luis tenes algo?",
+          "timestamp": "2026-06-30T18:00:00.000Z"
+        },
+        {
+          "role": "assistant",
+          "content": "Si, en la web esta el proyecto San Luis.",
+          "timestamp": "2026-06-30T18:00:01.000Z"
+        }
+      ],
+      "score": 0,
+      "missingFields": []
+    },
+    "messages": [
+      "hola, como estas?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Hola",
+        "Juana 64"
+      ],
+      "mustNotInclude": [
+        "San Luis",
+        "26 departamentos",
+        "vivir o para invertir"
+      ],
+      "state": {
+        "project": "juana-64"
+      }
+    }
+  },
+  {
+    "id": "greeting_confusion_no_laughing",
+    "category": "state_context_regression",
+    "path": "/juana-64",
+    "messages": [
+      "hola, como estas?",
+      "ehhh?",
+      "que te pasa? de que te reis?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Perdon",
+        "me adelante"
+      ],
+      "mustNotInclude": [
+        "Jajaja",
+        "San Luis",
+        "para vivir o invertir"
+      ]
+    }
+  },
+  {
+    "id": "juana_koslay_correction_no_contact_prompt",
+    "category": "state_context_regression",
+    "path": "/juana-64",
+    "messages": [
+      "no estoy mirando San Luis, queria saber que tenes en juana koslay"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Juana 64",
+        "departamentos",
+        "locales comerciales"
+      ],
+      "mustNotInclude": [
+        "Para guardar la consulta",
+        "me dejas tu nombre",
+        "me dejás tu nombre",
+        "26 departamentos"
+      ]
+    }
+  },
+  {
+    "id": "rental_two_bedrooms_not_feature_dump",
+    "category": "rental_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "Solo juana koslay?",
+      "No solo quiero ver casa.s... y eso de dos dormitorios se pueden alquilar?"
+    ],
+    "expect": {
+      "mustMatch": [
+        "no (tengo|manejo|hay|contamos con|ofrecw+) .{0,50}alquiler|alquiler .{0,40}no (esta|está) confirmado",
+        "pozo"
+      ],
+      "mustNotInclude": [
+        "precio de lista",
+        "47.000,00 USD",
+        "dormitorios con placard"
+      ]
+    }
+  },
+  {
+    "id": "rental_houses_not_available",
+    "category": "rental_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "Solo juana koslay?",
+      "quiero alquilar casas"
+    ],
+    "expect": {
+      "mustMatch": [
+        "no (tengo|manejo|hay|contamos con|ofrecw+) .{0,50}alquiler"
+      ],
+      "mustNotInclude": [
+        "59.000,00 USD",
+        "queres alquilar uno"
+      ]
+    }
+  },
+  {
+    "id": "rental_publication_validate_without_claim",
+    "category": "rental_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "Solo juana koslay?",
+      "quiero alquilar casas",
+      "pero yo vi una punblicacion que alquilaban"
+    ],
+    "expect": {
+      "mustInclude": [
+        "asesor"
+      ],
+      "mustMatch": [
+        "publicacion|publicación",
+        "no (tengo|manejo|hay|contamos con) .{0,50}alquiler"
+      ],
+      "mustNotInclude": [
+        "ahora Juana 64 es solo venta",
+        "precio de lista"
+      ]
+    }
+  },
+  {
+    "id": "rental_other_place_no_sale_prices",
+    "category": "rental_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "Solo juana koslay?",
+      "quiero alquilar casas",
+      "prefiero ver alquiler en otro lado"
+    ],
+    "expect": {
+      "mustMatch": [
+        "no (tengo|manejo|hay|contamos con|ofrecw+) .{0,60}alquiler"
+      ],
+      "mustNotInclude": [
+        "59.000,00 USD",
+        "70.000,00 USD"
+      ]
+    }
+  },
+  {
+    "id": "contact_refusal_no_repeat_prompt",
+    "category": "contact_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "y como me contacto con un asesor humano?",
+      "no"
+    ],
+    "expect": {
+      "mustInclude": [
+        "no te voy a insistir",
+        "sin guardar contacto"
+      ],
+      "mustNotInclude": [
+        "me dejas tu nombre",
+        "me dejás tu nombre"
+      ],
+      "state": {
+        "declinedContact": true,
+        "wantsHumanHandoff": true
+      }
+    }
+  },
+  {
+    "id": "contact_refusal_discomfort_no_repeat_prompt",
+    "category": "contact_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "y como me contacto con un asesor humano?",
+      "no wuiero dejar mis datos porque no me senti comoda con tus rtas"
+    ],
+    "expect": {
+      "mustInclude": [
+        "no te voy a insistir"
+      ],
+      "mustNotInclude": [
+        "Para guardar la consulta",
+        "me dejas tu nombre",
+        "me dejás tu nombre"
+      ],
+      "state": {
+        "declinedContact": true
+      }
+    }
+  },
+  {
+    "id": "contact_refusal_cell_channel",
+    "category": "contact_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "y como me contacto con un asesor humano?",
+      "no",
+      "no tienen un cel?"
+    ],
+    "expect": {
+      "mustMatch": [
+        "whatsapp"
+      ],
+      "mustNotInclude": [
+        "necesito tu nombre",
+        "me dejas tu nombre",
+        "me dejás tu nombre"
+      ]
+    }
+  },
+  {
+    "id": "contact_refusal_goodbye_no_prompt",
+    "category": "contact_refusal_regression",
+    "path": "/juana-64",
+    "messages": [
+      "y como me contacto con un asesor humano?",
+      "no",
+      "no chau"
+    ],
+    "expect": {
+      "mustMatch": [
+        "whatsapp|sin guardar|no te voy a insistir|no insisto"
+      ],
+      "mustNotInclude": [
+        "Para guardar la consulta",
+        "me dejas tu nombre",
+        "me dejás tu nombre"
+      ]
+    }
+  },
+  {
+    "id": "juana64_department_scale_from_web",
+    "category": "llm_context_regression",
+    "path": "/juana-64",
+    "messages": [
+      "cuantos dptos son? es grande el lugar?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "44",
+        "20",
+        "64"
+      ],
+      "mustNotInclude": [
+        "No tengo el dato exacto"
+      ]
+    }
+  },
+  {
+    "id": "juana64_department_and_commercial_unit_count",
+    "category": "unit_count_regression",
+    "path": "/juana-64",
+    "messages": [
+      "cuantos dptos tiene Juana 64 y cuantos locales?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "64 departamentos",
+        "44 disponibles",
+        "20 reservados",
+        "6 locales",
+        "84 m2",
+        "6 m x 14 m"
+      ],
+      "mustNotInclude": [
+        "No tengo el dato exacto"
+      ]
+    }
+  },
+  {
+    "id": "juana64_commercial_unit_count_only",
+    "category": "unit_count_regression",
+    "path": "/locales-comerciales",
+    "messages": [
+      "cuantos locales son los de Juana 64?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "6 locales",
+        "84 m2",
+        "6 m x 14 m"
+      ],
+      "mustNotInclude": [
+        "No tengo el dato exacto",
+        "Ruta 3",
+        "64 departamentos"
+      ]
+    }
+  },
+  {
+    "id": "juana64_unsupported_terrace_repair",
+    "category": "llm_context_regression",
+    "path": "/juana-64",
+    "messages": [
+      "quiero para vivir con mis perros",
+      "busco con terraza, tienen?",
+      "y porque me ofreces terraza si no sabes?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "no tenia confirmado",
+        "Terraza",
+        "asesor"
+      ],
+      "mustNotInclude": [
+        "Jajaja",
+        "con patio o terraza"
+      ]
+    }
+  },
+  {
+    "id": "juana64_living_requirements_no_feature_dump",
+    "category": "llm_context_regression",
+    "path": "/juana-64",
+    "messages": [
+      "quiero que tengan buena luz, y que pueda vivir con mis 4 perros. Y que sean de material"
+    ],
+    "expect": {
+      "mustMatch": [
+        "pet friendly",
+        "(perros|mascotas)",
+        "(luz|orientacion|luminos)",
+        "(material|materiales|construccion)",
+        "asesor"
+      ],
+      "mustNotInclude": [
+        "dormitorios con placard",
+        "Para guardar la consulta"
+      ]
+    }
+  },
+  {
+    "id": "san_luis_pets_unknown_cta_no_internal_terms",
+    "category": "advisor_handoff_regression",
+    "path": "/san-luis",
+    "messages": [
+      "quiero una casita por san luis, tenes algo?",
+      "Y puedo ir con mis perros?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "San Luis",
+        "Esa informacion todavia no la tengo",
+        "asesor",
+        "contacto"
+      ],
+      "mustNotInclude": [
+        "Lo que si esta cargado",
+        "informacion publica",
+        "informacion cargada",
+        "corpus"
+      ]
+    }
+  },
+  {
+    "id": "advisor_offer_acceptance_asks_for_contact",
+    "category": "advisor_handoff_regression",
+    "path": "/san-luis",
+    "messages": [
+      "Y puedo ir con mis perros?",
+      "si"
+    ],
+    "expect": {
+      "mustInclude": [
+        "asesor",
+        "resumen",
+        "nombre",
+        "email",
+        "numero"
+      ],
+      "mustNotInclude": [
+        "presupuesto"
+      ],
+      "state": {
+        "wantsHumanHandoff": true
+      }
+    }
+  },
+  {
+    "id": "advisor_contact_capture_mentions_summary",
+    "category": "advisor_handoff_regression",
+    "path": "/san-luis",
+    "messages": [
+      "Y puedo ir con mis perros?",
+      "si",
+      "Soy Juan Perez, mi telefono es 2664000000"
+    ],
+    "expect": {
+      "mustInclude": [
+        "asesor"
+      ],
+      "mustMatch": [
+        "resumen|contexto"
+      ],
+      "state": {
+        "wantsHumanHandoff": true,
+        "name": "Juan Perez",
+        "phone": "2664000000"
+      }
+    }
+  },
+  {
+    "id": "villa_mercedes_overview",
+    "category": "project_info",
+    "path": "/",
+    "messages": [
+      "que tiene el complejo villa mercedes?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "16 departamentos",
+        "2 dormitorios"
+      ],
+      "state": {
+        "project": "villa-mercedes"
+      }
+    }
+  },
+  {
+    "id": "villa_mercedes_location",
+    "category": "location",
+    "path": "/",
+    "messages": [
+      "donde queda el complejo de villa mercedes?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "Riobamba 477"
+      ],
+      "state": {
+        "project": "villa-mercedes"
+      }
+    }
+  },
+  {
+    "id": "villa_mercedes_price_limits",
+    "category": "price",
+    "path": "/villa-mercedes",
+    "messages": [
+      "cuanto salen los departamentos en villa mercedes?"
+    ],
+    "expect": {
+      "mustMatch": [
+        "asesor"
+      ],
+      "mustNotInclude": [
+        "USD",
+        "59.000",
+        "47.000"
+      ],
+      "state": {
+        "project": "villa-mercedes"
+      }
+    }
+  },
+  {
+    "id": "project_switch_negation_vm_to_sl",
+    "category": "project_switch",
+    "path": "/villa-mercedes",
+    "messages": [
+      "pero no quiero en Villa Mercedes sino en San Luis"
+    ],
+    "expect": {
+      "mustMatch": [
+        "San Luis"
+      ],
+      "mustNotInclude": [
+        "/villa-mercedes",
+        "16 departamentos"
+      ],
+      "state": {
+        "project": "san-luis"
+      }
+    }
+  },
+  {
+    "id": "project_switch_negation_sl_to_vm",
+    "category": "project_switch",
+    "path": "/san-luis",
+    "messages": [
+      "no me interesa san luis, prefiero villa mercedes"
+    ],
+    "expect": {
+      "mustMatch": [
+        "Villa Mercedes"
+      ],
+      "mustNotInclude": [
+        "/san-luis",
+        "26 departamentos"
+      ],
+      "state": {
+        "project": "villa-mercedes"
+      }
+    }
+  },
+  {
+    "id": "page_project_does_not_override_conversation",
+    "category": "project_switch",
+    "path": "/villa-mercedes",
+    "initialState": {
+      "project": "san-luis"
+    },
+    "messages": [
+      "genial y cuanto sale?"
+    ],
+    "expect": {
+      "mustMatch": [
+        "San Luis"
+      ],
+      "mustNotInclude": [
+        "16 departamentos",
+        "monoambientes"
+      ],
+      "state": {
+        "project": "san-luis"
+      }
+    }
+  },
+  {
+    "id": "villa_mercedes_equipamiento",
+    "category": "project_info",
+    "path": "/villa-mercedes",
+    "messages": [
+      "los departamentos vienen equipados? que incluyen?"
+    ],
+    "expect": {
+      "mustInclude": [
+        "aire acondicionado",
+        "asesor"
+      ],
+      "state": {
+        "project": "villa-mercedes"
+      }
+    }
+  },
+  {
+    "id": "page_navigation_switches_project",
+    "category": "project_switch",
+    "path": "/juana-64",
+    "initialState": {
+      "project": "villa-mercedes",
+      "lastPageProject": "villa-mercedes"
+    },
+    "messages": [
+      "que tiene este proyecto?"
+    ],
+    "expect": {
+      "mustMatch": [
+        "Juana 64"
+      ],
+      "mustNotInclude": [
+        "16 departamentos",
+        "Riobamba"
+      ],
+      "state": {
+        "project": "juana-64"
+      }
+    }
+  },
+  {
+    "id": "project_negation_clears_page_project",
+    "category": "project_switch",
+    "path": "/villa-mercedes",
+    "messages": [
+      "no quiero en villa mercedes"
+    ],
+    "expect": {
+      "mustMatch": [
+        "busc|mir|opcion|interesa|zona|lugar|proyecto"
+      ],
+      "mustNotInclude": [
+        "parking individual",
+        "16 departamentos"
+      ]
+    }
+  }
+]

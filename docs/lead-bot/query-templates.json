@@ -1,0 +1,111 @@
+{
+  "variables": {
+    "juana_unit": [
+      "el departamento de Juana Koslay",
+      "el depto de Juana 64",
+      "Juana 64"
+    ],
+    "price_phrase": [
+      "cuanto sale",
+      "precio de",
+      "valor de"
+    ],
+    "location_phrase": [
+      "donde queda",
+      "cual es la direccion de",
+      "pasame la ubicacion de"
+    ],
+    "project_link_phrase": [
+      "donde puedo ver",
+      "pasame la pagina de",
+      "tenes el link de"
+    ],
+    "ruta3_unit": [
+      "un local de ruta 3",
+      "los locales ruta 3",
+      "locales comerciales en ruta 3"
+    ],
+    "san_luis_unit": [
+      "el departamento de San Luis",
+      "los departamentos de San Luis",
+      "el proyecto San Luis"
+    ]
+  },
+  "templates": [
+    {
+      "id": "tpl_juana_price",
+      "category": "price_template",
+      "path": "/juana-64",
+      "input": "{price_phrase} {juana_unit}?",
+      "maxGenerated": 6,
+      "expect": {
+        "mustInclude": ["59.000,00 USD", "47.000,00 USD"],
+        "mustNotInclude": ["/locales-comerciales", "Ruta 3"]
+      }
+    },
+    {
+      "id": "tpl_juana_location",
+      "category": "location_template",
+      "path": "/juana-64",
+      "input": "{location_phrase} {juana_unit}?",
+      "maxGenerated": 6,
+      "expect": {
+        "mustInclude": ["Inocencio Guerrero 517", "/juana-64#ubicacion"],
+        "mustNotInclude": ["Ruta 3", "/locales-comerciales", "coordenada", "latitud", "longitud"]
+      }
+    },
+    {
+      "id": "tpl_juana_project_link",
+      "category": "link_template",
+      "path": "/juana-64",
+      "input": "{project_link_phrase} Juana 64?",
+      "expect": {
+        "mustInclude": ["/juana-64"],
+        "mustNotInclude": ["dejás tu nombre", "dejas tu nombre"]
+      }
+    },
+    {
+      "id": "tpl_ruta3_price",
+      "category": "price_template",
+      "path": "/locales-comerciales",
+      "input": "{price_phrase} {ruta3_unit}?",
+      "maxGenerated": 6,
+      "expect": {
+        "mustInclude": ["107.000,00 USD", "85.000,00 USD", "690,00 USD"]
+      }
+    },
+    {
+      "id": "tpl_ruta3_location",
+      "category": "location_template",
+      "path": "/locales-comerciales",
+      "input": "{location_phrase} {ruta3_unit}?",
+      "maxGenerated": 6,
+      "expect": {
+        "mustInclude": ["Ruta 3 km 0.6", "/locales-comerciales#ruta-3"],
+        "mustNotInclude": ["coordenada", "latitud", "longitud"]
+      }
+    },
+    {
+      "id": "tpl_san_luis_location",
+      "category": "location_template",
+      "path": "/san-luis",
+      "input": "{location_phrase} {san_luis_unit}?",
+      "maxGenerated": 6,
+      "expect": {
+        "mustInclude": ["Jose Hernandez y Chile", "/san-luis"],
+        "mustNotInclude": ["Inocencio Guerrero", "Juana Koslay", "coordenada", "latitud", "longitud"]
+      }
+    },
+    {
+      "id": "tpl_san_luis_project_link",
+      "category": "link_template",
+      "path": "/san-luis",
+      "input": "{project_link_phrase} {san_luis_unit}?",
+      "maxGenerated": 6,
+      "expect": {
+        "mustInclude": ["/san-luis"],
+        "mustNotInclude": ["/proyectos", "Juana Koslay"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "name": "homes-lead-bot",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "nodes": [
+    {
+      "id": "webhook-homes-lead-bot",
+      "name": "Webhook homes-lead-bot",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "homes-lead-bot",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "homes-lead-bot",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "transformar-lead-bot",
+      "name": "Transformar lead del bot",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0],
+      "parameters": {
+        "jsCode": "// Adapta el payload del sink n8n del lead bot (src/lib/leadBot/sinks/n8n.ts)\n// al formato que espera el CRM Inmobiliario en /api/homes/ingest/web-form.\nconst body = $json.body || $json;\nconst user = body.user_data || {};\nconst q = body.qualification || {};\nconst conv = body.conversation_data || {};\nconst conversion = body.conversion || {};\nconst tracking = body.tracking || {};\n\nconst classification = String(q.classification || 'NURTURE').toUpperCase();\nconst priorityByClassification = { SQL: 'alta', MQL: 'media', NURTURE: 'baja' };\nconst statusByClassification = { SQL: 'interesado', MQL: 'nuevo', NURTURE: 'nuevo' };\n\nconst summaryParts = [\n  conv.advisor_summary ? `Resumen para asesor:\\n${conv.advisor_summary}` : null,\n  `Clasificacion: ${classification} (${q.score ?? 0}/100)`,\n  q.intent && q.intent !== 'indefinido' ? `Intencion: ${q.intent}` : null,\n  q.project ? `Proyecto: ${q.project}` : null,\n  q.budgetStatus ? `Capacidad: ${q.budgetStatus}` : null,\n  q.timeline ? `Plazo: ${q.timeline}` : null,\n  q.decisionRole ? `Decision: ${q.decisionRole}` : null,\n  conversion.recommended_action ? `Accion recomendada: ${conversion.recommended_action}` : null,\n].filter(Boolean);\n\nconst lead = {\n  providerEventId: `lead-bot:${user.client_id || ''}`,\n  name: user.name,\n  email: user.email,\n  phone: user.phone,\n  interesting: q.project || q.intent || 'homes',\n  message: `${conv.latest_user_message || 'Lead generado desde bot Homes'}\\n\\n${summaryParts.join('\\n')}`,\n  timestamp: tracking.timestamp || new Date().toISOString(),\n  source: 'chatbot_homes',\n  sourceDetail: tracking.pathname || 'chatbot_homes',\n  transactionType: q.intent === 'alquilar' ? 'alquilar' : 'comprar',\n  profileType: q.intent === 'invertir' ? 'inversor' : 'consumidor',\n  prioridad: priorityByClassification[classification] || 'baja',\n  estado: statusByClassification[classification] || 'nuevo',\n  bot_status: ['schedule_call', 'whatsapp_handoff'].includes(conversion.recommended_action) ? 'asesor' : 'bot',\n  utmSource: tracking.utmSource,\n  utmMedium: tracking.utmMedium,\n  utmCampaign: tracking.utmCampaign,\n  rawPayload: body,\n};\n\nif (!lead.email && !lead.phone) {\n  throw new Error('El lead debe tener email o telefono');\n}\n\nreturn [{ json: lead }];"
+      }
+    },
+    {
+      "id": "enviar-al-crm",
+      "name": "Enviar al CRM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 0],
+      "parameters": {
+        "method": "POST",
+        "url": "https://inmobiliario.coradir.com.ar/api/homes/ingest/web-form",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Homes CRM Token"
+        }
+      }
+    },
+    {
+      "id": "responder-webhook",
+      "name": "Responder webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [660, 0],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: $json.success === true, leadId: $json.data && $json.data.lead ? $json.data.lead.id : undefined, message: $json.message }) }}"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook homes-lead-bot": {
+      "main": [
+        [
+          {
+            "node": "Transformar lead del bot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transformar lead del bot": {
+      "main": [
+        [
+          {
+            "node": "Enviar al CRM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar al CRM": {
+      "main": [
+        [
+          {
+            "node": "Responder webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

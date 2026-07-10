@@ -8,6 +8,7 @@
         "start": "next start -p 6118",
         "lint": "next lint",
         "sitemap": "next-sitemap",
+        "bot:evaluate": "node scripts/evaluate-lead-bot.mjs",
         "audit:lhci": "lhci autorun"
     },
     "dependencies": {

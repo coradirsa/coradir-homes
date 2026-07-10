@@ -1,0 +1,312 @@
+{
+  "name": "Coradir_Homes_Fixed_v2",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "homes-leads",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [384, 1008],
+      "id": "b5a93af5-6b8f-47b2-8fcc-c17d7e6905fd",
+      "name": "Llega un formulario"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analiza estos datos de formulario de contacto que se obtienen de solicitar mas informacion acerca de un interes del usuario y determina si son válidos para insertar en base de datos:\n\nDATOS RECIBIDOS:\n- Nombre: {{ $json.body.name }}\n- Email: {{ $json.body.email }}\n- Teléfono: {{ $json.body.phone }}\n- Interes: {{ $json.body.interesting }}\n- Mensaje: {{ $json.body.message }}\n- Fuente: {{ $json.body.source }}\n- Tipo de perfil: {{ $json.body.profileType }}\n- Tipo de Transacción: {{ $json.body.transactionType }}\n\nVALIDAR:\n- Email: ¿es un email bien formado? (acepta gmail, outlook, hotmail, yahoo, dominios corporativos, etc.)\n- Teléfono: ¿es un número válido? (acepta +54, con/sin código de área ejemplo, formato libre)\n- Nombre: ¿parece un nombre real de persona? (acepta nombres simples, compuestos, con acentos)\n- El interes sirve para saber de que pagina vino.\n- Mensaje: Si existe, ¿es una consulta legítima sobre chatbots/servicios o parece spam/sin sentido?\n- Seguridad: ¿hay indicios de inyección SQL, XSS, o código malicioso?\n\nResponde EXACTAMENTE en este formato:\nVALID - Todo correcto\no\nINVALID - [motivo específico]"
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [640, 1008],
+      "id": "a23d72c7-9aa2-496a-b795-c8991aa1c202",
+      "name": "Verifico datos con IA control1",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "33c239ac-a50e-451d-91fa-32b99b374901",
+              "leftValue": "={{ (($json.text ?? 'VALID - fallback: validador IA no disponible')).includes('VALID - ') && !(($json.text ?? '')).includes('INVALID') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [992, 1008],
+      "id": "d5da0564-9d6a-40b3-94f1-30e63da3947f",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://inmobiliario.coradir.com.ar/api/homes/ingest/web-form",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => {\n  const original = $('Llega un formulario').item.json || {};\n  const form = original.body || $json.body || $json || {};\n  return {\n    providerEventId: form.timestamp || ((form.email || '') + ':' + (form.phone || '')),\n    name: form.name,\n    email: form.email,\n    phone: form.phone,\n    interesting: form.interesting,\n    message: form.message,\n    timestamp: form.timestamp,\n    source: form.source || 'website_coradir_homes_form',\n    profileType: form.profileType,\n    transactionType: form.transactionType,\n    sourceDetail: form.source || 'website_coradir_homes_form',\n    webhookUrl: original.webhookUrl,\n    rawPayload: original\n  };\n})() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 20000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1312, 848],
+      "id": "1b8588c9-36e6-42ac-b8a2-c61bd1f834b1",
+      "name": "Enviar al CRM Inmobiliario1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "zTRpdIQSQCwaz7Ae",
+          "name": "Homes CRM Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "web@coradir.com.ar",
+        "toEmail": "={{ $('Llega un formulario').item.json.body.email }}",
+        "subject": "=Gracias por tu interés en {{ $('Llega un formulario').item.json.body.interesting }} - Coradir Homes ",
+        "html": "=<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Gracias por tu interés - Coradir Homes</title>\n    <style>\n        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@400;500;600&family=Montserrat:wght@400;600&display=swap');\n    </style>\n</head>\n<body style=\"margin: 0; padding: 0; font-family: 'Raleway', Arial, sans-serif; background-color: #f4f4f4;\">\n    <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"background-color: #f4f4f4; padding: 20px;\">\n        <tr>\n            <td>\n                <table cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\">\n                    \n                    \n                    <tr>\n                        <td style=\"background: linear-gradient(135deg, #1a3455 0%, #343333 100%); padding: 40px 30px; text-align: center;\">\n                            <h1 style=\"color: #ffffff; margin: 0; font-size: 32px; font-weight: 600; font-family: 'Montserrat', Arial, sans-serif; text-transform: uppercase; letter-spacing: 1px;\">CORADIR HOMES</h1> \n                        </td>\n                    </tr>\n                    \n                    \n                    <tr>\n                        <td style=\"padding: 40px 30px;\">\n                            <h2 style=\"color: #343333; margin: 0 0 20px 0; font-size: 24px; font-family: 'Playfair Display', serif;\">¡Hola {{ $('Llega un formulario').item.json.body.name }}!</h2>\n                            \n                            <p style=\"color: #4d4d4f; line-height: 1.6; margin: 0 0 20px 0; font-size: 16px; font-family: 'Raleway', sans-serif;\">\n                               Gracias por contactarte con <strong>Coradir Homes</strong>. Hemos recibido tu interés en {{ $('Llega un formulario').item.json.body.interesting }}<strong></strong>. </p>\n                            \n                            <p style=\"color: #475c77; line-height: 1.6; margin: 0 0 20px 0; font-size: 15px; font-family: 'Raleway', sans-serif;\">\n                               Tu asesor revisará tu solicitud y se pondran en contacto para coordinar una cita personalizada. Durante el encuentro, analizaran tus necesidades específicas, te brindaran información y las opciones más adecuadas según tus intereses.\n                            </p>\n                            \n                            \n                            <div style=\"background-color: #f8fafc; border-left: 4px solid #1a3455; padding: 20px; margin: 20px 0; border-radius: 4px;\">\n                                <h3 style=\"color: #343333; margin: 0 0 15px 0; font-size: 18px; font-family: 'Playfair Display', serif;\">Información recibida:</h3>\n                                <p style=\"margin: 5px 0; color: #4d4d4f; font-family: 'Raleway', sans-serif;\"><strong>Área de interés:</strong> {{ $('Llega un formulario').item.json.body.interesting }}</p>\n                                <p style=\"margin: 5px 0; color: #4d4d4f; font-family: 'Raleway', sans-serif;\"><strong>Email:</strong> {{ $('Llega un formulario').item.json.body.email }}</p>\n                                <p style=\"margin: 5px 0; color: #4d4d4f; font-family: 'Raleway', sans-serif;\"><strong>Teléfono:</strong> {{ $('Llega un formulario').item.json.body.phone }}</p>\n                                \n                                <p style=\"margin: 15px 0 5px 0; color: #4d4d4f; font-family: 'Raleway', sans-serif;\"><strong>Tu mensaje:</strong></p>\n                                <p style=\"margin: 5px 0; color: #4d4d4f; font-style: italic; background-color: #e3f2fd; padding: 10px; border-radius: 4px; font-family: 'Raleway', sans-serif;\">\"{{ $('Llega un formulario').item.json.body.message }}\"</p>\n                            </div>\n                            \n                            \n                            <div style=\"background-color: #e3f2fd; border: 1px solid #1a3455; padding: 20px; margin: 25px 0; border-radius: 6px; text-align: center;\"> \n                                <p style=\"color: #475c77; margin: 0; font-size: 16px; font-weight: 500; font-family: 'Raleway', sans-serif;\">\n                                    Serás asignado(a) a uno de nuestros <strong>asesores especializados</strong> en {{ $('Llega un formulario').item.json.body.interesting }} quienes se pondran en contacto contigo muy pronto.\n                                </p>\n                            </div> \n                        \n                    </tr>\n                    \n                </table>\n            </td>\n        </tr>\n        <tr>\n            <td style=\"background-color: #f8f9fa; padding: 30px; text-align: center; border-top: 1px solid #e9ecef;\">\n                <p style=\"margin: 0 0 10px 0; color: #666; font-size: 14px;\">\n                    <strong>CORADIR HOMES</strong><br> \n                </p>\n                <p style=\"margin: 0; color: #999; font-size: 12px;\">\n                    © {{ new Date().getFullYear() }} CORADIR S.A. Todos los derechos reservados.\n                </p>\n            </td>\n        </tr>\n    </table>\n</body>\n</html>",
+        "options": {
+          "appendAttribution": false,
+          "bccEmail": "csalini@coradir.com.ar , lnovillo@coradir.com.ar, juana64@coradir.com.ar"
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [1568, 848],
+      "id": "e482b374-5e8c-4a0a-b28f-5c5f306eaf5a",
+      "name": "Send Email1",
+      "credentials": {
+        "smtp": {
+          "id": "RMgxvBwy4amjxNNb",
+          "name": "SMTP web@coradir"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://inmobiliario.coradir.com.ar/api/homes/ingest/outbound-response",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => {\n  const form = $('Llega un formulario').item.json.body || {};\n  const leadId = $('Enviar al CRM Inmobiliario1').item.json.data.lead.id;\n  return {\n    leadId,\n    channel: 'email',\n    providerMessageId: 'homes-auto-reply:' + leadId + ':' + (form.timestamp || form.email || Date.now()),\n    email: form.email,\n    phone: form.phone,\n    subject: 'Gracias por tu interés en ' + (form.interesting || 'Coradir Homes') + ' - Coradir Homes',\n    body: 'Hola ' + (form.name || '') + '. Gracias por contactarte con Coradir Homes. Hemos recibido tu interés en ' + (form.interesting || 'nuestros proyectos') + '. Tu asesor revisará tu solicitud y se pondrá en contacto para coordinar una cita personalizada. Información recibida: email ' + (form.email || 'sin email') + ', teléfono ' + (form.phone || 'sin teléfono') + ', mensaje: ' + (form.message || 'sin mensaje') + '.',\n    actorType: 'sistema',\n    actorLabel: 'n8n Homes',\n    status: 'sent',\n    activityType: 'respuesta_automatica',\n    activityTitle: 'Respuesta automática por formulario Homes'\n  };\n})() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 20000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1824, 848],
+      "id": "89ce791e-28fb-46ef-a370-a3d656afbbdd",
+      "name": "Registrar respuesta en CRM1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "zTRpdIQSQCwaz7Ae",
+          "name": "Homes CRM Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO homes_leads (name, email, phone, interesting, message, timestamp, source, profile_type, transaction_type)\nVALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);",
+        "options": {
+          "queryReplacement": "={{ (() => { const f = $('Llega un formulario').item.json.body || {}; return [f.name || null, f.email || null, f.phone || null, f.interesting || null, f.message || null, f.timestamp || new Date().toISOString(), f.source || 'website_coradir_homes_form', f.profileType || null, f.transactionType || null]; })() }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [1328, 1184],
+      "id": "a73fa68f-66b5-405b-adea-0995d95fd5f2",
+      "name": "inserto en bd porsis",
+      "credentials": {
+        "postgres": {
+          "id": "xIHCSeluNgHEyHob",
+          "name": "db-homes"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO homes_leads (name, email, phone, interesting, message, timestamp, source, profile_type, transaction_type)\nVALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);",
+        "options": {
+          "queryReplacement": "={{ (() => { const f = $('Llega un formulario').item.json.body || {}; const motivo = $json.text || 'sin motivo'; return [f.name || null, f.email || null, f.phone || null, f.interesting || null, ('DESCARTADO POR IA: ' + motivo + ' | Mensaje original: ' + (f.message || 'sin mensaje')), f.timestamp || new Date().toISOString(), (f.source || 'website_coradir_homes_form') + ':invalido_ia', f.profileType || null, f.transactionType || null]; })() }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [1328, 1392],
+      "id": "f2c1e7aa-1111-4222-9333-444455556666",
+      "name": "inserto lead invalido",
+      "credentials": {
+        "postgres": {
+          "id": "xIHCSeluNgHEyHob",
+          "name": "db-homes"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "glm-5.2",
+          "mode": "list",
+          "cachedResultName": "glm-5.2"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [640, 1216],
+      "id": "603e6502-d9e5-4e69-8032-50d7d27fe05a",
+      "name": "zai",
+      "credentials": {
+        "openAiApi": {
+          "id": "2ZlG3lJfihgU0i67",
+          "name": "Z.AI Coradir"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Llega un formulario": {
+      "main": [
+        [
+          {
+            "node": "Verifico datos con IA control1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verifico datos con IA control1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "inserto en bd porsis",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Enviar al CRM Inmobiliario1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "inserto lead invalido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar al CRM Inmobiliario1": {
+      "main": [
+        [
+          {
+            "node": "Send Email1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email1": {
+      "main": [
+        [
+          {
+            "node": "Registrar respuesta en CRM1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "zai": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Verifico datos con IA control1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
