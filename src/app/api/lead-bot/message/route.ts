@@ -49,7 +49,9 @@ function isValidRequest(value: unknown): value is LeadBotApiRequest {
 }
 
 export async function POST(request: NextRequest) {
-  if (process.env.NEXT_PUBLIC_LEAD_BOT_ENABLED !== "true") {
+  // Pausa operativa: el bot queda conservado para reactivarlo mas adelante,
+  // pero ninguna configuracion vieja de Portainer puede habilitar este endpoint.
+  if (isLeadBotTemporarilyDisabled()) {
     return NextResponse.json(
       { success: false, error: "El asistente se encuentra temporalmente deshabilitado." },
       { status: 503 }
@@ -90,4 +92,8 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+function isLeadBotTemporarilyDisabled() {
+  return true;
 }

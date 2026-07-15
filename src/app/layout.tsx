@@ -7,7 +7,6 @@ import { playfairDisplay, raleway } from "@/content/ui/fonts";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import WhatsAppButton from "./components/WhatsAppButton";
-import LeadQualificationChat from "./components/LeadQualificationChat";
 import { createMetadata, siteConfig } from "@/lib/seo";
 
 // Lazy load heavy sections
@@ -20,7 +19,6 @@ const SectionProjectsDone = dynamic(() => import("./components/sectionProjectsDo
 import InvestmentModalStructuredData from "./components/InvestmentModal/InvestmentModalStructuredData";
 
 const { metadata: defaultMetadata, structuredData: defaultStructuredData } = createMetadata({ pathname: "/" });
-const isNativeLeadBotEnabled = process.env.NEXT_PUBLIC_LEAD_BOT_ENABLED === "true";
 
 export const metadata: Metadata = {
   ...defaultMetadata,
@@ -101,7 +99,7 @@ export default function RootLayout({
 
         <Header/>
         <Suspense fallback={null}>
-          {isNativeLeadBotEnabled ? <LeadQualificationChat /> : <WhatsAppButton />}
+          <WhatsAppButton />
         </Suspense>
         <main id="main-content" role="main" className="focus:outline-none">
           {children}
