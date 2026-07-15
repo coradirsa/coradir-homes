@@ -20,7 +20,7 @@ const SectionProjectsDone = dynamic(() => import("./components/sectionProjectsDo
 import InvestmentModalStructuredData from "./components/InvestmentModal/InvestmentModalStructuredData";
 
 const { metadata: defaultMetadata, structuredData: defaultStructuredData } = createMetadata({ pathname: "/" });
-const isNativeLeadBotEnabled = process.env.NEXT_PUBLIC_LEAD_BOT_ENABLED !== "false";
+const isNativeLeadBotEnabled = process.env.NEXT_PUBLIC_LEAD_BOT_ENABLED === "true";
 
 export const metadata: Metadata = {
   ...defaultMetadata,

@@ -294,7 +294,7 @@ export default function LeadQualificationChat() {
   const pendingAssistantAnimationKeyRef = useRef<string | null>(null);
   const animatedAssistantMessageKeysRef = useRef<Set<string>>(new Set());
 
-  const isEnabled = process.env.NEXT_PUBLIC_LEAD_BOT_ENABLED !== "false";
+  const isEnabled = process.env.NEXT_PUBLIC_LEAD_BOT_ENABLED === "true";
   const hasCommercialIntent = state.intent === "comprar" || state.intent === "alquilar" || state.intent === "invertir";
   const hasUsefulContext = Boolean(state.project || state.budgetStatus || state.wantsHumanHandoff);
   const hasLeadContact = Boolean(state.name && (state.email || state.phone));
@@ -387,6 +387,10 @@ export default function LeadQualificationChat() {
       event: "lead_bot_open",
       pathname,
     });
+    void fetch("/api/lead-bot/event", {
+      method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true,
+      body: JSON.stringify({ clientId: state.clientId, type: "bot_opened", payload: { tracking: getTracking(pathname) } }),
+    });
   };
 
   const submitMessage = async (event: FormEvent<HTMLFormElement>) => {
@@ -457,6 +461,10 @@ export default function LeadQualificationChat() {
       score: state.score,
       project: state.project,
       intent: state.intent,
+    });
+    void fetch("/api/lead-bot/event", {
+      method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true,
+      body: JSON.stringify({ clientId: state.clientId, type: "whatsapp_clicked", payload: { project: state.project, intent: state.intent } }),
     });
     window.open(buildWhatsAppUrl(state), "_blank", "noopener,noreferrer");
   };

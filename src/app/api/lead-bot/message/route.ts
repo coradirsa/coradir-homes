@@ -49,6 +49,13 @@ function isValidRequest(value: unknown): value is LeadBotApiRequest {
 }
 
 export async function POST(request: NextRequest) {
+  if (process.env.NEXT_PUBLIC_LEAD_BOT_ENABLED !== "true") {
+    return NextResponse.json(
+      { success: false, error: "El asistente se encuentra temporalmente deshabilitado." },
+      { status: 503 }
+    );
+  }
+
   try {
     const payload = await request.json().catch(() => null);
 

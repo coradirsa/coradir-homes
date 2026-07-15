@@ -1520,5 +1520,24 @@
         "16 departamentos"
       ]
     }
+  },
+  {
+    "id": "contact_email_then_bare_name",
+    "category": "contact_capture",
+    "path": "/juana-64",
+    "messages": [
+      "mcabral@coradir.com.ar",
+      "Martin Cabral"
+    ],
+    "expect": {
+      "mustNotInclude": [
+        "me faltaria tu nombre",
+        "me faltaría tu nombre"
+      ],
+      "state": {
+        "name": "Martin Cabral",
+        "email": "mcabral@coradir.com.ar"
+      }
+    }
   }
 ]

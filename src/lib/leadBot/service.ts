@@ -43,6 +43,7 @@ import { isRejectedContactText, mergeParsedLeadData, parseEmail, parsePhone, pro
 import { buildKnowledgeBaseAnswer, getKnowledgeContextForPrompt, shouldUseDirectKnowledgeAnswer } from "./retrieval";
 import { scoreLead } from "./scoring";
 import { submitLeadToConfiguredSink } from "./sinks/factory";
+import { persistConversation, type BotEventType } from "./persistence";
 import type { ConversionAction, KnowledgeSource, LeadBotApiRequest, LeadBotApiResponse, LeadBotMessage, LeadBotState } from "./types";
 
 const ADVISOR_CONTACT_GATE_MESSAGE =
@@ -327,6 +328,10 @@ function shouldPreferDirectFeatureReply(message: string, state: LeadBotState) {
 export async function processLeadBotMessage(request: LeadBotApiRequest): Promise<LeadBotApiResponse> {
   const now = new Date().toISOString();
   const initialState = normalizeIncomingState(request);
+  const hadContactBeforeMessage = hasLeadContact(initialState);
+  let crmAttempted = false;
+  let crmFailed = false;
+  let crmSucceeded = false;
   const acceptedAdvisorOffer = isAdvisorOfferAcceptance(request.message, initialState);
   const requestedHumanContact = isHumanContactRequest(request.message) || acceptedAdvisorOffer;
   const withUserMessage = appendMessage(initialState, {
@@ -606,6 +611,7 @@ export async function processLeadBotMessage(request: LeadBotApiRequest): Promise
     !finalState.crmSubmittedAt;
 
   if (shouldSubmitToCrm) {
+    crmAttempted = true;
     const advisorSummary =
       finalState.advisorSummary ||
       (await generateAILeadBotSummary(finalState)) ||
@@ -631,6 +637,9 @@ export async function processLeadBotMessage(request: LeadBotApiRequest): Promise
       };
     });
 
+    crmFailed = !sinkResult.ok && !sinkResult.skipped;
+    crmSucceeded = sinkResult.ok;
+
     if (sinkResult.ok || sinkResult.skipped) {
       finalState = {
         ...finalState,
@@ -650,6 +659,20 @@ export async function processLeadBotMessage(request: LeadBotApiRequest): Promise
       action: nextAction.type,
     },
   ];
+
+  const persistenceEvents: Array<{ type: BotEventType; payload?: Record<string, unknown> }> = [
+    { type: "user_message", payload: { message: request.message } },
+    { type: "bot_reply", payload: { reply, action: nextAction.type } },
+  ];
+  if (nextAction.type === "request_contact") persistenceEvents.push({ type: "contact_requested" });
+  if (!hadContactBeforeMessage && hasLeadContact(finalState)) persistenceEvents.push({ type: "contact_provided" });
+  if (contactRefusal) persistenceEvents.push({ type: "contact_declined" });
+  if (nextAction.type === "whatsapp_handoff") persistenceEvents.push({ type: "whatsapp_cta_shown" });
+  if (crmSucceeded) persistenceEvents.push({ type: "crm_submitted" });
+  else if (crmAttempted && crmFailed) persistenceEvents.push({ type: "crm_submit_failed" });
+  await persistConversation({ state: finalState, tracking: request.tracking, events: persistenceEvents }).catch((error) => {
+    console.error("Lead bot persistence error:", error);
+  });
 
   return {
     reply,

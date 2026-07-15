@@ -266,11 +266,29 @@ export function parseName(message: string) {
   return match?.[1]?.trim().replace(/\s+/g, " ");
 }
 
-function parseLeadName(message: string) {
+function previousAssistantAskedForName(current: LeadBotState) {
+  const previousAssistant = [...current.messages].reverse().find((entry) => entry.role === "assistant");
+  if (!previousAssistant) return false;
+  const text = normalizeText(previousAssistant.content);
+  return /(?:falta(?:ria)?|necesito|dejas|decime|dime|cual es|nombre)/.test(text) && /nombre/.test(text);
+}
+
+function parseBareNameAnswer(message: string, current: LeadBotState) {
+  if (!previousAssistantAskedForName(current)) return undefined;
+
+  const candidate = message.replace(/[*_`]/g, "").trim().replace(/\s+/g, " ");
+  // Solo se interpreta una respuesta libre como nombre cuando el turno anterior lo
+  // pidio expresamente. Esto evita convertir consultas normales en nombres.
+  if (!/^[\p{L}][\p{L}'’-]*(?:\s+[\p{L}][\p{L}'’-]*){0,4}$/u.test(candidate)) return undefined;
+  if (/^(si|no|dale|bueno|gracias|hola|quiero|asesor|whatsapp)$/i.test(normalizeText(candidate))) return undefined;
+  return candidate.slice(0, 80);
+}
+
+function parseLeadName(message: string, current: LeadBotState) {
   const structuredMatch = message.match(/nombre\s*:\s*\*?\s*([^\n\r,.;]{2,80})/i);
   const directMatch = message.match(/\b(?:soy|me llamo|mi nombre es)\s+([^\n\r,.]{2,80})/i);
   const rawName = structuredMatch?.[1] || directMatch?.[1];
-  if (!rawName) return parseName(message);
+  if (!rawName) return parseName(message) || parseBareNameAnswer(message, current);
 
   const cleanName = rawName
     .replace(/[*_`]/g, "")
@@ -290,7 +308,7 @@ export function mergeParsedLeadData(
   message: string,
   pathname?: string
 ): LeadBotState {
-  const parsedName = parseLeadName(message);
+  const parsedName = parseLeadName(message, current);
   const parsedEmail = parseEmail(message);
   const parsedPhone = parsePhone(message);
   let messageWithoutContact = message;

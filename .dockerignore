@@ -1,0 +1,14 @@
+.git
+.next
+node_modules
+strapi/node_modules
+tmp
+*.log
+.env
+.env.*
+!.env.example
+.claude
+lighthouse-*.json
+build-output.txt
+build.log
+*.pdf
