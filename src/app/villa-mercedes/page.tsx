@@ -6,6 +6,7 @@ import { StructuredDataScripts } from "../components/structuredDataScripts";
 import ReCaptcha from "../components/reCaptcha";
 import ProjectForm from "../components/projectForm";
 import MaterialIcon from "../components/MaterialIcon";
+import VillaMercedesGallery from "./VillaMercedesGallery";
 
 const HERO_FEATURES = [
   "Departamentos inteligentes",
@@ -47,14 +48,14 @@ export default function VillaMercedesPage() {
         <section className="w-full bg-blue text-white">
           <div className="relative h-[68vh] min-h-[500px] w-full overflow-hidden">
             <Image
-              src="/img/villa-mercedes/hero-atardecer.webp"
-              alt="Complejo Villa Mercedes al atardecer, con acceso cerrado y estacionamiento individual"
+              src="/img/villa-mercedes/vm09.webp"
+              alt="Vista aérea nocturna del Complejo Villa Mercedes, con acceso cerrado y estacionamiento individual"
               fill
               priority
               sizes="100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-blue/55" />
+            <div className="absolute inset-0 bg-gradient-to-b from-blue/20 via-blue/30 to-blue/55" />
             <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-blue to-transparent" />
 
             <div className="relative z-10 container mx-auto flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
@@ -117,10 +118,10 @@ export default function VillaMercedesPage() {
 
             <div className="self-center overflow-hidden rounded-[1.7rem] lg:self-stretch">
               <Image
-                src="/img/villa-mercedes/complejo-frente-dia.webp"
+                src="/img/villa-mercedes/vm01.webp"
                 alt="Frente del Complejo Villa Mercedes de día, con estacionamiento individual"
-                width={1600}
-                height={949}
+                width={1448}
+                height={1086}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="h-full w-full rounded-[1.7rem] object-cover"
               />
@@ -140,14 +141,15 @@ export default function VillaMercedesPage() {
               </p>
             </div>
             <div className="overflow-hidden rounded-[1.7rem] bg-blue">
-              <Image
-                src="/img/villa-mercedes/complejo-aereo.webp"
-                alt="Vista aérea del Complejo Villa Mercedes sobre calle Riobamba"
-                width={1122}
-                height={1402}
-                sizes="(max-width: 1024px) 100vw, 420px"
-                className="h-auto w-full rounded-t-[1.7rem]"
-              />
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/img/villa-mercedes/vm03.webp"
+                  alt="Frente del Complejo Villa Mercedes al atardecer"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  className="object-cover"
+                />
+              </div>
               <Link
                 href="#formulario"
                 className="block w-full bg-blue py-3 text-center font-raleway text-xl font-bold text-white transition hover:bg-[#163253]"
@@ -177,24 +179,7 @@ export default function VillaMercedesPage() {
                 eficiencia en cada unidad.
               </p>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2">
-              <Image
-                src="/img/villa-mercedes/dormitorio-secundario.webp"
-                alt="Dormitorio secundario con dos camas en departamento del Complejo Villa Mercedes"
-                width={1179}
-                height={1179}
-                sizes="(max-width: 640px) 100vw, 330px"
-                className="h-auto w-full rounded-[1.7rem]"
-              />
-              <Image
-                src="/img/villa-mercedes/bano-tender.webp"
-                alt="Baño con lavarropas y tender rebatible en departamento del Complejo Villa Mercedes"
-                width={1400}
-                height={1400}
-                sizes="(max-width: 640px) 100vw, 330px"
-                className="h-auto w-full rounded-[1.7rem]"
-              />
-            </div>
+            <VillaMercedesGallery />
           </div>
         </section>
 
@@ -316,7 +301,7 @@ export default function VillaMercedesPage() {
           splitImageSide="left"
           heading="Tu futura casa te espera."
           subtitle="El lugar soñado existe, configura la opción que mejor se adapte a vos."
-          backgroundImage="/img/villa-mercedes/cocina-comedor.webp"
+          backgroundImage="/img/villa-mercedes/vm08.webp"
           id="formulario"
           transactionTypes={["comprar"]}
         />
