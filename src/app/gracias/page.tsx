@@ -6,6 +6,14 @@ import MaterialIcon from "../components/MaterialIcon";
 const { metadata: defaultMetadata } = createMetadata({
   pathname: "/gracias",
   overrides: {
+    robots: {
+      index: false,
+      follow: false,
+      googleBot: {
+        index: false,
+        follow: false,
+      },
+    },
     title: "Gracias por tu interés - Coradir Homes",
     description: "Hemos recibido tu consulta. Nuestro equipo se pondrá en contacto contigo pronto.",
   },

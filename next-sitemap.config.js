@@ -1,26 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.coradirhomes.com";
-
-const baseEntries = require("./src/lib/seo/baseEntries.json");
-const interestSlugs = require("./src/lib/seo/interestSlugs.json");
-
-const staticPaths = Array.from(
-  new Set(
-    baseEntries
-      .map((entry) => entry.pathname)
-      .filter((pathname) => typeof pathname === "string" && pathname.length > 0)
-  )
-);
-
-const dynamicInterestPaths = Array.isArray(interestSlugs)
-  ? interestSlugs.map((slug) => `/saber-mas/${slug}`)
-  : [];
+// The public SEO origin is intentionally fixed so a local or stale environment
+// variable cannot publish canonicals and sitemap URLs for another hostname.
+const siteUrl = "https://homes.coradir.com.ar";
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl,
   generateRobotsTxt: true,
-  exclude: ["/locales-comerciales-maqueta"],
+  exclude: ["/gracias", "/locales-comerciales-maqueta"],
   outDir: "./public",
   sitemapSize: 5000,
   changefreq: "weekly",
@@ -33,27 +20,13 @@ module.exports = {
       lastmod: new Date().toISOString(),
     };
   },
-  additionalPaths: async () => {
-    const today = new Date().toISOString();
-    const extraPaths = dynamicInterestPaths.filter((path) => !staticPaths.includes(path));
-    return extraPaths.map((path) => ({
-      loc: `${siteUrl}${path}`,
-      changefreq: "weekly",
-      priority: 0.6,
-      lastmod: today,
-    }));
-  },
   robotsTxtOptions: {
     policies: [
       {
         userAgent: "*",
         allow: "/",
-      },
-      {
-        userAgent: "*",
-        disallow: ["/api/"],
+        disallow: "/api/",
       },
     ],
-    additionalSitemaps: [`${siteUrl}/sitemap.xml`],
   },
 };

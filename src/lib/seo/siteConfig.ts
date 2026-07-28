@@ -23,7 +23,9 @@ export type SiteConfig = {
   };
 };
 
-const fallbackSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.coradirhomes.com";
+// Keep a single canonical origin. This must not depend on build-time environment
+// variables because it is also used by metadata and structured data.
+const siteUrl = "https://homes.coradir.com.ar";
 
 export const siteConfig: SiteConfig = {
   name: "Coradir Homes",
@@ -31,11 +33,11 @@ export const siteConfig: SiteConfig = {
   tagline: "Desarrollos inmobiliarios inteligentes y sustentables",
   description:
     "Coradir Homes desarrolla viviendas y proyectos inmobiliarios con enfoque en innovación, sustentabilidad y confort, ofreciendo oportunidades de inversión y soluciones habitacionales de alta calidad.",
-  url: fallbackSiteUrl,
-  logo: `${fallbackSiteUrl}/img/marca.webp`,
+  url: siteUrl,
+  logo: `${siteUrl}/img/marca.webp`,
   foundingDate: "2018-01-01",
   phone: "5492664649967",
-  email: "contacto@coradirhomes.com",
+  email: "homes@coradir.com.ar",
   socialProfiles: [
     { name: "LinkedIn", url: "https://www.linkedin.com/company/coradir" },
     { name: "Instagram", url: "https://www.instagram.com/coradirhomes" },

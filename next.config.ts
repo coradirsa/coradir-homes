@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
+  skipTrailingSlashRedirect: true,
   output: 'standalone', // Required for Docker deployment
 
   // Optimizar imágenes
@@ -33,6 +34,16 @@ const nextConfig: NextConfig = {
         source: "/complejo-coradir",
         destination: "/locales-comerciales",
         permanent: true,
+      },
+      {
+        source: "/torre-ii-coradir",
+        destination: "/la-torre-ii",
+        statusCode: 301,
+      },
+      {
+        source: "/:path+/",
+        destination: "/:path+",
+        statusCode: 308,
       },
     ];
   },

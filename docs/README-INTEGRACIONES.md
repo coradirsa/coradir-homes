@@ -18,7 +18,7 @@ Después de alcanzar **99/100 en Lighthouse**, los siguientes pasos son configur
 
 **Acción inmediata:**
 1. Ir a [Google Search Console](https://search.google.com/search-console)
-2. Agregar propiedad: `https://www.coradirhomes.com`
+2. Agregar propiedad: `https://homes.coradir.com.ar`
 3. Verificar con GTM (ya instalado)
 4. Subir sitemap: `sitemap.xml`
 

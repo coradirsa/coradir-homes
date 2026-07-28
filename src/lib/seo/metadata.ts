@@ -15,8 +15,11 @@ export type MetadataOptions = {
 
 const buildCanonical = (pathname: string): string => {
   const fullUrl = new URL(pathname.startsWith("/") ? pathname : `/${pathname}`, siteConfig.url);
-  return fullUrl.toString().replace(/\/$/, "");
+  return fullUrl.pathname === "/" ? fullUrl.toString() : fullUrl.toString().replace(/\/$/, "");
 };
+
+const toAbsoluteUrl = (value?: string): string | undefined =>
+  value ? new URL(value, siteConfig.url).toString() : undefined;
 
 export const createMetadata = (options: MetadataOptions): { metadata: Metadata; structuredData?: StructuredDataEntry[] } => {
   const { pathname, overrides = {}, image } = options;
@@ -38,7 +41,7 @@ export const createMetadata = (options: MetadataOptions): { metadata: Metadata; 
     },
   };
 
-  const pageImage = image ?? merged.image;
+  const pageImage = toAbsoluteUrl(image ?? merged.image);
   const canonical = buildCanonical(merged.pathname);
   const title = merged.title;
   const description = merged.description;

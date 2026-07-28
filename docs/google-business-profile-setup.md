@@ -33,7 +33,7 @@ Categorías adicionales:
 
 Dirección: [Tu dirección física en San Luis]
 Teléfono: [Tu número principal]
-Sitio web: https://www.coradirhomes.com
+Sitio web: https://homes.coradir.com.ar
 
 Horarios:
 Lunes a Viernes: 9:00 - 18:00
@@ -75,7 +75,7 @@ Con más de [X años] de experiencia, entregamos proyectos con:
 Nuestros proyectos incluyen La Torre I, La Torre II, Complejo Coradir y
 Juana Koslay Vivienda Joven.
 
-Visitanos en www.coradirhomes.com o contactanos para más información.
+Visitanos en homes.coradir.com.ar o contactanos para más información.
 ```
 
 **Keywords incluidas:**
@@ -268,7 +268,7 @@ Ver más: [Link]
 
 ¿Querés cumplir tu sueño?
 📞 Contactanos: [teléfono]
-🌐 www.coradirhomes.com
+🌐 homes.coradir.com.ar
 ```
 
 ---

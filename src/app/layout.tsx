@@ -7,7 +7,7 @@ import { playfairDisplay, raleway } from "@/content/ui/fonts";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import WhatsAppButton from "./components/WhatsAppButton";
-import { createMetadata, siteConfig } from "@/lib/seo";
+import { createMetadata } from "@/lib/seo";
 
 // Lazy load heavy sections
 const SectionProjectsDone = dynamic(() => import("./components/sectionProjectsDone"), {
@@ -22,7 +22,7 @@ const { metadata: defaultMetadata, structuredData: defaultStructuredData } = cre
 
 export const metadata: Metadata = {
   ...defaultMetadata,
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL("https://homes.coradir.com.ar"),
 };
 
 export default function RootLayout({

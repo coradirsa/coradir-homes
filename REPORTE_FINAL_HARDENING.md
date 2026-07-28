@@ -289,7 +289,7 @@ docker exec web_coradir_homes cat /proc/1/status | grep Cap
    NEXT_PUBLIC_RECAPTCHA_SITE_KEY=6Lxxxxx
    NEXT_PUBLIC_RECAPTCHA_SECRET_KEY=6Lxxxxx
    NEXT_PUBLIC_BOT_SCRIPT_URL=https://bot.coradir.ai/embed.js
-   APP_DOMAIN=www.coradirhomes.com
+   APP_DOMAIN=homes.coradir.com.ar
    ```
 
 5. **Deploy the stack**

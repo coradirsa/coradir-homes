@@ -7,7 +7,7 @@ Ya tienes Google Tag Manager en tu sitio, así que la verificación automática 
 
 1. Ve a [Google Search Console](https://search.google.com/search-console)
 2. Clic en "Agregar propiedad"
-3. Elige "Prefijo de URL": `https://www.coradirhomes.com`
+3. Elige "Prefijo de URL": `https://homes.coradir.com.ar`
 4. Método de verificación: **Etiqueta HTML** o **Google Analytics** (ya tienes GTM configurado)
 5. Verifica que GTM esté publicado en producción
 6. Haz clic en "Verificar"
@@ -15,7 +15,7 @@ Ya tienes Google Tag Manager en tu sitio, así que la verificación automática 
 ### Opción B: Verificación por DNS (más completo)
 Si tienes acceso al panel DNS de tu dominio:
 
-1. En Search Console, elige "Propiedad de dominio": `coradirhomes.com`
+1. En Search Console, elige "Propiedad de dominio": `coradir.com.ar`
 2. Copia el registro TXT que te proporciona Google
 3. Ve a tu proveedor DNS (donde está registrado el dominio)
 4. Agrega un registro TXT con el valor proporcionado:
@@ -29,7 +29,7 @@ Si tienes acceso al panel DNS de tu dominio:
 
 ## 2. Subir Sitemap
 
-Ya tienes el sitemap generado automáticamente en: `https://www.coradirhomes.com/sitemap.xml`
+Ya tienes el sitemap generado automáticamente en: `https://homes.coradir.com.ar/sitemap.xml`
 
 ### Pasos:
 1. Una vez verificada la propiedad, ve a **"Sitemaps"** en el menú lateral
@@ -38,9 +38,9 @@ Ya tienes el sitemap generado automáticamente en: `https://www.coradirhomes.com
 4. Espera 24-48 horas para que Google empiece a rastrear
 
 ### Verificar que funciona:
-- Visita: https://www.coradirhomes.com/sitemap.xml
+- Visita: https://homes.coradir.com.ar/sitemap.xml
 - Deberías ver todas las URLs del sitio listadas
-- También tienes: https://www.coradirhomes.com/robots.txt
+- También tienes: https://homes.coradir.com.ar/robots.txt
 
 ## 3. Configurar alertas
 
@@ -75,13 +75,13 @@ Después de 7-14 días, revisa:
 ## 5. URLs prioritarias para monitorear
 
 ```
-https://www.coradirhomes.com/
-https://www.coradirhomes.com/vivienda-joven
-https://www.coradirhomes.com/la-torre-ii
-https://www.coradirhomes.com/inversiones-inteligentes
-https://www.coradirhomes.com/terrenos
-https://www.coradirhomes.com/corporativos
-https://www.coradirhomes.com/instituciones
+https://homes.coradir.com.ar/
+https://homes.coradir.com.ar/vivienda-joven
+https://homes.coradir.com.ar/la-torre-ii
+https://homes.coradir.com.ar/inversiones-inteligentes
+https://homes.coradir.com.ar/terrenos
+https://homes.coradir.com.ar/corporativos
+https://homes.coradir.com.ar/instituciones
 ```
 
 ## 6. Troubleshooting
