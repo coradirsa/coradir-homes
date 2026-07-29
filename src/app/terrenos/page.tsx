@@ -7,8 +7,6 @@ export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/terrenos" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function Page(){
     return(
         <>

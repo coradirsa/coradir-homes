@@ -21,8 +21,6 @@ export function generateMetadata(): Metadata {
   return createMetadata({ pathname: "/locales-comerciales" }).metadata;
 }
 
-export const revalidate = 3600;
-
 function ProjectCard({ project }: { project: CommercialProject }) {
   const monthlyRent = project.prices.find((price) => price.label.toLowerCase().includes("alquiler"));
   const mainPrices = project.prices.filter((price) => !price.label.toLowerCase().includes("alquiler"));

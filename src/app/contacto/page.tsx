@@ -15,8 +15,6 @@ export function generateMetadata(): Metadata {
   }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function ContactoPage() {
   return (
     <ReCaptcha>

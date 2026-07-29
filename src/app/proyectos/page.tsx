@@ -86,8 +86,6 @@ export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/proyectos" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function ProyectosPage() {
     return (
         <>

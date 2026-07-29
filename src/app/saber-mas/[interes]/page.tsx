@@ -23,6 +23,8 @@ export async function generateStaticParams() {
   return interestSlugs.map((slug) => ({ interes: slug }));
 }
 
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
   const { interes: slug } = await params;
 
@@ -39,8 +41,6 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     },
   }).metadata;
 }
-
-export const revalidate = 3600;
 
 export default async function Page({ params }: PageParams) {
   const { interes: slug } = await params;

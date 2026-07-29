@@ -37,8 +37,6 @@ export function generateMetadata(): Metadata {
   return createMetadata({ pathname: "/villa-mercedes" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function VillaMercedesPage() {
   return (
     <ReCaptcha>

@@ -16,8 +16,6 @@ export function generateMetadata(): Metadata {
   return createMetadata({ pathname: "/la-torre-ii" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function LaTorreIIPage() {
   const faq = FAQ_CONTENT["la-torre-ii"];
   return (

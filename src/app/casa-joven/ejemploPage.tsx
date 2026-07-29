@@ -9,8 +9,6 @@ export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/casa-joven" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function CasaJoven() {
     return (
         <>

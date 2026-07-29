@@ -12,8 +12,6 @@ export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/inversiones-inteligentes" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function Investments() {
     return (
         <>

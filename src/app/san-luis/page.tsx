@@ -54,8 +54,6 @@ export function generateMetadata(): Metadata {
   return createMetadata({ pathname: "/san-luis" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function SanLuisPage() {
   return (
     <ReCaptcha>

@@ -10,8 +10,6 @@ export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/instituciones" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function Instituciones() {
     return (
         <>

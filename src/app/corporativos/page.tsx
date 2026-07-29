@@ -10,8 +10,6 @@ export function generateMetadata(): Metadata {
     return createMetadata({ pathname: "/corporativos" }).metadata;
 }
 
-export const revalidate = 3600;
-
 export default function Page() {
     return (
         <>
