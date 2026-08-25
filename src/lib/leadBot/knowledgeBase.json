@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-07-06",
+  "updated_at": "2026-08-25",
   "source_documents": {
     "informe_tecnico_movilidad_rag": {
       "title": "Chatbot RAG para Movilidad Electrica CORADIR",
@@ -90,7 +90,7 @@
       "audience": "internal_and_customer",
       "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
       "source_path": "source_documents.locales_juana_64_web",
-      "document_date": "2026-06-30"
+      "document_date": "2026-08-25"
     },
     "homes_crm_whatsapp_2026_06_30_sintesis": {
       "title": "Sintesis de conversaciones WhatsApp Homes CRM - 2026-06-30",
@@ -346,7 +346,7 @@
             "pages": [
               2
             ],
-            "first_stage": "Plazo de entrega estimado de 10 meses para la primera etapa: dos modulos de 16 departamentos y todos los locales, a fin de julio de 2026.",
+            "first_stage": "Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en septiembre de 2026.",
             "remaining_modules": "Los demas modulos se entregaran antes de fin de 2026 segun el orden de fecha de compra."
           },
           "reservation_and_payment": {
@@ -617,7 +617,7 @@
       "id": "juana64_delivery",
       "section": "juana_64.sales_conditions.delivery",
       "title": "Entrega Juana 64",
-      "content": "Plazo de entrega estimado: 10 meses para la primera etapa, dos modulos de 16 departamentos y todos los locales, a fin de julio de 2026. Los demas modulos se entregaran antes de fin de 2026 segun orden de fecha de compra.",
+      "content": "Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en septiembre de 2026. Los demas modulos residenciales se entregaran antes de fin de 2026 segun orden de fecha de compra.",
       "source_path": "customer_knowledge.projects.juana_64.sales_conditions.delivery",
       "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
       "pages": [
@@ -682,7 +682,7 @@
       "id": "juana64_public_residential_scale",
       "section": "juana_64.public_details.scale",
       "title": "Escala publica Juana 64",
-      "content": "La pagina publica de Juana 64 muestra 64 departamentos en total, expresados como 44 departamentos disponibles, 20 departamentos reservados y +64 familias proyectadas. Tambien muestra plan maestro del desarrollo. La landing de Locales Comerciales informa 6 locales comerciales Juana 64, de 84 m2 por local y medidas de 6 m x 14 m. Las condiciones comerciales indican que la primera etapa contempla dos modulos de 16 departamentos y todos los locales; disponibilidad actualizada por unidad debe validarla un asesor.",
+      "content": "La pagina publica de Juana 64 muestra 64 departamentos en total, expresados como 44 departamentos disponibles, 20 departamentos reservados y +64 familias proyectadas. Tambien muestra plan maestro del desarrollo. La landing de Locales Comerciales informa 6 locales comerciales Juana 64, de 72 m2 por local y medidas de 6 m x 12 m. La entrega de los locales esta estimada para septiembre de 2026; la disponibilidad actualizada por unidad debe validarla un asesor.",
       "source_path": "customer_knowledge.projects.juana_64.public_details.scale",
       "source_file_path": "docs/lead-bot/sources/juana_64_web.md",
       "pages": [
@@ -851,7 +851,7 @@
       "id": "juana64_commercial_units_web_details",
       "section": "juana_64.commercial_units.public_details",
       "title": "Ficha publica locales comerciales Juana 64",
-      "content": "Locales comerciales Juana 64: locales dentro del desarrollo residencial en Juana Koslay, 6 locales, 84 m2 por local, medidas 6 m x 14 m, primera etapa estimada fin de julio 2026. Pensados para comercio de cercania, servicios profesionales, gastronomia liviana y atencion diaria.",
+      "content": "Locales comerciales Juana 64: locales dentro del desarrollo residencial en Juana Koslay, 6 locales, 72 m2 por local, medidas 6 m x 12 m, con entrega estimada en septiembre de 2026. Pensados para comercio de cercania, servicios profesionales, gastronomia liviana y atencion diaria.",
       "source_path": "customer_knowledge.projects.juana_64.commercial_units.public_details",
       "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
       "pages": [

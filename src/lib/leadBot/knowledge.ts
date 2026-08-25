@@ -538,7 +538,7 @@ export function buildProjectFeatureReply(message: string, state: LeadBotState) {
     return [
       "En locales comerciales hay dos perfiles:",
       "- Ruta 3: locales de 180 m2 + IVA, cocheras/accesos definidos y backup energetico durante el primer ano.",
-      "- Juana 64: locales dentro del desarrollo residencial, de 84 m2 por local, pensados para servicios, comercio de cercania y atencion diaria.",
+      "- Juana 64: locales dentro del desarrollo residencial, de 72 m2 por local, pensados para servicios, comercio de cercania y atencion diaria.",
       "Disponibilidad y condiciones finales las valida un asesor.",
     ].join("\n");
   }

@@ -610,10 +610,19 @@ function buildCommercialPriceComparisonAnswer(): KnowledgeAnswer {
 function buildJuana64CommercialDetailsAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Para los locales comerciales Juana 64, la ficha comercial indica 6 locales dentro del desarrollo residencial, con 84 m2 por local y medidas de 6 m x 14 m.",
+      "Para los locales comerciales Juana 64, la ficha comercial indica 6 locales dentro del desarrollo residencial, con 72 m2 por local y medidas de 6 m x 12 m.",
       "Estan pensados para comercio de cercania, servicios profesionales, gastronomia liviana y atencion diaria.",
-      "La primera etapa figura estimada para fin de julio de 2026. Validalo con un asesor antes de avanzar porque disponibilidad y condiciones pueden cambiar.",
+      "La entrega de los locales figura estimada para septiembre de 2026. Validalo con un asesor antes de avanzar porque disponibilidad y condiciones pueden cambiar.",
     ].join("\n\n"),
+    sources: sourcesFor(["juana64_commercial_units_web_details"]),
+  };
+}
+
+function buildJuana64CommercialDeliveryAnswer(): KnowledgeAnswer {
+  return {
+    reply: withCommercialValidation(
+      "Para los locales comerciales Juana 64, la entrega esta estimada para septiembre de 2026."
+    ),
     sources: sourcesFor(["juana64_commercial_units_web_details"]),
   };
 }
@@ -649,7 +658,7 @@ function buildJuana64CommercialSummaryAnswer(): KnowledgeAnswer {
       "- Precio de lista: 70.000,00 USD + IVA.",
       "- Precio pozo contado: 53.000,00 USD + IVA.",
       "- Alquiler mensual: 391,00 USD + IVA.",
-      "- Medidas: 84 m2 por local, 6 m x 14 m.",
+      "- Medidas: 72 m2 por local, 6 m x 12 m.",
       "- Financiacion: leasing inmobiliario hasta 96 meses, en dolares o UVA, con 35% de adelanto.",
       "- Beneficio comercial: esta dentro del desarrollo residencial Juana 64, por eso puede servir para comercio de cercania, servicios y atencion diaria.",
       "",
@@ -720,7 +729,7 @@ function buildJuana64ScaleAnswer(message: string): KnowledgeAnswer {
   }
 
   if (showCommercialUnits) {
-    lines.push("La landing de locales comerciales informa 6 locales en Juana 64, de 84 m2 por local y medidas de 6 m x 14 m.");
+    lines.push("La landing de locales comerciales informa 6 locales en Juana 64, de 72 m2 por local y medidas de 6 m x 12 m.");
     sourceIds.push("juana64_commercial_units_web_details");
   }
 
@@ -780,7 +789,7 @@ function buildFinancingAnswer(message: string): KnowledgeAnswer {
 function buildDeliveryAnswer(): KnowledgeAnswer {
   return {
     reply: withCommercialValidation(
-      "Para Juana 64, el plazo de entrega estimado es de 10 meses para la primera etapa: dos modulos de 16 departamentos y todos los locales, a fin de julio de 2026. Los demas modulos se entregarian antes de fin de 2026 segun el orden de fecha de compra."
+      "Para los departamentos de Juana 64, las condiciones del 6 de febrero de 2026 estimaban la primera etapa de dos modulos de 16 departamentos para fin de julio de 2026. Los demas modulos se entregarian antes de fin de 2026 segun el orden de fecha de compra. La entrega de los locales fue actualizada a septiembre de 2026."
     ),
     sources: sourcesFor(["juana64_delivery"]),
   };
@@ -903,6 +912,10 @@ export function buildKnowledgeBaseAnswer(message: string, state: LeadBotState): 
 
   if (isCommercialContext(message, state) && isJuanaContext(message, state) && wantsFinancing(message)) {
     return buildJuana64CommercialFinancingAnswer();
+  }
+
+  if (isCommercialContext(message, state) && isJuanaContext(message, state) && wantsDelivery(message)) {
+    return buildJuana64CommercialDeliveryAnswer();
   }
 
   if (isCommercialContext(message, state) && isJuanaContext(message, state) && wantsPrice(message)) {

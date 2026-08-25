@@ -19,7 +19,7 @@ export default function CommercialLocalesCta() {
           </p>
 
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
-            {["Precio pozo desde USD 53.000 + IVA", "Leasing hasta 96 meses", "Reserva del 3%", "Entrega primera etapa estimada fin de julio 2026"].map((item) => (
+            {["Precio pozo desde USD 53.000 + IVA", "Leasing hasta 96 meses", "Reserva del 3%", "Entrega estimada en septiembre de 2026"].map((item) => (
               <div key={item} className="flex items-start gap-3 font-raleway text-base font-semibold text-blue">
                 <MaterialIcon name="check_circle" className="mt-0.5 text-[22px] text-blue-light" />
                 <span>{item}</span>

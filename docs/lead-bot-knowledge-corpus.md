@@ -104,7 +104,7 @@ La pagina publica describe Juana 64 como departamentos inteligentes en Juana Kos
 
 La escala publicada muestra 64 departamentos en total, expresados como 44 departamentos disponibles, 20 departamentos reservados y +64 familias proyectadas. Tambien muestra plan maestro del desarrollo.
 
-Para locales comerciales dentro de Juana 64, la landing de Locales Comerciales informa 6 locales, 84 m2 por local y medidas de 6 m x 14 m.
+Para locales comerciales dentro de Juana 64, la landing de Locales Comerciales informa 6 locales, 72 m2 por local y medidas de 6 m x 12 m. La entrega de los locales esta estimada para septiembre de 2026.
 
 Caracteristicas publicadas: departamentos de 2 dormitorios, cocina equipada, estacionamiento, estacionamiento individual, construccion rapida, seguridad con IA 24 hs, zona comercial, conectividad optimizada, pileta, paneles solares con proteccion anticorte, calefon electrico, cocina con artefactos electricos, aire acondicionado, espacios recreativos integrados, plazas con juegos y zonas verdes, iluminacion LED y pet friendly.
 
@@ -190,7 +190,7 @@ Para inversores que compran en pozo, se ofrece garantia de poliza de caucion por
 - Fuente: `docs/lead-bot/sources/condiciones_venta_juana_64_r.md`
 - Paginas: 2
 
-El plazo de entrega estimado es de 10 meses para la primera etapa: dos modulos de 16 departamentos y todos los locales, a fin de julio de 2026.
+Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en septiembre de 2026.
 
 Los demas modulos se entregaran antes de fin de 2026 de acuerdo con el orden de fecha de compra.
 
@@ -252,7 +252,7 @@ Si pide cuotas concretas, responder con la tabla correspondiente y aclarar si es
 
 ### Cuando el usuario pregunta entrega
 
-Usar el dato de la fuente con fecha absoluta: primera etapa a fin de julio de 2026; demas modulos antes de fin de 2026 segun orden de compra.
+Para locales, usar la actualizacion comercial mas reciente: entrega estimada en septiembre de 2026. Para departamentos, las condiciones del 6 de febrero de 2026 estimaban la primera etapa para fin de julio de 2026 y los demas modulos antes de fin de 2026 segun orden de compra.
 
 ### Cuando el usuario pregunta condiciones de reserva
 

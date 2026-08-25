@@ -472,8 +472,8 @@
     ],
     "expect": {
       "mustInclude": [
-        "84 m2",
-        "6 m x 14 m",
+        "72 m2",
+        "6 m x 12 m",
         "6 locales"
       ],
       "knowledgeSourceIds": [
@@ -566,7 +566,7 @@
         "70.000,00 USD",
         "53.000,00 USD",
         "391,00 USD",
-        "84 m2",
+        "72 m2",
         "96 meses",
         "comercio de cercania"
       ],
@@ -587,8 +587,8 @@
     ],
     "expect": {
       "mustInclude": [
-        "84 m2",
-        "6 m x 14 m",
+        "72 m2",
+        "6 m x 12 m",
         "6 locales"
       ]
     }
@@ -1206,8 +1206,8 @@
         "44 disponibles",
         "20 reservados",
         "6 locales",
-        "84 m2",
-        "6 m x 14 m"
+        "72 m2",
+        "6 m x 12 m"
       ],
       "mustNotInclude": [
         "No tengo el dato exacto"
@@ -1224,8 +1224,8 @@
     "expect": {
       "mustInclude": [
         "6 locales",
-        "84 m2",
-        "6 m x 14 m"
+        "72 m2",
+        "6 m x 12 m"
       ],
       "mustNotInclude": [
         "No tengo el dato exacto",

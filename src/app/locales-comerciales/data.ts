@@ -54,13 +54,13 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
     summary:
       "Locales comerciales dentro de un desarrollo residencial, pensados para negocios de cercanía, servicios profesionales, atención diaria y renta comercial.",
     image: "/img/locales-comerciales/juana-64/locales/jk-64.webp",
-    status: "En pozo / primera etapa estimada fin de julio 2026",
+    status: "En pozo / entrega estimada en septiembre de 2026",
     specs: [
       { label: "Tipo", value: "Locales dentro del desarrollo Juana 64" },
-      { label: "Superficie", value: "84 m2 por local" },
-      { label: "Medidas", value: "6 m x 14 m" },
+      { label: "Superficie", value: "72 m2 por local" },
+      { label: "Medidas", value: "6 m x 12 m" },
       { label: "Cantidad", value: "6 locales" },
-      { label: "Entrega locales", value: "Primera etapa estimada fin de julio 2026" },
+      { label: "Entrega locales", value: "Entrega estimada en septiembre de 2026" },
     ],
     prices: [
       { label: "Precio pozo", value: "USD 53.000 + IVA", featured: true },
