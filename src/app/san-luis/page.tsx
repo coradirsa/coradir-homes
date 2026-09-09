@@ -63,8 +63,8 @@ export default function SanLuisPage() {
         <section className="w-full bg-blue text-white">
           <div className="relative h-[68vh] min-h-[500px] w-full overflow-hidden">
             <Image
-              src="/img/san-luis/complejo5.webp"
-              alt="Complejo San Luis de Coradir Homes"
+              src="/img/san-luis/frente-complejo.webp"
+              alt="Frente del Complejo San Luis de CORADIR Homes"
               fill
               priority
               sizes="100vw"
@@ -128,10 +128,10 @@ export default function SanLuisPage() {
 
             <div className="self-center overflow-hidden rounded-[1.7rem] lg:self-stretch">
               <Image
-                src="/img/san-luis/complejo1.webp"
-                alt="Vista interior del complejo San Luis"
-                width={1536}
-                height={1024}
+                src="/img/san-luis/complejo-aereo.webp"
+                alt="Vista aérea del Complejo San Luis"
+                width={2086}
+                height={1536}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="h-auto w-full rounded-[1.7rem]"
               />
@@ -151,10 +151,10 @@ export default function SanLuisPage() {
             </div>
             <div className="overflow-hidden rounded-[1.7rem] bg-blue">
               <Image
-                src="/img/san-luis/complejo5.webp"
-                alt="Vista aérea del complejo San Luis"
-                width={1536}
-                height={1024}
+                src="/img/san-luis/seguridad-ia.webp"
+                alt="Sistema de seguridad con inteligencia artificial del Complejo San Luis"
+                width={1254}
+                height={1254}
                 sizes="(max-width: 1024px) 100vw, 420px"
                 className="h-auto w-full rounded-t-[1.7rem]"
               />
@@ -175,10 +175,10 @@ export default function SanLuisPage() {
             </h2>
             <div className="mx-auto max-w-4xl">
               <Image
-                src="/img/san-luis/plano-IA.webp"
+                src="/img/san-luis/plan-maestro.webp"
                 alt="Plan Maestro de departamentos y locales en San Luis"
-                width={1024}
-                height={741}
+                width={1010}
+                height={681}
                 className="h-auto w-full rounded-[2rem]"
               />
             </div>
@@ -213,24 +213,71 @@ export default function SanLuisPage() {
             para vivir mejor
           </h2>
           <p className="mt-4 text-center font-raleway text-2xl font-semibold text-blue md:text-3xl">
-            Tipologia: 2 dormitorios.
+            Tipología: 2 dormitorios
           </p>
 
-          <div className="mx-auto mt-10 max-w-[980px] overflow-hidden rounded-[2rem]">
-            <Image
-              src="/img/san-luis/dptos-croquis.webp"
-              alt="Croquis de departamentos de dos dormitorios"
-              width={1600}
-              height={900}
-              className="h-auto w-full rounded-[2rem]"
-              sizes="(max-width: 1024px) 100vw, 980px"
-            />
+          <div className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-2">
+            <figure className="overflow-hidden rounded-[2rem] bg-[#d9e8f5]">
+              <Image
+                src="/img/san-luis/cocina-comedor.webp"
+                alt="Cocina comedor equipada de un departamento del Complejo San Luis"
+                width={1448}
+                height={1086}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="aspect-[4/3] h-auto w-full object-cover"
+              />
+              <figcaption className="px-6 py-4 font-raleway text-lg font-bold text-blue">
+                Cocina comedor equipada
+              </figcaption>
+            </figure>
+
+            <figure className="overflow-hidden rounded-[2rem] bg-[#d9e8f5]">
+              <Image
+                src="/img/san-luis/bano-tender.webp"
+                alt="Baño equipado con lavarropas y tender de techo"
+                width={2048}
+                height={2048}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="aspect-[4/3] h-auto w-full object-cover"
+              />
+              <figcaption className="px-6 py-4 font-raleway text-lg font-bold text-blue">
+                Baño con lavarropas y tender
+              </figcaption>
+            </figure>
+
+            <figure className="overflow-hidden rounded-[2rem] bg-[#d9e8f5]">
+              <Image
+                src="/img/san-luis/dormitorio-principal.webp"
+                alt="Dormitorio principal del departamento"
+                width={1672}
+                height={941}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="aspect-video h-auto w-full object-cover"
+              />
+              <figcaption className="px-6 py-4 font-raleway text-lg font-bold text-blue">
+                Dormitorio principal
+              </figcaption>
+            </figure>
+
+            <figure className="overflow-hidden rounded-[2rem] bg-[#d9e8f5]">
+              <Image
+                src="/img/san-luis/dormitorio-doble.webp"
+                alt="Segundo dormitorio con dos camas y placard"
+                width={755}
+                height={416}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="aspect-video h-auto w-full object-cover"
+              />
+              <figcaption className="px-6 py-4 font-raleway text-lg font-bold text-blue">
+                Segundo dormitorio
+              </figcaption>
+            </figure>
           </div>
 
           <p className="mx-auto mt-8 max-w-5xl text-center font-raleway text-lg text-black md:text-xl">
-            Con un diseño unificado para todos los departamentos de planta alta y baja, ofrecemos
-            distribuciones funcionales, buena iluminación y espacios optimizados, adaptándose a distintas
-            formas de habitar y priorizando comodidad y eficiencia en cada unidad.
+            Los departamentos de planta alta y baja comparten una distribución funcional de dos dormitorios.
+            Cada unidad incluye cocina comedor equipada, aire acondicionado, baño con espacio para lavarropas
+            y tender, y ambientes luminosos pensados para aprovechar cada metro cuadrado.
           </p>
         </section>
 
@@ -240,15 +287,27 @@ export default function SanLuisPage() {
               Locales comerciales
             </h2>
             <div className="mx-auto max-w-6xl space-y-7">
-              <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem]">
-                <Image
-                  src="/img/san-luis/local-comercial.webp"
-                  alt="Vista del local comercial"
-                  width={1536}
-                  height={1024}
-                  className="h-auto w-full rounded-[2rem]"
-                  sizes="(max-width: 768px) 100vw, 980px"
-                />
+              <div className="grid gap-5 md:grid-cols-2">
+                <div className="overflow-hidden rounded-[2rem]">
+                  <Image
+                    src="/img/san-luis/local-almacen.webp"
+                    alt="Interior de un local comercial configurado como almacén"
+                    width={1671}
+                    height={941}
+                    className="aspect-video h-auto w-full object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-[2rem]">
+                  <Image
+                    src="/img/san-luis/local-cafeteria.webp"
+                    alt="Interior de un local comercial configurado como cafetería"
+                    width={1672}
+                    height={941}
+                    className="aspect-video h-auto w-full object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
 
               <div className="mx-auto max-w-4xl">
@@ -345,12 +404,12 @@ export default function SanLuisPage() {
 
               <div className="flex flex-col bg-blue">
                 <Image
-                  src="/img/san-luis/complejo2.webp"
-                  alt="Vista del complejo San Luis"
-                  width={1536}
-                  height={1024}
+                  src="/img/san-luis/complejo-aereo.webp"
+                  alt="Vista aérea del Complejo San Luis"
+                  width={2086}
+                  height={1536}
                   sizes="(max-width: 1024px) 100vw, 320px"
-                  className="h-auto w-full"
+                  className="aspect-square h-auto w-full object-cover"
                 />
                 <Link
                   href="#formulario"
@@ -388,7 +447,7 @@ export default function SanLuisPage() {
           splitImageSide="left"
           heading="Tu futura casa te espera."
           subtitle="El lugar soñado existe, configura la opción que mejor se adapte a vos."
-          backgroundImage="/img/san-luis/4.webp"
+          backgroundImage="/img/san-luis/frente-complejo.webp"
           id="formulario"
           transactionTypes={["comprar"]}
         />
