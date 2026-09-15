@@ -1,12 +1,12 @@
-# Complejo San Luis - datos web
+# Aero26 - datos web
 
 Fuente de referencia: contenido publico de `src/app/san-luis/page.tsx`, `src/lib/seo/baseEntries.json` y `src/lib/seo/config.ts`.
 
-Uso: fuente comercial verificable para responder consultas sobre el proyecto San Luis desde el lead bot.
+Uso: fuente comercial verificable para responder consultas sobre el proyecto Aero26 desde el lead bot.
 
 ## Identificacion
 
-- Nombre comercial en la web: San Luis / Complejo San Luis.
+- Nombre comercial en la web: Aero26 (antes Complejo San Luis).
 - Pagina publica: /san-luis.
 - Tipo de operacion comunicada: compra en pozo.
 - Descripcion SEO: proyecto residencial en San Luis con 26 departamentos de 2 dormitorios, estacionamiento individual y seguridad con IA. Compra en pozo con respaldo CORADIR.
@@ -41,7 +41,7 @@ Uso: fuente comercial verificable para responder consultas sobre el proyecto San
 
 ## Locales comerciales
 
-- El proyecto San Luis incluye 2 locales comerciales.
+- El proyecto Aero26 incluye 2 locales comerciales.
 - Estan comunicados como locales para proyectos comerciales en crecimiento.
 - La web los describe con arquitectura moderna, infraestructura eficiente, seguridad gestionada con inteligencia artificial, ubicacion, tecnologia y previsibilidad.
 

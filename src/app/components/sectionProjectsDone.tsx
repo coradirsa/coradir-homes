@@ -11,13 +11,15 @@ const PROYECTS: ProyectCardData[] = [
     id: "boton-homes-home-proyectos-villa-mercedes",
   },
   {
-    title: "San Luis",
+    title: "Aero26",
+    logo: "/img/logos/aero26-blanco.svg",
     image: "/img/san-luis/complejo.webp",
     link: "/san-luis",
     id: "boton-homes-home-proyectos-san-luis",
   },
   {
-    title: "Proyecto Juana Koslay",
+    title: "Juana 64",
+    logo: "/img/logos/juana64-blanco.svg",
     image: "/img/juana-64/proyecto-jk64.webp",
     link: "/juana-64",
     id: "boton-homes-home-proyectos-jk",

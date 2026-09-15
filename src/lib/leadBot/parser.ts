@@ -5,7 +5,7 @@ const PROJECT_PATTERNS: Array<[string, RegExp]> = [
   ["juana-64", /juana\s*64|juana|juana\s*koslay|jkoslay|inocencio\s*guerrero|i\s*guerrero/i],
   ["locales-comerciales", /complejo|local(?:es)?|comercial|ruta\s*3/i],
   ["la-torre-ii", /torre\s*ii|la\s*torre/i],
-  ["san-luis", /san\s*luis/i],
+  ["san-luis", /aero\s*26|san\s*luis/i],
   ["terrenos", /terreno|lote/i],
   ["inversiones", /inversion|invertir|rentabilidad/i],
 ];
@@ -97,6 +97,10 @@ export function parseProject(message: string): string | undefined {
   const text = normalizeText(message);
   const mentions = getProjectMentionState(message);
 
+  if (/aero\s*26/.test(text) && mentions.affirmed.has("san-luis")) {
+    return "san-luis";
+  }
+
   if (
     /local|locales|comercial|comercio|negocio|oficina/.test(text) &&
     /juana\s*64|juana|juana\s*koslay|jkoslay|inocencio\s*guerrero|i\s*guerrero/.test(text) &&
@@ -132,7 +136,7 @@ function resolveProject(current: LeadBotState, message: string, pathname?: strin
   const navigatedToNewProject = Boolean(pageProject && pageProject !== current.lastPageProject);
   const currentOrPathProject = navigatedToNewProject ? pageProject : current.project || pageProject;
   const explicitlyMentionsJuana = /juana\s*64|juana|juana\s*koslay|jkoslay|inocencio\s*guerrero|i\s*guerrero|koslay/.test(text);
-  const explicitlyMentionsSanLuis = /san\s*luis|jose\s*hernandez|calle\s*chile/.test(text);
+  const explicitlyMentionsSanLuis = /aero\s*26|san\s*luis|jose\s*hernandez|calle\s*chile/.test(text);
 
   if (current.project === "locales-comerciales" && parsedProject === "juana-64" && !mentionsResidential) {
     return current.project;
@@ -171,7 +175,7 @@ function resolveProject(current: LeadBotState, message: string, pathname?: strin
 
 export function parseTimeline(message: string): LeadTimeline | undefined {
   const text = normalizeText(message);
-  if (/no\s+estoy\s+mirando\s+(san\s*luis|villa\s*mercedes|juana|juana\s*koslay|juana\s*64|ruta\s*3|locales|terrenos|inversiones)/.test(text)) {
+  if (/no\s+estoy\s+mirando\s+(aero\s*26|san\s*luis|villa\s*mercedes|juana|juana\s*koslay|juana\s*64|ruta\s*3|locales|terrenos|inversiones)/.test(text)) {
     return undefined;
   }
   if (/(?<!por )ahora|ya mismo|para ya|urgente|este mes|inmediato|cuanto antes|lo antes posible/.test(text)) return "inmediato";
@@ -199,7 +203,7 @@ export function parseDecisionRole(message: string): DecisionRole | undefined {
 
 export function parseBudgetStatus(message: string): BudgetStatus | undefined {
   const text = normalizeText(message);
-  if (/no\s+estoy\s+mirando\s+(san\s*luis|villa\s*mercedes|juana|juana\s*koslay|juana\s*64|ruta\s*3|locales|terrenos|inversiones)/.test(text)) {
+  if (/no\s+estoy\s+mirando\s+(aero\s*26|san\s*luis|villa\s*mercedes|juana|juana\s*koslay|juana\s*64|ruta\s*3|locales|terrenos|inversiones)/.test(text)) {
     return undefined;
   }
   if (/no tengo|sin presupuesto|no cuento|todavia no|aun no|estoy mirando|estoy viendo/.test(text)) {

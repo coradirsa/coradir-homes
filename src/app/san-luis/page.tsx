@@ -64,7 +64,7 @@ export default function SanLuisPage() {
           <div className="relative h-[68vh] min-h-[500px] w-full overflow-hidden">
             <Image
               src="/img/san-luis/frente-complejo.webp"
-              alt="Frente del Complejo San Luis de CORADIR Homes"
+              alt="Frente de Aero26 de CORADIR Homes"
               fill
               priority
               sizes="100vw"
@@ -74,8 +74,8 @@ export default function SanLuisPage() {
             <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-blue to-transparent" />
 
             <div className="relative z-10 container mx-auto flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
-              <h1 className="font-playfair text-5xl font-bold tracking-wide md:text-7xl xl:text-8xl">
-                SAN LUIS
+              <h1>
+                <Image src="/img/logos/aero26-blanco.svg" alt="Aero26" width={610} height={288} priority className="h-auto w-[260px] max-w-full md:w-[380px]" />
               </h1>
               <p className="max-w-4xl font-raleway text-2xl italic md:text-4xl">
                 ¿Querés vivir donde todo sucede? Este es tu lugar.
@@ -129,7 +129,7 @@ export default function SanLuisPage() {
             <div className="self-center overflow-hidden rounded-[1.7rem] lg:self-stretch">
               <Image
                 src="/img/san-luis/complejo-aereo.webp"
-                alt="Vista aérea del Complejo San Luis"
+                alt="Vista aérea de Aero26"
                 width={2086}
                 height={1536}
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -144,7 +144,7 @@ export default function SanLuisPage() {
                 Tu próximo paso, más simple de lo que imaginas
               </h3>
               <p className="mt-6 max-w-3xl font-raleway text-lg text-black md:text-xl">
-                En Complejo San Luis, el acceso a tu nueva vivienda se resuelve con acompañamiento
+                En Aero26, el acceso a tu nueva vivienda se resuelve con acompañamiento
                 profesional de principio a fin. Tu compra cuenta con póliza de caución y respaldo de CORADIR
                 para brindarte previsibilidad desde el inicio.
               </p>
@@ -152,7 +152,7 @@ export default function SanLuisPage() {
             <div className="overflow-hidden rounded-[1.7rem] bg-blue">
               <Image
                 src="/img/san-luis/seguridad-ia.webp"
-                alt="Sistema de seguridad con inteligencia artificial del Complejo San Luis"
+                alt="Sistema de seguridad con inteligencia artificial de Aero26"
                 width={1254}
                 height={1254}
                 sizes="(max-width: 1024px) 100vw, 420px"
@@ -176,7 +176,7 @@ export default function SanLuisPage() {
             <div className="mx-auto max-w-4xl">
               <Image
                 src="/img/san-luis/plan-maestro.webp"
-                alt="Plan Maestro de departamentos y locales en San Luis"
+                alt="Plan Maestro de departamentos y locales en Aero26"
                 width={1010}
                 height={681}
                 className="h-auto w-full rounded-[2rem]"
@@ -220,7 +220,7 @@ export default function SanLuisPage() {
             <figure className="overflow-hidden rounded-[2rem] bg-[#d9e8f5]">
               <Image
                 src="/img/san-luis/cocina-comedor.webp"
-                alt="Cocina comedor equipada de un departamento del Complejo San Luis"
+                alt="Cocina comedor equipada de un departamento de Aero26"
                 width={1448}
                 height={1086}
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -328,7 +328,7 @@ export default function SanLuisPage() {
             </h2>
             <a
               href="/img/san-luis/Folleto%20vertical%20-%20San%20Luis.pdf"
-              download
+              download="Folleto Aero26.pdf"
               className="inline-flex w-fit rounded-full bg-blue px-10 py-3 font-raleway text-sm font-bold uppercase tracking-wide text-white transition hover:bg-[#163253] md:px-14 md:text-base"
             >
               Descargar folleto
@@ -344,7 +344,7 @@ export default function SanLuisPage() {
             >
               <Image
                 src="/img/san-luis/mapa-referencias.webp"
-                alt="Ubicación estratégica del complejo San Luis (abrir en Google Maps)"
+                alt="Ubicación estratégica de Aero26 (abrir en Google Maps)"
                 width={4000}
                 height={2022}
                 className="h-auto w-full rounded-[1.7rem]"
@@ -372,7 +372,7 @@ export default function SanLuisPage() {
         <section className="w-full bg-[#f5f6f7]">
           <div className="bg-blue px-6 py-6 text-center text-white">
             <p className="font-raleway text-xl md:text-2xl">Asegura las mejores condiciones para tu mudanza.</p>
-            <h2 className="font-playfair text-4xl font-bold uppercase md:text-5xl">Compra hoy en San Luis</h2>
+            <h2 className="font-playfair text-4xl font-bold uppercase md:text-5xl">Compra hoy en Aero26</h2>
           </div>
 
           <div className="container mx-auto px-6 py-16">
@@ -405,7 +405,7 @@ export default function SanLuisPage() {
               <div className="flex flex-col bg-blue">
                 <Image
                   src="/img/san-luis/complejo-aereo.webp"
-                  alt="Vista aérea del Complejo San Luis"
+                  alt="Vista aérea de Aero26"
                   width={2086}
                   height={1536}
                   sizes="(max-width: 1024px) 100vw, 320px"

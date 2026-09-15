@@ -9,7 +9,7 @@ const PROJECT_SUMMARIES: Record<string, string> = {
   "la-torre-ii":
     "La Torre II es una propuesta residencial con unidades modernas, amenities y foco en quienes buscan comprar o invertir en San Luis.",
   "san-luis":
-    "San Luis es un proyecto residencial en la Ciudad de San Luis, de compra en pozo, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, seguridad con IA y 2 locales comerciales.",
+    "Aero26 es un proyecto residencial en la Ciudad de San Luis, de compra en pozo, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, seguridad con IA y 2 locales comerciales.",
   "villa-mercedes":
     "Villa Mercedes es un complejo cerrado de departamentos para compra en la Ciudad de Villa Mercedes, con 16 departamentos de 2 dormitorios, parking individual, cocina equipada, seguridad con IA y respaldo CORADIR.",
   terrenos:
@@ -22,7 +22,7 @@ const PROJECT_LABELS: Record<string, string> = {
   "locales-comerciales": "Locales Comerciales",
   "juana-64": "Juana 64",
   "la-torre-ii": "La Torre II",
-  "san-luis": "San Luis",
+  "san-luis": "Aero26",
   "villa-mercedes": "Villa Mercedes",
   terrenos: "Terrenos",
   inversiones: "Inversiones",
@@ -244,7 +244,7 @@ export function buildProjectOverviewReply() {
     "",
     `- **Juana 64:** ${PROJECT_SUMMARIES["juana-64"]}`,
     "",
-    `- **San Luis:** ${PROJECT_SUMMARIES["san-luis"]}`,
+    `- **Aero26:** ${PROJECT_SUMMARIES["san-luis"]}`,
     "",
     `- **Villa Mercedes:** ${PROJECT_SUMMARIES["villa-mercedes"]}`,
     "",
@@ -276,7 +276,7 @@ export function buildGreetingReply(state: LeadBotState) {
   }
 
   if (state.project === "san-luis") {
-    return "Hola, todo bien. Si queres, te cuento sobre el proyecto San Luis: departamentos, ubicacion, folleto o formas de avanzar.";
+    return "Hola, todo bien. Si queres, te cuento sobre el proyecto Aero26: departamentos, ubicacion, folleto o formas de avanzar.";
   }
 
   if (state.project === "villa-mercedes") {
@@ -305,7 +305,7 @@ export function buildConfusionRepairReply(state: LeadBotState) {
   }
 
   if (state.project === "san-luis") {
-    return "Perdon, me adelante con el contexto. Si estas mirando San Luis, puedo contarte del proyecto, ubicacion, folleto o formas de avanzar.";
+    return "Perdon, me adelante con el contexto. Si estas mirando Aero26, puedo contarte del proyecto, ubicacion, folleto o formas de avanzar.";
   }
 
   return "Perdon, me adelante con el contexto. Decime que estas buscando y te oriento desde ahi.";
@@ -362,7 +362,7 @@ export function buildProjectIntroReply(message: string, state: LeadBotState) {
 
   if (state.project === "san-luis") {
     return [
-      "Te cuento rapido: San Luis es un proyecto de compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada y seguridad con IA.",
+      "Te cuento rapido: Aero26 es un proyecto de compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada y seguridad con IA.",
       "Tambien incluye 2 locales comerciales y tiene folleto en la web.",
       "Estas mirando para vivir, invertir o queres que te pase el link del proyecto?",
     ].join("\n\n");
@@ -399,8 +399,8 @@ export function isProjectScopeQuestion(message: string) {
 export function buildProjectScopeReply() {
   return [
     "No solo Juana Koslay.",
-    "Para vivienda, en la web estan **Juana 64** en Juana Koslay y **San Luis** en la Ciudad de San Luis.",
-    "Juana 64 comunica departamentos de 2 dormitorios, cocina equipada, estacionamiento individual, seguridad/conectividad, pileta y espacios verdes. San Luis comunica departamentos de 2 dormitorios con estacionamiento individual, cocina equipada y seguridad con IA.",
+    "Para vivienda, en la web estan **Juana 64** en Juana Koslay y **Aero26** en la Ciudad de San Luis.",
+    "Juana 64 comunica departamentos de 2 dormitorios, cocina equipada, estacionamiento individual, seguridad/conectividad, pileta y espacios verdes. Aero26 comunica departamentos de 2 dormitorios con estacionamiento individual, cocina equipada y seguridad con IA.",
     "Tambien tenemos proyectos terminados, como **La Torre II**. Si queres consultar disponibilidad, te puedo poner en contacto con un asesor.",
     "Estas buscando comprar o alquilar?",
   ].join("\n\n");
@@ -497,7 +497,7 @@ export function buildProjectFeatureReply(message: string, state: LeadBotState) {
   if (state.project === "san-luis") {
     if (asksExpenses || asksPets) {
       return [
-        "Para San Luis esa informacion todavia no la tengo.",
+        "Para Aero26 esa informacion todavia no la tengo.",
         "Del proyecto te puedo contar que tiene 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, WiFi, seguridad con IA y 2 locales comerciales.",
         "Para reglamento, expensas o condiciones por unidad, queres que te ponga en contacto con un asesor para consultarlo directamente?",
       ].join("\n\n");
@@ -505,16 +505,16 @@ export function buildProjectFeatureReply(message: string, state: LeadBotState) {
 
     if (asksCommercial && !/departamento|departamentos|depto|deptos|vivienda|vivir|hogar/.test(text)) {
       return [
-        "San Luis incluye 2 locales comerciales dentro del proyecto.",
+        "Aero26 incluye 2 locales comerciales dentro del proyecto.",
         "La web los comunica para proyectos comerciales en crecimiento, con arquitectura moderna, infraestructura eficiente y seguridad gestionada con IA.",
         "Medidas, precio y disponibilidad de cada local los valida un asesor.",
       ].join("\n\n");
     }
 
     return [
-      "San Luis comunica departamentos de 2 dormitorios para compra en pozo, con estacionamiento individual, cocina equipada, WiFi y vigilancia inteligente con IA las 24 hs.",
+      "Aero26 comunica departamentos de 2 dormitorios para compra en pozo, con estacionamiento individual, cocina equipada, WiFi y vigilancia inteligente con IA las 24 hs.",
       "Tambien incluye 2 locales comerciales y respaldo CORADIR.",
-      "Podes verlo aca: [Ver San Luis](/san-luis).",
+      "Podes verlo aca: [Ver Aero26](/san-luis).",
     ].join("\n\n");
   }
 
@@ -625,8 +625,8 @@ export function buildMediaOrBrochureReply(message: string, state: LeadBotState) 
 
   if (wantsSanLuisMedia) {
     return [
-      "Podes ver imagenes, plan maestro y croquis de San Luis aca: [Ver San Luis](/san-luis).",
-      `Tambien esta el folleto publico: [Descargar folleto San Luis](${PROJECT_LOCATIONS.sanLuis.brochureUrl}).`,
+      "Podes ver imagenes, plan maestro y croquis de Aero26 aca: [Ver Aero26](/san-luis).",
+      `Tambien esta el folleto publico: [Descargar folleto Aero26](${PROJECT_LOCATIONS.sanLuis.brochureUrl}).`,
     ].join("\n\n");
   }
 
@@ -653,7 +653,7 @@ export function buildOtherProjectsReply() {
     "",
     "- **Juana 64:** proyecto residencial para vivienda o inversion.",
     "",
-    "- **San Luis:** proyecto de compra en pozo en la Ciudad de San Luis, con departamentos de 2 dormitorios.",
+    "- **Aero26:** proyecto de compra en pozo en la Ciudad de San Luis, con departamentos de 2 dormitorios.",
     "",
     "- **Villa Mercedes:** complejo cerrado en la Ciudad de Villa Mercedes, con departamentos de 2 dormitorios.",
     "",
@@ -720,12 +720,12 @@ export function buildMixedInterestReply(message: string, state: LeadBotState) {
   const options = areas.map((area) => {
     if (area === "residential") {
       return state.project === "san-luis"
-        ? "- **Vivienda/departamento:** miramos **San Luis**."
+        ? "- **Vivienda/departamento:** miramos **Aero26**."
         : "- **Vivienda/departamento:** miramos **Juana 64**.";
     }
     if (area === "commercial") {
       return state.project === "san-luis"
-        ? "- **Local comercial:** San Luis incluye 2 locales comerciales dentro del proyecto."
+        ? "- **Local comercial:** Aero26 incluye 2 locales comerciales dentro del proyecto."
         : "- **Local comercial:** miramos **Locales Comerciales**.";
     }
     if (area === "investment") return "- **Inversion:** comparamos alternativas segun ticket, plazo y objetivo.";
@@ -792,7 +792,7 @@ function isProjectDetailQuestion(message: string, project?: string) {
 
   if (project === "juana-64") return /juana\s*64|juana|departamento|depto|vivienda|vivir|casa/.test(text);
   if (project === "locales-comerciales") return /complejo|coradir|local|comercial|ruta\s*3|negocio/.test(text);
-  if (project === "san-luis") return /san\s*luis|departamento|depto|vivienda|vivir|casa|hogar|local|comercial/.test(text);
+  if (project === "san-luis") return /aero\s*26|san\s*luis|departamento|depto|vivienda|vivir|casa|hogar|local|comercial/.test(text);
   if (project === "villa-mercedes") return /villa\s*mercedes|departamento|depto|monoambiente|vivienda|vivir|casa|hogar/.test(text);
   if (project === "inversiones") return /inversion|invertir|rentabilidad|capital/.test(text);
   if (project === "terrenos") return /terreno|lote/.test(text);
@@ -825,7 +825,7 @@ export function buildProjectDetailReply(message: string, state: LeadBotState) {
 
   if (state.project === "san-luis") {
     return [
-      "**San Luis:** es un proyecto de compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, WiFi y seguridad con IA.",
+      "**Aero26:** es un proyecto de compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, WiFi y seguridad con IA.",
       "Tambien incluye 2 locales comerciales y se comunica con respaldo CORADIR, poliza de caucion y entrega planificada.",
       "Esa informacion todavia no la tengo para precios, cuotas, disponibilidad y fecha exacta de entrega. Queres que te ponga en contacto con un asesor para consultarlo directamente?",
       nextStep,
@@ -894,10 +894,10 @@ export function buildSpecificInterestReply(message: string, state: LeadBotState)
 
     if (wantsSanLuisInterest) {
       return [
-        "**Vivienda:** en San Luis tenemos el proyecto **San Luis**, con compra en pozo, 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada y seguridad con IA.",
+        "**Vivienda:** en San Luis tenemos el proyecto **Aero26**, con compra en pozo, 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada y seguridad con IA.",
         availabilityNote,
         "Tambien podemos mirar **Juana 64** en Juana Koslay, con departamentos de 2 dormitorios, y proyectos terminados como **La Torre II** si queres consultar disponibilidad.",
-        "Podes verlo aca: [Ver San Luis](/san-luis).",
+        "Podes verlo aca: [Ver Aero26](/san-luis).",
         "¿Queres que te ponga en contacto con un asesor para revisar opciones disponibles?",
       ]
         .filter(Boolean)
@@ -905,8 +905,8 @@ export function buildSpecificInterestReply(message: string, state: LeadBotState)
     }
 
     return [
-      "**Vivienda:** para vivir o comprar departamento, hoy podemos mirar **Juana 64** en Juana Koslay, **San Luis** en la Ciudad de San Luis y **Villa Mercedes** en la Ciudad de Villa Mercedes.",
-      "Juana 64 tiene departamentos de 2 dormitorios y figura como pet friendly. San Luis comunica departamentos de 2 dormitorios con estacionamiento individual y seguridad con IA. Villa Mercedes suma departamentos de 2 dormitorios en complejo cerrado.",
+      "**Vivienda:** para vivir o comprar departamento, hoy podemos mirar **Juana 64** en Juana Koslay, **Aero26** en la Ciudad de San Luis y **Villa Mercedes** en la Ciudad de Villa Mercedes.",
+      "Juana 64 tiene departamentos de 2 dormitorios y figura como pet friendly. Aero26 comunica departamentos de 2 dormitorios con estacionamiento individual y seguridad con IA. Villa Mercedes suma departamentos de 2 dormitorios en complejo cerrado.",
       availabilityNote,
       "Tambien tenemos proyectos terminados, como **La Torre II**. Si queres consultar si hay departamentos disponibles, te puedo poner en contacto con un asesor.",
     ]
@@ -917,7 +917,7 @@ export function buildSpecificInterestReply(message: string, state: LeadBotState)
   if (area === "commercial") {
     if (state.project === "san-luis") {
       return [
-        "**Local comercial:** San Luis incluye 2 locales comerciales dentro del proyecto.",
+        "**Local comercial:** Aero26 incluye 2 locales comerciales dentro del proyecto.",
         "Para medidas, precio o disponibilidad por unidad, conviene validarlo con un asesor.",
         nextStep,
       ].join("\n\n");
@@ -1126,8 +1126,8 @@ export function buildLocationReply(message: string, state: LeadBotState) {
 
   if (wantsSanLuisLocation) {
     return [
-      `San Luis queda en ${PROJECT_LOCATIONS.sanLuis.address}.`,
-      `Podes verlo aca: [Ver San Luis](${PROJECT_LOCATIONS.sanLuis.pageUrl}).`,
+      `Aero26 queda en ${PROJECT_LOCATIONS.sanLuis.address}.`,
+      `Podes verlo aca: [Ver Aero26](${PROJECT_LOCATIONS.sanLuis.pageUrl}).`,
     ].join("\n\n");
   }
 
@@ -1214,8 +1214,8 @@ export function isProjectPageQuestion(message: string) {
 export function buildProjectPageReply(state: LeadBotState) {
   if (state.project === "san-luis") {
     return [
-      "Podes ver el proyecto San Luis aca: [Ver San Luis](/san-luis).",
-      `Direccion: ${PROJECT_LOCATIONS.sanLuis.address}. Tambien esta el folleto: [Descargar folleto San Luis](${PROJECT_LOCATIONS.sanLuis.brochureUrl}).`,
+      "Podes ver el proyecto Aero26 aca: [Ver Aero26](/san-luis).",
+      `Direccion: ${PROJECT_LOCATIONS.sanLuis.address}. Tambien esta el folleto: [Descargar folleto Aero26](${PROJECT_LOCATIONS.sanLuis.brochureUrl}).`,
     ].join("\n\n");
   }
 
@@ -1248,7 +1248,7 @@ export function isPurchaseProcessQuestion(message: string) {
 export function buildPurchaseProcessReply(state: LeadBotState) {
   if (state.project === "san-luis") {
     return [
-      "Para San Luis, la web comunica este proceso:",
+      "Para Aero26, la web comunica este proceso:",
       "",
       "- **Lista de interes:** prioridad comercial y eleccion de unidad.",
       "- **Pre-reserva:** sena para congelar condiciones y avanzar con asesoria personalizada.",
@@ -1287,7 +1287,7 @@ export function buildPurchaseProcessReply(state: LeadBotState) {
 export function buildBenefitsReply(state: LeadBotState) {
   if (state.project === "san-luis") {
     return [
-      "**Beneficios de San Luis:**",
+      "**Beneficios de Aero26:**",
       "",
       "- **Vivienda:** 26 departamentos de 2 dormitorios para compra en pozo.",
       "- **Comodidad:** estacionamiento individual y cocina equipada.",
@@ -1370,7 +1370,7 @@ export function isFinancingQuestion(message: string) {
 export function buildFinancingReply(state: LeadBotState) {
   if (state.project === "san-luis") {
     return [
-      "**San Luis:** se comunica como compra en pozo, con lista de interes, pre-reserva y boleto/posesion.",
+      "**Aero26:** se comunica como compra en pozo, con lista de interes, pre-reserva y boleto/posesion.",
       "Esa informacion todavia no la tengo para cuotas o financiacion exacta. Queres que te ponga en contacto con un asesor para consultarlo directamente?",
     ].join("\n\n");
   }
@@ -1405,7 +1405,7 @@ export function isPriceQuestion(message: string) {
 export function buildPriceReply(project?: string) {
   if (project === "san-luis") {
     return [
-      "Para San Luis la web confirma el proyecto de compra en pozo, pero esa informacion todavia no la tengo: precio, cuotas y financiacion exacta se confirman con asesor segun unidad y condiciones vigentes.",
+      "Para Aero26 la web confirma el proyecto de compra en pozo, pero esa informacion todavia no la tengo: precio, cuotas y financiacion exacta se confirman con asesor segun unidad y condiciones vigentes.",
       "¿Queres que te ponga en contacto con un asesor para consultarlo directamente?",
     ].join("\n\n");
   }

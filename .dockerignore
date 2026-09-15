@@ -12,3 +12,5 @@ lighthouse-*.json
 build-output.txt
 build.log
 *.pdf
+!public/*.pdf
+!public/**/*.pdf

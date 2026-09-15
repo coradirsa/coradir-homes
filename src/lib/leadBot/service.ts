@@ -280,6 +280,7 @@ function extractRequiredFacts(canonicalReply: string) {
   if (/la torre ii/i.test(canonicalReply)) facts.add("torre");
   if (/juana\s*64/i.test(canonicalReply)) facts.add("juana");
   if (/san luis/i.test(canonicalReply)) facts.add("san luis");
+  if (/aero26/i.test(canonicalReply)) facts.add("aero26");
   if (/resumen/i.test(canonicalReply)) facts.add("resumen");
   if (/no tengo|todavia no la tengo|no publica|no muestra|no confirma/i.test(canonicalReply)) facts.add("no");
 

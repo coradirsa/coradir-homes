@@ -13,7 +13,7 @@ export default function SectionHero() {
                 className="text-4xl md:text-5xl xl:text-8xl text-center font-playfair text-white"
                 style={{ textShadow: "6px 3px 4px rgba(0,0,0,0.5)" }}
             >
-                <span className="block">Juana 64</span>
+                <Image src="/img/logos/juana64-blanco.svg" alt="Juana 64" width={680} height={380} priority className="mx-auto mb-6 h-auto w-[260px] max-w-[90vw] md:w-[380px]" />
                 <span className="block text-4xl xl:text-6xl font-raleway">
                     tu nuevo hogar a precio accesible
                 </span>

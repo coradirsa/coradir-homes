@@ -8,9 +8,10 @@ export type ProyectCardData = {
   link: string;
   id: string;
   sold?: boolean;
+  logo?: string;
 };
 
-export default function CardProyect({ title, image, link, id, sold = false }: ProyectCardData) {
+export default function CardProyect({ title, image, link, id, logo, sold = false }: ProyectCardData) {
   const isExternalLink = /^https?:\/\//i.test(link);
   const actionClassName =
     "inline-flex min-h-11 items-center justify-center bg-white text-blue font-raleway px-8 py-2 text-base xl:text-lg rounded-full border-2 border-transparent transition-colors duration-300 hover:bg-blue hover:text-white hover:border-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
@@ -34,7 +35,7 @@ export default function CardProyect({ title, image, link, id, sold = false }: Pr
       </div>
 
       <h3 className={`min-h-7 w-full text-center font-raleway text-lg xl:text-xl ${sold ? "text-white/80" : "text-white"}`}>
-        {title}
+        {logo ? <Image src={logo} alt={title} width={240} height={130} className="mx-auto h-24 w-48 object-contain" /> : title}
       </h3>
 
       {isExternalLink ? (

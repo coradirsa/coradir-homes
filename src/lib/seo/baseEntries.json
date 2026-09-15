@@ -17,8 +17,8 @@
   },
   {
     "pathname": "/san-luis",
-    "title": "San Luis | Departamentos en venta en pozo con respaldo CORADIR",
-    "description": "Proyecto residencial en San Luis con 26 departamentos de 2 dormitorios, estacionamiento individual y seguridad con IA. Compra en pozo con respaldo CORADIR.",
+    "title": "Aero26 | Departamentos en venta en pozo con respaldo CORADIR",
+    "description": "Aero26, proyecto residencial en José Hernández y Chile, San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual y seguridad con IA. Compra en pozo con respaldo CORADIR.",
     "changefreq": "monthly",
     "priority": 0.9,
     "image": "/img/san-luis/3.webp"
@@ -85,7 +85,7 @@
   {
     "pathname": "/proyectos",
     "title": "Proyectos de inversión | Portafolio Coradir Homes",
-    "description": "Explora proyectos inmobiliarios activos en San Luis: La Torre II, Juana 64 y Locales Comerciales. Oportunidades para vivir o invertir con financiación flexible.",
+    "description": "Explora proyectos inmobiliarios activos en San Luis: Aero26, La Torre II, Juana 64 y Locales Comerciales. Oportunidades para vivir o invertir con financiación flexible.",
     "changefreq": "weekly",
     "priority": 0.8,
     "image": "/img/projects/torre2.webp"

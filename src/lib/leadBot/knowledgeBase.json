@@ -77,7 +77,7 @@
       "document_date": "2026-07-06"
     },
     "san_luis_web": {
-      "title": "Complejo San Luis - datos web",
+      "title": "Aero26 - datos web",
       "role": "customer_knowledge_source",
       "audience": "internal_and_customer",
       "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
@@ -362,7 +362,7 @@
         }
       },
       "san_luis": {
-        "name": "Complejo San Luis",
+        "name": "Aero26",
         "slug": "san-luis",
         "source_path": "customer_knowledge.projects.san_luis",
         "public_location": {
@@ -694,8 +694,8 @@
     {
       "id": "san_luis_project_summary",
       "section": "san_luis.public_details",
-      "title": "Resumen proyecto San Luis",
-      "content": "Complejo San Luis es un proyecto residencial de compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, seguridad con IA, WiFi y respaldo CORADIR.",
+      "title": "Resumen proyecto Aero26",
+      "content": "Aero26 es un proyecto residencial de compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, seguridad con IA, WiFi y respaldo CORADIR.",
       "source_path": "customer_knowledge.projects.san_luis.public_details",
       "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
       "pages": [
@@ -707,8 +707,8 @@
     {
       "id": "san_luis_public_location",
       "section": "san_luis.public_location",
-      "title": "Ubicacion proyecto San Luis",
-      "content": "Complejo San Luis se ubica en Jose Hernandez y Chile, Ciudad de San Luis. La pagina publica del proyecto es /san-luis. Responder con direccion humana y link interno clickeable; no mostrar coordenadas.",
+      "title": "Ubicacion proyecto Aero26",
+      "content": "Aero26 se ubica en Jose Hernandez y Chile, Ciudad de San Luis. La pagina publica del proyecto es /san-luis. Responder con direccion humana y link interno clickeable; no mostrar coordenadas.",
       "source_path": "customer_knowledge.projects.san_luis.public_location",
       "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
       "pages": [
@@ -720,8 +720,8 @@
     {
       "id": "san_luis_features_units",
       "section": "san_luis.public_details.departments",
-      "title": "Unidades y beneficios San Luis",
-      "content": "San Luis comunica 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, departamentos inteligentes, conexion WiFi, vigilancia inteligente con IA las 24 hs, zona consolidada, accesos rapidos y cercania a servicios claves.",
+      "title": "Unidades y beneficios Aero26",
+      "content": "Aero26 comunica 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, departamentos inteligentes, conexion WiFi, vigilancia inteligente con IA las 24 hs, zona consolidada, accesos rapidos y cercania a servicios claves.",
       "source_path": "customer_knowledge.projects.san_luis.public_details.departments",
       "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
       "pages": [
@@ -733,8 +733,8 @@
     {
       "id": "san_luis_commercial_units",
       "section": "san_luis.public_details.commercial_units",
-      "title": "Locales comerciales San Luis",
-      "content": "El proyecto San Luis incluye 2 locales comerciales para proyectos comerciales en crecimiento, con arquitectura moderna, infraestructura eficiente, seguridad gestionada con inteligencia artificial, ubicacion, tecnologia y previsibilidad.",
+      "title": "Locales comerciales Aero26",
+      "content": "El proyecto Aero26 incluye 2 locales comerciales para proyectos comerciales en crecimiento, con arquitectura moderna, infraestructura eficiente, seguridad gestionada con inteligencia artificial, ubicacion, tecnologia y previsibilidad.",
       "source_path": "customer_knowledge.projects.san_luis.public_details.commercial_units",
       "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
       "pages": [
@@ -746,8 +746,8 @@
     {
       "id": "san_luis_purchase_process",
       "section": "san_luis.purchase_process",
-      "title": "Proceso comercial San Luis",
-      "content": "Proceso comunicado para San Luis: lista de interes con prioridad comercial y eleccion de unidad; pre-reserva con sena para congelar condiciones y avanzar con asesoria personalizada; boleto y posesion con respaldo juridico y entrega planificada. La web comunica poliza de caucion y respaldo CORADIR.",
+      "title": "Proceso comercial Aero26",
+      "content": "Proceso comunicado para Aero26: lista de interes con prioridad comercial y eleccion de unidad; pre-reserva con sena para congelar condiciones y avanzar con asesoria personalizada; boleto y posesion con respaldo juridico y entrega planificada. La web comunica poliza de caucion y respaldo CORADIR.",
       "source_path": "customer_knowledge.projects.san_luis.purchase_process",
       "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
       "pages": [
@@ -759,8 +759,8 @@
     {
       "id": "san_luis_brochure_link",
       "section": "san_luis.public_location.brochure",
-      "title": "Folleto San Luis",
-      "content": "El folleto publico de San Luis esta disponible en /img/san-luis/Folleto%20vertical%20-%20San%20Luis.pdf. La pagina del proyecto es /san-luis.",
+      "title": "Folleto Aero26",
+      "content": "El folleto publico de Aero26 esta disponible en /img/san-luis/Folleto%20vertical%20-%20San%20Luis.pdf. La pagina del proyecto es /san-luis.",
       "source_path": "customer_knowledge.projects.san_luis.public_location.brochure_url",
       "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
       "pages": [
@@ -772,8 +772,8 @@
     {
       "id": "san_luis_commercial_data_limits",
       "section": "san_luis.commercial_data_limits",
-      "title": "Limites informacion comercial San Luis",
-      "content": "La pagina publica de San Luis no muestra precio, cuotas, financiacion exacta, fecha de entrega cerrada, stock ni disponibilidad por unidad. Esos datos deben validarse con un asesor.",
+      "title": "Limites informacion comercial Aero26",
+      "content": "La pagina publica de Aero26 no muestra precio, cuotas, financiacion exacta, fecha de entrega cerrada, stock ni disponibilidad por unidad. Esos datos deben validarse con un asesor.",
       "source_path": "customer_knowledge.projects.san_luis.commercial_data_limits",
       "source_file_path": "docs/lead-bot/sources/san_luis_web.md",
       "pages": [

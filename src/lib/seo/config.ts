@@ -175,7 +175,7 @@ if (sanLuisEntry) {
     }),
     buildBreadcrumbJsonLd([
       { name: "Inicio", item: siteConfig.url },
-      { name: "San Luis", item: context.canonical },
+      { name: "Aero26", item: context.canonical },
     ]),
   ];
 }

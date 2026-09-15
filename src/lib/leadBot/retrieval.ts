@@ -454,8 +454,8 @@ function buildVillaMercedesCommercialDataLimitsAnswer(): KnowledgeAnswer {
 function buildSanLuisOverviewAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Si, en la web esta el proyecto **San Luis**: compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, seguridad con IA y respaldo CORADIR.",
-      "Tambien contempla 2 locales comerciales y tiene pagina propia: [Ver San Luis](/san-luis).",
+      "Si, en la web esta el proyecto **Aero26**: compra en pozo en la Ciudad de San Luis, con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, seguridad con IA y respaldo CORADIR.",
+      "Tambien contempla 2 locales comerciales y tiene pagina propia: [Ver Aero26](/san-luis).",
       "Para orientarte mejor: lo estas mirando para vivir o para invertir?",
     ].join("\n\n"),
     sources: sourcesFor(["san_luis_project_summary", "san_luis_features_units", "san_luis_commercial_units"]),
@@ -465,8 +465,8 @@ function buildSanLuisOverviewAnswer(): KnowledgeAnswer {
 function buildSanLuisLocationAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "El proyecto **San Luis** esta ubicado en Jose Hernandez y Chile, Ciudad de San Luis.",
-      "Podes verlo aca: [Ver San Luis](/san-luis).",
+      "El proyecto **Aero26** esta ubicado en Jose Hernandez y Chile, Ciudad de San Luis.",
+      "Podes verlo aca: [Ver Aero26](/san-luis).",
     ].join("\n\n"),
     sources: sourcesFor(["san_luis_public_location"]),
   };
@@ -475,7 +475,7 @@ function buildSanLuisLocationAnswer(): KnowledgeAnswer {
 function buildSanLuisFeaturesAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "San Luis comunica 26 departamentos de 2 dormitorios, con estacionamiento individual, cocina equipada, WiFi, vigilancia inteligente con IA las 24 hs y respaldo CORADIR.",
+      "Aero26 comunica 26 departamentos de 2 dormitorios, con estacionamiento individual, cocina equipada, WiFi, vigilancia inteligente con IA las 24 hs y respaldo CORADIR.",
       "La web tambien menciona zona consolidada, accesos rapidos y cercania a servicios claves para la vida diaria.",
     ].join("\n\n"),
     sources: sourcesFor(["san_luis_project_summary", "san_luis_features_units"]),
@@ -485,7 +485,7 @@ function buildSanLuisFeaturesAnswer(): KnowledgeAnswer {
 function buildSanLuisCommercialUnitsAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Si, el proyecto **San Luis** incluye 2 locales comerciales.",
+      "Si, el proyecto **Aero26** incluye 2 locales comerciales.",
       "La web los presenta para proyectos comerciales en crecimiento, con arquitectura moderna, infraestructura eficiente y seguridad gestionada con IA.",
       "Para medidas, precio o disponibilidad de cada local, conviene validarlo con un asesor.",
     ].join("\n\n"),
@@ -496,7 +496,7 @@ function buildSanLuisCommercialUnitsAnswer(): KnowledgeAnswer {
 function buildSanLuisPurchaseProcessAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Para San Luis, la web comunica este proceso:",
+      "Para Aero26, la web comunica este proceso:",
       "- Lista de interes con prioridad comercial y eleccion de unidad.",
       "- Pre-reserva con sena para congelar condiciones y avanzar con asesoria personalizada.",
       "- Boleto y posesion con respaldo juridico y entrega planificada.",
@@ -510,8 +510,8 @@ function buildSanLuisPurchaseProcessAnswer(): KnowledgeAnswer {
 function buildSanLuisBrochureAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Podes ver la pagina de San Luis aca: [Ver San Luis](/san-luis).",
-      "Tambien esta el folleto publico: [Descargar folleto San Luis](/img/san-luis/Folleto%20vertical%20-%20San%20Luis.pdf).",
+      "Podes ver la pagina de Aero26 aca: [Ver Aero26](/san-luis).",
+      "Tambien esta el folleto publico: [Descargar folleto Aero26](/img/san-luis/Folleto%20vertical%20-%20San%20Luis.pdf).",
     ].join("\n\n"),
     sources: sourcesFor(["san_luis_brochure_link"]),
   };
@@ -520,7 +520,7 @@ function buildSanLuisBrochureAnswer(): KnowledgeAnswer {
 function buildSanLuisCommercialDataLimitsAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Para San Luis, la web confirma el proyecto de compra en pozo con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada y seguridad con IA.",
+      "Para Aero26, la web confirma el proyecto de compra en pozo con 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada y seguridad con IA.",
       "Esa informacion todavia no la tengo: precio, cuotas, financiacion exacta, entrega cerrada y disponibilidad por unidad se confirman con asesor.",
       "¿Queres que te ponga en contacto con un asesor para consultarlo directamente?",
     ].join("\n\n"),
@@ -710,7 +710,7 @@ function buildPetFriendlyHousingOptionsAnswer(): KnowledgeAnswer {
   return {
     reply: [
       "Para vivir con perros, la opcion que tengo confirmada como pet friendly es **Juana 64**, en Juana Koslay, con departamentos de 2 dormitorios.",
-      "Tambien esta **San Luis**, en la Ciudad de San Luis, con departamentos de 2 dormitorios, estacionamiento individual, cocina equipada y seguridad con IA.",
+      "Tambien esta **Aero26**, en la Ciudad de San Luis, con departamentos de 2 dormitorios, estacionamiento individual, cocina equipada y seguridad con IA.",
       "Esa informacion todavia no la tengo para reglamento o cantidad exacta de mascotas por unidad. ¿Queres que te ponga en contacto con un asesor para consultarlo directamente?",
     ].join("\n\n"),
     sources: sourcesFor(["juana64_public_residential_features", "san_luis_project_summary"]),

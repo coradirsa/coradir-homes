@@ -20,7 +20,7 @@ export const links: NavigationLink[] = [
         label: "Proyectos",
         hover: [
             { href: "/juana-64", label: "Juana 64" },
-            { href: "/san-luis", label: "San Luis" },
+            { href: "/san-luis", label: "Aero26" },
             { href: "/villa-mercedes", label: "Villa Mercedes" },
             { href: "/locales-comerciales", label: "Locales Comerciales" },
             { href: "/corporativos", label: "Corporativos" },

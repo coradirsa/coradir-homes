@@ -7,13 +7,15 @@ import { StructuredDataScripts } from "../components/structuredDataScripts";
 const PROJECTS = [
     {
         name: "Juana 64",
+        logo: "/img/logos/juana64.svg",
         description: "Unidades con domótica, zonas comunes equipadas y soluciones ecoeficientes en Juana Koslay.",
         href: "/juana-64",
         image: "/img/juana-64/espacios/hero-jk64.webp",
         ctaId: "proyectos-juana-64",
     },
     {
-        name: "San Luis",
+        name: "Aero26",
+        logo: "/img/logos/aero26.svg",
         description:
             "Departamentos con estacionamiento individual, seguridad con IA y oportunidad de compra en pozo.",
         href: "/san-luis",
@@ -118,7 +120,7 @@ export default function ProyectosPage() {
                                     />
                                 </div>
                                 <div className="flex flex-col gap-4 p-6">
-                                    <h2 className="text-2xl font-playfair text-blue">{project.name}</h2>
+                                    <h2 className="text-2xl font-playfair text-blue">{project.logo ? <Image src={project.logo} alt={project.name} width={240} height={130} className="h-24 w-48 object-contain object-left" /> : project.name}</h2>
                                     <p className="text-base font-raleway text-black/80">{project.description}</p>
                                     {isExternal ? (
                                         <a
