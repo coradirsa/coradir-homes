@@ -4,7 +4,7 @@ export const COMMERCIAL_HERO = {
   eyebrow: "Locales comerciales en San Luis",
   title: "Locales comerciales en San Luis y Juana Koslay",
   subtitle:
-    "Invertí, alquilá o abrí tu negocio en ubicaciones estratégicas: Ruta 3 km 0.6 y Juana 64, con compra en pozo, alquiler y leasing inmobiliario.",
+    "Invertí, alquilá o abrí tu negocio en ubicaciones estratégicas: Ruta 3 km 0.6 y Juana 64, con compra, alquiler y leasing inmobiliario.",
   image: "/img/locales-comerciales/ruta-3/frente-atardecer.webp",
   highlights: ["Venta y alquiler de locales", "Backup energético Ruta 3", "Leasing inmobiliario"],
 };
@@ -30,7 +30,6 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       { label: "Ubicación", value: "Ruta 3 km 0.6" },
     ],
     prices: [
-      { label: "Precio pozo", value: "USD 85.000 + IVA", featured: true },
       { label: "Precio de lista", value: "USD 107.000 + IVA" },
       { label: "Alquiler mensual", value: "USD 690 + IVA" },
     ],
@@ -54,7 +53,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
     summary:
       "Locales comerciales dentro de un desarrollo residencial, pensados para negocios de cercanía, servicios profesionales, atención diaria y renta comercial.",
     image: "/img/locales-comerciales/juana-64/locales/jk-64.webp",
-    status: "En pozo / entrega estimada en septiembre de 2026",
+    status: "Entrega estimada en septiembre de 2026",
     specs: [
       { label: "Tipo", value: "Locales dentro del desarrollo Juana 64" },
       { label: "Superficie", value: "72 m2 por local" },
@@ -63,16 +62,14 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       { label: "Entrega locales", value: "Entrega estimada en septiembre de 2026" },
     ],
     prices: [
-      { label: "Precio pozo", value: "USD 53.000 + IVA", featured: true },
       { label: "Precio de lista", value: "USD 70.000 + IVA" },
       { label: "Alquiler mensual", value: "USD 391 + IVA" },
     ],
     iconFeatures: [
       { icon: "groups", title: "Flujo natural del desarrollo residencial" },
-      { icon: "savings", title: "Compra en pozo o contado" },
+      { icon: "savings", title: "Compra al contado" },
       { icon: "payments", title: "Leasing inmobiliario hasta 96 meses" },
       { icon: "percent", title: "Reserva del 3%" },
-      { icon: "policy", title: "Póliza de caución para compra en pozo" },
       { icon: "location_on", title: "Ubicación en Juana Koslay" },
     ],
     suitableFor: ["Comercio de cercanía", "Servicios profesionales", "Gastronomía liviana", "Atención diaria"],
@@ -152,16 +149,8 @@ export const COMMERCIAL_CONDITIONS: ConditionItem[] = [
     description: "Para avanzar con la unidad se toma una reserva del 3%, sujeta a disponibilidad y aprobación comercial.",
   },
   {
-    title: "Compra en pozo",
-    description: "En compra en pozo adelantada, el saldo se abona según condiciones comerciales vigentes al momento de la operación.",
-  },
-  {
     title: "Leasing inmobiliario",
     description: "Permite ingresar con adelanto y cuotas pactadas, con opción de valor residual. Juana 64 cuenta con planes hasta 96 meses.",
-  },
-  {
-    title: "Garantía para inversores",
-    description: "Para compra en pozo se puede instrumentar póliza de caución por el total aportado, con incremento comercial del 3%.",
   },
 ];
 

@@ -26,6 +26,7 @@ Reglas de conocimiento:
 Proyectos activos y enfoque:
 - juana-64: residencial, vivienda/departamento/locales comerciales Juana 64/inversion urbana. Usar el corpus si preguntan precios, financiacion, reserva o entrega.
 - san-luis: proyecto residencial en la Ciudad de San Luis, compra en pozo, 26 departamentos de 2 dormitorios, estacionamiento individual, cocina equipada, seguridad con IA y 2 locales comerciales. No inventar precios, cuotas, stock ni entrega exacta si no estan en el corpus.
+- Para locales comerciales no ofrecer venta en pozo ni precios de esa modalidad. Las condiciones de compra en pozo de departamentos no aplican a locales. Usar precios de lista, alquiler y leasing disponibles.
 - locales-comerciales: landing comercial con locales Ruta 3 km 0.6 y locales Juana 64; orientar segun ubicacion, compra, alquiler o leasing.
 - inversiones: alternativas segun ticket, plazo y objetivo de inversion.
 - terrenos: lotes/terrenos si el usuario lo pide.

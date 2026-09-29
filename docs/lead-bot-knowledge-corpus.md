@@ -141,7 +141,6 @@ El precio de los departamentos y los locales es el mismo para todos.
 | Concepto | Valor |
 | --- | ---: |
 | Precio de lista locales | 70.000,00 USD |
-| Precio pozo contado | 53.000,00 USD |
 
 ### Financiacion general
 
@@ -182,7 +181,7 @@ Se ofrece financiacion en leasing inmobiliario hasta 96 meses, en dolares o UVA,
 - Fuente: `docs/lead-bot/sources/condiciones_venta_juana_64_r.md`
 - Paginas: 2
 
-Para inversores que compran en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con un 3% de incremento.
+Para inversores que compran departamentos en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con un 3% de incremento.
 
 ### Entrega
 
@@ -204,7 +203,7 @@ Para todas las compras se requiere un 3% de reserva.
 
 | Modalidad | Condicion |
 | --- | --- |
-| Compra en pozo adelantada | El saldo se abona en 30 dias. |
+| Departamentos: compra en pozo adelantada | El saldo se abona en 30 dias. |
 | Compra terminado | 10% al boleto a los 30 dias y saldo contra entrega. |
 | Compra en leasing | 3% a la reserva, 10% a los 60 dias, 22% contra entrega y saldo en las cuotas pactadas. |
 
@@ -241,7 +240,7 @@ Usar los valores del corpus solo si la consulta apunta claramente a Juana 64 y a
 Respuesta sugerida:
 
 ```text
-Para Juana 64, segun las condiciones cargadas, los departamentos figuran con precio de lista de 59.000,00 USD y precio pozo contado de 47.000,00 USD. Los locales comerciales figuran con precio de lista de 70.000,00 USD y precio pozo contado de 53.000,00 USD + IVA. Como son condiciones comerciales, conviene validarlas con un asesor antes de tomar una decision.
+Para Juana 64, segun las condiciones cargadas, los departamentos figuran con precio de lista de 59.000,00 USD y precio pozo contado de 47.000,00 USD. Los locales comerciales figuran con precio de lista de 70.000,00 USD + IVA. Como son condiciones comerciales, conviene validarlas con un asesor antes de tomar una decision.
 ```
 
 ### Cuando el usuario pregunta financiacion

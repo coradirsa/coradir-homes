@@ -156,11 +156,15 @@
     "expect": {
       "mustInclude": [
         "107.000,00 USD",
-        "85.000,00 USD",
         "690,00 USD"
       ],
       "knowledgeSourceIds": [
         "ruta3_commercial_prices"
+      ],
+      "mustNotInclude": [
+        "53.000",
+        "85.000",
+        "pozo"
       ]
     }
   },
@@ -460,6 +464,11 @@
       ],
       "knowledgeSourceIds": [
         "juana64_commercial_units_web_rent"
+      ],
+      "mustNotInclude": [
+        "53.000",
+        "85.000",
+        "pozo"
       ]
     }
   },
@@ -564,14 +573,16 @@
     "expect": {
       "mustInclude": [
         "70.000,00 USD",
-        "53.000,00 USD",
         "391,00 USD",
         "72 m2",
         "96 meses",
         "comercio de cercania"
       ],
       "mustNotInclude": [
-        "Departamentos"
+        "Departamentos",
+        "53.000",
+        "85.000",
+        "pozo"
       ]
     }
   },

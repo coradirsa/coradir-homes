@@ -236,11 +236,6 @@
                 "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units.list_price",
                 "value": 70000,
                 "display": "70.000,00 USD"
-              },
-              "pre_construction_cash_price": {
-                "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units.pre_construction_cash_price",
-                "value": 53000,
-                "display": "53.000,00 USD"
               }
             }
           },
@@ -339,7 +334,7 @@
             "pages": [
               2
             ],
-            "content": "Para inversores que compran en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con un 3% de incremento."
+            "content": "Para inversores que compran departamentos en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con un 3% de incremento."
           },
           "delivery": {
             "source_path": "customer_knowledge.projects.juana_64.sales_conditions.delivery",
@@ -355,7 +350,7 @@
               2
             ],
             "reservation_percent": 3,
-            "pre_construction_cash": "En compra en pozo adelantada, el saldo se abona en 30 dias.",
+            "pre_construction_cash": "Para departamentos, en compra en pozo adelantada, el saldo se abona en 30 dias.",
             "finished_purchase": "En compra terminado, se abona el 10% al boleto a los 30 dias y saldo contra entrega.",
             "leasing": "En compra en leasing: 3% a la reserva, 10% a los 60 dias, 22% contra entrega y saldo en las cuotas pactadas."
           }
@@ -491,11 +486,6 @@
               "value": 107000,
               "display": "107.000,00 USD"
             },
-            "pre_construction_cash_price": {
-              "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.pre_construction_cash_price",
-              "value": 85000,
-              "display": "85.000,00 USD"
-            },
             "monthly_rent": {
               "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.monthly_rent",
               "value": 690,
@@ -551,7 +541,7 @@
       "id": "juana64_prices_commercial_units",
       "section": "juana_64.sales_conditions.prices",
       "title": "Precios locales comerciales Juana 64",
-      "content": "Locales comerciales Juana 64 + IVA: precio de lista 70.000,00 USD; precio pozo contado 53.000,00 USD.",
+      "content": "Locales comerciales Juana 64 + IVA: precio de lista 70.000,00 USD.",
       "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units",
       "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
       "pages": [
@@ -604,7 +594,7 @@
       "id": "juana64_investor_guarantee",
       "section": "juana_64.sales_conditions.investor_guarantee",
       "title": "Garantia para inversores Juana 64",
-      "content": "Para inversores que compran en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con un 3% de incremento.",
+      "content": "Para inversores que compran departamentos en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con un 3% de incremento.",
       "source_path": "customer_knowledge.projects.juana_64.sales_conditions.investor_guarantee",
       "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
       "pages": [
@@ -630,7 +620,7 @@
       "id": "juana64_reservation_payment",
       "section": "juana_64.sales_conditions.reservation_and_payment",
       "title": "Reserva y forma de pago Juana 64",
-      "content": "Para todas las compras se requiere 3% de reserva. Compra en pozo adelantada: saldo en 30 dias. Compra terminado: 10% al boleto a los 30 dias y saldo contra entrega. Leasing: 3% a la reserva, 10% a los 60 dias, 22% contra entrega y saldo en cuotas pactadas.",
+      "content": "Para todas las compras se requiere 3% de reserva. Departamentos en pozo: saldo en 30 dias. Compra terminado: 10% al boleto a los 30 dias y saldo contra entrega. Leasing: 3% a la reserva, 10% a los 60 dias, 22% contra entrega y saldo en cuotas pactadas.",
       "source_path": "customer_knowledge.projects.juana_64.sales_conditions.reservation_and_payment",
       "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
       "pages": [
@@ -864,7 +854,7 @@
       "id": "juana64_commercial_units_web_rent",
       "section": "juana_64.commercial_units.prices",
       "title": "Alquiler locales comerciales Juana 64",
-      "content": "Locales comerciales Juana 64 + IVA: precio pozo USD 53.000; precio de lista USD 70.000; alquiler mensual USD 391 + IVA. Condiciones sujetas a disponibilidad y aprobacion comercial.",
+      "content": "Locales comerciales Juana 64 + IVA: precio de lista USD 70.000; alquiler mensual USD 391 + IVA. Condiciones sujetas a disponibilidad y aprobacion comercial.",
       "source_path": "customer_knowledge.projects.juana_64.commercial_units.prices",
       "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
       "pages": [
@@ -877,7 +867,7 @@
       "id": "ruta3_commercial_prices",
       "section": "ruta_3_commercial_units.sales_conditions.prices",
       "title": "Precios locales comerciales Ruta 3",
-      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA: precio de lista 107.000,00 USD; precio pozo 85.000,00 USD; alquiler mensual 690,00 USD.",
+      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA: precio de lista 107.000,00 USD; alquiler mensual 690,00 USD.",
       "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
       "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
       "pages": [

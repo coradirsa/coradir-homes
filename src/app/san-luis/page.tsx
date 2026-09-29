@@ -27,7 +27,7 @@ const MAIN_BENEFITS = [
   },
   {
     title: "Locales comerciales",
-    description: "Espacios en venta en pozo para proyectos comerciales en crecimiento.",
+    description: "Espacios en venta para proyectos comerciales en crecimiento.",
   },
 ];
 

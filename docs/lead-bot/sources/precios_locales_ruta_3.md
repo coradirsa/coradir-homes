@@ -11,7 +11,6 @@ Fuente cargada para uso interno del lead bot.
 | Concepto | Valor |
 | --- | ---: |
 | Precio de lista | 107.000,00 USD |
-| Precio pozo | 85.000,00 USD |
 
 ## Alquiler locales comerciales 180 m2 + IVA
 

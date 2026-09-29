@@ -1246,6 +1246,9 @@ export function isPurchaseProcessQuestion(message: string) {
 }
 
 export function buildPurchaseProcessReply(state: LeadBotState) {
+  if (state.project === "locales-comerciales") {
+    return "Para locales comerciales, primero se define la unidad y la modalidad de compra, alquiler o leasing. La reserva y las condiciones vigentes se confirman con un asesor.";
+  }
   if (state.project === "san-luis") {
     return [
       "Para Aero26, la web comunica este proceso:",
@@ -1270,7 +1273,7 @@ export function buildPurchaseProcessReply(state: LeadBotState) {
       "Para Juana 64, el proceso general es:",
       "",
       "- **Reserva:** 3% para iniciar la operación.",
-      "- **Compra en pozo adelantada:** el saldo se completa a los 30 días.",
+      "- **Departamentos en pozo:** el saldo se completa a los 30 días.",
       "- **Compra terminado:** 10% al boleto a los 30 días y saldo contra entrega.",
       "- **Leasing:** 3% a la reserva, 10% a los 60 días, 22% contra entrega y el saldo en cuotas pactadas.",
       "",

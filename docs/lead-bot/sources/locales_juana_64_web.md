@@ -23,7 +23,6 @@ Locales comerciales dentro del desarrollo Juana 64, pensados para negocios de ce
 
 | Concepto | Valor |
 | --- | ---: |
-| Precio pozo | USD 53.000 + IVA |
 | Precio de lista | USD 70.000 + IVA |
 | Alquiler mensual | USD 391 + IVA |
 

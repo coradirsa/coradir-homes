@@ -32,7 +32,7 @@ const PROJECTS = [
     },
     {
         name: "Locales Comerciales",
-        description: "Locales comerciales con ubicación estratégica y alto flujo en San Luis. Preventa en pozo.",
+        description: "Locales comerciales con ubicación estratégica y alto flujo en San Luis.",
         href: "/locales-comerciales",
         image: "/img/juana-64/locales/locales-08.webp",
         ctaId: "proyectos-locales-comerciales",

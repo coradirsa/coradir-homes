@@ -10,7 +10,7 @@
   {
     "pathname": "/juana-64",
     "title": "Juana 64 | Departamentos y locales comerciales en Juana Koslay",
-    "description": "Juana 64 combina departamentos inteligentes y locales comerciales en Juana Koslay, con opciones de compra en pozo, reserva y leasing inmobiliario.",
+    "description": "Juana 64 combina departamentos inteligentes y locales comerciales en Juana Koslay, con opciones de compra, reserva y leasing inmobiliario.",
     "changefreq": "monthly",
     "priority": 0.9,
     "image": "/img/juana-64/espacios/hero-jk64.webp"
@@ -34,7 +34,7 @@
   {
     "pathname": "/locales-comerciales",
     "title": "Locales comerciales en San Luis y Juana Koslay | CORADIR Homes",
-    "description": "Locales comerciales CORADIR Homes en Ruta 3 y Juana 64. Opciones de compra, alquiler, pozo y leasing inmobiliario hasta 96 meses.",
+    "description": "Locales comerciales CORADIR Homes en Ruta 3 y Juana 64. Opciones de compra, alquiler y leasing inmobiliario hasta 96 meses.",
     "changefreq": "monthly",
     "priority": 0.9,
     "image": "/img/locales-comerciales/ruta-3/frente-atardecer.webp"

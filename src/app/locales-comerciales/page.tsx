@@ -227,7 +227,7 @@ function ConditionsSection() {
           </h2>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2">
           {COMMERCIAL_CONDITIONS.map((condition) => (
             <article key={condition.title} className="rounded-lg border border-white/15 bg-white/10 p-5">
               <MaterialIcon name="verified" className="text-[32px] text-blue-light" />

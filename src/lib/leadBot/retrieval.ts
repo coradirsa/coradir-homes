@@ -571,7 +571,7 @@ function buildPriceAnswer(message: string): KnowledgeAnswer {
 
   if (showCommercial) {
     ids.push("juana64_prices_commercial_units");
-    lines.push("- Locales comerciales: precio de lista 70.000,00 USD; precio pozo contado 53.000,00 USD + IVA.");
+    lines.push("- Locales comerciales: precio de lista 70.000,00 USD + IVA.");
   }
 
   return {
@@ -585,7 +585,6 @@ function buildRuta3PriceAnswer(): KnowledgeAnswer {
     reply: [
       "Para los locales comerciales Ruta 3 de 180 m2 + IVA, los precios de referencia son:",
       "- Precio de lista: 107.000,00 USD.",
-      "- Precio pozo: 85.000,00 USD.",
       "- Alquiler mensual: 690,00 USD.",
       "",
       `Estos valores son de referencia comercial al ${RUTA3_PRICE_DATE}. Antes de avanzar, conviene validarlos con un asesor porque pueden cambiar segun unidad y disponibilidad.`,
@@ -598,8 +597,8 @@ function buildCommercialPriceComparisonAnswer(): KnowledgeAnswer {
   return {
     reply: [
       "Para locales comerciales, hoy tengo estos valores de referencia:",
-      "- Ruta 3, 180 m2 + IVA: precio de lista 107.000,00 USD; precio pozo 85.000,00 USD; alquiler mensual 690,00 USD.",
-      "- Juana 64 + IVA: precio de lista 70.000,00 USD; precio pozo contado 53.000,00 USD; alquiler mensual 391,00 USD + IVA.",
+      "- Ruta 3, 180 m2 + IVA: precio de lista 107.000,00 USD; alquiler mensual 690,00 USD.",
+      "- Juana 64 + IVA: precio de lista 70.000,00 USD; alquiler mensual 391,00 USD + IVA.",
       "",
       "Antes de avanzar, conviene validarlo con un asesor porque precios y disponibilidad pueden cambiar.",
     ].join("\n"),
@@ -656,7 +655,6 @@ function buildJuana64CommercialSummaryAnswer(): KnowledgeAnswer {
     reply: [
       "Para locales comerciales Juana 64, hoy tengo esta referencia comercial:",
       "- Precio de lista: 70.000,00 USD + IVA.",
-      "- Precio pozo contado: 53.000,00 USD + IVA.",
       "- Alquiler mensual: 391,00 USD + IVA.",
       "- Medidas: 72 m2 por local, 6 m x 12 m.",
       "- Financiacion: leasing inmobiliario hasta 96 meses, en dolares o UVA, con 35% de adelanto.",
@@ -678,7 +676,7 @@ function buildJuana64CommercialRentAnswer(): KnowledgeAnswer {
   return {
     reply: [
       "Para locales comerciales Juana 64, el alquiler mensual de referencia es 391,00 USD + IVA.",
-      "Tambien figuran precio pozo 53.000,00 USD + IVA y precio de lista 70.000,00 USD + IVA.",
+      "Tambien figura precio de lista 70.000,00 USD + IVA.",
       "Es informacion comercial orientativa: disponibilidad, alquiler final y condiciones se validan con un asesor.",
     ].join("\n\n"),
     sources: sourcesFor(["juana64_commercial_units_web_rent", "juana64_prices_commercial_units"]),
@@ -798,7 +796,7 @@ function buildDeliveryAnswer(): KnowledgeAnswer {
 function buildReservationAnswer(): KnowledgeAnswer {
   return {
     reply: withCommercialValidation(
-      "Para Juana 64, todas las compras requieren 3% de reserva. En compra en pozo adelantada, el saldo se abona en 30 dias. En compra terminado, se abona 10% al boleto a los 30 dias y saldo contra entrega. En leasing: 3% a la reserva, 10% a los 60 dias, 22% contra entrega y el saldo en cuotas pactadas."
+      "Para Juana 64, todas las compras requieren 3% de reserva. Para departamentos, en compra en pozo adelantada, el saldo se abona en 30 dias. En compra terminado, se abona 10% al boleto a los 30 dias y saldo contra entrega. En leasing: 3% a la reserva, 10% a los 60 dias, 22% contra entrega y el saldo en cuotas pactadas."
     ),
     sources: sourcesFor(["juana64_reservation_payment"]),
   };
@@ -807,7 +805,7 @@ function buildReservationAnswer(): KnowledgeAnswer {
 function buildInvestorGuaranteeAnswer(): KnowledgeAnswer {
   return {
     reply: withCommercialValidation(
-      "Para inversores que compran en pozo en Juana 64, las condiciones comerciales indican garantia de poliza de caucion por el total del dinero aportado, con un 3% de incremento."
+      "Para inversores que compran departamentos en pozo en Juana 64, las condiciones comerciales indican garantia de poliza de caucion por el total del dinero aportado, con un 3% de incremento."
     ),
     sources: sourcesFor(["juana64_investor_guarantee"]),
   };
@@ -831,6 +829,12 @@ export function shouldUseDirectKnowledgeAnswer(message: string, state: LeadBotSt
 }
 
 export function buildKnowledgeBaseAnswer(message: string, state: LeadBotState): KnowledgeAnswer | undefined {
+  if (isCommercialContext(message, state) && !wantsDepartment(message) && (wantsReservation(message) || wantsInvestorGuarantee(message))) {
+    return {
+      reply: "Para locales comerciales, la reserva, las garantias y las condiciones de compra o leasing se confirman con un asesor segun la unidad.",
+      sources: [],
+    };
+  }
   const hasSanLuisAnswerIntent = isSanLuisContext(message, state) && wantsSanLuisProjectInfo(message);
   const hasVillaMercedesAnswerIntent = isVillaMercedesContext(message, state) && wantsVillaMercedesProjectInfo(message);
   const wantsHousingPetOptions =

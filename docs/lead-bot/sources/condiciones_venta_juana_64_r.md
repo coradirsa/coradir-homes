@@ -23,7 +23,6 @@ El precio de los departamentos y los locales es el mismo para todos.
 | Concepto | Valor |
 | --- | ---: |
 | Precio de lista locales | 70.000,00 USD |
-| Precio pozo contado | 53.000,00 USD |
 
 ## Financiacion
 
@@ -47,7 +46,7 @@ Se ofrece financiacion en leasing inmobiliario hasta 96 meses, en dolares o UVA,
 
 ## Garantia para inversores
 
-Para inversores que compran en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con solo un 3% de incremento.
+Para inversores que compran departamentos en pozo, se ofrece garantia de poliza de caucion por el total del dinero aportado con solo un 3% de incremento.
 
 ## Plazo de entrega
 
@@ -61,6 +60,6 @@ Para todas las compras se requiere un 3% de reserva.
 
 | Modalidad | Condicion |
 | --- | --- |
-| Compra en pozo adelantada | El saldo se abonara en 30 dias. |
+| Departamentos: compra en pozo adelantada | El saldo se abonara en 30 dias. |
 | Compra terminado | Se abonara el 10% al boleto a los 30 dias y saldo contra entrega. |
 | Compra en leasing | 3% a la reserva, 10% a los 60 dias, 22% contra entrega y saldo en las cuotas que se pacten. |
