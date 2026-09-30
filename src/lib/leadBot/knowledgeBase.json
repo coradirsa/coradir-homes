@@ -478,18 +478,20 @@
           "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions",
           "prices": {
             "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
-            "currency": "USD",
             "tax_note": "+ IVA",
             "surface": "180 m2",
             "list_price": {
               "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.list_price",
               "value": 107000,
+              "currency": "USD",
               "display": "107.000,00 USD"
             },
             "monthly_rent": {
               "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.monthly_rent",
-              "value": 690,
-              "display": "690,00 USD"
+              "value": 1280000,
+              "currency": "ARS",
+              "updated_at": "2026-09-30",
+              "display": "ARS $1.280.000"
             }
           }
         },
@@ -854,7 +856,7 @@
       "id": "juana64_commercial_units_web_rent",
       "section": "juana_64.commercial_units.prices",
       "title": "Alquiler locales comerciales Juana 64",
-      "content": "Locales comerciales Juana 64 + IVA: precio de lista USD 70.000; alquiler mensual USD 391 + IVA. Condiciones sujetas a disponibilidad y aprobacion comercial.",
+      "content": "Locales comerciales Juana 64 + IVA: precio de lista USD 70.000; alquiler mensual ARS $729.000 + IVA. Condiciones sujetas a disponibilidad y aprobacion comercial.",
       "source_path": "customer_knowledge.projects.juana_64.commercial_units.prices",
       "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
       "pages": [
@@ -867,7 +869,7 @@
       "id": "ruta3_commercial_prices",
       "section": "ruta_3_commercial_units.sales_conditions.prices",
       "title": "Precios locales comerciales Ruta 3",
-      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA: precio de lista 107.000,00 USD; alquiler mensual 690,00 USD.",
+      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA: precio de lista 107.000,00 USD; alquiler mensual ARS $1.280.000.",
       "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
       "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
       "pages": [

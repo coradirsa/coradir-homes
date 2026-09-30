@@ -4,6 +4,7 @@ Fuente convertida a Markdown para uso interno del lead bot.
 
 - Fuente original: `src/app/locales-comerciales/data.ts`
 - Fecha de referencia: 2026-08-25
+- Alquiler mensual actualizado: 2026-09-30.
 - Uso: fuente comercial verificable para datos publicos de la landing de locales comerciales.
 
 ## Ficha publica
@@ -24,7 +25,7 @@ Locales comerciales dentro del desarrollo Juana 64, pensados para negocios de ce
 | Concepto | Valor |
 | --- | ---: |
 | Precio de lista | USD 70.000 + IVA |
-| Alquiler mensual | USD 391 + IVA |
+| Alquiler mensual | ARS $729.000 + IVA |
 
 ## Leasing y condiciones
 

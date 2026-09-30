@@ -4,6 +4,7 @@ Fuente cargada para uso interno del lead bot.
 
 - Fecha de carga: 2026-06-23
 - Proyecto: Locales comerciales CORADIR Ruta 3 km 0.6
+- Alquiler mensual actualizado: 2026-09-30.
 - Uso: fuente comercial verificable para precios de compra y alquiler.
 
 ## Precios locales comerciales 180 m2 + IVA
@@ -16,4 +17,4 @@ Fuente cargada para uso interno del lead bot.
 
 | Concepto | Valor |
 | --- | ---: |
-| Mensual | 690,00 USD |
+| Mensual | ARS $1.280.000 |

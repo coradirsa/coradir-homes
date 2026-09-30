@@ -156,7 +156,7 @@
     "expect": {
       "mustInclude": [
         "107.000,00 USD",
-        "690,00 USD"
+        "ARS $1.280.000"
       ],
       "knowledgeSourceIds": [
         "ruta3_commercial_prices"
@@ -459,7 +459,7 @@
     ],
     "expect": {
       "mustInclude": [
-        "391,00 USD",
+        "ARS $729.000",
         "+ IVA"
       ],
       "knowledgeSourceIds": [
@@ -573,7 +573,7 @@
     "expect": {
       "mustInclude": [
         "70.000,00 USD",
-        "391,00 USD",
+        "ARS $729.000",
         "72 m2",
         "96 meses",
         "comercio de cercania"

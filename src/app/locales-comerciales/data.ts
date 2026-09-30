@@ -31,7 +31,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
     ],
     prices: [
       { label: "Precio de lista", value: "USD 107.000 + IVA" },
-      { label: "Alquiler mensual", value: "USD 690 + IVA" },
+      { label: "Alquiler mensual", value: "ARS $1.280.000 + IVA" },
     ],
     iconFeatures: [
       { icon: "bolt", title: "Backup energético para continuidad operativa" },
@@ -63,7 +63,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
     ],
     prices: [
       { label: "Precio de lista", value: "USD 70.000 + IVA" },
-      { label: "Alquiler mensual", value: "USD 391 + IVA" },
+      { label: "Alquiler mensual", value: "ARS $729.000 + IVA" },
     ],
     iconFeatures: [
       { icon: "groups", title: "Flujo natural del desarrollo residencial" },
