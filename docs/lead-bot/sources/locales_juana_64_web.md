@@ -25,7 +25,7 @@ Locales comerciales dentro del desarrollo Juana 64, pensados para negocios de ce
 | Concepto | Valor |
 | --- | ---: |
 | Precio de lista | USD 70.000 + IVA |
-| Alquiler mensual | ARS $729.000 + IVA |
+| Alquiler mensual | ARS $729.000 |
 
 ## Leasing y condiciones
 

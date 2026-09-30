@@ -478,16 +478,17 @@
           "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions",
           "prices": {
             "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
-            "tax_note": "+ IVA",
             "surface": "180 m2",
             "list_price": {
               "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.list_price",
+              "tax_note": "+ IVA",
               "value": 107000,
               "currency": "USD",
               "display": "107.000,00 USD"
             },
             "monthly_rent": {
               "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.monthly_rent",
+              "tax_note": "IVA incluido",
               "value": 1280000,
               "currency": "ARS",
               "updated_at": "2026-09-30",
@@ -856,7 +857,7 @@
       "id": "juana64_commercial_units_web_rent",
       "section": "juana_64.commercial_units.prices",
       "title": "Alquiler locales comerciales Juana 64",
-      "content": "Locales comerciales Juana 64 + IVA: precio de lista USD 70.000; alquiler mensual ARS $729.000 + IVA. Condiciones sujetas a disponibilidad y aprobacion comercial.",
+      "content": "Locales comerciales Juana 64: precio de lista USD 70.000 + IVA; alquiler mensual ARS $729.000. Condiciones sujetas a disponibilidad y aprobacion comercial.",
       "source_path": "customer_knowledge.projects.juana_64.commercial_units.prices",
       "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
       "pages": [
@@ -869,7 +870,7 @@
       "id": "ruta3_commercial_prices",
       "section": "ruta_3_commercial_units.sales_conditions.prices",
       "title": "Precios locales comerciales Ruta 3",
-      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA: precio de lista 107.000,00 USD; alquiler mensual ARS $1.280.000.",
+      "content": "Locales comerciales Ruta 3 de 180 m2: precio de lista 107.000,00 USD + IVA; alquiler mensual ARS $1.280.000.",
       "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
       "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
       "pages": [

@@ -13,7 +13,7 @@ Fuente cargada para uso interno del lead bot.
 | --- | ---: |
 | Precio de lista | 107.000,00 USD |
 
-## Alquiler locales comerciales 180 m2 + IVA
+## Alquiler locales comerciales 180 m2
 
 | Concepto | Valor |
 | --- | ---: |

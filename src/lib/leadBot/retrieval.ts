@@ -583,8 +583,8 @@ function buildPriceAnswer(message: string): KnowledgeAnswer {
 function buildRuta3PriceAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Para los locales comerciales Ruta 3 de 180 m2 + IVA, los precios de referencia son:",
-      "- Precio de lista: 107.000,00 USD.",
+      "Para los locales comerciales Ruta 3 de 180 m2, los precios de referencia son:",
+      "- Precio de lista: 107.000,00 USD + IVA.",
       "- Alquiler mensual: ARS $1.280.000.",
       "",
       `El precio de lista es de referencia comercial al ${RUTA3_PRICE_DATE}; el alquiler fue actualizado el 30/09/2026. Antes de avanzar, conviene validarlos con un asesor porque pueden cambiar segun unidad y disponibilidad.`,
@@ -597,8 +597,8 @@ function buildCommercialPriceComparisonAnswer(): KnowledgeAnswer {
   return {
     reply: [
       "Para locales comerciales, hoy tengo estos valores de referencia:",
-      "- Ruta 3, 180 m2 + IVA: precio de lista 107.000,00 USD; alquiler mensual ARS $1.280.000.",
-      "- Juana 64 + IVA: precio de lista 70.000,00 USD; alquiler mensual ARS $729.000 + IVA.",
+      "- Ruta 3, 180 m2: precio de lista 107.000,00 USD + IVA; alquiler mensual ARS $1.280.000.",
+      "- Juana 64: precio de lista 70.000,00 USD + IVA; alquiler mensual ARS $729.000.",
       "",
       "Antes de avanzar, conviene validarlo con un asesor porque precios y disponibilidad pueden cambiar.",
     ].join("\n"),
@@ -655,7 +655,7 @@ function buildJuana64CommercialSummaryAnswer(): KnowledgeAnswer {
     reply: [
       "Para locales comerciales Juana 64, hoy tengo esta referencia comercial:",
       "- Precio de lista: 70.000,00 USD + IVA.",
-      "- Alquiler mensual: ARS $729.000 + IVA.",
+      "- Alquiler mensual: ARS $729.000.",
       "- Medidas: 72 m2 por local, 6 m x 12 m.",
       "- Financiacion: leasing inmobiliario hasta 96 meses, en dolares o UVA, con 35% de adelanto.",
       "- Beneficio comercial: esta dentro del desarrollo residencial Juana 64, por eso puede servir para comercio de cercania, servicios y atencion diaria.",
@@ -675,7 +675,7 @@ function buildJuana64CommercialSummaryAnswer(): KnowledgeAnswer {
 function buildJuana64CommercialRentAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Para locales comerciales Juana 64, el alquiler mensual de referencia es ARS $729.000 + IVA.",
+      "Para locales comerciales Juana 64, el alquiler mensual de referencia es ARS $729.000.",
       "Tambien figura precio de lista 70.000,00 USD + IVA.",
       "Es informacion comercial orientativa: disponibilidad, alquiler final y condiciones se validan con un asesor.",
     ].join("\n\n"),
