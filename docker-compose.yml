@@ -15,6 +15,7 @@ services:
         - NEXT_PUBLIC_BOT_SCRIPT_URL=${NEXT_PUBLIC_BOT_SCRIPT_URL}
         - NEXT_PUBLIC_LEAD_BOT_ENABLED=${NEXT_PUBLIC_LEAD_BOT_ENABLED}
         - NEXT_PUBLIC_LEAD_BOT_WHATSAPP_NUMBER=${NEXT_PUBLIC_LEAD_BOT_WHATSAPP_NUMBER}
+        - INMOBILIARIO_PUBLIC_ORIGIN=${INMOBILIARIO_PUBLIC_ORIGIN:-https://inmobiliario.coradir.com.ar}
 
     container_name: web_coradir_homes
 
@@ -98,6 +99,12 @@ services:
       - LEAD_BOT_LLM_API_KEY=${LEAD_BOT_LLM_API_KEY}
       - LEAD_BOT_LLM_TIMEOUT_MS=${LEAD_BOT_LLM_TIMEOUT_MS:-4500}
       - LEAD_BOT_LLM_DISABLE_THINKING=${LEAD_BOT_LLM_DISABLE_THINKING:-false}
+      # Catalogo de unidades (alquileres/venta) desde Inmobiliario
+      - HOMES_CATALOG_API_URL=${HOMES_CATALOG_API_URL:-http://backend_inmobiliario_prod:3076}
+      - INMOBILIARIO_PUBLIC_ORIGIN=${INMOBILIARIO_PUBLIC_ORIGIN:-https://inmobiliario.coradir.com.ar}
+      - HOMES_CATALOG_CACHE_SECONDS=${HOMES_CATALOG_CACHE_SECONDS:-60}
+      - HOMES_CATALOG_TIMEOUT_MS=${HOMES_CATALOG_TIMEOUT_MS:-4000}
+      - HOMES_REVALIDATE_SECRET=${HOMES_REVALIDATE_SECRET}
 
     # ========================================
     # HEALTH CHECK
