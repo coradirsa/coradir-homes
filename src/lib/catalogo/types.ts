@@ -75,8 +75,9 @@ export interface Faceta<T = string> {
 export interface Facetas {
   tipos: Faceta<TipoUnidad>[];
   estados: Faceta<EstadoWeb>[];
-  ciudades: Faceta<string>[];
-  edificios: (Faceta<string> & { label: string })[];
+  provincias: Faceta<string>[];
+  ciudades: (Faceta<string> & { provincia?: string })[];
+  edificios: (Faceta<string> & { label: string; provincia?: string; ciudad?: string })[];
   dormitorios: Faceta<number>[];
   precio: Partial<Record<Moneda, { min: number; max: number } | null>>;
   superficie: { min: number; max: number } | null;
@@ -132,6 +133,7 @@ export interface FiltrosCatalogo {
   operacion: Operacion;
   tipo?: TipoUnidad[];
   estado?: ("disponible" | "proximamente" | "reservado")[];
+  provincia?: string;
   ciudad?: string;
   edificio?: string;
   precioMin?: number;

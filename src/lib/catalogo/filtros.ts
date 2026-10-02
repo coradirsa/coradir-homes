@@ -43,6 +43,7 @@ export function filtrosDesdeSearchParams(searchParams: SearchParams, operacion: 
     operacion,
     tipo: lista(searchParams.tipo, TIPOS),
     estado: lista(searchParams.estado, ESTADOS),
+    provincia: texto(searchParams.provincia),
     ciudad: texto(searchParams.ciudad),
     edificio: edificio && /^[a-z0-9-]+$/i.test(edificio) ? edificio : undefined,
     precioMin: numero(searchParams.precioMin),
@@ -71,6 +72,7 @@ function pares(filtros: Partial<FiltrosCatalogo>, { incluirOperacion }: { inclui
   if (incluirOperacion) agregar("operacion", filtros.operacion);
   agregar("tipo", filtros.tipo);
   agregar("estado", filtros.estado);
+  agregar("provincia", filtros.provincia);
   agregar("ciudad", filtros.ciudad);
   agregar("edificio", filtros.edificio);
   agregar("precioMin", filtros.precioMin);
@@ -103,6 +105,7 @@ export function contarFiltrosActivos(filtros: FiltrosCatalogo) {
   return [
     filtros.tipo?.length,
     filtros.estado?.length,
+    filtros.provincia,
     filtros.ciudad,
     filtros.edificio,
     filtros.precioMin ?? filtros.precioMax,

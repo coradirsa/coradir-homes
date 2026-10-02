@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import MaterialIcon from "../MaterialIcon";
 import { contarFiltrosActivos, queryDelSitio, TIPOS } from "@/lib/catalogo/filtros";
-import { ETIQUETA_TIPO_PLURAL } from "@/lib/catalogo/format";
-import type { Facetas, FiltrosCatalogo, Moneda, TipoUnidad } from "@/lib/catalogo/types";
+import { ETIQUETA_TIPO_PLURAL, RUTA_OPERACION } from "@/lib/catalogo/format";
+import type { Facetas, FiltrosCatalogo, Moneda, Operacion, TipoUnidad } from "@/lib/catalogo/types";
 
 type Props = {
   filtros: FiltrosCatalogo;
@@ -52,8 +53,42 @@ function PanelFiltros({ filtros, facets, aplicar }: Props & { aplicar: (cambios:
 
   const numero = (v: string) => (v.trim() === "" ? undefined : Math.max(0, Number(v)) || undefined);
 
+  // Ciudades y desarrollos de la provincia elegida (si hay una elegida).
+  const ciudades = facets.ciudades.filter((c) => !filtros.provincia || !c.provincia || c.provincia === filtros.provincia);
+  const edificios = facets.edificios.filter((e) =>
+    (!filtros.provincia || !e.provincia || e.provincia === filtros.provincia) && (!filtros.ciudad || !e.ciudad || e.ciudad === filtros.ciudad));
+
+  // Al cambiar de operacion se conservan los filtros que siguen teniendo sentido;
+  // precio y superficie se descartan (cambian moneda y escala).
+  const hrefOperacion = (operacion: Operacion) =>
+    `${RUTA_OPERACION[operacion]}${queryDelSitio({
+      tipo: filtros.tipo,
+      provincia: filtros.provincia,
+      ciudad: filtros.ciudad,
+      edificio: filtros.edificio,
+      dormitorios: filtros.dormitorios,
+      orden: filtros.orden === "m2_desc" ? filtros.orden : undefined,
+    })}`;
+
   return (
     <div>
+      <Grupo titulo="Operación">
+        <div className="grid grid-cols-2 rounded-lg bg-surface-crisp p-1" role="group" aria-label="Operación">
+          {(["alquiler", "venta"] as Operacion[]).map((op) => (
+            <Link
+              key={op}
+              href={hrefOperacion(op)}
+              aria-current={filtros.operacion === op ? "page" : undefined}
+              className={`rounded-md py-2 text-center text-[14px] font-bold transition-colors ${
+                filtros.operacion === op ? "bg-white text-blue shadow-[0_2px_8px_-2px_rgba(26,53,85,0.12)]" : "text-text-muted hover:text-blue"
+              }`}
+            >
+              {op === "alquiler" ? "Alquilar" : "Comprar"}
+            </Link>
+          ))}
+        </div>
+      </Grupo>
+
       {tiposDisponibles.length > 1 && (
         <Grupo titulo="Tipo de propiedad">
           <div className="flex flex-wrap gap-2">
@@ -86,21 +121,32 @@ function PanelFiltros({ filtros, facets, aplicar }: Props & { aplicar: (cambios:
         </Grupo>
       )}
 
-      {(facets.ciudades.length > 1 || facets.edificios.length > 1) && (
+      {facets.provincias.length > 0 && (
         <Grupo titulo="Ubicación">
           <div className="space-y-3">
-            {facets.ciudades.length > 1 && (
-              <select aria-label="Ciudad" className={inputBase} value={filtros.ciudad ?? ""} onChange={(e) => aplicar({ ciudad: e.target.value || undefined })}>
+            <select
+              aria-label="Provincia"
+              className={inputBase}
+              value={filtros.provincia ?? ""}
+              onChange={(e) => aplicar({ provincia: e.target.value || undefined, ciudad: undefined, edificio: undefined })}
+            >
+              <option value="">Todas las provincias</option>
+              {facets.provincias.map((p) => (
+                <option key={p.value} value={p.value}>{p.value} ({p.total})</option>
+              ))}
+            </select>
+            {ciudades.length > 1 && (
+              <select aria-label="Ciudad" className={inputBase} value={filtros.ciudad ?? ""} onChange={(e) => aplicar({ ciudad: e.target.value || undefined, edificio: undefined })}>
                 <option value="">Todas las ciudades</option>
-                {facets.ciudades.map((c) => (
+                {ciudades.map((c) => (
                   <option key={c.value} value={c.value}>{c.value} ({c.total})</option>
                 ))}
               </select>
             )}
-            {facets.edificios.length > 1 && (
+            {edificios.length > 1 && (
               <select aria-label="Desarrollo" className={inputBase} value={filtros.edificio ?? ""} onChange={(e) => aplicar({ edificio: e.target.value || undefined })}>
                 <option value="">Todos los desarrollos</option>
-                {facets.edificios.map((e) => (
+                {edificios.map((e) => (
                   <option key={e.value} value={e.value}>{e.label} ({e.total})</option>
                 ))}
               </select>
@@ -225,7 +271,7 @@ export default function FiltrosCatalogo({ filtros, facets }: Props) {
           aria-expanded={abierto}
         >
           <MaterialIcon name="tune" className="!text-[20px]" />
-          Filtros{activos > 0 ? ` (${activos})` : ""}
+          Filtros · {filtros.operacion === "alquiler" ? "Alquilar" : "Comprar"}{activos > 0 ? ` (${activos})` : ""}
         </button>
       </div>
 
