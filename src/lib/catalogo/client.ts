@@ -57,8 +57,15 @@ function conUrlAbsoluta(media: Media | null): Media | null {
 // ---------------------------------------------------------------------------
 
 type Entrada = { valor: unknown; guardadoEn: number };
-const cache = new Map<string, Entrada>();
-const enCurso = new Map<string, Promise<unknown>>();
+
+// En globalThis y no a nivel de modulo: Next puede cargar este archivo en bundles
+// distintos (paginas y route handlers) y /api/revalidate tiene que limpiar el
+// mismo cache que leen las paginas.
+const almacen = globalThis as typeof globalThis & {
+  __catalogoHomes?: { cache: Map<string, Entrada>; enCurso: Map<string, Promise<unknown>> };
+};
+almacen.__catalogoHomes ??= { cache: new Map(), enCurso: new Map() };
+const { cache, enCurso } = almacen.__catalogoHomes;
 
 function guardar(clave: string, valor: unknown) {
   cache.delete(clave);

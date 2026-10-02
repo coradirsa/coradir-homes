@@ -28,6 +28,14 @@ export const links: NavigationLink[] = [
             { href: "/terrenos", label: "Terrenos" },
         ],
     },
+    {
+        href: "/alquileres",
+        label: "Alquileres",
+        hover: [
+            { href: "/alquileres", label: "Propiedades en alquiler" },
+            { href: "/venta", label: "Propiedades en venta" },
+        ],
+    },
     { href: "/beneficios", label: "Beneficios", hover: null },
     { href: "/inversiones-inteligentes", label: "Inversores", hover: null },
     { href: "/contacto", label: "Contacto", hover: null },

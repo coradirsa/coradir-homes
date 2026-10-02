@@ -7,6 +7,7 @@ import ProjectForm from "../components/projectForm";
 import ReCaptcha from "../components/reCaptcha";
 import { StructuredDataScripts } from "../components/structuredDataScripts";
 import GalleryCarousel from "./components/GalleryCarousel";
+import UnidadesDestacadas from "../components/catalogo/UnidadesDestacadas";
 import {
   COMMERCIAL_CONDITIONS,
   COMMERCIAL_HERO,
@@ -16,6 +17,9 @@ import {
   JUANA_64_LEASING_PLANS,
 } from "./data";
 import type { CommercialProject } from "./types";
+
+// Muestra los locales publicados en Inmobiliario (datos en vivo, sin ISR).
+export const dynamic = "force-dynamic";
 
 export function generateMetadata(): Metadata {
   return createMetadata({ pathname: "/locales-comerciales" }).metadata;
@@ -310,6 +314,12 @@ export default function LocalesComercialesPage() {
             ))}
           </div>
         </section>
+
+        <UnidadesDestacadas
+          tipo="local"
+          titulo="Locales disponibles ahora"
+          bajada="Unidades publicadas en tiempo real, con fotos, superficie y precio actualizados."
+        />
 
         <GallerySlider />
         <LeasingSection />

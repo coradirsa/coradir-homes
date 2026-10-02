@@ -10,7 +10,7 @@ const inmobiliarioUrl = new URL(INMOBILIARIO_ORIGIN);
 
 // Las paginas del catalogo cambian cuando se publica o alquila una unidad:
 // no pueden quedar un dia entero en el cache compartido como el resto del sitio.
-const CATALOGO_PATHS = ["/alquileres", "/alquileres/:path*", "/venta", "/venta/:path*"];
+const CATALOGO_PATHS = ["/alquileres", "/alquileres/:path*", "/venta", "/venta/:path*", "/locales-comerciales"];
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,

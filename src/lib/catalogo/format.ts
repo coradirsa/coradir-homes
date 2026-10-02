@@ -82,5 +82,6 @@ export function etiquetaEstado(estado: EstadoWeb, disponibleDesde: string | null
 /** "Juana Koslay, San Luis" */
 export function ubicacionCorta(unidad: Pick<UnidadListado, "edificio">) {
   if (!unidad.edificio) return "San Luis";
-  return [unidad.edificio.ciudad, unidad.edificio.provincia].filter(Boolean).join(", ");
+  const { ciudad, provincia } = unidad.edificio;
+  return [...new Set([ciudad, provincia].filter(Boolean))].join(", ");
 }
