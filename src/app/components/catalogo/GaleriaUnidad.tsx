@@ -77,7 +77,7 @@ export default function GaleriaUnidad({ fotos, titulo }: { fotos: Media[]; titul
       </button>
 
       {abierta !== null && (
-        <div className="fixed inset-0 z-80 flex flex-col bg-navy-deep/95 font-[family-name:var(--font-raleway-sans)]" role="dialog" aria-modal="true" aria-label="Galería de fotos">
+        <div className="fixed inset-0 z-80 flex flex-col bg-navy-deep/95" role="dialog" aria-modal="true" aria-label="Galería de fotos">
           <div className="flex items-center justify-between p-4 text-white">
             <span className="text-[14px]">
               {abierta + 1} / {fotos.length}

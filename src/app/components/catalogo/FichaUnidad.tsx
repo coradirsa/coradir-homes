@@ -181,7 +181,7 @@ export default function FichaUnidad({
   const videos = unidad.videosYoutube.map(youtubeId).filter((id): id is string => Boolean(id));
 
   return (
-    <div className="bg-surface-crisp pb-16 pt-8 font-[family-name:var(--font-raleway-sans)] text-text-primary md:pt-10">
+    <div className="bg-surface-crisp pb-16 pt-8 text-text-primary md:pt-10">
       <div className="mx-auto max-w-[1360px] px-6 md:px-10 lg:px-16">
         <nav aria-label="Migas de pan" className="mb-5 text-[13px] text-text-muted">
           <ol className="flex flex-wrap items-center gap-1.5">
@@ -342,7 +342,6 @@ export default function FichaUnidad({
               </Seccion>
             )}
 
-            <div id="consulta" className="scroll-mt-6">{formulario}</div>
           </div>
 
           <aside className="hidden lg:col-span-4 lg:block">
@@ -351,6 +350,8 @@ export default function FichaUnidad({
             </div>
           </aside>
         </div>
+
+        <div id="consulta" className="-mx-6 mt-12 scroll-mt-6 md:-mx-10 lg:-mx-16">{formulario}</div>
 
         {similares.length > 0 && (
           <section className="mt-16">

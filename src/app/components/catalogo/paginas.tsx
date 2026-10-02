@@ -21,7 +21,7 @@ import {
   type Operacion,
   type UnidadFicha,
 } from "@/lib/catalogo";
-import { mensajeBusqueda, whatsappHref } from "@/lib/catalogo/contacto";
+import { SITIO_URL, mensajeBusqueda, whatsappHref } from "@/lib/catalogo/contacto";
 import { Interests, type Interests as Interes } from "@/schemas/formSchema";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
@@ -80,7 +80,7 @@ export async function metadataFicha(slug: string, operacion: Operacion): Promise
   }).metadata;
 }
 
-/** Interes del formulario actual del sitio (Fase 6 lo reemplaza por un lead ligado a la unidad). */
+/** Interes del formulario (para el mail de n8n); la unidad viaja aparte en `unidad`. */
 function interesPara(unidad: UnidadFicha): Interes {
   const slug = unidad.edificio?.slug;
   if (slug && (Interests.options as readonly string[]).includes(slug)) return slug as Interes;
@@ -90,7 +90,7 @@ function interesPara(unidad: UnidadFicha): Interes {
 
 function CatalogoCaido({ operacion }: { operacion: Operacion }) {
   return (
-    <div className="bg-surface-crisp px-6 pb-20 pt-16 text-center font-[family-name:var(--font-raleway-sans)]">
+    <div className="bg-surface-crisp px-6 pb-20 pt-16 text-center">
       <MaterialIcon name="cloud_off" className="!text-[48px] text-blue-gray" />
       <h1 className="mt-4 text-[26px] font-bold text-blue">No pudimos cargar esta propiedad</h1>
       <p className="mx-auto mt-2 max-w-md text-[15px] text-text-muted">Probá de nuevo en unos minutos o consultanos directamente.</p>
@@ -121,6 +121,16 @@ export async function PaginaFicha({ slug, operacion }: { slug: string; operacion
         submitLabel="Enviar consulta"
         id="formulario-unidad"
         transactionTypes={[operacion === "alquiler" ? "alquilar" : "comprar"]}
+        backgroundImage={unidad.portada?.url}
+        unidad={{
+          id: unidad.id,
+          slug: unidad.slug,
+          tipo: unidad.tipo,
+          operacion,
+          titulo: unidad.titulo,
+          codigo: unidad.codigo,
+          url: `${SITIO_URL}${rutaUnidad(operacion, unidad.slug)}`,
+        }}
       />
     </ReCaptcha>
   );

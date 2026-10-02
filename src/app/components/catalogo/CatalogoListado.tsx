@@ -30,7 +30,7 @@ export default async function CatalogoListado({ filtros }: { filtros: Filtros })
   const totalPublicado = resultado.facets.tipos.reduce((acc, t) => acc + t.total, 0);
 
   return (
-    <div className="bg-surface-crisp font-[family-name:var(--font-raleway-sans)] text-text-primary">
+    <div className="bg-surface-crisp text-text-primary">
       <section className="relative overflow-hidden bg-blue pb-12 pt-12 text-white md:pt-16">
         <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:48px_48px]" />
         <div className="relative mx-auto max-w-[1360px] px-6 md:px-10 lg:px-16">
