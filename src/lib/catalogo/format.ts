@@ -2,10 +2,8 @@
 
 import type { EstadoWeb, Moneda, Operacion, Precio, TipoUnidad, UnidadListado } from "./types";
 
-export const RUTA_OPERACION: Record<Operacion, string> = {
-  alquiler: "/alquileres",
-  venta: "/venta",
-};
+/** Pagina unica del catalogo: alquiler y venta se filtran con ?operacion=. */
+export const RUTA_CATALOGO = "/unidades";
 
 export const ETIQUETA_TIPO: Record<TipoUnidad, string> = {
   departamento: "Departamento",
@@ -43,9 +41,15 @@ export const ETIQUETA_TIPO_LOCAL: Record<string, string> = {
   complejo: "En complejo",
 };
 
-export function rutaUnidad(operacion: Operacion, slug: string) {
-  return `${RUTA_OPERACION[operacion]}/${slug}`;
+/** Ficha de una unidad; la operacion (opcional) elige que precio se muestra primero. */
+export function rutaUnidad(slug: string, operacion?: Operacion) {
+  return `${RUTA_CATALOGO}/${slug}${operacion ? `?operacion=${operacion}` : ""}`;
 }
+
+export const ETIQUETA_OPERACION: Record<Operacion, string> = {
+  alquiler: "Alquiler",
+  venta: "Venta",
+};
 
 export function formatMonto(monto: number, moneda: Moneda) {
   const valor = new Intl.NumberFormat("es-AR", { maximumFractionDigits: 0 }).format(monto);

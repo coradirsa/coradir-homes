@@ -3,6 +3,7 @@ import Link from "next/link";
 import MaterialIcon from "../MaterialIcon";
 import EstadoBadge from "./EstadoBadge";
 import {
+  ETIQUETA_OPERACION,
   ETIQUETA_TIPO,
   formatPrecio,
   rutaUnidad,
@@ -37,7 +38,10 @@ function specsDe(unidad: UnidadListado) {
 
 export default function UnidadCard({ unidad, prioridad = false }: { unidad: UnidadListado; prioridad?: boolean }) {
   const precio = formatPrecio(unidad.precio, unidad.operacion);
-  const otraOperacion = unidad.operaciones.find((op) => op !== unidad.operacion);
+  // Si la unidad esta en venta y en alquiler, la card muestra tambien el otro precio.
+  const otraOferta = unidad.ofertas?.find((o) => o.operacion !== unidad.operacion);
+  const otraOperacion = otraOferta?.operacion ?? unidad.operaciones.find((op) => op !== unidad.operacion);
+  const href = rutaUnidad(unidad.slug, unidad.operaciones.length > 1 ? unidad.operacion : undefined);
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-white shadow-[0_2px_8px_-2px_rgba(26,53,85,0.06),0_1px_3px_0_rgba(26,53,85,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[0_12px_24px_-4px_rgba(26,53,85,0.10),0_4px_8px_-2px_rgba(26,53,85,0.04)]">
@@ -73,7 +77,7 @@ export default function UnidadCard({ unidad, prioridad = false }: { unidad: Unid
 
       <div className="flex flex-1 flex-col p-5">
         <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-text-muted">
-          {ETIQUETA_TIPO[unidad.tipo]} · {unidad.operacion === "alquiler" ? "Alquiler" : "Venta"}
+          {ETIQUETA_TIPO[unidad.tipo]} · {unidad.operaciones.map((op) => ETIQUETA_OPERACION[op]).join(" y ")}
         </span>
         <div className="mt-1 flex items-baseline gap-1.5">
           <span className="text-[24px] font-extrabold leading-[30px] tracking-[-0.01em] text-blue">{precio.principal}</span>
@@ -84,11 +88,14 @@ export default function UnidadCard({ unidad, prioridad = false }: { unidad: Unid
           <span className="text-[13px] text-text-muted">+ $ {new Intl.NumberFormat("es-AR").format(unidad.expensas)} expensas</span>
         ) : null}
         {otraOperacion && (
-          <span className="text-[12px] font-semibold text-blue-gray">También en {otraOperacion === "venta" ? "venta" : "alquiler"}</span>
+          <span className="text-[12px] font-semibold text-blue-gray">
+            {otraOperacion === "venta" ? "Venta" : "Alquiler"}: {formatPrecio(otraOferta?.precio ?? null, otraOperacion).principal}
+            {otraOperacion === "alquiler" && otraOferta?.precio ? " / mes" : ""}
+          </span>
         )}
 
         <h3 className="mt-3 text-[18px] font-bold leading-[26px] text-blue">
-          <Link href={rutaUnidad(unidad.operacion, unidad.slug)} className="after:absolute after:inset-0 focus:outline-none">
+          <Link href={href} className="after:absolute after:inset-0 focus:outline-none">
             {unidad.titulo}
           </Link>
         </h3>

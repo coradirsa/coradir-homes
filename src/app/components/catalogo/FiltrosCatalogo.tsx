@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import MaterialIcon from "../MaterialIcon";
 import { contarFiltrosActivos, queryDelSitio, TIPOS } from "@/lib/catalogo/filtros";
-import { ETIQUETA_TIPO_PLURAL, RUTA_OPERACION } from "@/lib/catalogo/format";
+import { ETIQUETA_TIPO_PLURAL } from "@/lib/catalogo/format";
 import type { Facetas, FiltrosCatalogo, Moneda, Operacion, TipoUnidad } from "@/lib/catalogo/types";
 
 type Props = {
@@ -58,34 +57,29 @@ function PanelFiltros({ filtros, facets, aplicar }: Props & { aplicar: (cambios:
   const edificios = facets.edificios.filter((e) =>
     (!filtros.provincia || !e.provincia || e.provincia === filtros.provincia) && (!filtros.ciudad || !e.ciudad || e.ciudad === filtros.ciudad));
 
-  // Al cambiar de operacion se conservan los filtros que siguen teniendo sentido;
-  // precio y superficie se descartan (cambian moneda y escala).
-  const hrefOperacion = (operacion: Operacion) =>
-    `${RUTA_OPERACION[operacion]}${queryDelSitio({
-      tipo: filtros.tipo,
-      provincia: filtros.provincia,
-      ciudad: filtros.ciudad,
-      edificio: filtros.edificio,
-      dormitorios: filtros.dormitorios,
-      orden: filtros.orden === "m2_desc" ? filtros.orden : undefined,
-    })}`;
-
   return (
     <div>
       <Grupo titulo="Operación">
-        <div className="grid grid-cols-2 rounded-lg bg-surface-crisp p-1" role="group" aria-label="Operación">
-          {(["alquiler", "venta"] as Operacion[]).map((op) => (
-            <Link
-              key={op}
-              href={hrefOperacion(op)}
-              aria-current={filtros.operacion === op ? "page" : undefined}
-              className={`rounded-md py-2 text-center text-[14px] font-bold transition-colors ${
-                filtros.operacion === op ? "bg-white text-blue shadow-[0_2px_8px_-2px_rgba(26,53,85,0.12)]" : "text-text-muted hover:text-blue"
-              }`}
-            >
-              {op === "alquiler" ? "Alquilar" : "Comprar"}
-            </Link>
-          ))}
+        <div className="grid grid-cols-3 rounded-lg bg-surface-crisp p-1" role="group" aria-label="Operación">
+          {([undefined, "alquiler", "venta"] as (Operacion | undefined)[]).map((op) => {
+            const activo = filtros.operacion === op;
+            const total = op ? facets.operaciones.find((o) => o.value === op)?.total ?? 0 : null;
+            return (
+              <button
+                key={op ?? "todas"}
+                type="button"
+                aria-pressed={activo}
+                // Al cambiar de operacion se descarta el precio (cambian moneda y escala).
+                onClick={() => aplicar({ operacion: op, precioMin: undefined, precioMax: undefined, moneda: undefined })}
+                className={`rounded-md py-2 text-center text-[13px] font-bold transition-colors ${
+                  activo ? "bg-white text-blue shadow-[0_2px_8px_-2px_rgba(26,53,85,0.12)]" : "text-text-muted hover:text-blue"
+                }`}
+              >
+                {op === "alquiler" ? "Alquiler" : op === "venta" ? "Venta" : "Todas"}
+                {total !== null && <span className="ml-1 text-[11px] font-medium opacity-70">{total}</span>}
+              </button>
+            );
+          })}
         </div>
       </Grupo>
 
@@ -167,7 +161,13 @@ function PanelFiltros({ filtros, facets, aplicar }: Props & { aplicar: (cambios:
         </Grupo>
       )}
 
-      {monedas.length > 0 && (
+      {monedas.length > 0 && !filtros.operacion && (
+        <Grupo titulo="Precio">
+          <p className="text-[13px] text-text-muted">Elegí <strong>Alquiler</strong> o <strong>Venta</strong> para filtrar por precio.</p>
+        </Grupo>
+      )}
+
+      {monedas.length > 0 && filtros.operacion && (
         <Grupo titulo="Precio">
           <form
             className="space-y-3"
@@ -271,7 +271,7 @@ export default function FiltrosCatalogo({ filtros, facets }: Props) {
           aria-expanded={abierto}
         >
           <MaterialIcon name="tune" className="!text-[20px]" />
-          Filtros · {filtros.operacion === "alquiler" ? "Alquilar" : "Comprar"}{activos > 0 ? ` (${activos})` : ""}
+          Filtros{activos > 0 ? ` (${activos})` : ""}
         </button>
       </div>
 

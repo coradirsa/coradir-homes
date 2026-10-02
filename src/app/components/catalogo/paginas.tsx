@@ -13,6 +13,8 @@ import {
   CatalogoNoDisponibleError,
   ETIQUETA_TIPO,
   filtrosDesdeSearchParams,
+  operacionDesde,
+  RUTA_CATALOGO,
   formatPrecio,
   listarUnidades,
   obtenerUnidad,
@@ -26,57 +28,58 @@ import { Interests, type Interests as Interes } from "@/schemas/formSchema";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
-const METADATA_LISTADO: Record<Operacion, { pathname: string; title: string; description: string }> = {
-  alquiler: {
-    pathname: "/alquileres",
-    title: "Alquileres en San Luis | Departamentos, locales y cocheras | Coradir Homes",
-    description:
-      "Departamentos, locales comerciales y cocheras en alquiler en San Luis y Juana Koslay, publicados directo por Coradir Homes. Fotos, precios y disponibilidad actualizados.",
-  },
-  venta: {
-    pathname: "/venta",
-    title: "Propiedades en venta en San Luis | Coradir Homes",
-    description:
-      "Departamentos, locales y cocheras en venta en San Luis: unidades terminadas y en desarrollo de Coradir Homes, con financiación y leasing inmobiliario.",
-  },
-};
-
-export function metadataListado(operacion: Operacion): Metadata {
-  const meta = METADATA_LISTADO[operacion];
-  return createMetadata({ pathname: meta.pathname, overrides: { title: meta.title, description: meta.description } }).metadata;
+export function metadataListado(): Metadata {
+  return createMetadata({
+    pathname: RUTA_CATALOGO,
+    overrides: {
+      title: "Unidades disponibles en alquiler y venta en San Luis | Coradir Homes",
+      description:
+        "Departamentos, locales comerciales y cocheras de Coradir Homes en alquiler y en venta en San Luis y Juana Koslay. Fotos, precios y disponibilidad actualizados.",
+    },
+  }).metadata;
 }
 
-export async function PaginaListado({ operacion, searchParams }: { operacion: Operacion; searchParams: SearchParams }) {
-  const filtros = filtrosDesdeSearchParams(await searchParams, operacion);
+export async function PaginaListado({ searchParams }: { searchParams: SearchParams }) {
+  const filtros = filtrosDesdeSearchParams(await searchParams);
   return <CatalogoListado filtros={filtros} />;
 }
 
-async function cargarFicha(slug: string, operacion: Operacion) {
+async function cargarFicha(slug: string) {
   try {
-    return { unidad: await obtenerUnidad(slug, operacion), error: false };
+    return { unidad: await obtenerUnidad(slug), error: false };
   } catch (error) {
     if (error instanceof CatalogoNoDisponibleError) return { unidad: null, error: true };
     throw error;
   }
 }
 
-export async function metadataFicha(slug: string, operacion: Operacion): Promise<Metadata> {
-  const { unidad } = await cargarFicha(slug, operacion);
-  if (!unidad || !unidad.ofertas.some((o) => o.operacion === operacion)) {
-    return { title: "Propiedad no disponible | Coradir Homes", robots: { index: false } };
+/** Operacion que se muestra primero: la pedida si la unidad la ofrece; si no, alquiler y despues venta. */
+function operacionPrincipal(unidad: UnidadFicha, pedida?: Operacion): Operacion {
+  if (pedida && unidad.ofertas.some((o) => o.operacion === pedida)) return pedida;
+  return unidad.ofertas.find((o) => o.operacion === "alquiler")?.operacion ?? unidad.ofertas[0].operacion;
+}
+
+export async function metadataFicha(slug: string): Promise<Metadata> {
+  const { unidad } = await cargarFicha(slug);
+  if (!unidad || !unidad.ofertas.length) {
+    return { title: "Unidad no disponible | Coradir Homes", robots: { index: false } };
   }
-  const oferta = unidad.ofertas.find((o) => o.operacion === operacion)!;
-  const precio = formatPrecio(oferta.precio, operacion);
-  const que = operacion === "alquiler" ? "en alquiler" : "en venta";
+  const que = unidad.ofertas.map((o) => (o.operacion === "alquiler" ? "alquiler" : "venta")).join(" y ");
+  const precios = unidad.ofertas
+    .map((o) => {
+      const p = formatPrecio(o.precio, o.operacion);
+      return `${o.operacion === "alquiler" ? "Alquiler" : "Venta"}: ${p.principal}${p.sufijo ? ` ${p.sufijo}` : ""}`;
+    })
+    .join(" · ");
   const description = [
-    `${ETIQUETA_TIPO[unidad.tipo]} ${que} en ${ubicacionCorta(unidad)}.`,
+    `${ETIQUETA_TIPO[unidad.tipo]} en ${que} en ${ubicacionCorta(unidad)}.`,
     unidad.superficie.total ? `${unidad.superficie.total} m².` : "",
-    `${precio.principal}${precio.sufijo ? ` ${precio.sufijo}` : ""}.`,
+    `${precios}.`,
   ].filter(Boolean).join(" ");
   return createMetadata({
-    pathname: rutaUnidad(operacion, unidad.slug),
+    pathname: rutaUnidad(unidad.slug),
     image: unidad.portada?.url,
-    overrides: { title: `${unidad.titulo} ${que} | Coradir Homes`, description },
+    overrides: { title: `${unidad.titulo} en ${que} | Coradir Homes`, description },
   }).metadata;
 }
 
@@ -88,27 +91,27 @@ function interesPara(unidad: UnidadFicha): Interes {
   return "contacto-general";
 }
 
-function CatalogoCaido({ operacion }: { operacion: Operacion }) {
+function CatalogoCaido() {
   return (
     <div className="bg-surface-crisp px-6 pb-20 pt-16 text-center">
       <MaterialIcon name="cloud_off" className="!text-[48px] text-blue-gray" />
-      <h1 className="mt-4 text-[26px] font-bold text-blue">No pudimos cargar esta propiedad</h1>
+      <h1 className="mt-4 text-[26px] font-bold text-blue">No pudimos cargar esta unidad</h1>
       <p className="mx-auto mt-2 max-w-md text-[15px] text-text-muted">Probá de nuevo en unos minutos o consultanos directamente.</p>
-      <WhatsAppLink href={whatsappHref(mensajeBusqueda(operacion))} target="_blank"
+      <WhatsAppLink href={whatsappHref(mensajeBusqueda())} target="_blank"
         className="mt-6 inline-flex items-center gap-2 rounded-lg bg-whatsapp px-5 py-3 text-[15px] font-bold text-white">
-        <MaterialIcon name="chat" className="!text-[18px]" /> Escribinos por WhatsApp
+        <MaterialIcon name="chat" className="!text-[18px]" /> Consultanos por WhatsApp
       </WhatsAppLink>
     </div>
   );
 }
 
-export async function PaginaFicha({ slug, operacion }: { slug: string; operacion: Operacion }) {
-  const { unidad, error } = await cargarFicha(slug, operacion);
-  if (error) return <CatalogoCaido operacion={operacion} />;
-  // La unidad existe pero no en esta operacion (ej. /venta/x de una unidad solo en alquiler).
-  if (!unidad || !unidad.ofertas.some((o) => o.operacion === operacion)) notFound();
+export async function PaginaFicha({ slug, searchParams }: { slug: string; searchParams: SearchParams }) {
+  const { unidad, error } = await cargarFicha(slug);
+  if (error) return <CatalogoCaido />;
+  if (!unidad || !unidad.ofertas.length) notFound();
 
-  const relacionadas = await listarUnidades({ operacion, tipo: [unidad.tipo], limit: 4, page: 1 });
+  const operacion = operacionPrincipal(unidad, operacionDesde((await searchParams).operacion));
+  const relacionadas = await listarUnidades({ tipo: [unidad.tipo], limit: 4, page: 1 });
   const similares = relacionadas.data.filter((u) => u.id !== unidad.id).slice(0, 3);
 
   const formulario = (
@@ -116,11 +119,11 @@ export async function PaginaFicha({ slug, operacion }: { slug: string; operacion
       <ProjectForm
         interest={interesPara(unidad)}
         layout="split"
-        heading="¿Te interesa esta propiedad?"
+        heading="¿Te interesa esta unidad?"
         subtitle={`Dejanos tus datos y un asesor te contacta por ${unidad.codigo ? `la unidad ${unidad.codigo}` : "esta unidad"}.`}
         submitLabel="Enviar consulta"
         id="formulario-unidad"
-        transactionTypes={[operacion === "alquiler" ? "alquilar" : "comprar"]}
+        transactionTypes={unidad.ofertas.length > 1 ? ["alquilar", "comprar"] : [operacion === "alquiler" ? "alquilar" : "comprar"]}
         backgroundImage={unidad.portada?.url}
         unidad={{
           id: unidad.id,
@@ -129,7 +132,7 @@ export async function PaginaFicha({ slug, operacion }: { slug: string; operacion
           operacion,
           titulo: unidad.titulo,
           codigo: unidad.codigo,
-          url: `${SITIO_URL}${rutaUnidad(operacion, unidad.slug)}`,
+          url: `${SITIO_URL}${rutaUnidad(unidad.slug, operacion)}`,
         }}
       />
     </ReCaptcha>

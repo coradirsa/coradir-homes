@@ -1,6 +1,6 @@
 import Link from "next/link";
 import MaterialIcon from "../MaterialIcon";
-import { queryDelSitio, RUTA_OPERACION, type FiltrosCatalogo } from "@/lib/catalogo";
+import { queryDelSitio, RUTA_CATALOGO, type FiltrosCatalogo } from "@/lib/catalogo";
 
 export default function Paginacion({ filtros, total }: { filtros: FiltrosCatalogo; total: number }) {
   const porPagina = filtros.limit ?? 24;
@@ -8,7 +8,7 @@ export default function Paginacion({ filtros, total }: { filtros: FiltrosCatalog
   const actual = filtros.page ?? 1;
   if (paginas <= 1) return null;
 
-  const href = (page: number) => `${RUTA_OPERACION[filtros.operacion]}${queryDelSitio({ ...filtros, page })}`;
+  const href = (page: number) => `${RUTA_CATALOGO}${queryDelSitio({ ...filtros, page })}`;
   const numeros = Array.from({ length: paginas }, (_, i) => i + 1).filter(
     (n) => n === 1 || n === paginas || Math.abs(n - actual) <= 1
   );

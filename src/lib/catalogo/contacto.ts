@@ -16,8 +16,9 @@ export function mensajeUnidad({ titulo, codigo, operacion, url }: { titulo: stri
   return `Hola, me interesa ${que} ${titulo}${ref}. ${url}`;
 }
 
-export function mensajeBusqueda(operacion: Operacion) {
-  return operacion === "alquiler"
-    ? "Hola, estoy buscando una propiedad en alquiler. ¿Me avisan cuando haya algo disponible?"
-    : "Hola, estoy buscando una propiedad para comprar. ¿Me avisan cuando haya algo disponible?";
+/** Consulta general desde el listado (CTA del hero, estado vacio). */
+export function mensajeBusqueda(operacion?: Operacion) {
+  if (operacion === "alquiler") return "Hola, estoy buscando una unidad para alquilar. ¿Me pueden asesorar?";
+  if (operacion === "venta") return "Hola, estoy buscando una unidad para comprar. ¿Me pueden asesorar?";
+  return "Hola, quiero consultar por las unidades disponibles de Coradir Homes.";
 }

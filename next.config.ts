@@ -10,7 +10,7 @@ const inmobiliarioUrl = new URL(INMOBILIARIO_ORIGIN);
 
 // Las paginas del catalogo cambian cuando se publica o alquila una unidad:
 // no pueden quedar un dia entero en el cache compartido como el resto del sitio.
-const CATALOGO_PATHS = ["/alquileres", "/alquileres/:path*", "/venta", "/venta/:path*", "/locales-comerciales"];
+const CATALOGO_PATHS = ["/unidades", "/unidades/:path*", "/locales-comerciales"];
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -47,6 +47,11 @@ const nextConfig: NextConfig = {
         destination: "https://torre2.coradir.com.ar/manuales/",
         permanent: true,
       },
+      // Catalogo: una sola pagina (/unidades) con alquiler y venta como filtro.
+      { source: "/alquileres", destination: "/unidades?operacion=alquiler", permanent: true },
+      { source: "/alquileres/:slug", destination: "/unidades/:slug?operacion=alquiler", permanent: true },
+      { source: "/venta", destination: "/unidades?operacion=venta", permanent: true },
+      { source: "/venta/:slug", destination: "/unidades/:slug?operacion=venta", permanent: true },
       {
         source: "/complejo-coradir",
         destination: "/locales-comerciales",

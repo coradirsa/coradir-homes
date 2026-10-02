@@ -143,7 +143,7 @@ const LISTADO_VACIO: ListadoUnidades = {
   total: 0,
   page: 1,
   limit: 24,
-  facets: { tipos: [], estados: [], provincias: [], ciudades: [], edificios: [], dormitorios: [], precio: {}, superficie: null },
+  facets: { operaciones: [], tipos: [], estados: [], provincias: [], ciudades: [], edificios: [], dormitorios: [], precio: {}, superficie: null },
 };
 
 /**
@@ -163,7 +163,7 @@ export async function listarUnidades(filtros: FiltrosCatalogo): Promise<ListadoU
         page: cuerpo.page,
         limit: cuerpo.limit,
         // provincias se agrego despues: tolerar backends que todavia no la devuelven.
-        facets: { ...cuerpo.facets, provincias: cuerpo.facets?.provincias ?? [] },
+        facets: { ...cuerpo.facets, provincias: cuerpo.facets?.provincias ?? [], operaciones: cuerpo.facets?.operaciones ?? [] },
       } satisfies ListadoUnidades;
     });
     return resultado;

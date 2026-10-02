@@ -10,7 +10,7 @@ import {
   ETIQUETA_CONSERVACION,
   ETIQUETA_TIPO,
   ETIQUETA_TIPO_LOCAL,
-  RUTA_OPERACION,
+  RUTA_CATALOGO,
   formatMesAnio,
   formatPrecio,
   rutaUnidad,
@@ -93,7 +93,7 @@ function TarjetaPrecio({ unidad, operacion }: { unidad: UnidadFicha; operacion: 
   const oferta = unidad.ofertas.find((o) => o.operacion === operacion) ?? unidad.ofertas[0];
   const otra = unidad.ofertas.find((o) => o.operacion !== oferta.operacion);
   const precio = formatPrecio(oferta.precio, oferta.operacion);
-  const url = `${SITIO_URL}${rutaUnidad(oferta.operacion, unidad.slug)}`;
+  const url = `${SITIO_URL}${rutaUnidad(unidad.slug, oferta.operacion)}`;
   const mensaje = mensajeUnidad({ titulo: unidad.titulo, codigo: unidad.codigo, operacion: oferta.operacion, url });
 
   return (
@@ -103,7 +103,8 @@ function TarjetaPrecio({ unidad, operacion }: { unidad: UnidadFicha; operacion: 
           {unidad.ofertas.map((o) => (
             <Link
               key={o.operacion}
-              href={rutaUnidad(o.operacion, unidad.slug)}
+              href={rutaUnidad(unidad.slug, o.operacion)}
+              scroll={false}
               aria-current={o.operacion === oferta.operacion ? "page" : undefined}
               className={`flex-1 rounded-md py-2 text-center text-[14px] font-bold ${o.operacion === oferta.operacion ? "bg-white text-blue shadow-sm" : "text-text-muted hover:text-blue"}`}
             >
@@ -177,7 +178,7 @@ export default function FichaUnidad({
       : unidad.edificio
         ? `https://www.google.com/maps?q=${encodeURIComponent(`${unidad.edificio.direccion}, ${unidad.edificio.ciudad}, ${unidad.edificio.provincia}`)}&output=embed`
         : null;
-  const condiciones = operacion === "alquiler" && unidad.condicionesAlquiler ? Object.entries(unidad.condicionesAlquiler) : [];
+  const condiciones = unidad.ofertas.some((o) => o.operacion === "alquiler") && unidad.condicionesAlquiler ? Object.entries(unidad.condicionesAlquiler) : [];
   const videos = unidad.videosYoutube.map(youtubeId).filter((id): id is string => Boolean(id));
 
   return (
@@ -187,7 +188,7 @@ export default function FichaUnidad({
           <ol className="flex flex-wrap items-center gap-1.5">
             <li><Link href="/" className="hover:text-blue">Inicio</Link></li>
             <li aria-hidden>/</li>
-            <li><Link href={RUTA_OPERACION[operacion]} className="hover:text-blue">{operacion === "alquiler" ? "Alquileres" : "Venta"}</Link></li>
+            <li><Link href={RUTA_CATALOGO} className="hover:text-blue">Unidades disponibles</Link></li>
             <li aria-hidden>/</li>
             <li className="font-semibold text-text-primary" aria-current="page">{unidad.titulo}</li>
           </ol>
@@ -357,7 +358,7 @@ export default function FichaUnidad({
           <section className="mt-16">
             <div className="mb-6 flex items-end justify-between gap-4">
               <h2 className="text-[22px] font-bold text-blue md:text-[28px]">También te puede interesar</h2>
-              <Link href={RUTA_OPERACION[operacion]} className="text-[14px] font-semibold text-blue hover:underline">Ver todas</Link>
+              <Link href={RUTA_CATALOGO} className="text-[14px] font-semibold text-blue hover:underline">Ver todas</Link>
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
               {similares.map((u) => <UnidadCard key={u.id} unidad={u} />)}

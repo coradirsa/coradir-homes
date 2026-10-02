@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MaterialIcon from "../MaterialIcon";
 import UnidadCard from "./UnidadCard";
-import { listarUnidades, queryDelSitio, RUTA_OPERACION, type Operacion, type TipoUnidad } from "@/lib/catalogo";
+import { listarUnidades, queryDelSitio, RUTA_CATALOGO, type Operacion, type TipoUnidad } from "@/lib/catalogo";
 
 /**
  * Bloque con unidades reales del catalogo para paginas de marketing
@@ -23,7 +23,7 @@ export default async function UnidadesDestacadas({
   const resultado = await listarUnidades({ operacion, tipo: [tipo], orden: "recientes", limit: cantidad, page: 1 });
   if (!resultado.data.length) return null;
 
-  const verTodas = `${RUTA_OPERACION[operacion]}${queryDelSitio({ tipo: [tipo] })}`;
+  const verTodas = `${RUTA_CATALOGO}${queryDelSitio({ tipo: [tipo], operacion })}`;
 
   return (
     <section className="bg-surface-crisp px-5 py-14 md:py-20">

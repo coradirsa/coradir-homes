@@ -64,6 +64,8 @@ export interface UnidadListado {
   cantidadFotos: number;
   amenitiesDestacados: string[];
   actualizadoEn: string;
+  /** Todas las ofertas publicadas de la unidad (venta y/o alquiler). */
+  ofertas?: Oferta[];
 }
 
 export interface Faceta<T = string> {
@@ -73,6 +75,7 @@ export interface Faceta<T = string> {
 }
 
 export interface Facetas {
+  operaciones: Faceta<Operacion>[];
   tipos: Faceta<TipoUnidad>[];
   estados: Faceta<EstadoWeb>[];
   provincias: Faceta<string>[];
@@ -103,7 +106,7 @@ export interface AmenityGrupo {
   items: { codigo: string; nombre: string; icono: string | null; origen: "edificio" | "unidad" }[];
 }
 
-export interface UnidadFicha extends Omit<UnidadListado, "edificio"> {
+export interface UnidadFicha extends Omit<UnidadListado, "edificio" | "ofertas"> {
   descripcion: string | null;
   ofertas: Oferta[];
   galeria: Media[];
@@ -130,7 +133,8 @@ export interface UnidadFicha extends Omit<UnidadListado, "edificio"> {
 
 /** Filtros del listado tal como los entiende la API. */
 export interface FiltrosCatalogo {
-  operacion: Operacion;
+  /** Sin operacion se listan alquiler y venta juntos. */
+  operacion?: Operacion;
   tipo?: TipoUnidad[];
   estado?: ("disponible" | "proximamente" | "reservado")[];
   provincia?: string;

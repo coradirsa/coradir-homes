@@ -35,12 +35,17 @@ function texto(valor: string | string[] | undefined, maximo = 80) {
 }
 
 /** Lee y valida los searchParams de la pagina. Lo que no se entiende se ignora. */
-export function filtrosDesdeSearchParams(searchParams: SearchParams, operacion: Operacion): FiltrosCatalogo {
+export function operacionDesde(valor: string | string[] | undefined): Operacion | undefined {
+  const crudo = primero(valor);
+  return crudo === "alquiler" || crudo === "venta" ? crudo : undefined;
+}
+
+export function filtrosDesdeSearchParams(searchParams: SearchParams): FiltrosCatalogo {
   const orden = primero(searchParams.orden) as OrdenCatalogo | undefined;
   const moneda = primero(searchParams.moneda)?.toUpperCase() as Moneda | undefined;
   const edificio = texto(searchParams.edificio);
   return {
-    operacion,
+    operacion: operacionDesde(searchParams.operacion),
     tipo: lista(searchParams.tipo, TIPOS),
     estado: lista(searchParams.estado, ESTADOS),
     provincia: texto(searchParams.provincia),
@@ -59,7 +64,7 @@ export function filtrosDesdeSearchParams(searchParams: SearchParams, operacion: 
 }
 
 /** Pares clave/valor de los filtros (sin vacios), en orden estable. */
-function pares(filtros: Partial<FiltrosCatalogo>, { incluirOperacion }: { incluirOperacion: boolean }) {
+function pares(filtros: Partial<FiltrosCatalogo>) {
   const salida: [string, string][] = [];
   const agregar = (clave: string, valor: unknown) => {
     if (valor === undefined || valor === null || valor === "") return;
@@ -69,7 +74,7 @@ function pares(filtros: Partial<FiltrosCatalogo>, { incluirOperacion }: { inclui
     }
     salida.push([clave, String(valor)]);
   };
-  if (incluirOperacion) agregar("operacion", filtros.operacion);
+  agregar("operacion", filtros.operacion);
   agregar("tipo", filtros.tipo);
   agregar("estado", filtros.estado);
   agregar("provincia", filtros.provincia);
@@ -88,14 +93,14 @@ function pares(filtros: Partial<FiltrosCatalogo>, { incluirOperacion }: { inclui
 
 /** Query string para la API de Inmobiliario. */
 export function construirQuery(filtros: FiltrosCatalogo) {
-  const params = new URLSearchParams(pares(filtros, { incluirOperacion: true }));
+  const params = new URLSearchParams(pares(filtros));
   params.set("limit", String(filtros.limit ?? POR_PAGINA));
   return params.toString();
 }
 
-/** Query string para los links del sitio (sin operacion: va en la ruta). */
+/** Query string para los links del sitio. */
 export function queryDelSitio(filtros: Partial<FiltrosCatalogo>) {
-  const params = new URLSearchParams(pares(filtros, { incluirOperacion: false }));
+  const params = new URLSearchParams(pares(filtros));
   const qs = params.toString();
   return qs ? `?${qs}` : "";
 }
@@ -103,6 +108,7 @@ export function queryDelSitio(filtros: Partial<FiltrosCatalogo>) {
 /** Cantidad de filtros activos (para el badge del boton de filtros en mobile). */
 export function contarFiltrosActivos(filtros: FiltrosCatalogo) {
   return [
+    filtros.operacion,
     filtros.tipo?.length,
     filtros.estado?.length,
     filtros.provincia,

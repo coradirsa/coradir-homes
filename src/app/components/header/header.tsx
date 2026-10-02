@@ -29,11 +29,12 @@ export const links: NavigationLink[] = [
         ],
     },
     {
-        href: "/alquileres",
-        label: "Alquileres",
+        href: "/unidades",
+        label: "Unidades",
         hover: [
-            { href: "/alquileres", label: "Propiedades en alquiler" },
-            { href: "/venta", label: "Propiedades en venta" },
+            { href: "/unidades", label: "Todas las unidades" },
+            { href: "/unidades?operacion=alquiler", label: "En alquiler" },
+            { href: "/unidades?operacion=venta", label: "En venta" },
         ],
     },
     { href: "/beneficios", label: "Beneficios", hover: null },
