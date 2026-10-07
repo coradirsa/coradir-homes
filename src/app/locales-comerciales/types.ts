@@ -27,6 +27,33 @@ export type CommercialProject = {
   }>;
   suitableFor: string[];
   validationNote?: string;
+  /** Resumen para el hero y el comparador del rediseño. */
+  reference: {
+    shortName: string;
+    zone: string;
+    icon: string;
+    units: number;
+    surface: string;
+    rent: string;
+    sale: string;
+    /** Precio de compra adelantada / pozo contado. */
+    saleAdvance: { label: string; value: string };
+    profile: string;
+  };
+};
+
+export type AccessModel = {
+  icon: string;
+  title: string;
+  description: string;
+  items: Array<{ label: string; value: string }>;
+  footnote: string;
+};
+
+export type ProjectLeasing = {
+  project: string;
+  downPayment: string;
+  plans: Array<{ term: string; interest: string; monthlyPayment: string; residualValue?: string }>;
 };
 
 export type GalleryImage = {

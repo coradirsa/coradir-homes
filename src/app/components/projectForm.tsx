@@ -14,6 +14,17 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 type ProjectFormLayout = "overlay" | "split";
 
+/** Unidad del catalogo por la que se consulta (fichas de /alquileres y /venta). */
+export type UnidadConsultada = {
+  id: string;
+  slug: string;
+  tipo: string;
+  operacion: "venta" | "alquiler";
+  titulo: string;
+  codigo: string | null;
+  url: string;
+};
+
 type ProjectFormProps = {
   interest: InterestType;
   backgroundImage?: string;
@@ -25,6 +36,7 @@ type ProjectFormProps = {
   submitLabel?: string;
   id?: string;
   transactionTypes?: string[];
+  unidad?: UnidadConsultada;
 };
 
 export default function ProjectForm({
@@ -38,6 +50,7 @@ export default function ProjectForm({
   submitLabel = "Enviar",
   id = "formulario",
   transactionTypes,
+  unidad,
 }: ProjectFormProps) {
   const availableTransactionTypes = transactionTypes ?? [];
   const shouldShowTransactionTypeField = availableTransactionTypes.length > 1;
@@ -128,6 +141,21 @@ export default function ProjectForm({
     // Add optional fields only if they exist
     if (data.transactionType) {
       dataToSend.transactionType = data.transactionType;
+    }
+
+    // Consulta desde una ficha del catalogo: el CRM la vincula a la unidad
+    // (lee estos campos o el link del mensaje).
+    if (unidad) {
+      const referencia = `Consulta por ${unidad.titulo}${unidad.codigo ? ` (ref. ${unidad.codigo})` : ""}: ${unidad.url}`;
+      dataToSend.message = data.message?.trim() ? `${referencia}
+
+${data.message.trim()}` : referencia;
+      dataToSend.unitId = unidad.id;
+      dataToSend.unitSlug = unidad.slug;
+      dataToSend.unitType = unidad.tipo;
+      dataToSend.unitOperacion = unidad.operacion;
+      dataToSend.unitCode = unidad.codigo;
+      dataToSend.unitUrl = unidad.url;
     }
 
     try {

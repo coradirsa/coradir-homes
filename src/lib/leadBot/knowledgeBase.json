@@ -25,7 +25,7 @@
       "audience": "internal_and_customer",
       "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
       "source_path": "source_documents.precios_locales_ruta_3",
-      "document_date": "2026-06-23"
+      "document_date": "2026-10-07"
     },
     "plano_estacionamiento_locales_ruta_3": {
       "title": "Plano estacionamiento locales Ruta 3",
@@ -236,6 +236,11 @@
                 "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units.list_price",
                 "value": 70000,
                 "display": "70.000,00 USD"
+              },
+              "pre_construction_cash_price": {
+                "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units.pre_construction_cash_price",
+                "value": 55000,
+                "display": "55.000,00 USD"
               }
             }
           },
@@ -341,7 +346,7 @@
             "pages": [
               2
             ],
-            "first_stage": "Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en septiembre de 2026.",
+            "first_stage": "Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en octubre de 2026.",
             "remaining_modules": "Los demas modulos se entregaran antes de fin de 2026 segun el orden de fecha de compra."
           },
           "reservation_and_payment": {
@@ -482,9 +487,9 @@
             "list_price": {
               "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.list_price",
               "tax_note": "+ IVA",
-              "value": 107000,
+              "value": 130000,
               "currency": "USD",
-              "display": "107.000,00 USD"
+              "display": "130.000,00 USD"
             },
             "monthly_rent": {
               "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.monthly_rent",
@@ -493,7 +498,42 @@
               "currency": "ARS",
               "updated_at": "2026-09-30",
               "display": "ARS $1.280.000"
+            },
+            "advance_price": {
+              "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.advance_price",
+              "tax_note": "+ IVA",
+              "value": 102000,
+              "currency": "USD",
+              "display": "102.000,00 USD"
             }
+          },
+          "payment_terms": {
+            "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.payment_terms",
+            "list_price": "3% de reserva, 10% a 30 dias, 0% a 120 dias y 87% contra entrega.",
+            "advance_price": "3% de reserva y 97% a 30 dias."
+          },
+          "leasing": {
+            "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.leasing",
+            "tax_note": "+ IVA 21%",
+            "down_payment_percent": 35,
+            "down_payment": "45.298,00 USD",
+            "plans": [
+              {
+                "months": 24,
+                "annual_interest_percent": 0,
+                "installment": "3.521,00 USD"
+              },
+              {
+                "months": 48,
+                "annual_interest_percent": 4,
+                "installment": "1.908,00 USD"
+              },
+              {
+                "months": 96,
+                "annual_interest_percent": 8,
+                "installment": "1.195,00 USD"
+              }
+            ]
           }
         },
         "architectural_plan": {
@@ -544,7 +584,7 @@
       "id": "juana64_prices_commercial_units",
       "section": "juana_64.sales_conditions.prices",
       "title": "Precios locales comerciales Juana 64",
-      "content": "Locales comerciales Juana 64 + IVA: precio de lista 70.000,00 USD.",
+      "content": "Locales comerciales Juana 64 + IVA: precio de lista 70.000,00 USD; precio pozo contado 55.000,00 USD.",
       "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.commercial_units",
       "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
       "pages": [
@@ -610,7 +650,7 @@
       "id": "juana64_delivery",
       "section": "juana_64.sales_conditions.delivery",
       "title": "Entrega Juana 64",
-      "content": "Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en septiembre de 2026. Los demas modulos residenciales se entregaran antes de fin de 2026 segun orden de fecha de compra.",
+      "content": "Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en octubre de 2026. Los demas modulos residenciales se entregaran antes de fin de 2026 segun orden de fecha de compra.",
       "source_path": "customer_knowledge.projects.juana_64.sales_conditions.delivery",
       "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
       "pages": [
@@ -675,7 +715,7 @@
       "id": "juana64_public_residential_scale",
       "section": "juana_64.public_details.scale",
       "title": "Escala publica Juana 64",
-      "content": "La pagina publica de Juana 64 muestra 64 departamentos en total, expresados como 44 departamentos disponibles, 20 departamentos reservados y +64 familias proyectadas. Tambien muestra plan maestro del desarrollo. La landing de Locales Comerciales informa 6 locales comerciales Juana 64, de 72 m2 por local y medidas de 6 m x 12 m. La entrega de los locales esta estimada para septiembre de 2026; la disponibilidad actualizada por unidad debe validarla un asesor.",
+      "content": "La pagina publica de Juana 64 muestra 64 departamentos en total, expresados como 44 departamentos disponibles, 20 departamentos reservados y +64 familias proyectadas. Tambien muestra plan maestro del desarrollo. La landing de Locales Comerciales informa 6 locales comerciales Juana 64, de 72 m2 por local y medidas de 6 m x 12 m. La entrega de los locales esta estimada para octubre de 2026; la disponibilidad actualizada por unidad debe validarla un asesor.",
       "source_path": "customer_knowledge.projects.juana_64.public_details.scale",
       "source_file_path": "docs/lead-bot/sources/juana_64_web.md",
       "pages": [
@@ -844,7 +884,7 @@
       "id": "juana64_commercial_units_web_details",
       "section": "juana_64.commercial_units.public_details",
       "title": "Ficha publica locales comerciales Juana 64",
-      "content": "Locales comerciales Juana 64: locales dentro del desarrollo residencial en Juana Koslay, 6 locales, 72 m2 por local, medidas 6 m x 12 m, con entrega estimada en septiembre de 2026. Pensados para comercio de cercania, servicios profesionales, gastronomia liviana y atencion diaria.",
+      "content": "Locales comerciales Juana 64: locales dentro del desarrollo residencial en Juana Koslay, 6 locales, 72 m2 por local, medidas 6 m x 12 m, con entrega estimada en octubre de 2026. Pensados para comercio de cercania, servicios profesionales, gastronomia liviana y atencion diaria.",
       "source_path": "customer_knowledge.projects.juana_64.commercial_units.public_details",
       "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
       "pages": [
@@ -857,7 +897,7 @@
       "id": "juana64_commercial_units_web_rent",
       "section": "juana_64.commercial_units.prices",
       "title": "Alquiler locales comerciales Juana 64",
-      "content": "Locales comerciales Juana 64: precio de lista USD 70.000 + IVA; alquiler mensual ARS $729.000. Condiciones sujetas a disponibilidad y aprobacion comercial.",
+      "content": "Locales comerciales Juana 64: precio de lista USD 70.000 + IVA; pozo contado USD 55.000 + IVA; alquiler mensual ARS $729.000. Condiciones sujetas a disponibilidad y aprobacion comercial.",
       "source_path": "customer_knowledge.projects.juana_64.commercial_units.prices",
       "source_file_path": "docs/lead-bot/sources/locales_juana_64_web.md",
       "pages": [
@@ -870,7 +910,7 @@
       "id": "ruta3_commercial_prices",
       "section": "ruta_3_commercial_units.sales_conditions.prices",
       "title": "Precios locales comerciales Ruta 3",
-      "content": "Locales comerciales Ruta 3 de 180 m2: precio de lista 107.000,00 USD + IVA; alquiler mensual ARS $1.280.000.",
+      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA 21%: precio de lista 130.000,00 USD (3% de reserva, 10% a 30 dias y 87% contra entrega); precio adelantado 102.000,00 USD (3% de reserva y 97% a 30 dias); alquiler mensual ARS $1.280.000. Leasing + IVA: adelanto 35% 45.298,00 USD; 24 cuotas (0%) de 3.521,00 USD; 48 cuotas (4%) de 1.908,00 USD; 96 cuotas (8%) de 1.195,00 USD.",
       "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
       "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
       "pages": [

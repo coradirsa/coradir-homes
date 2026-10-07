@@ -18,7 +18,7 @@ Locales comerciales dentro del desarrollo Juana 64, pensados para negocios de ce
 | Superficie | 72 m2 por local |
 | Medidas | 6 m x 12 m |
 | Cantidad | 6 locales |
-| Entrega locales | Entrega estimada en septiembre de 2026 |
+| Entrega locales | Entrega estimada en octubre de 2026 |
 
 ## Precios y alquiler
 

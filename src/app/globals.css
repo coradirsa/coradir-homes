@@ -44,6 +44,17 @@ html {
   --color-blue-gray: #475c77;
   --color-blue-light: #3eb3e4;
   --color-black: #343333;
+
+  /* Catalogo de alquileres/venta (DESIGN.md "Commercial Architectural Precision") */
+  --color-surface-crisp: #f5f6f7;
+  --color-border-subtle: #e2e6ea;
+  --color-border-strong: #cbd5e1;
+  --color-text-primary: #0f1a26;
+  --color-text-muted: #64748b;
+  --color-status-available: #059669;
+  --color-status-reserved: #d97706;
+  --color-whatsapp: #25d366;
+  --color-navy-deep: #0d1e31;
 }
 
 .container {
