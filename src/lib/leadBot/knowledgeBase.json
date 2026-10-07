@@ -99,6 +99,14 @@
       "source_file_path": "docs/lead-bot/sources/homes_crm_whatsapp_2026_06_30_sintesis.md",
       "source_path": "source_documents.homes_crm_whatsapp_2026_06_30_sintesis",
       "document_date": "2026-06-30"
+    },
+    "backup_energetico_locales_juana_64": {
+      "title": "Backup energetico locales Juana 64",
+      "role": "customer_knowledge_source",
+      "audience": "internal_and_customer",
+      "source_file_path": "docs/lead-bot/sources/backup_energetico_locales_juana_64.md",
+      "source_path": "source_documents.backup_energetico_locales_juana_64",
+      "document_date": "2026-10-07"
     }
   },
   "methodology": {
@@ -359,6 +367,13 @@
             "finished_purchase": "En compra terminado, se abona el 10% al boleto a los 30 dias y saldo contra entrega.",
             "leasing": "En compra en leasing: 3% a la reserva, 10% a los 60 dias, 22% contra entrega y saldo en las cuotas pactadas."
           }
+        },
+        "commercial_energy_backup": {
+          "source_document": "backup_energetico_locales_juana_64",
+          "source_file_path": "docs/lead-bot/sources/backup_energetico_locales_juana_64.md",
+          "source_path": "customer_knowledge.projects.juana_64.commercial_energy_backup",
+          "document_date": "2026-10-07",
+          "content": "Los locales comerciales de Juana 64 incorporan backup energetico durante el primer ano, con las mismas condiciones que los locales de Ruta 3."
         }
       },
       "san_luis": {
@@ -953,6 +968,19 @@
       "content": "Locales Ruta 3: incorporan backup energetico durante el primer ano para reducir el impacto de cortes de luz y sostener operacion, facturacion, medios de pago, iluminacion, climatizacion, seguridad y atencion al cliente.",
       "source_path": "customer_knowledge.projects.ruta_3_commercial_units.energy_backup",
       "source_file_path": "docs/lead-bot/sources/backup_energetico_locales_ruta_3.md",
+      "pages": [
+        1
+      ],
+      "project_slug": "locales-comerciales",
+      "customer_visible": true
+    },
+    {
+      "id": "juana64_energy_backup",
+      "section": "juana_64.commercial_energy_backup",
+      "title": "Backup energetico locales Juana 64",
+      "content": "Locales Juana 64: incorporan backup energetico durante el primer ano, igual que los locales de Ruta 3, para reducir el impacto de cortes de luz y sostener la operacion del negocio.",
+      "source_path": "customer_knowledge.projects.juana_64.commercial_energy_backup",
+      "source_file_path": "docs/lead-bot/sources/backup_energetico_locales_juana_64.md",
       "pages": [
         1
       ],

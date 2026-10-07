@@ -13,7 +13,7 @@ export const COMMERCIAL_HERO = {
   subtitle:
     "Opciones en alquiler y venta en ubicaciones estratégicas de San Luis y Juana Koslay. Compará precios y encontrá el espacio ideal para tu negocio o inversión.",
   image: "/img/locales-comerciales/ruta-3/real-frente-calle.webp",
-  highlights: ["Venta y alquiler de locales", "Backup energético Ruta 3", "Leasing inmobiliario"],
+  highlights: ["Venta y alquiler de locales", "Backup energético el primer año", "Leasing inmobiliario"],
 };
 
 export const COMMERCIAL_INTRO = {
@@ -34,7 +34,7 @@ export const COMMERCIAL_INTRO = {
     {
       icon: "verified_user",
       title: "Respaldo CORADIR",
-      text: "Desarrollos propios, con póliza de caución y seguridad con IA en Ruta 3.",
+      text: "Desarrollos propios con backup energético el primer año en Ruta 3 y Juana 64.",
     },
   ],
 };
@@ -102,6 +102,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       { label: "Medidas", value: "6 m x 12 m" },
       { label: "Cantidad", value: "6 locales" },
       { label: "Entrega locales", value: "Entrega estimada en octubre de 2026" },
+      { label: "Backup energético", value: "12 meses de respaldo" },
     ],
     prices: [
       { label: "Precio de lista", value: "USD 70.000 + IVA" },
@@ -110,6 +111,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
     ],
     iconFeatures: [
       { icon: "groups", title: "Flujo natural del desarrollo residencial" },
+      { icon: "bolt", title: "Backup energético para continuidad operativa" },
       { icon: "savings", title: "Compra al contado" },
       { icon: "payments", title: "Leasing inmobiliario hasta 96 meses" },
       { icon: "percent", title: "Reserva del 3%" },
@@ -125,7 +127,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       rent: "$729.000",
       sale: "USD 70.000 + IVA",
       saleAdvance: { label: "Pozo contado", value: "USD 55.000 + IVA" },
-      profile: "Comercio de cercanía y servicios dentro de un desarrollo residencial, con flujo natural de vecinos todo el año.",
+      profile: "Comercio de cercanía y servicios dentro de un desarrollo residencial, con flujo natural de vecinos todo el año y respaldo energético.",
     },
   },
 ];

@@ -754,11 +754,11 @@ function buildRuta3PlanAnswer(): KnowledgeAnswer {
 function buildRuta3EnergyBackupAnswer(): KnowledgeAnswer {
   return {
     reply: [
-      "Si, los locales Ruta 3 incorporan backup energetico durante el primer ano.",
+      "Si, los locales de Ruta 3 y de Juana 64 incorporan backup energetico durante el primer ano.",
       "El argumento comercial es fuerte: ayuda a reducir el impacto de cortes de luz y sostener operacion, medios de pago, iluminacion, climatizacion, seguridad y atencion al cliente.",
       "Lo ideal es validarlo con un asesor junto con la unidad disponible y las condiciones vigentes.",
     ].join("\n\n"),
-    sources: sourcesFor(["ruta3_energy_backup"]),
+    sources: sourcesFor(["ruta3_energy_backup", "juana64_energy_backup"]),
   };
 }
 
