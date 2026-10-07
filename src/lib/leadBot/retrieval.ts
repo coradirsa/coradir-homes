@@ -584,10 +584,12 @@ function buildRuta3PriceAnswer(): KnowledgeAnswer {
   return {
     reply: [
       "Para los locales comerciales Ruta 3 de 180 m2, los precios de referencia son:",
-      "- Precio de lista: 107.000,00 USD + IVA.",
+      "- Precio de lista: 130.000,00 USD + IVA (3% de reserva, 10% a 30 dias y 87% contra entrega).",
+      "- Precio adelantado: 102.000,00 USD + IVA (3% de reserva y 97% a 30 dias).",
       "- Alquiler mensual: ARS $1.280.000.",
+      "- Leasing: 35% de adelanto (45.298,00 USD) y cuotas de 3.521,00 USD a 24 meses (0%), 1.908,00 USD a 48 meses (4%) o 1.195,00 USD a 96 meses (8%), + IVA.",
       "",
-      `El precio de lista es de referencia comercial al ${RUTA3_PRICE_DATE}; el alquiler fue actualizado el 30/09/2026. Antes de avanzar, conviene validarlos con un asesor porque pueden cambiar segun unidad y disponibilidad.`,
+      `Los precios son de referencia comercial al ${RUTA3_PRICE_DATE}. Antes de avanzar, conviene validarlos con un asesor porque pueden cambiar segun unidad y disponibilidad.`,
     ].join("\n"),
     sources: sourcesFor(["ruta3_commercial_prices"]),
   };
@@ -597,8 +599,8 @@ function buildCommercialPriceComparisonAnswer(): KnowledgeAnswer {
   return {
     reply: [
       "Para locales comerciales, hoy tengo estos valores de referencia:",
-      "- Ruta 3, 180 m2: precio de lista 107.000,00 USD + IVA; alquiler mensual ARS $1.280.000.",
-      "- Juana 64: precio de lista 70.000,00 USD + IVA; alquiler mensual ARS $729.000.",
+      "- Ruta 3, 180 m2: precio de lista 130.000,00 USD + IVA (adelantado 102.000,00 USD + IVA); alquiler mensual ARS $1.280.000.",
+      "- Juana 64, 72 m2: precio de lista 70.000,00 USD + IVA (pozo contado 55.000,00 USD + IVA); alquiler mensual ARS $729.000.",
       "",
       "Antes de avanzar, conviene validarlo con un asesor porque precios y disponibilidad pueden cambiar.",
     ].join("\n"),
@@ -611,7 +613,7 @@ function buildJuana64CommercialDetailsAnswer(): KnowledgeAnswer {
     reply: [
       "Para los locales comerciales Juana 64, la ficha comercial indica 6 locales dentro del desarrollo residencial, con 72 m2 por local y medidas de 6 m x 12 m.",
       "Estan pensados para comercio de cercania, servicios profesionales, gastronomia liviana y atencion diaria.",
-      "La entrega de los locales figura estimada para septiembre de 2026. Validalo con un asesor antes de avanzar porque disponibilidad y condiciones pueden cambiar.",
+      "La entrega de los locales figura estimada para octubre de 2026. Validalo con un asesor antes de avanzar porque disponibilidad y condiciones pueden cambiar.",
     ].join("\n\n"),
     sources: sourcesFor(["juana64_commercial_units_web_details"]),
   };
@@ -620,7 +622,7 @@ function buildJuana64CommercialDetailsAnswer(): KnowledgeAnswer {
 function buildJuana64CommercialDeliveryAnswer(): KnowledgeAnswer {
   return {
     reply: withCommercialValidation(
-      "Para los locales comerciales Juana 64, la entrega esta estimada para septiembre de 2026."
+      "Para los locales comerciales Juana 64, la entrega esta estimada para octubre de 2026."
     ),
     sources: sourcesFor(["juana64_commercial_units_web_details"]),
   };
@@ -787,7 +789,7 @@ function buildFinancingAnswer(message: string): KnowledgeAnswer {
 function buildDeliveryAnswer(): KnowledgeAnswer {
   return {
     reply: withCommercialValidation(
-      "Para los departamentos de Juana 64, las condiciones del 6 de febrero de 2026 estimaban la primera etapa de dos modulos de 16 departamentos para fin de julio de 2026. Los demas modulos se entregarian antes de fin de 2026 segun el orden de fecha de compra. La entrega de los locales fue actualizada a septiembre de 2026."
+      "Para los departamentos de Juana 64, las condiciones del 6 de febrero de 2026 estimaban la primera etapa de dos modulos de 16 departamentos para fin de julio de 2026. Los demas modulos se entregarian antes de fin de 2026 segun el orden de fecha de compra. La entrega de los locales fue actualizada a octubre de 2026."
     ),
     sources: sourcesFor(["juana64_delivery"]),
   };

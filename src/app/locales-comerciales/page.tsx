@@ -15,7 +15,8 @@ import {
   COMMERCIAL_PROJECTS,
   CONTACT_COPY,
   GALLERY_IMAGES,
-  JUANA_64_LEASING_PLANS,
+  LEASING_BY_PROJECT,
+  RENT_CONDITIONS,
   WHATSAPP_LOCALES_LABEL,
   whatsappLocales,
 } from "./data";
@@ -222,6 +223,9 @@ function ProjectCompareCard({ project }: { project: CommercialProject }) {
             <div className="border-l border-border-subtle pl-3 sm:pl-4">
               <p className="font-raleway text-xs font-bold uppercase text-text-muted">Precio de lista</p>
               <p className="font-raleway text-lg font-extrabold leading-tight text-blue sm:text-[22px]">{reference.sale}</p>
+              <p className="mt-1 font-raleway text-xs font-semibold text-text-muted">
+                {reference.saleAdvance.label}: <span className="text-blue">{reference.saleAdvance.value}</span>
+              </p>
             </div>
           </div>
 
@@ -374,6 +378,14 @@ function Financiacion() {
                 </p>
                 <h3 className="mb-3 mt-1 font-raleway text-xl font-bold uppercase text-blue">{model.title}</h3>
                 <p className="font-raleway text-[15px] leading-6 text-text-muted">{model.description}</p>
+                <dl className="mt-5 space-y-3">
+                  {model.items.map((item) => (
+                    <div key={item.label} className="rounded-lg border border-border-subtle bg-white p-3">
+                      <dt className="font-raleway text-[11px] font-bold uppercase tracking-wider text-blue-gray">{item.label}</dt>
+                      <dd className="mt-1 font-raleway text-sm leading-5 text-text-primary">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
               <p className="mt-6 flex items-center gap-2 border-t border-border-subtle pt-5 font-raleway text-xs font-bold text-blue">
                 <MaterialIcon name="verified" className="!text-[18px]" />
@@ -383,32 +395,60 @@ function Financiacion() {
           ))}
         </div>
 
-        <div className="mt-12">
-          <h3 className="mb-4 font-raleway text-lg font-bold uppercase text-blue">Planes de leasing · Juana 64</h3>
-          <div className="overflow-x-auto rounded-xl border border-border-subtle">
-            <table className="w-full min-w-[560px] font-raleway text-sm">
-              <thead className="bg-navy-deep text-left text-xs uppercase tracking-wider text-white">
-                <tr>
-                  <th className="px-4 py-3 font-bold">Plazo</th>
-                  <th className="px-4 py-3 font-bold">Interés</th>
-                  <th className="px-4 py-3 font-bold">Adelanto</th>
-                  <th className="px-4 py-3 font-bold">Cuota</th>
-                  <th className="px-4 py-3 font-bold">Valor residual</th>
-                </tr>
-              </thead>
-              <tbody>
-                {JUANA_64_LEASING_PLANS.map((plan, index) => (
-                  <tr key={plan.term} className={index % 2 ? "bg-surface-crisp" : "bg-white"}>
-                    <td className="border-t border-border-subtle px-4 py-3 font-bold text-blue">{plan.term}</td>
-                    <td className="border-l border-t border-border-subtle px-4 py-3 text-text-primary">{plan.interest}</td>
-                    <td className="border-l border-t border-border-subtle px-4 py-3 text-text-primary">{plan.downPayment}</td>
-                    <td className="border-l border-t border-border-subtle px-4 py-3 font-bold text-blue">{plan.monthlyPayment}</td>
-                    <td className="border-l border-t border-border-subtle px-4 py-3 text-text-primary">{plan.residualValue}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {LEASING_BY_PROJECT.map((leasing) => {
+            const conResidual = leasing.plans.some((plan) => plan.residualValue);
+            return (
+              <div key={leasing.project}>
+                <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-raleway text-lg font-bold uppercase text-blue">Leasing · {leasing.project}</h3>
+                  <p className="font-raleway text-sm text-text-muted">
+                    Adelanto 35%: <strong className="text-blue">{leasing.downPayment}</strong>
+                  </p>
+                </div>
+                <div className="overflow-x-auto rounded-xl border border-border-subtle">
+                  <table className="w-full min-w-[420px] font-raleway text-sm">
+                    <thead className="bg-navy-deep text-left text-xs uppercase tracking-wider text-white">
+                      <tr>
+                        <th className="px-4 py-3 font-bold">Plazo</th>
+                        <th className="px-4 py-3 font-bold">Interés</th>
+                        <th className="px-4 py-3 font-bold">Cuota</th>
+                        {conResidual && <th className="px-4 py-3 font-bold">Valor residual</th>}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {leasing.plans.map((plan, index) => (
+                        <tr key={plan.term} className={index % 2 ? "bg-surface-crisp" : "bg-white"}>
+                          <td className="border-t border-border-subtle px-4 py-3 font-bold text-blue">{plan.term}</td>
+                          <td className="border-l border-t border-border-subtle px-4 py-3 text-text-primary">{plan.interest}</td>
+                          <td className="border-l border-t border-border-subtle px-4 py-3 font-bold text-blue">{plan.monthlyPayment}</td>
+                          {conResidual && (
+                            <td className="border-l border-t border-border-subtle px-4 py-3 text-text-primary">{plan.residualValue}</td>
+                          )}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <p className="mt-3 font-raleway text-xs text-text-muted">Valores en dólares + IVA 21%, sujetos a disponibilidad y aprobación comercial.</p>
+
+        <div className="mt-10 rounded-2xl border border-border-subtle bg-surface-crisp p-6 md:p-8">
+          <h3 className="flex items-center gap-2 font-raleway text-lg font-bold uppercase text-blue">
+            <MaterialIcon name="key" className="!text-[22px]" />
+            {RENT_CONDITIONS.title}
+          </h3>
+          <ul className="mt-4 grid gap-3 md:grid-cols-3">
+            {RENT_CONDITIONS.items.map((item) => (
+              <li key={item} className="flex items-start gap-2.5 font-raleway text-sm leading-6 text-text-primary">
+                <MaterialIcon name="check_circle" className="!text-[20px] text-status-available" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

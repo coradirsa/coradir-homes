@@ -155,7 +155,7 @@
     ],
     "expect": {
       "mustInclude": [
-        "107.000,00 USD",
+        "130.000,00 USD",
         "ARS $1.280.000"
       ],
       "knowledgeSourceIds": [
