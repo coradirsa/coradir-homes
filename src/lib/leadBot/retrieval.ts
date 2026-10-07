@@ -566,7 +566,7 @@ function buildPriceAnswer(message: string): KnowledgeAnswer {
 
   if (showDepartments) {
     ids.push("juana64_prices_departments");
-    lines.push("- Departamentos: precio de lista 59.000,00 USD; precio pozo contado 47.000,00 USD.");
+    lines.push("- Departamentos: precio de lista 59.000,00 USD; precio pozo contado 51.000,00 USD.");
   }
 
   if (showCommercial) {
@@ -789,7 +789,7 @@ function buildFinancingAnswer(message: string): KnowledgeAnswer {
 function buildDeliveryAnswer(): KnowledgeAnswer {
   return {
     reply: withCommercialValidation(
-      "Para los departamentos de Juana 64, las condiciones del 6 de febrero de 2026 estimaban la primera etapa de dos modulos de 16 departamentos para fin de julio de 2026. Los demas modulos se entregarian antes de fin de 2026 segun el orden de fecha de compra. La entrega de los locales fue actualizada a octubre de 2026."
+      "Para los departamentos de Juana 64, la primera etapa (dos modulos con 16 departamentos y todos los locales) tiene entrega estimada en octubre de 2026. Los demas modulos se entregaran antes de fin de 2026 segun el orden de fecha de compra."
     ),
     sources: sourcesFor(["juana64_delivery"]),
   };

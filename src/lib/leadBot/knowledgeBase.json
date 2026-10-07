@@ -225,8 +225,8 @@
               },
               "pre_construction_cash_price": {
                 "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.departments.pre_construction_cash_price",
-                "value": 47000,
-                "display": "47.000,00 USD"
+                "value": 51000,
+                "display": "51.000,00 USD"
               }
             },
             "commercial_units": {
@@ -346,7 +346,7 @@
             "pages": [
               2
             ],
-            "first_stage": "Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en octubre de 2026.",
+            "first_stage": "Segun las condiciones de venta vigentes, la primera etapa (dos modulos con 16 departamentos y todos los locales) tiene entrega estimada en octubre de 2026.",
             "remaining_modules": "Los demas modulos se entregaran antes de fin de 2026 segun el orden de fecha de compra."
           },
           "reservation_and_payment": {
@@ -571,7 +571,7 @@
       "id": "juana64_prices_departments",
       "section": "juana_64.sales_conditions.prices",
       "title": "Precios departamentos Juana 64",
-      "content": "Departamentos Juana 64: precio de lista 59.000,00 USD; precio pozo contado 47.000,00 USD.",
+      "content": "Departamentos Juana 64: precio de lista 59.000,00 USD; precio pozo contado 51.000,00 USD.",
       "source_path": "customer_knowledge.projects.juana_64.sales_conditions.prices.departments",
       "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
       "pages": [
@@ -650,7 +650,7 @@
       "id": "juana64_delivery",
       "section": "juana_64.sales_conditions.delivery",
       "title": "Entrega Juana 64",
-      "content": "Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en octubre de 2026. Los demas modulos residenciales se entregaran antes de fin de 2026 segun orden de fecha de compra.",
+      "content": "Segun las condiciones de venta vigentes, la primera etapa (dos modulos con 16 departamentos y todos los locales) tiene entrega estimada en octubre de 2026. Los demas modulos residenciales se entregaran antes de fin de 2026 segun orden de fecha de compra.",
       "source_path": "customer_knowledge.projects.juana_64.sales_conditions.delivery",
       "source_file_path": "docs/lead-bot/sources/condiciones_venta_juana_64_r.md",
       "pages": [

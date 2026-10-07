@@ -39,7 +39,7 @@
       "input": "{price_phrase} {juana_unit}?",
       "maxGenerated": 6,
       "expect": {
-        "mustInclude": ["59.000,00 USD", "47.000,00 USD"],
+        "mustInclude": ["59.000,00 USD", "51.000,00 USD"],
         "mustNotInclude": ["/locales-comerciales", "Ruta 3"]
       }
     },

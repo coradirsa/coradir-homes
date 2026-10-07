@@ -128,7 +128,7 @@ El precio de los departamentos y los locales es el mismo para todos.
 | Concepto | Valor |
 | --- | ---: |
 | Precio de lista departamentos | 59.000,00 USD |
-| Precio pozo contado | 47.000,00 USD |
+| Precio pozo contado | 51.000,00 USD |
 
 ### Precios de locales comerciales
 
@@ -189,7 +189,7 @@ Para inversores que compran departamentos en pozo, se ofrece garantia de poliza 
 - Fuente: `docs/lead-bot/sources/condiciones_venta_juana_64_r.md`
 - Paginas: 2
 
-Las condiciones del 6 de febrero de 2026 estimaban para fin de julio de 2026 la primera etapa de dos modulos de 16 departamentos. Una actualizacion comercial posterior estima la entrega de los locales en octubre de 2026.
+Segun las condiciones de venta vigentes, la primera etapa (dos modulos con 16 departamentos y todos los locales) tiene entrega estimada en octubre de 2026.
 
 Los demas modulos se entregaran antes de fin de 2026 de acuerdo con el orden de fecha de compra.
 
@@ -240,7 +240,7 @@ Usar los valores del corpus solo si la consulta apunta claramente a Juana 64 y a
 Respuesta sugerida:
 
 ```text
-Para Juana 64, segun las condiciones cargadas, los departamentos figuran con precio de lista de 59.000,00 USD y precio pozo contado de 47.000,00 USD. Los locales comerciales figuran con precio de lista de 70.000,00 USD + IVA. Como son condiciones comerciales, conviene validarlas con un asesor antes de tomar una decision.
+Para Juana 64, segun las condiciones cargadas, los departamentos figuran con precio de lista de 59.000,00 USD y precio pozo contado de 51.000,00 USD. Los locales comerciales figuran con precio de lista de 70.000,00 USD + IVA. Como son condiciones comerciales, conviene validarlas con un asesor antes de tomar una decision.
 ```
 
 ### Cuando el usuario pregunta financiacion
@@ -251,7 +251,7 @@ Si pide cuotas concretas, responder con la tabla correspondiente y aclarar si es
 
 ### Cuando el usuario pregunta entrega
 
-Para locales, usar la actualizacion comercial mas reciente: entrega estimada en octubre de 2026. Para departamentos, las condiciones del 6 de febrero de 2026 estimaban la primera etapa para fin de julio de 2026 y los demas modulos antes de fin de 2026 segun orden de compra.
+Para locales, usar la actualizacion comercial mas reciente: entrega estimada en octubre de 2026. Para departamentos, la primera etapa (dos modulos con 16 departamentos) tambien se estima para octubre de 2026 y los demas modulos antes de fin de 2026 segun orden de compra.
 
 ### Cuando el usuario pregunta condiciones de reserva
 
