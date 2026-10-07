@@ -3,7 +3,7 @@ import type { LeadBotState } from "./types";
 
 const PROJECT_SUMMARIES: Record<string, string> = {
   "locales-comerciales":
-    "Locales Comerciales agrupa oportunidades en Ruta 3 km 0.6 y Juana 64, con opciones de compra, alquiler o leasing. Ruta 3 suma backup energetico como diferencial operativo; Juana 64 suma locales dentro de un desarrollo residencial.",
+    "Locales Comerciales agrupa oportunidades en Ruta 3 km 0.6 y Juana 64, con opciones de compra, alquiler o leasing. Ambos suman backup energetico durante el primer ano como diferencial operativo; Juana 64 ademas tiene locales dentro de un desarrollo residencial.",
   "juana-64":
     "Juana 64 es un proyecto en Juana Koslay con departamentos de 2 dormitorios y locales comerciales, pensado para vivienda, inversion urbana o comercio de cercania.",
   "la-torre-ii":
@@ -355,7 +355,7 @@ export function buildProjectIntroReply(message: string, state: LeadBotState) {
   if (state.project === "locales-comerciales") {
     return [
       "Te cuento rapido: hoy Locales Comerciales agrupa Ruta 3 km 0.6 y locales Juana 64.",
-      "Ruta 3 apunta a locales de mayor superficie con backup energetico; Juana 64 apunta a locales dentro de un desarrollo residencial en Juana Koslay.",
+      "Ruta 3 apunta a locales de mayor superficie; Juana 64 apunta a locales dentro de un desarrollo residencial en Juana Koslay. Los dos incluyen backup energetico durante el primer ano.",
       "Queres que compare precios, ubicacion o forma de pago?",
     ].join("\n\n");
   }
@@ -538,7 +538,7 @@ export function buildProjectFeatureReply(message: string, state: LeadBotState) {
     return [
       "En locales comerciales hay dos perfiles:",
       "- Ruta 3: locales de 180 m2 + IVA, cocheras/accesos definidos y backup energetico durante el primer ano.",
-      "- Juana 64: locales dentro del desarrollo residencial, de 72 m2 por local, pensados para servicios, comercio de cercania y atencion diaria.",
+      "- Juana 64: locales dentro del desarrollo residencial, de 72 m2 por local, pensados para servicios, comercio de cercania y atencion diaria, con backup energetico durante el primer ano.",
       "Disponibilidad y condiciones finales las valida un asesor.",
     ].join("\n");
   }
@@ -1334,7 +1334,7 @@ export function buildBenefitsReply(state: LeadBotState) {
       "**Beneficios de Locales Comerciales:**",
       "",
       "- **Ubicaciones comerciales:** Ruta 3 km 0.6 y Juana 64.",
-      "- **Backup energetico:** Ruta 3 incorpora respaldo durante el primer ano para reducir interrupciones operativas.",
+      "- **Backup energetico:** Ruta 3 y Juana 64 incorporan respaldo durante el primer ano para reducir interrupciones operativas.",
       "- **Comparacion por objetivo:** negocio propio, renta comercial o expansion.",
       "- **Flexibilidad comercial:** se puede evaluar compra, alquiler o leasing segun perfil.",
       "",
