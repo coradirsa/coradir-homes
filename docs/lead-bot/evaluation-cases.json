@@ -9,7 +9,7 @@
     "expect": {
       "mustInclude": [
         "59.000,00 USD",
-        "47.000,00 USD"
+        "51.000,00 USD"
       ],
       "mustNotInclude": [
         "/locales-comerciales",
@@ -119,7 +119,7 @@
     ],
     "expect": {
       "mustInclude": [
-        "fin de julio de 2026",
+        "octubre de 2026",
         "fin de 2026"
       ],
       "knowledgeSourceIds": [
@@ -730,7 +730,7 @@
       ],
       "mustNotInclude": [
         "59.000,00 USD",
-        "47.000,00 USD"
+        "51.000,00 USD"
       ],
       "knowledgeSourceIds": [
         "san_luis_commercial_data_limits"
@@ -756,7 +756,7 @@
       "mustNotInclude": [
         "presupuesto",
         "59.000,00 USD",
-        "47.000,00 USD"
+        "51.000,00 USD"
       ],
       "knowledgeSourceIds": [
         "san_luis_commercial_data_limits"
@@ -1036,7 +1036,7 @@
       ],
       "mustNotInclude": [
         "precio de lista",
-        "47.000,00 USD",
+        "51.000,00 USD",
         "dormitorios con placard"
       ]
     }
@@ -1404,7 +1404,7 @@
       "mustNotInclude": [
         "USD",
         "59.000",
-        "47.000"
+        "51.000"
       ],
       "state": {
         "project": "villa-mercedes"

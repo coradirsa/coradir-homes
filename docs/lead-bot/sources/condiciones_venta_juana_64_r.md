@@ -4,6 +4,7 @@ Fuente convertida a Markdown para uso interno del lead bot.
 
 - Documento original: Condiciones de venta Juana 64 -R.pdf
 - Fecha del documento original: 2026-02-06
+- Actualizado el 2026-10-07 con "Condiciones de venta Juana 64.pdf": pozo contado departamentos 51.000 USD, pozo contado locales 55.000 USD y entrega de la primera etapa en octubre de 2026.
 - Paginas: 2
 - Uso: fuente comercial verificable para el corpus del bot.
 
@@ -16,7 +17,7 @@ El precio de los departamentos y los locales es el mismo para todos.
 | Concepto | Valor |
 | --- | ---: |
 | Precio de lista departamentos | 59.000,00 USD |
-| Precio pozo contado | 47.000,00 USD |
+| Precio pozo contado | 51.000,00 USD |
 
 ## Precios locales comerciales + IVA
 
@@ -50,7 +51,7 @@ Para inversores que compran departamentos en pozo, se ofrece garantia de poliza 
 
 ## Plazo de entrega
 
-El plazo de entrega estimado es de 10 meses para la primera etapa: dos modulos de 16 departamentos y todos los locales, o sea a fin de julio de 2026.
+El plazo de entrega estimado para la primera etapa (dos modulos con 16 departamentos y todos los locales) es octubre de 2026. Los demas modulos se entregan antes de fin de 2026 de acuerdo con el orden de fecha de compra.
 
 Los demas modulos se entregaran antes de fin de 2026 de acuerdo con el orden de fecha de compra.
 
