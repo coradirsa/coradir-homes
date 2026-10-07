@@ -1,12 +1,42 @@
-import type { CommercialProject, ConditionItem, GalleryImage, LeasingPlan } from "./types";
+import type { AccessModel, CommercialProject, ConditionItem, GalleryImage, LeasingPlan } from "./types";
+
+export const WHATSAPP_LOCALES = "5492664649967";
+export const WHATSAPP_LOCALES_LABEL = "2664 64-9967";
+
+export function whatsappLocales(mensaje: string) {
+  return `https://wa.me/${WHATSAPP_LOCALES}?text=${encodeURIComponent(mensaje)}`;
+}
 
 export const COMMERCIAL_HERO = {
-  eyebrow: "Locales comerciales en San Luis",
-  title: "Locales comerciales en San Luis y Juana Koslay",
+  eyebrow: "Locales comerciales · San Luis",
+  title: "Tu próximo local puede costar menos de lo que imaginás.",
   subtitle:
-    "Invertí, alquilá o abrí tu negocio en ubicaciones estratégicas: Ruta 3 km 0.6 y Juana 64, con compra, alquiler y leasing inmobiliario.",
-  image: "/img/locales-comerciales/ruta-3/frente-atardecer.webp",
+    "Opciones en alquiler y venta en ubicaciones estratégicas de San Luis y Juana Koslay. Compará precios y encontrá el espacio ideal para tu negocio o inversión.",
+  image: "/img/locales-comerciales/ruta-3/real-frente-calle.webp",
   highlights: ["Venta y alquiler de locales", "Backup energético Ruta 3", "Leasing inmobiliario"],
+};
+
+export const COMMERCIAL_INTRO = {
+  eyebrow: "Oportunidades comerciales",
+  title: "Precios que abren oportunidades.",
+  text: "Locales pensados para instalar tu negocio o invertir, con valores claros y condiciones transparentes desde el primer contacto.",
+  items: [
+    {
+      icon: "price_check",
+      title: "Precios directos",
+      text: "Precio de lista y alquiler publicados para cada desarrollo, sin intermediarios.",
+    },
+    {
+      icon: "contract_edit",
+      title: "Condiciones flexibles",
+      text: "Compra, alquiler o leasing inmobiliario con planes de hasta 96 meses en Juana 64.",
+    },
+    {
+      icon: "verified_user",
+      title: "Respaldo CORADIR",
+      text: "Desarrollos propios, con póliza de caución y seguridad con IA en Ruta 3.",
+    },
+  ],
 };
 
 export const COMMERCIAL_PROJECTS: CommercialProject[] = [
@@ -41,6 +71,16 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       { icon: "policy", title: "Póliza de caución" },
     ],
     suitableFor: ["Showroom", "Servicios", "Franquicias", "Oficinas comerciales"],
+    reference: {
+      shortName: "Ruta 3",
+      zone: "Ruta 3 km 0.6 · San Luis",
+      icon: "domain",
+      units: 4,
+      surface: "180 m²",
+      rent: "$1.280.000",
+      sale: "USD 107.000 + IVA",
+      profile: "Gran exposición sobre un corredor de alto tránsito, con frente amplio, cocheras y respaldo energético.",
+    },
   },
   {
     id: "juana-64",
@@ -73,10 +113,35 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       { icon: "location_on", title: "Ubicación en Juana Koslay" },
     ],
     suitableFor: ["Comercio de cercanía", "Servicios profesionales", "Gastronomía liviana", "Atención diaria"],
+    reference: {
+      shortName: "Juana 64",
+      zone: "Juana Koslay",
+      icon: "storefront",
+      units: 6,
+      surface: "72 m²",
+      rent: "$729.000",
+      sale: "USD 70.000 + IVA",
+      profile: "Comercio de cercanía y servicios dentro de un desarrollo residencial, con flujo natural de vecinos todo el año.",
+    },
   },
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
+  {
+    src: "/img/locales-comerciales/ruta-3/real-frente-calle.webp",
+    alt: "Frente de los locales comerciales CORADIR sobre Ruta 3",
+    label: "Ruta 3 - Frente sobre la calle",
+  },
+  {
+    src: "/img/locales-comerciales/ruta-3/real-lateral.webp",
+    alt: "Vista lateral de los locales CORADIR Ruta 3 con estacionamiento",
+    label: "Ruta 3 - Estacionamiento",
+  },
+  {
+    src: "/img/locales-comerciales/ruta-3/real-frente.webp",
+    alt: "Vidrieras de los locales comerciales CORADIR Ruta 3",
+    label: "Ruta 3 - Vidrieras",
+  },
   {
     src: "/img/locales-comerciales/ruta-3/luminarias-locales.webp",
     alt: "Luminarias exteriores de locales comerciales CORADIR Ruta 3",
@@ -140,6 +205,27 @@ export const JUANA_64_LEASING_PLANS: LeasingPlan[] = [
     downPayment: "USD 20.058,02",
     monthlyPayment: "USD 526,60",
     residualValue: "USD 526,60",
+  },
+];
+
+export const ACCESS_MODELS: AccessModel[] = [
+  {
+    icon: "receipt_long",
+    title: "Compra directa",
+    description: "Precio de lista publicado para cada desarrollo: USD 107.000 + IVA en Ruta 3 y USD 70.000 + IVA en Juana 64.",
+    footnote: "Compra al contado",
+  },
+  {
+    icon: "real_estate_agent",
+    title: "Leasing inmobiliario",
+    description: "Ingresás con un adelanto y cuotas pactadas, con opción de compra por el valor residual. Juana 64 tiene planes hasta 96 meses.",
+    footnote: "Planes de 24, 48 y 96 meses",
+  },
+  {
+    icon: "bookmark_added",
+    title: "Reserva",
+    description: "Para avanzar con la unidad se toma una reserva del 3%, sujeta a disponibilidad y aprobación comercial.",
+    footnote: "Reserva del 3%",
   },
 ];
 

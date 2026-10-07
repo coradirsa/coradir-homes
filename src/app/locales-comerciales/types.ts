@@ -27,6 +27,24 @@ export type CommercialProject = {
   }>;
   suitableFor: string[];
   validationNote?: string;
+  /** Resumen para el hero y el comparador del rediseño. */
+  reference: {
+    shortName: string;
+    zone: string;
+    icon: string;
+    units: number;
+    surface: string;
+    rent: string;
+    sale: string;
+    profile: string;
+  };
+};
+
+export type AccessModel = {
+  icon: string;
+  title: string;
+  description: string;
+  footnote: string;
 };
 
 export type GalleryImage = {

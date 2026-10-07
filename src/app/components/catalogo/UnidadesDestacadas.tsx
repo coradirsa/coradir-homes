@@ -41,7 +41,7 @@ export default async function UnidadesDestacadas({
             <MaterialIcon name="arrow_forward" className="!text-[20px]" />
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className={`grid grid-cols-1 gap-6 md:grid-cols-2 ${cantidad === 4 ? "xl:grid-cols-4" : "xl:grid-cols-3"}`}>
           {resultado.data.map((unidad) => <UnidadCard key={unidad.id} unidad={unidad} />)}
         </div>
       </div>
