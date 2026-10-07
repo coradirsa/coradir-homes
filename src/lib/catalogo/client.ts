@@ -62,10 +62,11 @@ type Entrada = { valor: unknown; guardadoEn: number };
 // distintos (paginas y route handlers) y /api/revalidate tiene que limpiar el
 // mismo cache que leen las paginas.
 const almacen = globalThis as typeof globalThis & {
-  __catalogoHomes?: { cache: Map<string, Entrada>; enCurso: Map<string, Promise<unknown>> };
+  __catalogoHomes?: { cache: Map<string, Entrada>; enCurso: Map<string, Promise<unknown>>; generacion: number };
 };
-almacen.__catalogoHomes ??= { cache: new Map(), enCurso: new Map() };
-const { cache, enCurso } = almacen.__catalogoHomes;
+almacen.__catalogoHomes ??= { cache: new Map(), enCurso: new Map(), generacion: 0 };
+const estado = almacen.__catalogoHomes;
+const { cache, enCurso } = estado;
 
 function guardar(clave: string, valor: unknown) {
   cache.delete(clave);
@@ -82,9 +83,12 @@ async function conCache<T>(clave: string, cargar: () => Promise<T>): Promise<T> 
   const pendiente = enCurso.get(clave);
   if (pendiente) return pendiente as Promise<T>;
 
-  const promesa = cargar()
+  // Si se invalida mientras la consulta esta en vuelo, su resultado puede ser
+  // anterior al cambio: se devuelve pero no se guarda.
+  const generacion = estado.generacion;
+  const promesa: Promise<T> = cargar()
     .then((valor) => {
-      guardar(clave, valor);
+      if (generacion === estado.generacion) guardar(clave, valor);
       return valor;
     })
     .catch((error) => {
@@ -94,17 +98,25 @@ async function conCache<T>(clave: string, cargar: () => Promise<T>): Promise<T> 
       }
       throw error;
     })
-    .finally(() => enCurso.delete(clave));
+    .finally(() => {
+      if (enCurso.get(clave) === promesa) enCurso.delete(clave);
+    });
 
   enCurso.set(clave, promesa);
   return promesa;
 }
 
-/** Limpia el cache del catalogo (lo usa /api/revalidate). */
+/**
+ * Vence el cache del catalogo (lo usa /api/revalidate). Las entradas no se borran:
+ * la proxima visita consulta de nuevo, pero si Inmobiliario no responde se sigue
+ * mostrando el ultimo listado bueno.
+ */
 export function invalidarCatalogo() {
-  const entradas = cache.size;
-  cache.clear();
-  return entradas;
+  const vencida = Date.now() - ttlMs();
+  for (const entrada of cache.values()) entrada.guardadoEn = Math.min(entrada.guardadoEn, vencida);
+  estado.generacion += 1;
+  enCurso.clear();
+  return cache.size;
 }
 
 // ---------------------------------------------------------------------------
