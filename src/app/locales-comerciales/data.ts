@@ -55,7 +55,6 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
     specs: [
       { label: "Unidades", value: "4 locales" },
       { label: "Superficie comercial", value: "180 m2 por local" },
-      { label: "Backup energético", value: "12 meses de respaldo" },
       { label: "Frente", value: "6 m por local" },
       { label: "Ubicación", value: "Ruta 3 km 0.6" },
     ],
@@ -65,7 +64,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       { label: "Alquiler mensual", value: "ARS $1.280.000" },
     ],
     iconFeatures: [
-      { icon: "bolt", title: "Backup energético para continuidad operativa" },
+      { icon: "bolt", title: "Backup energético por 12 meses para continuidad operativa" },
       { icon: "local_parking", title: "Cocheras y accesos vehiculares definidos en plano" },
       { icon: "videocam", title: "Seguridad con IA" },
       { icon: "payments", title: "Leasing inmobiliario hasta 96 meses" },
@@ -102,7 +101,6 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       { label: "Medidas", value: "6 m x 12 m" },
       { label: "Cantidad", value: "6 locales" },
       { label: "Entrega locales", value: "Entrega estimada en octubre de 2026" },
-      { label: "Backup energético", value: "12 meses de respaldo" },
     ],
     prices: [
       { label: "Precio de lista", value: "USD 70.000 + IVA" },
@@ -111,7 +109,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
     ],
     iconFeatures: [
       { icon: "groups", title: "Flujo natural del desarrollo residencial" },
-      { icon: "bolt", title: "Backup energético para continuidad operativa" },
+      { icon: "bolt", title: "Backup energético por 12 meses para continuidad operativa" },
       { icon: "savings", title: "Compra al contado" },
       { icon: "payments", title: "Leasing inmobiliario hasta 96 meses" },
       { icon: "percent", title: "Reserva del 3%" },

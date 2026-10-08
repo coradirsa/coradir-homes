@@ -96,8 +96,8 @@ function Hero() {
               {COMMERCIAL_HERO.eyebrow}
             </span>
           </span>
-          <h1 className="font-playfair text-4xl uppercase leading-tight text-white md:text-5xl">{COMMERCIAL_HERO.title}</h1>
-          <p className="mt-6 max-w-xl font-raleway text-base leading-7 text-white/85 md:text-lg md:leading-8">
+          <h1 className="font-playfair text-4xl font-extrabold uppercase leading-tight text-white md:text-5xl">{COMMERCIAL_HERO.title}</h1>
+          <p className="mt-6 max-w-xl font-raleway text-xl leading-8 text-white/85 md:text-[32px] md:leading-[42px]">
             {COMMERCIAL_HERO.subtitle}
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">

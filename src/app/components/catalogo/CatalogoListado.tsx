@@ -29,7 +29,7 @@ export default async function CatalogoListado({ filtros }: { filtros: Filtros })
           <h1 className="text-[32px] font-extrabold uppercase leading-[40px] tracking-[-0.01em] md:text-[48px] md:leading-[56px] md:tracking-[-0.02em]">
             Unidades disponibles
           </h1>
-          <p className="mt-3 max-w-2xl text-[16px] leading-[26px] text-white/80 md:text-[18px] md:leading-[28px]">
+          <p className="mt-4 max-w-3xl text-[20px] leading-[30px] text-white/80 md:text-[32px] md:leading-[42px]">
             Departamentos, locales comerciales y cocheras de Coradir Homes, en alquiler y en venta, con fotos y disponibilidad reales.
           </p>
 
