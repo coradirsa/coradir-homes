@@ -8,7 +8,8 @@
   src: url("/fonts/material-symbols-rounded.ttf") format("truetype");
 }
 
-:root {
+/* La variable la define next/font en <body>; en :root no existe y el texto caia en Times. */
+body {
   font-family: var(--font-raleway-sans), sans-serif;
 }
 
