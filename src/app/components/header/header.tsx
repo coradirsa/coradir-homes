@@ -28,15 +28,17 @@ export const links: NavigationLink[] = [
             { href: "/terrenos", label: "Terrenos" },
         ],
     },
-    {
-        href: "/unidades",
-        label: "Unidades",
-        hover: [
-            { href: "/unidades", label: "Todas las unidades" },
-            { href: "/unidades?operacion=alquiler", label: "En alquiler" },
-            { href: "/unidades?operacion=venta", label: "En venta" },
-        ],
-    },
+    // Oculto temporalmente del menu (pendiente de definiciones legales).
+    // La pagina /unidades sigue existiendo; para volver a mostrarlo, descomentar.
+    // {
+    //     href: "/unidades",
+    //     label: "Unidades",
+    //     hover: [
+    //         { href: "/unidades", label: "Todas las unidades" },
+    //         { href: "/unidades?operacion=alquiler", label: "En alquiler" },
+    //         { href: "/unidades?operacion=venta", label: "En venta" },
+    //     ],
+    // },
     { href: "/beneficios", label: "Beneficios", hover: null },
     { href: "/inversiones-inteligentes", label: "Inversores", hover: null },
     { href: "/contacto", label: "Contacto", hover: null },
