@@ -71,7 +71,8 @@
       "input": "{price_phrase} {ruta3_unit}?",
       "maxGenerated": 6,
       "expect": {
-        "mustInclude": ["130.000,00 USD", "ARS $1.280.000"]
+        "mustInclude": ["102.000,00 USD", "ARS $1.280.000"],
+        "mustNotInclude": ["130.000"]
       }
     },
     {

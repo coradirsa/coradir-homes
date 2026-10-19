@@ -221,11 +221,20 @@ function ProjectCompareCard({ project }: { project: CommercialProject }) {
               </p>
             </div>
             <div className="border-l border-border-subtle pl-3 sm:pl-4">
-              <p className="font-raleway text-xs font-bold uppercase text-text-muted">Precio de lista</p>
-              <p className="font-raleway text-lg font-extrabold leading-tight text-blue sm:text-[22px]">{reference.sale}</p>
-              <p className="mt-1 font-raleway text-xs font-semibold text-text-muted">
-                {reference.saleAdvance.label}: <span className="text-blue">{reference.saleAdvance.value}</span>
-              </p>
+              {reference.sale ? (
+                <>
+                  <p className="font-raleway text-xs font-bold uppercase text-text-muted">Precio de lista</p>
+                  <p className="font-raleway text-lg font-extrabold leading-tight text-blue sm:text-[22px]">{reference.sale}</p>
+                  <p className="mt-1 font-raleway text-xs font-semibold text-text-muted">
+                    {reference.saleAdvance.label}: <span className="text-blue">{reference.saleAdvance.value}</span>
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="font-raleway text-xs font-bold uppercase text-text-muted">{reference.saleAdvance.label}</p>
+                  <p className="font-raleway text-lg font-extrabold leading-tight text-blue sm:text-[22px]">{reference.saleAdvance.value}</p>
+                </>
+              )}
             </div>
           </div>
 

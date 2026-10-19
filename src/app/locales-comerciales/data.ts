@@ -59,8 +59,7 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       { label: "Ubicación", value: "Ruta 3 km 0.6" },
     ],
     prices: [
-      { label: "Precio de lista", value: "USD 130.000 + IVA" },
-      { label: "Precio adelantado", value: "USD 102.000 + IVA" },
+      { label: "Precio contado", value: "USD 102.000 + IVA" },
       { label: "Alquiler mensual", value: "ARS $1.280.000" },
     ],
     iconFeatures: [
@@ -78,8 +77,8 @@ export const COMMERCIAL_PROJECTS: CommercialProject[] = [
       units: 4,
       surface: "180 m²",
       rent: "$1.280.000",
-      sale: "USD 130.000 + IVA",
-      saleAdvance: { label: "Precio adelantado", value: "USD 102.000 + IVA" },
+      // Ruta 3 publica solo el precio contado (sin precio de lista).
+      saleAdvance: { label: "Precio contado", value: "USD 102.000 + IVA" },
       profile: "Gran exposición sobre un corredor de alto tránsito, con frente amplio, cocheras y respaldo energético.",
     },
   },
@@ -220,17 +219,16 @@ export const ACCESS_MODELS: AccessModel[] = [
     title: "Compra a precio de lista",
     description: "Reserva del 3% y el resto en cuotas cortas hasta la entrega.",
     items: [
-      { label: "Ruta 3", value: "USD 130.000 + IVA: 3% de reserva, 10% a 30 días y 87% contra entrega." },
       { label: "Juana 64", value: "USD 70.000 + IVA: 3% de reserva, 10% al boleto a 30 días y saldo contra entrega." },
     ],
     footnote: "Reserva del 3%",
   },
   {
     icon: "savings",
-    title: "Compra adelantada",
-    description: "Pagando por adelantado accedés a un precio menor: 3% de reserva y el saldo a 30 días.",
+    title: "Compra de contado",
+    description: "Pagando de contado accedés a un precio menor: 3% de reserva y el saldo a 30 días.",
     items: [
-      { label: "Ruta 3", value: "Precio adelantado USD 102.000 + IVA." },
+      { label: "Ruta 3", value: "Precio contado USD 102.000 + IVA." },
       { label: "Juana 64", value: "Precio pozo contado USD 55.000 + IVA." },
     ],
     footnote: "Saldo a 30 días",

@@ -584,8 +584,7 @@ function buildRuta3PriceAnswer(): KnowledgeAnswer {
   return {
     reply: [
       "Para los locales comerciales Ruta 3 de 180 m2, los precios de referencia son:",
-      "- Precio de lista: 130.000,00 USD + IVA (3% de reserva, 10% a 30 dias y 87% contra entrega).",
-      "- Precio adelantado: 102.000,00 USD + IVA (3% de reserva y 97% a 30 dias).",
+      "- Precio contado: 102.000,00 USD + IVA (3% de reserva y 97% a 30 dias).",
       "- Alquiler mensual: ARS $1.280.000.",
       "- Leasing: 35% de adelanto (45.298,00 USD) y cuotas de 3.521,00 USD a 24 meses (0%), 1.908,00 USD a 48 meses (4%) o 1.195,00 USD a 96 meses (8%), + IVA.",
       "",
@@ -599,7 +598,7 @@ function buildCommercialPriceComparisonAnswer(): KnowledgeAnswer {
   return {
     reply: [
       "Para locales comerciales, hoy tengo estos valores de referencia:",
-      "- Ruta 3, 180 m2: precio de lista 130.000,00 USD + IVA (adelantado 102.000,00 USD + IVA); alquiler mensual ARS $1.280.000.",
+      "- Ruta 3, 180 m2: precio contado 102.000,00 USD + IVA; alquiler mensual ARS $1.280.000.",
       "- Juana 64, 72 m2: precio de lista 70.000,00 USD + IVA (pozo contado 55.000,00 USD + IVA); alquiler mensual ARS $729.000.",
       "",
       "Antes de avanzar, conviene validarlo con un asesor porque precios y disponibilidad pueden cambiar.",
