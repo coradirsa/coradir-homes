@@ -8,7 +8,7 @@ export default function TerrenosSection() {
         <>
             <section className="flex flex-col justify-end items-center p-16 relative h-[30vh] xl:h-[70vh]">
                 <h1
-                    className="z-10 flex flex-col justify-center items-center font-playfair text-7xl xl:text-8xl gap-4 text-white xl:mt-20"
+                    className="z-10 flex flex-col justify-center items-center font-playfair text-6xl gap-4 text-white xl:mt-20"
                     style={{ textShadow: "6px 3px 4px rgba(0,0,0,0.5)" }}
                 >
                     {TERRENOS_COPY.heroTitle}
@@ -24,7 +24,7 @@ export default function TerrenosSection() {
                 />
             </section>
             <section className="flex flex-col justify-start items-center container p-10 xl:p-16 bg-white gap-6 text-center">
-                <p className="text-black font-raleway text-xl xl:text-4xl max-w-3xl">
+                <p className="text-black font-raleway text-xl xl:text-2xl max-w-3xl">
                     {TERRENOS_COPY.intro}
                 </p>
             </section>

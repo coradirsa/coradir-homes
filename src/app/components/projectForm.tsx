@@ -307,7 +307,7 @@ ${data.message.trim()}` : referencia;
               >
                 <div className="w-full max-w-lg mx-auto">
                   <section className="mb-7 flex flex-col gap-3 text-left">
-                    <h2 className="text-4xl md:text-5xl text-blue font-playfair font-bold leading-tight">
+                    <h2 className="text-4xl text-blue font-playfair font-bold leading-tight">
                       {heading}
                     </h2>
 
@@ -374,11 +374,11 @@ ${data.message.trim()}` : referencia;
           className="relative z-10 w-full max-w-7xl px-6 flex flex-col xl:flex-row items-center xl:items-start justify-between gap-12 container mx-auto"
         >
           <section className="w-full xl:w-5/12 flex flex-col items-center xl:items-start text-center xl:text-left gap-6 pt-4">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl text-blue font-playfair font-bold leading-tight">
+            <h2 className="text-4xl text-blue font-playfair font-bold leading-tight">
               {heading}
             </h2>
 
-            <p className="text-xl md:text-2xl text-gray-800 font-raleway font-medium">
+            <p className="text-lg md:text-xl text-gray-800 font-raleway font-medium">
               {subtitle}
             </p>
             {submitMessage.type === "error" && (

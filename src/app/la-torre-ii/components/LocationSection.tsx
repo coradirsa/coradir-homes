@@ -14,7 +14,7 @@ export default function LocationSection() {
           />
         </div>
         <div className="flex flex-col gap-6">
-          <h2 className="text-4xl md:text-5xl font-playfair text-blue">Ubicación</h2>
+          <h2 className="text-3xl md:text-4xl font-playfair text-blue">Ubicación</h2>
           <p className="text-lg md:text-xl font-raleway text-black/70">
             Elegí donde querés vivir. Visitános en Mitre 526, San Luis, Argentina.
           </p>

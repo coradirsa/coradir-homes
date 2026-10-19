@@ -9,10 +9,10 @@ export default function AlquilarEnPozo() {
         <div className="relative bg-blue rounded-3xl shadow-xl overflow-visible mx-auto max-w-6xl">
           <div className="flex flex-col lg:flex-row items-center">
             <div className="w-full lg:w-3/5 p-8 md:p-12 lg:pr-0 z-10">
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase font-playfair">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase font-playfair">
                 Tu hogar en Juana Koslay
               </h3>
-              <p className="text-blue-100 text-xl md:text-2xl leading-relaxed mb-6 font-raleway">
+              <p className="text-blue-100 text-lg md:text-xl leading-relaxed mb-6 font-raleway">
                 Viví en la zona de mayor crecimiento de Juana Koslay, con la tranquilidad de que <span className="font-bold text-white">te espera una vivienda nueva, cómoda y bien ubicada, rodeada de naturaleza, servicios y excelente conectividad.</span>
               </p>
 

@@ -99,7 +99,7 @@ export default function SectionProjectsDone() {
         aria-label="Nuestros proyectos"
         className="bg-blue container w-full flex flex-col gap-6 py-8 md:py-10"
       >
-        <h2 className="px-4 text-center font-playfair text-4xl text-white xl:text-5xl">Nuestros proyectos</h2>
+        <h2 className="px-4 text-center font-playfair text-3xl text-white md:text-4xl">Nuestros proyectos</h2>
 
         <div className="relative">
           <button

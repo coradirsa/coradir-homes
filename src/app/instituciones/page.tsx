@@ -16,7 +16,7 @@ export default function Instituciones() {
             <StructuredDataScripts pathname="/instituciones" />
             <section className="flex flex-col justify-end items-center p-16 relative h-[60vh] xl:h-[80vh]">
                 <h1
-                    className="z-10 flex flex-col justify-center items-center font-playfair text-5xl xl:text-8xl gap-4 text-white xl:mt-10"
+                    className="z-10 flex flex-col justify-center items-center font-playfair text-5xl xl:text-6xl gap-4 text-white xl:mt-10"
                     style={{ textShadow: "6px 3px 4px rgba(0,0,0,0.5)" }}
                 >
                     {INSTITUCIONES_COPY.heroTitle}

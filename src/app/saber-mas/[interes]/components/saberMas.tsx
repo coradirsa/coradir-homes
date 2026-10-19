@@ -175,7 +175,7 @@ export default function SaberMas({ copy }: Props) {
   return (
     <section className="container flex flex-col items-center justify-start py-10 pt-14 min-h-[73vh] gap-10">
       <header className="flex flex-col items-center gap-4 text-center max-w-3xl">
-        <h1 className="text-5xl md:text-7xl text-blue font-playfair">{copy.heroTitle}</h1>
+        <h1 className="text-5xl md:text-6xl text-blue font-playfair">{copy.heroTitle}</h1>
         <p className="text-gray md:text-xl font-raleway">{copy.heroSubtitle}</p>
         <p className="text-gray/80 md:text-lg font-raleway">{copy.description}</p>
       </header>
@@ -229,7 +229,7 @@ export default function SaberMas({ copy }: Props) {
             id="boton-homes-contacto"
             type="submit"
             disabled={isSubmitting || Object.keys(errors).length > 0}
-            className={`xl:text-2xl text-xl z-10 text-blue bg-white md:px-20 px-10 py-2 xl:py-4 rounded-full uppercase transition-all duration-300 ease-in-out ${
+            className={`text-xl z-10 text-blue bg-white md:px-20 px-10 py-2 xl:py-3 rounded-full uppercase transition-all duration-300 ease-in-out ${
               isSubmitting || Object.keys(errors).length > 0
                 ? "opacity-70 cursor-not-allowed"
                 : "hover:bg-transparent hover:text-white border-white border-2 cursor-pointer"

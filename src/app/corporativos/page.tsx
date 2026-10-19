@@ -14,10 +14,10 @@ export default function Page() {
     return (
         <>
             <StructuredDataScripts pathname="/corporativos" />
-            <section className="relative xl:container bg-white flex flex-col items-start xl:mx-auto justify-start px-6 md:px-10 mt-10 xl:py-16 xl:px-36 gap-6">
-                <h1 className="text-blue font-playfair text-6xl xl:text-9xl font-bold">{CORPORATIVOS_COPY.title}</h1>
+            <section className="relative xl:container bg-white flex flex-col items-start xl:mx-auto justify-start px-6 md:px-10 mt-10 xl:py-16 xl:px-36 gap-6 md:min-h-[440px] xl:min-h-[520px] md:justify-center">
+                <h1 className="text-blue font-playfair text-6xl font-bold">{CORPORATIVOS_COPY.title}</h1>
                 {CORPORATIVOS_COPY.intro.map((paragraph, index) => (
-                    <p key={`corporativos-intro-${index}`} className="text-black font-raleway text-lg xl:text-5xl md:w-[60%]">
+                    <p key={`corporativos-intro-${index}`} className="text-black font-raleway text-lg md:text-xl xl:text-2xl md:w-[50%]">
                         {paragraph}
                     </p>
                 ))}
@@ -31,12 +31,12 @@ export default function Page() {
                 />
             </section>
             <section className="relative container bg-white flex flex-col items-center justify-start xl:py-16 xl:px-36 gap-10">
-                <h2 className="uppercase text-black font-raleway text-2xl xl:text-7xl font-bold text-center">Beneficios destacados</h2>
-                <div className="flex flex-col items-center justify-center py-6 gap-8 xl:w-full w-[90%]">
+                <h2 className="uppercase text-black font-raleway text-2xl md:text-4xl font-bold text-center">Beneficios destacados</h2>
+                <div className="flex flex-col items-center justify-center py-6 gap-6 w-[90%] max-w-4xl">
                     {CORPORATIVOS_COPY.benefits.map((benefit, index) => (
                         <div key={`corporativos-benefit-${index}`} className="flex items-center justify-center gap-5 w-full">
-                            <MaterialIcon name="check_circle" className="text-[40px] text-blue xl:text-[80px]" />
-                            <p className="text-black font-raleway text-lg xl:text-4xl w-[80%]">{benefit}</p>
+                            <MaterialIcon name="check_circle" className="text-[40px] text-blue xl:text-[48px]" />
+                            <p className="text-black font-raleway text-lg xl:text-2xl w-[80%]">{benefit}</p>
                         </div>
                     ))}
                 </div>

@@ -77,10 +77,10 @@ export default function SanLuisPage() {
               <h1>
                 <Image src="/img/logos/aero26-blanco.svg" alt="Aero26" width={610} height={288} priority className="h-auto w-[260px] max-w-full md:w-[380px]" />
               </h1>
-              <p className="max-w-4xl font-raleway text-2xl italic md:text-4xl">
+              <p className="max-w-4xl font-raleway text-2xl italic md:text-3xl">
                 ¿Querés vivir donde todo sucede? Este es tu lugar.
               </p>
-              <p className="max-w-5xl font-raleway text-base font-semibold md:text-2xl">
+              <p className="max-w-5xl font-raleway text-base font-semibold md:text-xl">
                 {HERO_FEATURES.join(" · ")}
               </p>
               <Link
@@ -93,7 +93,7 @@ export default function SanLuisPage() {
           </div>
 
           <div className="container mx-auto px-6 py-16 text-center">
-            <h2 className="font-playfair text-4xl font-bold md:text-5xl">Un proyecto con versatilidad y respaldo</h2>
+            <h2 className="font-playfair text-4xl font-bold md:text-4xl">Un proyecto con versatilidad y respaldo</h2>
             <p className="mx-auto mt-6 max-w-4xl font-raleway text-lg md:text-xl">
               Ubicado en una zona consolidada con flujo constante, nuestro complejo de departamentos
               redefine la experiencia urbana. Diseñamos espacios pensando en la funcionalidad y tecnología,
@@ -111,7 +111,7 @@ export default function SanLuisPage() {
         <section id="beneficios" className="container mx-auto flex flex-col gap-16 px-6 py-20">
           <article className="grid overflow-hidden rounded-[2rem] bg-[#d9e8f5] lg:grid-cols-2">
             <div className="flex flex-col justify-center gap-5 p-8 md:p-12">
-              <h3 className="font-playfair text-4xl font-bold text-blue md:text-5xl">
+              <h3 className="font-playfair text-4xl font-bold text-blue md:text-4xl">
                 Un proyecto pensado para vivir con comodidad real
               </h3>
               <ul className="flex flex-col gap-4">
@@ -140,7 +140,7 @@ export default function SanLuisPage() {
 
           <article className="grid items-center gap-10 lg:grid-cols-[1fr_420px]">
             <div>
-              <h3 className="font-playfair text-5xl font-bold leading-tight text-blue md:text-6xl">
+              <h3 className="font-playfair text-4xl font-bold leading-tight text-blue md:text-4xl">
                 Tu próximo paso, más simple de lo que imaginas
               </h3>
               <p className="mt-6 max-w-3xl font-raleway text-lg text-black md:text-xl">
@@ -170,7 +170,7 @@ export default function SanLuisPage() {
 
         <section className="w-full bg-[#f5f6f7] py-16">
           <div className="container mx-auto px-6">
-            <h2 className="mb-8 text-center font-playfair text-5xl font-bold text-blue md:text-6xl">
+            <h2 className="mb-8 text-center font-playfair text-4xl font-bold text-blue md:text-4xl">
               Plan Maestro
             </h2>
             <div className="mx-auto max-w-4xl">
@@ -207,7 +207,7 @@ export default function SanLuisPage() {
         </section>
 
         <section className="container mx-auto px-6 py-20">
-          <h2 className="text-center font-playfair text-5xl font-bold leading-tight text-blue md:text-6xl">
+          <h2 className="text-center font-playfair text-4xl font-bold leading-tight text-blue md:text-4xl">
             Tu lugar,
             <br />
             para vivir mejor
@@ -283,7 +283,7 @@ export default function SanLuisPage() {
 
         <section className="w-full bg-[#f5f6f7] py-16">
           <div className="container mx-auto px-6">
-            <h2 className="mb-8 text-center font-playfair text-5xl font-bold uppercase tracking-wide text-blue md:text-6xl">
+            <h2 className="mb-8 text-center font-playfair text-4xl font-bold uppercase tracking-wide text-blue md:text-4xl">
               Locales comerciales
             </h2>
             <div className="mx-auto max-w-6xl space-y-7">
@@ -323,7 +323,7 @@ export default function SanLuisPage() {
 
         <section className="container mx-auto px-6 py-20">
           <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-            <h2 className="font-playfair text-4xl font-bold leading-tight text-blue md:text-5xl">
+            <h2 className="font-playfair text-4xl font-bold leading-tight text-blue md:text-4xl">
               Accede a nuestro folleto comercial con más información
             </h2>
             <a
@@ -352,7 +352,7 @@ export default function SanLuisPage() {
             </a>
 
             <div className="space-y-6">
-              <h3 className="font-playfair text-5xl font-bold leading-tight text-blue md:text-6xl">
+              <h3 className="font-playfair text-4xl font-bold leading-tight text-blue md:text-4xl">
                 Ubicación estratégica en San Luis
               </h3>
               <p className="font-raleway text-lg text-black md:text-xl">
@@ -372,7 +372,7 @@ export default function SanLuisPage() {
         <section className="w-full bg-[#f5f6f7]">
           <div className="bg-blue px-6 py-6 text-center text-white">
             <p className="font-raleway text-xl md:text-2xl">Asegura las mejores condiciones para tu mudanza.</p>
-            <h2 className="font-playfair text-4xl font-bold uppercase md:text-5xl">Compra hoy en Aero26</h2>
+            <h2 className="font-playfair text-4xl font-bold uppercase md:text-4xl">Compra hoy en Aero26</h2>
           </div>
 
           <div className="container mx-auto px-6 py-16">
@@ -420,7 +420,7 @@ export default function SanLuisPage() {
               </div>
             </article>
 
-            <h3 className="mt-16 text-center font-playfair text-5xl font-bold text-blue md:text-6xl">
+            <h3 className="mt-16 text-center font-playfair text-4xl font-bold text-blue md:text-4xl">
               ¿Cómo realizo la compra?
             </h3>
 
@@ -431,7 +431,7 @@ export default function SanLuisPage() {
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue text-white">
                       <MaterialIcon name={step.icon} className="text-[36px]" />
                     </div>
-                    <h4 className="mt-5 font-playfair text-3xl font-bold uppercase text-blue">{step.title}</h4>
+                    <h4 className="mt-5 font-playfair text-2xl font-bold uppercase text-blue">{step.title}</h4>
                     <p className="mt-3 font-raleway text-lg text-black">{step.description}</p>
                   </article>
                 );

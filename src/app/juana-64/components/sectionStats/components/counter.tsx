@@ -45,7 +45,7 @@ export default function Counter({ end, duration = 1.2 }: { end: number; duration
   }, [end, duration, hasAnimated]);
 
   return (
-    <span ref={ref} className="text-blue text-center text-7xl xl:text-[154px]">
+    <span ref={ref} className="text-blue text-center text-7xl xl:text-8xl">
       {display}
     </span>
   );

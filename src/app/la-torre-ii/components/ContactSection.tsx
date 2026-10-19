@@ -26,7 +26,7 @@ export default function ContactSection() {
     <section className="bg-white py-16" id="contacto">
       <div className="container mx-auto px-6 flex flex-col gap-8">
         <div className="flex flex-col gap-4 text-center md:text-left">
-          <h2 className="text-4xl md:text-5xl font-playfair text-blue">Contáctanos</h2>
+          <h2 className="text-3xl md:text-4xl font-playfair text-blue">Contáctanos</h2>
           <p className="text-lg md:text-xl font-raleway text-black/70">
             Completá el formulario y un asesor se comunicará con vos para contarte todo sobre La Torre II.
           </p>

@@ -7,7 +7,7 @@ export default function SectionCreateHomes(){
     return(
         <section className="w-full flex items-center justify-center bg-white">
             <section className="flex flex-col items-center justify-center bg-white rounded-t-4xl p-10 container xl:pt-20 gap-10">
-                <h2 className="text-3xl xl:text-6xl w-full xl:w-[60%] text-center font-playfair text-blue font-bold">
+                <h2 className="text-3xl xl:text-4xl w-full xl:w-[60%] text-center font-playfair text-blue font-bold">
                     {HOME_COPY.createHomes.heading}
                 </h2>
                 <p className="text-lg xl:text-xl w-full text-center font-raleway text-black">

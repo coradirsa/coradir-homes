@@ -57,15 +57,15 @@ export default function VillaMercedesPage() {
             <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-blue to-transparent" />
 
             <div className="relative z-10 container mx-auto flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
-              <h1 className="font-playfair text-4xl font-bold tracking-wide md:text-6xl xl:text-7xl">
+              <h1 className="font-playfair text-4xl font-bold tracking-wide md:text-6xl">
                 COMPLEJO
                 <br />
                 VILLA MERCEDES
               </h1>
-              <p className="max-w-4xl font-raleway text-2xl italic md:text-4xl">
+              <p className="max-w-4xl font-raleway text-2xl italic md:text-3xl">
                 Viví como querés, cerca de todo.
               </p>
-              <p className="max-w-5xl font-raleway text-base font-semibold md:text-2xl">
+              <p className="max-w-5xl font-raleway text-base font-semibold md:text-xl">
                 {HERO_FEATURES.join(" · ")}
               </p>
               <Link
@@ -78,7 +78,7 @@ export default function VillaMercedesPage() {
           </div>
 
           <div className="container mx-auto px-6 py-16 text-center">
-            <h2 className="font-playfair text-4xl font-bold md:text-5xl">
+            <h2 className="font-playfair text-4xl font-bold md:text-4xl">
               Un proyecto pensado para vos y con respaldo.
             </h2>
             <p className="mx-auto mt-6 max-w-4xl font-raleway text-lg md:text-xl">
@@ -99,7 +99,7 @@ export default function VillaMercedesPage() {
         <section id="beneficios" className="container mx-auto flex flex-col gap-16 px-6 py-20">
           <article className="grid overflow-hidden rounded-[2rem] bg-[#d9e8f5] lg:grid-cols-2">
             <div className="flex flex-col justify-center gap-5 p-8 md:p-12">
-              <h3 className="font-playfair text-4xl font-bold text-blue md:text-5xl">
+              <h3 className="font-playfair text-4xl font-bold text-blue md:text-4xl">
                 Tu próximo hogar empieza acá. Mudate a una vida más simple.
               </h3>
               <ul className="flex flex-col gap-4">
@@ -128,7 +128,7 @@ export default function VillaMercedesPage() {
 
           <article className="grid items-center gap-10 lg:grid-cols-[1fr_420px]">
             <div>
-              <h3 className="font-playfair text-5xl font-bold leading-tight text-blue md:text-6xl">
+              <h3 className="font-playfair text-4xl font-bold leading-tight text-blue md:text-4xl">
                 Tu próximo paso, más simple de lo que imaginás.
               </h3>
               <p className="mt-6 max-w-3xl font-raleway text-lg text-black md:text-xl">
@@ -159,7 +159,7 @@ export default function VillaMercedesPage() {
         </section>
 
         <section className="container mx-auto px-6 py-20">
-          <h2 className="text-center font-playfair text-5xl font-bold leading-tight text-blue md:text-6xl">
+          <h2 className="text-center font-playfair text-4xl font-bold leading-tight text-blue md:text-4xl">
             Tu lugar, pensado
             <br />
             para vivir mejor
@@ -167,7 +167,7 @@ export default function VillaMercedesPage() {
 
           <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <h3 className="font-playfair text-4xl font-bold uppercase tracking-wide text-blue md:text-5xl">
+              <h3 className="font-playfair text-4xl font-bold uppercase tracking-wide text-blue md:text-4xl">
                 Departamentos de 2 dormitorios
               </h3>
               <p className="mt-6 max-w-2xl font-raleway text-lg text-black md:text-xl">
@@ -183,7 +183,7 @@ export default function VillaMercedesPage() {
 
         <section className="container mx-auto px-6 pb-20">
           <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-            <h2 className="font-playfair text-4xl font-bold leading-tight text-blue md:text-5xl">
+            <h2 className="font-playfair text-4xl font-bold leading-tight text-blue md:text-4xl">
               Accedé a nuestro folleto comercial con más información
             </h2>
             <a
@@ -213,7 +213,7 @@ export default function VillaMercedesPage() {
             </a>
 
             <div className="space-y-6">
-              <h3 className="font-playfair text-5xl font-bold leading-tight text-blue md:text-6xl">
+              <h3 className="font-playfair text-4xl font-bold leading-tight text-blue md:text-4xl">
                 Ubicación estratégica en Villa Mercedes
               </h3>
               <p className="font-raleway text-lg text-black md:text-xl">
@@ -242,7 +242,7 @@ export default function VillaMercedesPage() {
         <section className="w-full bg-[#f5f6f7]">
           <div className="bg-blue px-6 py-6 text-center text-white">
             <p className="font-raleway text-xl md:text-2xl">Asegurá las mejores condiciones para tu mudanza.</p>
-            <h2 className="font-playfair text-4xl font-bold uppercase md:text-5xl">Comprá hoy en Villa Mercedes</h2>
+            <h2 className="font-playfair text-4xl font-bold uppercase md:text-4xl">Comprá hoy en Villa Mercedes</h2>
           </div>
 
           <div className="container mx-auto px-6 py-16">

@@ -40,10 +40,10 @@ export default function InvestmentHero() {
         <div className="max-w-5xl mx-auto">
           {/* Main Heading */}
           <div className="text-center mb-12">
-            <h1 className="font-playfair text-white text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="font-playfair text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Inversión de Capital con Garantía Hipotecaria
             </h1>
-            <p className="font-raleway text-white/95 text-xl md:text-2xl lg:text-3xl font-light leading-relaxed max-w-4xl mx-auto">
+            <p className="font-raleway text-white/95 text-lg md:text-xl lg:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
               Hacé rendir tu capital con la seguridad de activos inmobiliarios 100% terminados.{" "}
               <span className="font-semibold text-white">Sin riesgo de construcción.</span>
             </p>

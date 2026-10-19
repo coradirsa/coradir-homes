@@ -190,7 +190,7 @@ export default function TypologiesSection() {
       <section className="bg-white py-16" id="tipologias">
         <div className="container mx-auto px-6 flex flex-col gap-10">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-playfair text-blue mb-6">Explorá Torre II</h2>
+          <h2 className="text-3xl md:text-4xl font-playfair text-blue mb-6">Explorá Torre II</h2>
           <p className="text-lg md:text-xl font-raleway text-black/70 mb-8">
             Descubrí todas las tipologías, amenities, planos detallados y la ubicación privilegiada de Torre II en nuestro sitio exclusivo del proyecto.
           </p>

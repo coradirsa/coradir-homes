@@ -32,7 +32,7 @@ export default function SliderSection() {
     <section className="bg-white py-16">
       <div className="container mx-auto flex flex-col gap-8 px-6">
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-playfair text-blue">La Torre</h2>
+          <h2 className="text-3xl md:text-4xl font-playfair text-blue">La Torre</h2>
           <p className="mt-4 text-lg md:text-xl font-raleway text-black/70">
             Espacios modernos y luminosos con amenities premium.
           </p>

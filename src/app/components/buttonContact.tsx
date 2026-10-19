@@ -29,7 +29,7 @@ function ButtonContactContent({ href, className = "", id, label = DEFAULT_LABEL 
             id={id}
             href={trackedHref}
             onClick={handleClick}
-            className={`xl:text-3xl text-xl z-10 xl:px-24 px-10 py-2 xl:py-4 rounded-full uppercase transition-colors duration-300 ease-in-out ${className}`}
+            className={`text-xl z-10 xl:px-16 px-10 py-2 xl:py-3 rounded-full uppercase transition-colors duration-300 ease-in-out ${className}`}
         >
             {label}
         </Link>
@@ -42,7 +42,7 @@ export default function ButtonContact(props: ButtonContactProps) {
             <Link
                 id={props.id}
                 href={props.href}
-                className={`xl:text-3xl text-xl z-10 xl:px-24 px-10 py-2 xl:py-4 rounded-full uppercase transition-colors duration-300 ease-in-out ${props.className}`}
+                className={`text-xl z-10 xl:px-16 px-10 py-2 xl:py-3 rounded-full uppercase transition-colors duration-300 ease-in-out ${props.className}`}
             >
                 {props.label || DEFAULT_LABEL}
             </Link>

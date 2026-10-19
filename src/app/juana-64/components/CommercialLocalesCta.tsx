@@ -10,7 +10,7 @@ export default function CommercialLocalesCta() {
           <p className="font-raleway text-sm font-bold uppercase tracking-[0.22em] text-blue-light">
             Oportunidad comercial
           </p>
-          <h2 className="mt-3 font-playfair text-4xl leading-tight text-blue md:text-5xl">
+          <h2 className="mt-3 font-playfair text-3xl leading-tight text-blue md:text-4xl">
             Locales comerciales en Juana 64
           </h2>
           <p className="mt-5 max-w-3xl font-raleway text-lg leading-8 text-gray">
