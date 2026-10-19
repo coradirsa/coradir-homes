@@ -85,7 +85,7 @@ export default function SectionStats() {
                     Accede a planes de pago
                 </h2>
                 <div className="container">
-                    <div className="w-full rounded-xl border-3 border-blue grid font-raleway text-[10px] sm:text-sm md:text-lg xl:text-2xl">
+                    <div className="w-full rounded-xl border-3 border-blue grid font-raleway text-[10px] sm:text-sm md:text-lg xl:text-xl">
                         <div className="grid grid-cols-6 items-center font-bold p-4 px-2 xl:px-8 border-b-3 border-blue text-center">
                             {tableHeader.map((header, index) => (
                                 <span key={`header-${index}`} className={index === 0 ? "text-left" : ""}>

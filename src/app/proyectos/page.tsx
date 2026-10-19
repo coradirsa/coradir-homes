@@ -94,7 +94,7 @@ export default function ProyectosPage() {
             <StructuredDataScripts pathname="/proyectos" />
             <section className="container py-16 px-6 flex flex-col gap-12">
                 <header className="flex flex-col items-center gap-6 text-center">
-                    <h1 className="text-4xl md:text-6xl xl:text-7xl font-playfair text-blue">Proyectos de inversión</h1>
+                    <h1 className="text-4xl md:text-6xl font-playfair text-blue">Proyectos de inversión</h1>
                     <p className="max-w-3xl text-base md:text-xl font-raleway text-black">
                         Explorá el portafolio activo de Coradir Homes y encontrá la propuesta que mejor se adapte a tu
                         perfil: desarrollos en preventa, residencias terminadas y oportunidades para diversificar tu

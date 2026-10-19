@@ -26,15 +26,15 @@ export default function Item({
                         " flex flex-col items-center justify-center z-10  py-20 bg-white w-full gap-5 "
                         + (reverse ? "md:-right-10 right-0" : "md:-left-10 left-0")
                     }>
-                    <h2 className="text-3xl md:text-[50px] font-playfair text-center text-blue font-bold w-full">{title}</h2>
-                    <p className="text-xl md:text-3xl font-raleway text-center  text-black w-full md:pl-14" dangerouslySetInnerHTML={{ __html: description }} />
+                    <h2 className="text-3xl md:text-4xl font-playfair text-center text-blue font-bold w-full">{title}</h2>
+                    <p className="text-xl md:text-2xl font-raleway text-center  text-black w-full md:pl-14" dangerouslySetInnerHTML={{ __html: description }} />
                     <ul className="md:pl-32 flex flex-col items-start justify-start h-full w-full gap-2">
 
                         {
                             checkList.map((item, index) => (
                                 <li key={`check-list-${index}`} className="flex items-center justify-center gap-5">
-                                    <MaterialIcon name="check_circle" className="shrink-0 text-[64px] text-blue" />
-                                    <p className="text-xl md:text-3xl font-raleway text-left xl:text-center text-black inline" dangerouslySetInnerHTML={{ __html: item, }} />
+                                    <MaterialIcon name="check_circle" className="shrink-0 text-[48px] text-blue" />
+                                    <p className="text-xl md:text-2xl font-raleway text-left xl:text-center text-black inline" dangerouslySetInnerHTML={{ __html: item, }} />
                                 </li>
                             ))
                         }

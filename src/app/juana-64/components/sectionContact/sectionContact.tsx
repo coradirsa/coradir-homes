@@ -13,7 +13,7 @@ export default function SectionContact() {
     return (
         <section id="ubicacion" className="w-full scroll-mt-24 bg-white py-10 md:py-16 xl:py-20">
             <div className="container px-5 flex flex-col items-center gap-8 md:gap-12">
-                <h2 className="text-3xl md:text-5xl xl:text-7xl text-blue font-playfair text-center font-bold">
+                <h2 className="text-3xl md:text-4xl text-blue font-playfair text-center font-bold">
                     Contactanos
                 </h2>
 
@@ -55,7 +55,7 @@ export default function SectionContact() {
                     </div>
 
                     <div className="lg:w-2/3 flex flex-col">
-                        <h3 className="text-xl md:text-2xl xl:text-3xl text-blue font-raleway font-bold text-center mb-4">
+                        <h3 className="text-xl md:text-2xl text-blue font-raleway font-bold text-center mb-4">
                             Donde estamos
                         </h3>
                         <div className="relative w-full h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-lg">

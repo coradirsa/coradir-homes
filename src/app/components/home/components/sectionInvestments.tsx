@@ -4,9 +4,9 @@ import { HOME_COPY } from "@/content/seo/copy";
 export default function SectionInvestments(){
     return(
         <section className="w-full xl:w-[80%] flex flex-col xl:flex-row items-center justify-center gap-10">
-            <h2 className="font-raleway text-black text-4xl xl:text-6xl text-center xl:text-left">
+            <h2 className="font-raleway text-black text-4xl xl:text-5xl text-center xl:text-left">
                 {HOME_COPY.investments.title}
-                <span className="block text-blue font-bold font-playfair text-5xl xl:text-9xl">
+                <span className="block text-blue font-bold font-playfair text-5xl xl:text-7xl">
                     {HOME_COPY.investments.highlight}
                 </span>
             </h2>

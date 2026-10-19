@@ -48,7 +48,7 @@ export default function TestimonialsSection() {
       <div className="container mx-auto flex flex-col gap-10 px-6">
         <div className="flex flex-col md:flex-row items-start justify-between gap-6">
           <div>
-            <h2 className="text-4xl md:text-5xl font-playfair text-blue">Historias que nos eligen</h2>
+            <h2 className="text-3xl md:text-4xl font-playfair text-blue">Historias que nos eligen</h2>
             <p className="mt-4 max-w-xl text-base md:text-lg font-raleway text-black/70">
               Inversores, empresas y familias comparten su experiencia con los desarrollos y servicios de Coradir Homes.
             </p>

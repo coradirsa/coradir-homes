@@ -20,7 +20,7 @@ export default function AmenitiesSection() {
   return (
     <section className="bg-white py-16">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-playfair text-blue text-center mb-12">Amenities destacados</h2>
+        <h2 className="text-3xl md:text-4xl font-playfair text-blue text-center mb-12">Amenities destacados</h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
           {AMENITIES.map((amenity) => (

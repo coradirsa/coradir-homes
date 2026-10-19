@@ -10,16 +10,16 @@ export default function SectionHero() {
             style={{ height: `${heroHeight}vh` }}
         >
             <h1
-                className="text-4xl md:text-5xl xl:text-8xl text-center font-playfair text-white"
+                className="text-4xl md:text-5xl text-center font-playfair text-white"
                 style={{ textShadow: "6px 3px 4px rgba(0,0,0,0.5)" }}
             >
                 <Image src="/img/logos/juana64-blanco.svg" alt="Juana 64" width={680} height={380} priority className="mx-auto mb-6 h-auto w-[260px] max-w-[90vw] md:w-[380px]" />
-                <span className="block text-4xl xl:text-6xl font-raleway">
-                    tu nuevo hogar a precio accesible
+                <span className="block text-3xl md:text-4xl xl:text-5xl font-raleway">
+                    Tu nuevo hogar a precio accesible
                 </span>
             </h1>
             <p
-                className="text-center text-white max-w-[90%] md:max-w-full text-xl md:text-lg xl:text-3xl font-raleway"
+                className="text-center text-white max-w-[90%] md:max-w-full text-xl md:text-lg xl:text-2xl font-raleway"
                 style={{ textShadow: "1px 3px 3px rgba(0,0,0,0.9)" }}
             >
                 Departamentos inteligentes en Juana Koslay · Entrega proyectada · Cupos limitados
@@ -27,7 +27,7 @@ export default function SectionHero() {
             <div className="flex flex-col md:flex-row gap-4">
                 <ButtonContact
                     href="#formulario"
-                    className="text-xs md:text-2xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-2 py-5 px-8 md:px-12"
+                    className="text-xs md:text-xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-2 py-5 px-8 md:px-12"
                     label="Comprar"
                 />
             </div>

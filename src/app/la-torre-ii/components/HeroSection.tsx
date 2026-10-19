@@ -18,13 +18,13 @@ export default function HeroSection() {
       </video>
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-transparent" />
       <div className="relative z-10 h-full flex flex-col items-start justify-center gap-6 px-6 md:px-12 lg:px-24">
-        <h1 className="text-4xl md:text-6xl xl:text-7xl font-playfair leading-tight">
+        <h1 className="text-4xl md:text-6xl font-playfair leading-tight">
           La Torre II
           <span className="block text-2xl md:text-3xl font-raleway font-semibold mt-4">
             Tu hogar a tu gusto y elección
           </span>
         </h1>
-        <p className="max-w-2xl text-lg md:text-2xl font-raleway">
+        <p className="max-w-2xl text-lg md:text-xl font-raleway">
           Elegí tu nuevo hogar y viví la vida que merecés. Departamentos inteligentes con amenities pensados para tu comodidad.
         </p>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">

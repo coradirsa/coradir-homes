@@ -18,11 +18,11 @@ export default function Home() {
     return (
         <section className="sticky top-0 flex flex-col justify-center items-center py-16 h-[80vh] bg-transparent -z-1">
             <h1
-                className="z-10 flex flex-col justify-center items-center font-raleway text-3xl xl:text-7xl gap-4 text-white xl:mt-20"
+                className="z-10 flex flex-col justify-center items-center font-raleway text-3xl xl:text-4xl gap-4 text-white xl:mt-20"
                 style={{ textShadow: "6px 3px 4px rgba(0,0,0,0.5)" }}
             >
                 <span className="uppercase tracking-wide text-center">{HOME_COPY.heroTitle.primary}</span>
-                <span className="text-5xl md:text-7xl xl:text-8xl font-playfair text-center normal-case">
+                <span className="text-5xl md:text-6xl xl:text-7xl font-playfair text-center normal-case">
                     {HOME_COPY.heroTitle.secondary}
                 </span>
             </h1>

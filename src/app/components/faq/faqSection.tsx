@@ -34,7 +34,7 @@ export default function FaqSection({ title, items, schemaId }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <div className="container mx-auto flex flex-col gap-8 px-6">
-        <h2 className="text-4xl md:text-5xl font-playfair text-blue text-center">{title}</h2>
+        <h2 className="text-3xl md:text-4xl font-playfair text-blue text-center">{title}</h2>
         <div className="grid gap-6 md:grid-cols-2">
           {items.map((item, index) => (
             <article
