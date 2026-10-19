@@ -499,13 +499,6 @@
           "prices": {
             "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
             "surface": "180 m2",
-            "list_price": {
-              "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.list_price",
-              "tax_note": "+ IVA",
-              "value": 130000,
-              "currency": "USD",
-              "display": "130.000,00 USD"
-            },
             "monthly_rent": {
               "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices.monthly_rent",
               "tax_note": "IVA incluido",
@@ -519,12 +512,12 @@
               "tax_note": "+ IVA",
               "value": 102000,
               "currency": "USD",
-              "display": "102.000,00 USD"
+              "display": "102.000,00 USD",
+              "label": "Precio contado"
             }
           },
           "payment_terms": {
             "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.payment_terms",
-            "list_price": "3% de reserva, 10% a 30 dias, 0% a 120 dias y 87% contra entrega.",
             "advance_price": "3% de reserva y 97% a 30 dias."
           },
           "leasing": {
@@ -925,7 +918,7 @@
       "id": "ruta3_commercial_prices",
       "section": "ruta_3_commercial_units.sales_conditions.prices",
       "title": "Precios locales comerciales Ruta 3",
-      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA 21%: precio de lista 130.000,00 USD (3% de reserva, 10% a 30 dias y 87% contra entrega); precio adelantado 102.000,00 USD (3% de reserva y 97% a 30 dias); alquiler mensual ARS $1.280.000. Leasing + IVA: adelanto 35% 45.298,00 USD; 24 cuotas (0%) de 3.521,00 USD; 48 cuotas (4%) de 1.908,00 USD; 96 cuotas (8%) de 1.195,00 USD.",
+      "content": "Locales comerciales Ruta 3 de 180 m2 + IVA 21%: precio contado 102.000,00 USD (3% de reserva y 97% a 30 dias); alquiler mensual ARS $1.280.000. Leasing + IVA: adelanto 35% 45.298,00 USD; 24 cuotas (0%) de 3.521,00 USD; 48 cuotas (4%) de 1.908,00 USD; 96 cuotas (8%) de 1.195,00 USD.",
       "source_path": "customer_knowledge.projects.ruta_3_commercial_units.sales_conditions.prices",
       "source_file_path": "docs/lead-bot/sources/precios_locales_ruta_3.md",
       "pages": [

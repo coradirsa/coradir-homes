@@ -35,8 +35,9 @@ export type CommercialProject = {
     units: number;
     surface: string;
     rent: string;
-    sale: string;
-    /** Precio de compra adelantada / pozo contado. */
+    /** Precio de lista. Opcional: Ruta 3 publica solo el precio contado. */
+    sale?: string;
+    /** Precio de compra de contado / pozo contado. */
     saleAdvance: { label: string; value: string };
     profile: string;
   };

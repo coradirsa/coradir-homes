@@ -155,13 +155,14 @@
     ],
     "expect": {
       "mustInclude": [
-        "130.000,00 USD",
+        "102.000,00 USD",
         "ARS $1.280.000"
       ],
       "knowledgeSourceIds": [
         "ruta3_commercial_prices"
       ],
       "mustNotInclude": [
+        "130.000",
         "53.000",
         "85.000",
         "pozo"
