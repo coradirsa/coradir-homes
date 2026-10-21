@@ -7,6 +7,7 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import CustomInput from "../../saber-mas/[interes]/components/customInput";
 import Loader from "../../saber-mas/[interes]/components/loader";
 import { FormSchema, InputForm, TransactionTypes, TransactionTypeLabels } from "../../../schemas/formSchema";
+import { datosAtribucion, eventoDataLayer } from "@/lib/atribucion";
 
 export default function ContactForm() {
   const form = useForm<FormSchema>({
@@ -78,6 +79,8 @@ export default function ContactForm() {
       message: data.message?.trim() || null,
       timestamp: new Date().toISOString(),
       source: "website_coradir_homes_contacto",
+      // Campaña y pagina de origen (UTM, gclid/fbclid): n8n la reenvia al CRM en rawPayload.body.
+      ...datosAtribucion(),
     };
 
     try {
@@ -107,6 +110,7 @@ export default function ContactForm() {
         throw new Error(`Error HTTP: ${response.status}`);
       }
 
+      eventoDataLayer("form_submit", { formulario: "contacto", proyecto: payload.interesting });
       setSubmitMessage({
         type: "success",
         text: "Gracias por tu interés. Nos contactaremos muy pronto.",

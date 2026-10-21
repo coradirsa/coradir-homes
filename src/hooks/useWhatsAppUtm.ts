@@ -28,12 +28,8 @@ export const useWhatsAppUtm = () => {
 
             // Clean up "Hola!" if it exists at the start to make the sentence flow better
             // e.g. "Hola! Quiero info" -> "Hola, vi en linkedin y Quiero info"
-            let cleanText = currentText;
-            if (cleanText.startsWith("Hola! ")) {
-                cleanText = cleanText.replace("Hola! ", "");
-            } else if (cleanText.startsWith("Hola ")) {
-                cleanText = cleanText.replace("Hola ", "");
-            }
+            // "Hola!", "Hola," o "Hola " al inicio: evita "Hola, vi en meta y Hola, vi el proyecto..."
+            const cleanText = currentText.replace(/^\s*hola[!¡,.:;\s]*/i, "");
 
             const sourceMessage = `Hola, vi en ${source} y`;
             const newText = `${sourceMessage} ${cleanText}`.trim();

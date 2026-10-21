@@ -3,7 +3,9 @@
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { usePathname } from "next/navigation";
 import { useWhatsAppUtm } from "@/hooks/useWhatsAppUtm";
+import { datosAtribucion, generarRefCode, proyectoDePagina } from "@/lib/atribucion";
 import {
+    addRefCodeToWhatsAppUrl,
     addSenderNameToWhatsAppUrl,
     subscribeToWhatsAppOpenRequests,
     type WhatsAppOpenRequest,
@@ -84,6 +86,7 @@ export default function WhatsAppButton() {
             "/la-torre-ii": "Hola! Me interesa La Torre II, quisiera mas detalles",
             "/villa-mercedes": "Hola! Me interesa el Complejo Villa Mercedes, quisiera mas informacion",
             "/juana-64": "Hola! Me interesa Juana 64, quisiera informacion sobre departamentos y locales comerciales",
+            "/san-luis": "Hola! Me interesa Aero26, quisiera mas informacion",
             "/locales-comerciales": "Hola! Me interesan los locales comerciales de CORADIR Homes, quisiera conocer precios, disponibilidad y leasing",
             "/inversiones-inteligentes": "Hola! Me interesa invertir, quisiera mas informacion",
             "/contacto": "Hola! Quisiera ponerme en contacto con ustedes",
@@ -102,7 +105,7 @@ export default function WhatsAppButton() {
         const message = encodeURIComponent(getPersonalizedMessage());
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
         const trackedUrl = getTrackedUrl(whatsappUrl);
-        openNameCapture({ href: trackedUrl });
+        openNameCapture({ href: trackedUrl, placement: "flotante" });
     };
 
     const handleNameSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -110,14 +113,34 @@ export default function WhatsAppButton() {
 
         if (!whatsappRequest || !senderName.trim()) return;
 
-        const personalizedUrl = addSenderNameToWhatsAppUrl(whatsappRequest.href, senderName);
+        // Codigo de referencia: el CRM lo encuentra en el mensaje y le asigna al lead
+        // el proyecto y la campaña de este clic.
+        const { prefijo, proyecto } = proyectoDePagina(pathname);
+        const refCode = generarRefCode(prefijo);
+        const placement = whatsappRequest.placement || "pagina";
+        const personalizedUrl = addRefCodeToWhatsAppUrl(
+            addSenderNameToWhatsAppUrl(whatsappRequest.href, senderName),
+            refCode
+        );
         const target = whatsappRequest.target || "_blank";
+
+        try {
+            const click = JSON.stringify({ refCode, proyecto, placement, ...datosAtribucion() });
+            const enviado = navigator.sendBeacon?.("/api/atribucion/whatsapp", new Blob([click], { type: "application/json" }));
+            if (!enviado) {
+                void fetch("/api/atribucion/whatsapp", { method: "POST", headers: { "Content-Type": "application/json" }, body: click, keepalive: true });
+            }
+        } catch {
+            // El registro del clic es opcional: nunca bloquea abrir WhatsApp.
+        }
 
         if (typeof window !== "undefined" && "gtag" in window) {
             (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.("event", "whatsapp_click", {
                 event_category: "engagement",
                 event_label: pathname,
                 value: pathname,
+                proyecto,
+                ubicacion: placement,
             });
         }
 
