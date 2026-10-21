@@ -42,12 +42,28 @@ export const addSenderNameToWhatsAppUrl = (href: string, name: string) => {
   }
 };
 
+/** Agrega el codigo de referencia al final del mensaje: "... (Ref: J64-K7Q2)". El CRM lo usa para atribuir el lead. */
+export const addRefCodeToWhatsAppUrl = (href: string, refCode: string) => {
+  if (!isWhatsAppUrl(href) || !refCode) return href;
+
+  try {
+    const url = new URL(href);
+    const message = (url.searchParams.get("text") || "").trim();
+    url.searchParams.set("text", `${message} (Ref: ${refCode})`.trim());
+    return url.toString();
+  } catch {
+    return href;
+  }
+};
+
 export const WHATSAPP_OPEN_REQUEST_EVENT = "whatsapp-open-request";
 
 export type WhatsAppOpenRequest = {
   href: string;
   target?: string;
   features?: string;
+  /** Donde se hizo el clic (boton flotante, boton de la pagina...). */
+  placement?: string;
 };
 
 export const requestWhatsAppOpen = (request: WhatsAppOpenRequest) => {

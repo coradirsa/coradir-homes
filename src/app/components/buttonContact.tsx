@@ -21,7 +21,7 @@ function ButtonContactContent({ href, className = "", id, label = DEFAULT_LABEL 
         if (!isWhatsAppUrl(trackedHref)) return;
 
         event.preventDefault();
-        requestWhatsAppOpen({ href: trackedHref });
+        requestWhatsAppOpen({ href: trackedHref, placement: id || "boton" });
     };
 
     return (

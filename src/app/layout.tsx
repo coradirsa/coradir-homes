@@ -7,6 +7,7 @@ import { playfairDisplay, raleway } from "@/content/ui/fonts";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import CapturaAtribucion from "./components/CapturaAtribucion";
 import { createMetadata } from "@/lib/seo";
 
 // Lazy load heavy sections
@@ -98,6 +99,7 @@ export default function RootLayout({
         <InvestmentModalStructuredData />
 
         <Header/>
+        <CapturaAtribucion />
         <Suspense fallback={null}>
           <WhatsAppButton />
         </Suspense>

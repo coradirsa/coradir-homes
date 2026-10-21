@@ -21,6 +21,7 @@ function WhatsAppLinkContent(props: WhatsAppLinkProps) {
         requestWhatsAppOpen({
             href: trackedHref,
             target: typeof props.target === "string" ? props.target : undefined,
+            placement: props.id || "link",
         });
     };
 
