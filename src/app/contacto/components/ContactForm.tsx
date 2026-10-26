@@ -8,6 +8,7 @@ import CustomInput from "../../saber-mas/[interes]/components/customInput";
 import Loader from "../../saber-mas/[interes]/components/loader";
 import { FormSchema, InputForm, TransactionTypes, TransactionTypeLabels } from "../../../schemas/formSchema";
 import { datosAtribucion, eventoDataLayer } from "@/lib/atribucion";
+import { interestLabel } from "@/schemas/formSchema";
 
 export default function ContactForm() {
   const form = useForm<FormSchema>({
@@ -76,6 +77,7 @@ export default function ContactForm() {
       email: data.email.trim().toLowerCase(),
       phone: data.phone?.trim() || null,
       interesting: data.interesting?.trim() || "contacto-general",
+      interestingLabel: interestLabel(data.interesting?.trim() || "contacto-general"),
       message: data.message?.trim() || null,
       timestamp: new Date().toISOString(),
       source: "website_coradir_homes_contacto",

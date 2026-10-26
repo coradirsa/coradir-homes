@@ -9,7 +9,7 @@ import CustomInput from "@/app/saber-mas/[interes]/components/customInput";
 import Loader from "@/app/saber-mas/[interes]/components/loader";
 import { FormSchema as FormSchemaDefinition } from "@/schemas/formSchema";
 import type { FormSchema as FormSchemaType, Interests as InterestType, InputForm, TransactionType } from "@/schemas/formSchema";
-import { TransactionTypeLabels } from "@/schemas/formSchema";
+import { TransactionTypeLabels, interestLabel } from "@/schemas/formSchema";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { datosAtribucion, eventoDataLayer } from "@/lib/atribucion";
 
@@ -133,6 +133,7 @@ export default function ProjectForm({
       email: data.email.trim().toLowerCase(),
       phone: data.phone?.trim() || null,
       interesting: interestingValue,
+      interestingLabel: interestLabel(interestingValue),
       message: data.message?.trim() || null,
       timestamp: new Date().toISOString(),
       source: "website_coradir_homes_form",

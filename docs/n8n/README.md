@@ -53,3 +53,21 @@ N8N_LEAD_BOT_WEBHOOK_URL=https://automatic.coradir.com.ar/webhook/homes-lead-bot
 ## Nota sobre la respuesta del webhook
 
 `homes-leads` responde 200 apenas recibe el POST (antes de validar/insertar): si algo falla despues, el usuario ya vio "gracias" y el fallo queda solo en Executions de n8n. Es un trade-off aceptado (no bloquear el formulario por lentitud del CRM/LLM); con la v2 ningun lead se pierde aunque falle un paso.
+
+## Nombre del proyecto en el mail de gracias (2026-10-26)
+
+El mail mostraba el codigo interno del interes ("san-luis", "juana-64"). La web ahora manda tambien `interestingLabel` ("Aero26", "Juana 64", "Complejo Villa Mercedes"...); `interesting` sigue siendo el codigo, que usan el CRM y las estadisticas.
+
+En el flujo **activo** (nodo de email "Send Email1"), reemplazar en el **asunto** y en el **HTML** las 4 apariciones de:
+
+```text
+{{ $('Llega un formulario').item.json.body.interesting }}
+```
+
+por:
+
+```text
+{{ $('Llega un formulario').item.json.body.interestingLabel || $('Llega un formulario').item.json.body.interesting }}
+```
+
+El fallback mantiene el texto actual si llega un formulario de una version vieja de la web. `Coradir_Homes_Fixed_v2.workflow.json` ya trae el cambio. No tocar el nodo que reenvia al CRM: ese debe seguir mandando `interesting`.

@@ -13,6 +13,26 @@ export const Interests = z.enum([
     "contacto-general"
 ]);
 
+/**
+ * Nombre para mostrar de cada interes (lo usa el mail de n8n: "Area de interes: Aero26").
+ * `interesting` sigue siendo el codigo: con el agrupan el CRM y las estadisticas.
+ */
+export const InterestLabels: Record<string, string> = {
+    "inversiones": "Inversiones",
+    "instituciones": "Instituciones",
+    "corporativos": "Corporativos",
+    "juana-64": "Juana 64",
+    "san-luis": "Aero26",
+    "villa-mercedes": "Complejo Villa Mercedes",
+    "terrenos": "Terrenos",
+    "la-torre-ii": "La Torre II",
+    "locales-comerciales": "Locales comerciales",
+    "contacto-general": "Consulta general"
+};
+
+export const interestLabel = (interes?: string | null) =>
+    (interes && InterestLabels[interes]) || interes || InterestLabels["contacto-general"];
+
 export const TransactionTypes = z.enum([
     "comprar",
     "alquilar",
