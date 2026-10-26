@@ -10,6 +10,8 @@ import CustomInput from "./customInput";
 import Loader from "./loader";
 import { FormSchema, InputForm, Interests } from "../../../../schemas/formSchema";
 import type { SaberMasLandingCopy } from "@/content/seo/copy";
+import { datosAtribucion, eventoDataLayer } from "@/lib/atribucion";
+import { interestLabel } from "@/schemas/formSchema";
 
 type Props = {
   copy: SaberMasLandingCopy;
@@ -84,9 +86,12 @@ export default function SaberMas({ copy }: Props) {
       email: data.email.trim().toLowerCase(),
       phone: data.phone?.trim() || null,
       interesting: data.interesting?.trim() || interesResult.data || "contacto-general",
+      interestingLabel: interestLabel(data.interesting?.trim() || interesResult.data || "contacto-general"),
       message: data.message?.trim() || null,
       timestamp: new Date().toISOString(),
       source: "website_coradir_homes_form",
+      // Campaña y pagina de origen (UTM, gclid/fbclid): n8n la reenvia al CRM en rawPayload.body.
+      ...datosAtribucion(),
     };
 
     try {
@@ -116,6 +121,7 @@ export default function SaberMas({ copy }: Props) {
         throw new Error(`Error HTTP: ${response.status}`);
       }
 
+      eventoDataLayer("form_submit", { formulario: "saber-mas", proyecto: payload.interesting });
       setSubmitMessage({
         type: "success",
         text: "Gracias por tu interés. Nos contactaremos muy pronto.",
