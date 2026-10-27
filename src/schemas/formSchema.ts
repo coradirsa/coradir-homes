@@ -40,9 +40,9 @@ export const TransactionTypes = z.enum([
 ]);
 
 export const TransactionTypeLabels: Record<string, string> = {
-    "comprar": "Quiero comprar",
-    "alquilar": "Quiero alquilar",
-    "leasing": "Quiero consultar leasing"
+    "comprar": "Consultar por compra",
+    "alquilar": "Consultar por alquiler",
+    "leasing": "Consultar por leasing"
 };
 
 export const FormSchema = z.object({

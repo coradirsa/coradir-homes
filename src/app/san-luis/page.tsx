@@ -372,7 +372,7 @@ export default function SanLuisPage() {
         <section className="w-full bg-[#f5f6f7]">
           <div className="bg-blue px-6 py-6 text-center text-white">
             <p className="font-raleway text-xl md:text-2xl">Asegura las mejores condiciones para tu mudanza.</p>
-            <h2 className="font-playfair text-4xl font-bold uppercase md:text-4xl">Compra hoy en Aero26</h2>
+            <h2 className="font-playfair text-4xl font-bold uppercase md:text-4xl">Tu nuevo hogar en Aero26</h2>
           </div>
 
           <div className="container mx-auto px-6 py-16">
