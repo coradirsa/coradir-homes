@@ -26,9 +26,10 @@ export default function SectionHero() {
             </p>
             <div className="flex flex-col md:flex-row gap-4">
                 <ButtonContact
-                    href="#formulario"
+                    id="hero-juana-64"
+                    href="https://wa.me/5492664649967?text=Hola%2C%20quiero%20consultar%20por%20Juana%2064"
                     className="text-xs md:text-xl uppercase bg-white text-blue hover:bg-white/40 hover:text-white hover:border-white border-2 py-5 px-8 md:px-12"
-                    label="Comprar"
+                    label="Consultanos"
                 />
             </div>
             <Image
