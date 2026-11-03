@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createMetadata } from "@/lib/seo";
 import MaterialIcon from "../components/MaterialIcon";
+import WhatsAppLinkConRef from "../components/WhatsAppLink";
 import ProjectForm from "../components/projectForm";
 import ReCaptcha from "../components/reCaptcha";
 import { StructuredDataScripts } from "../components/structuredDataScripts";
@@ -65,17 +66,20 @@ function SectionHeading({
   );
 }
 
-function WhatsAppLink({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) {
+// Pasa por el mismo flujo que el resto de la web (nombre + "Ref: LOC-XXXX" + registro del clic)
+// para que el CRM sepa de que campaña viene la consulta.
+function WhatsAppLink({ href, id, children, className = "" }: { href: string; id: string; children: React.ReactNode; className?: string }) {
   return (
-    <a
+    <WhatsAppLinkConRef
       href={href}
+      id={id}
       target="_blank"
       rel="noopener noreferrer"
       className={`inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp font-raleway font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:brightness-105 ${className}`}
     >
       <MaterialIcon name="chat" className="!text-[20px]" />
       {children}
-    </a>
+    </WhatsAppLinkConRef>
   );
 }
 
@@ -108,7 +112,7 @@ function Hero() {
               <MaterialIcon name="search" className="!text-[20px]" />
               Explorar locales
             </Link>
-            <WhatsAppLink href={WHATSAPP_GENERAL} className="px-6 py-3.5 text-sm">
+            <WhatsAppLink id="locales-hero" href={WHATSAPP_GENERAL} className="px-6 py-3.5 text-sm">
               Consultar por WhatsApp
             </WhatsAppLink>
           </div>
@@ -265,6 +269,7 @@ function ProjectCompareCard({ project }: { project: CommercialProject }) {
 
         <div className="grid gap-3 sm:grid-cols-2">
           <WhatsAppLink
+            id={`locales-${project.id}`}
             href={whatsappLocales(`Hola, quiero conocer los locales de ${project.name}.`)}
             className="px-5 py-3.5 text-sm"
           >
@@ -475,7 +480,7 @@ function CtaWhatsApp() {
             Contanos qué buscás y te mostramos las opciones disponibles para alquilar o comprar, con atención personalizada.
           </p>
         </div>
-        <WhatsAppLink href={WHATSAPP_GENERAL} className="shrink-0 rounded-xl px-8 py-4 text-base shadow-2xl">
+        <WhatsAppLink id="locales-cta" href={WHATSAPP_GENERAL} className="shrink-0 rounded-xl px-8 py-4 text-base shadow-2xl">
           Hablar por WhatsApp ({WHATSAPP_LOCALES_LABEL})
         </WhatsAppLink>
       </div>
